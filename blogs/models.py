@@ -18,6 +18,7 @@ class Post(BaseModel):
     date_time = models.DateTimeField(null=True, blank=True)
     post_type = models.SmallIntegerField(choices=PostType.choices)
     is_published = models.BooleanField(default=False)
+    keywords = models.CharField(max_length=100)
 
     def save(self, *args, **kwargs):
         title = self.safe_translation_getter("title")
