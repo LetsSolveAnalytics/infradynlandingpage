@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    {% load static %}
+    <link rel="icon" href="{% static 'assets/images/favicon.png' %}" sizes="32x32" type="image/png">
+    <title>Jamia - Islamic Center HTML5 Template</title>
+
+    <link rel=" stylesheet
+    " href="{% static  'assets/css/icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fancybox.min.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/jquery.circliful.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/responsive.css' %}">
+
+    <!-- Color Scheme -->
+    <link rel="stylesheet" href="{% static 'assets/css/colors/color.css' %}" title="color"/><!-- Color -->
+    <link rel="alternate stylesheet" href="{% static  'assets/css/colors/color2.css' %}" title="color2"/>
+    <!-- Color2 -->
+    <link rel="alternate stylesheet" href="{% static  'assets/css/colors/color3.css' %}" title="color3"/>
+    <!-- Color3 -->
+    <link rel="alternate stylesheet" href="{% static 'assets/css/colors/color4.css' %}" title="color4"/> <!-- Color4 -->
+</head>
+<body>
+<main>
+    <div class="pageloader-wrap">
+        <div class="loader">
+            <img src="{% static 'assets/images/circular.png' %}">
+            <!-- <div class=" loader__bar">
+        </div>
+        -->
+            <!-- <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div> -->
+        </div>
+    </div>
+    <!-- Pageloader Wrap -->
+    <div class="sidepanel">
+        <span><i class="fa fa-cog fa-spin"></i></span>
+        <div class="color-picker">
+            <h3>Choose Your Color</h3>
+            <a class="color applied" onclick="setActiveStyleSheet('color'); return false;"></a>
+            <a class="color2" onclick="setActiveStyleSheet('color2'); return false;"></a>
+            <a class="color3" onclick="setActiveStyleSheet('color3'); return false;"></a>
+            <a class="color4" onclick="setActiveStyleSheet('color4'); return false;"></a>
+        </div><!-- Color Picker -->
+    </div>
+    {% include 'website/header.html' %}
+    {% block main_container %}
+    {% endblock %}
+    {% include 'website/footer.html' %}
+</main><!-- Main Wrapper -->
+
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/downCount.js' %}"></script>
+<script src="{% static 'assets/js/fancybox.min.js' %}"></script>
+<script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'assets/js/perfectscrollbar.min.js' %}"></script>
+<script src="{% static 'assets/js/wow.min.js' %}"></script>
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.circliful.min.js' %}"></script>
+<script src="{% static 'assets/js/custom-scripts.js' %}"></script>
+</body>
+
+
+</html>

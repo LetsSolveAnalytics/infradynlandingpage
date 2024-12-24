@@ -28,14 +28,14 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'rest_framework',
-    'rest_framework.authtoken',
-    'django_filters',
     'corsheaders',
-    'drf_spectacular',
+    'rosetta',
+    'parler',
     'django.contrib.staticfiles',
     'coreapp.apps.CoreappConfig',
-    'utility.apps.UtilityConfig',
+    'website.apps.WebsiteConfig',
+    'blogs.apps.BlogsConfig',
+    'prayertimes.apps.PrayertimesConfig',
 ]
 
 MIDDLEWARE = [
@@ -46,8 +46,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'Config.middleware.CustomMiddleWare',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 ROOT_URLCONF = 'Config.urls'
@@ -70,38 +69,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Config.wsgi.application'
 
-REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 30,
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
-    'DEFAULT_FILTER_BACKENDS': (
-        'django_filters.rest_framework.DjangoFilterBackend',
-    ),
-    'DEFAULT_RENDERER_CLASSES': [
-        'coreapp.renderers.CustomRenderer',
-    ],
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-    # 'EXCEPTION_HANDLER': 'Config.api.exceptions.api_500_handler',
-
-}
-
-SPECTACULAR_SETTINGS = {
-    'TITLE': 'Bufify API',
-    'DESCRIPTION': 'An Bug Tracking Solution',
-    'VERSION': '1.0.0',
-    'SCHEMA_PATH_PREFIX': '/api/v[0-9]',
-    'SERVE_INCLUDE_SCHEMA': False,
-    'CONTACT': {
-        'name': 'Techtsy Ltd',
-        'email': 'info@techtsy.com'
-    },
-    # OTHER SETTINGS
-}
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -151,3 +118,16 @@ EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en', },  # English
+        {'code': 'fi', },  # Finnish
+        {'code': 'ar', },  # Arabic
+        {'code': 'sv', },  # Swedish
+    ),
+    'default': {
+        'fallbacks': ['en'],
+        'hide_untranslated': False,
+    }
+}
