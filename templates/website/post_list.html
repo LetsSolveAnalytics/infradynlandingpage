@@ -1,0 +1,60 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block main_container %}
+    <section>
+        <div class="gap remove-bottom black-layer2 opc85">
+            <div class="fixed-bg" style="background-image: url({% static 'assets/images/parallax13.jpg' %});"></div>
+            <div class="container">
+                <div class="page-title-wrap">
+                    <h1><img src="assets/images/resources/page-title-ayat.png" alt="page-title-ayat.png"></h1>
+                    <h2>Blog</h2>
+                    <ul class="breadcrumbs">
+                        <li><a href="{% url 'home' %}" title="">Home</a></li>
+                        <li>Blog</li>
+                    </ul>
+                </div><!-- Page Title Wrap -->
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="gap">
+            <div class="container">
+                <div class="blog-wrap remove-ext7">
+                    <div class="row mrg40">
+                        {% for post in posts %}
+                            <div class="col-md-4 col-sm-6 col-lg-4 fadeIn" data-wow-duration=".8s" data-wow-delay=".2s">
+                                <div class="blog-box">
+                                    <div class="blog-thmb">
+                                        <a href="{% url 'post-detail' post.slug %}" title=""><img
+                                                src="{{ post.image.url }}"
+                                                alt="post-img1.jpg"></a>
+                                    </div>
+                                    <div class="blog-info">
+                                        <ul class="pst-mta2">
+                                            <li><a href="{% url 'post-detail' post.slug %}"
+                                                   title="">{{ post.title }}</a></li>
+                                        </ul>
+                                        <p><a href="{% url 'post-detail' post.slug %}" title="">{{ post.content }}</a>
+                                        </p>
+                                        <a href="{% url 'post-detail' post.slug %}" title="">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div><!-- Blog Wrap -->
+                <div class="pagination-wrap text-center">
+                    <ul class="pagination">
+                        <li><a href="#" title="">1</a></li>
+                        <!-- <li class="active"><a href="#" title="">2</a></li> -->
+                        <!-- <li><a href="#" title="">3</a></li>
+                        <li>................</li>
+                        <li><a href="#" title="">10</a></li> -->
+                    </ul>
+                </div><!-- Pagination Wrap -->
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
