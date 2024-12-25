@@ -46,7 +46,6 @@ class GalleryImage(BaseModel):
     def __str__(self):
         return self.name
 
-
 class ExecutiveMeeting(BaseModel):
     date = models.DateTimeField()
     chair = models.CharField()

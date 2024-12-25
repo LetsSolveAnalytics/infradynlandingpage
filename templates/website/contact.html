@@ -1,5 +1,100 @@
 {% extends 'website/base.html' %}
 {% load static %}
 {% block main_container %}
-
+<section>
+    <div class="gap remove-bottom black-layer2 opc85">
+        <div class="fixed-bg" style="background-image: url(assets/images/parallax14.jpg);"></div>
+        <div class="container">
+            <div class="page-title-wrap">
+                <h1><img src="assets/images/resources/page-title-ayat.png" alt="page-title-ayat.png"></h1>
+                <h2>Contact</h2>
+                <ul class="breadcrumbs">
+                    <li><a href="index-2.html" title="">Home</a></li>
+                    <li>Contact</li>
+                </ul>
+            </div><!-- Page Title Wrap -->
+        </div>
+    </div>
+</section>
+<section>
+    <div class="gap">
+        <div class="container">
+            <div class="sec-title text-center">
+                <div class="sec-title-inner">
+                    <span>Get information</span>
+                    <h3>Contact information</h3>
+                </div>
+            </div>
+            <div class="contact-info-wrap text-center remove-ext3">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-lg-4">
+                        <div class="contact-info-box">
+                            <i class="flaticon-location-pin"></i>
+                            <strong>Our Location</strong>
+                            <span>Linnankatu 23-25, 90100</span>
+                            <span>Oulu, Finland</span>
+                            <!-- <a href="mailto:info@psiy.fi" title="Email Us">info@psiy.fi</a> -->
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-lg-4">
+                        <div class="contact-info-box">
+                            <i class="flaticon-call"></i>
+                            <strong>Contact us Anytime</strong>
+                            <span>Dr. Abdul Mannan: +358 50 0582371</span>
+                            <span>Aminu Mubarak: +358 41 4930672</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-lg-4">
+                        <div class="contact-info-box">
+                            <i class="flaticon-email"></i>
+                            <strong>Write Some Words</strong>
+                            <span><a href="mailto:info@pisy.fi" title="">info@psiy.fi</a></span>
+                            <span><a href="mailto:sisters@psiy.fi" title="">sisters@psiy.fi</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Contact Info Wrap -->
+        </div>
+    </div>
+</section>
+<section>
+    <div class="gap no-gap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d465.69499269333045!2d25.480714506017478!3d65.01365079154063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468032ac092e1817%3A0x9e12d39f7984928!2sYusuf%20An-Naaghi%20Oulun%20Keskus%20Moskeija%20(Oulu%20Central%20Mosque)!5e0!3m2!1sen!2sfi!4v1735163725916!5m2!1sen!2sfi" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- <div class="contact-loc" id="contact-loc"></div> -->
+    </div>
+</section>
+<section>
+    <div class="gap">
+        <div class="container">
+            <div class="sec-title text-center">
+                <div class="sec-title-inner">
+                    <span>Have Question</span>
+                    <h3>Send Message</h3>
+                </div>
+            </div>
+            <div class="contact-form text-center">
+                <form id="contact-form" method="POST" action="https://api.web3forms.com/submit">
+                    <div class="row mrg20">
+                        <div class="col-md-6 col-sm-6 col-lg-6">
+                            <input type="text" name="name" placeholder="Name" required>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6">
+                            <input type="text" name="phone" placeholder="Phone" required>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6">
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6">
+                            <input type="text" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <textarea name="message" placeholder="Message" required></textarea>
+                            <button class="form-control" type="submit">Contact Us</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
