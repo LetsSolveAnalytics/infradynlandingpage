@@ -50,65 +50,49 @@
                                                     class="fa fa-google-plus"></i></a>
                                         </div>
                                         <div class="tag-clouds float-right">
-                                            <span>Tags:</span>
-                                            <a href="#" title="">Namaz</a>, <a href="#" title="">Roza</a>, <a href="#"
-                                                                                                              title="">Hajj</a>,
-                                            <a href="#" title="">Zakat</a>
+                                            <span>Categories:</span>
+                                            {% for cat in post.categories.all %}
+                                                <a href="{% url 'post-list' %}?cat={{ cat.slug }}"
+                                                   title="">{{ cat.name }}</a>,
+                                            {% endfor %}
                                         </div>
                                     </div>
                                     <div class="cmts-wrp">
-                                        <h3>02 Comments</h3>
+                                        <h3>Comments</h3>
                                         <ul class="cmt-thrd">
-                                            <li>
-                                                <div class="cmt-bx">
-                                                    <img class="brd-rd50" src="assets/images/resources/cmt-img1.jpg"
-                                                         alt="cmt-img1.jpg">
-                                                    <div class="cmt-inf">
-                                                        <h6>Mike Stepliton</h6>
-                                                        <span>Aug 14, 2018</span>
-                                                        <p itemprop="description">Similique sunt in culpa qui
-                                                            officia.vero eos et accusamus et iusto odio dignissimos
-                                                            ducimuss qui blanditiis praesentium voluptatum deleniti
-                                                            atque corrupti quos dolores</p>
-                                                        <a class="comment-reply-link thm-clr" href="#"
-                                                           title="">Reply</a>
-                                                    </div>
-                                                </div>
-                                                <ul class="children">
-                                                    <li>
-                                                        <div class="cmt-bx">
-                                                            <img class="brd-rd50"
-                                                                 src="assets/images/resources/cmt-img2.jpg"
-                                                                 alt="cmt-img2.jpg">
-                                                            <div class="cmt-inf">
-                                                                <h6>Maria Stepliton</h6>
-                                                                <span>Aug 14, 2018</span>
-                                                                <p>Similique sunt in culpa qui officia.vero eos et
-                                                                    accusamus et iusto odio dignissismos ducimuss qui
-                                                                    blanditiis praesentium voluptatum.</p>
-                                                                <a class="comment-reply-link thm-clr" href="#" title="">Reply</a>
-                                                            </div>
+                                            {% for comment in post.get_comments %}
+                                                <li>
+                                                    <div class="cmt-bx">
+                                                        <img class="brd-rd50"
+                                                             src="{% static 'assets/images/resources/cmt-img1.jpg' %}"
+                                                             alt="cmt-img1.jpg">
+                                                        <div class="cmt-inf">
+                                                            <h6>{{ comment.name }}</h6>
+                                                            <span>{{ comment.created_at }}</span>
+                                                            <p itemprop="description">{{ comment.desc }}</p>
                                                         </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
                                         </ul><!-- Comment Thread -->
                                     </div><!-- Comments Wrap -->
                                     <div class="cnt-frm cmt-frm">
                                         <h3>Leave Your Comments</h3>
-                                        <form>
+                                        <form method="post" enctype="multipart/form-data"
+                                              action="{% url 'add-comment' post.id %}">
+                                            {% csrf_token %}
                                             <div class="row mrg20">
                                                 <div class="col-md-4 col-sm-6 col-lg-4">
-                                                    <input type="text" placeholder="Name">
+                                                    <input type="text" placeholder="Name" name="name">
                                                 </div>
                                                 <div class="col-md-4 col-sm-6 col-lg-4">
-                                                    <input type="email" placeholder="Email">
+                                                    <input type="email" placeholder="Email" name="email">
                                                 </div>
                                                 <div class="col-md-4 col-sm-12 col-lg-4">
-                                                    <input type="text" placeholder="Subject">
+                                                    <input type="text" placeholder="Subject" name="subject">
                                                 </div>
                                                 <div class="col-md-12 col-sm-12 col-lg-12">
-                                                    <textarea placeholder="Message"></textarea>
+                                                    <textarea placeholder="Message" name="desc"></textarea>
                                                 </div>
                                                 <div class="col-md-12 col-sm-12 col-lg-12">
                                                     <button type="submit" class="thm-btn brd-rd40">POST COMMENT</button>
@@ -123,61 +107,36 @@
                             <div class="sidebar-wrp">
                                 <div class="wdgt-box">
                                     <h4>Search</h4>
-                                    <form class="srch-frm">
-                                        <input type="text" placeholder="Search">
+                                    <form class="srch-frm" method="get" action="{% url 'post-list' %}?search=">
+                                        <input type="text" placeholder="Search" name="search">
                                         <button type="submit" class="thm-clr"><i class="fa fa-search"></i></button>
                                     </form>
                                 </div>
                                 <div class="wdgt-box">
                                     <h4>Categories</h4>
                                     <ul class="cat-lst">
-                                        <li><a href="#" title="">House Accommodation</a>(10)</li>
-                                        <li><a href="#" title="">Health Events</a>(06)</li>
-                                        <li><a href="#" title="">Donation Event</a>(03)</li>
-                                        <li><a href="#" title="">Education</a>(07)</li>
-                                        <li><a href="#" title="">Food</a>(12)</li>
-                                        <li><a href="#" title="">Health Care</a>(02)</li>
+                                        {% for cat in categories %}
+                                            <li><a href="{% url 'post-list' %}?cat={{ cat.slug }}"
+                                                   title="">{{ cat.name }}</a></li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                                 <div class="wdgt-box">
                                     <h4>Recent Posts</h4>
                                     <div class="rcnt-wrp">
-                                        <div class="rcnt-bx">
-                                            <a href="blog-detail.html" title=""><img
-                                                    src="assets/images/resources/rcnt-img1.jpg" alt="rcnt-img1.jpg"></a>
-                                            <div class="rcnt-inf">
-                                                <h6><a href="blog-detail.html" title="">Lorem ipsum dolor sit</a></h6>
-                                                <span class="thm-clr"><i
-                                                        class="fa fa-calendar-o"></i>June 09, 2024</span>
+                                        {% for item in recent_posts %}
+                                            <div class="rcnt-bx">
+                                                <a href="{% url 'post-detail' item.slug %}" title=""><img
+                                                        src="{{ item.image.url }}" alt="rcnt-img1.jpg"></a>
+                                                <div class="rcnt-inf">
+                                                    <h6><a href="{% url 'post-detail' item.slug %}" title="">{{ item.title }}</a>
+                                                    </h6>
+                                                    <span class="thm-clr"><i
+                                                            class="fa fa-calendar-o"></i>{{ item.created_at }}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="rcnt-bx">
-                                            <a href="blog-detail.html" title=""><img
-                                                    src="assets/images/resources/rcnt-img2.jpg" alt="rcnt-img2.jpg"></a>
-                                            <div class="rcnt-inf">
-                                                <h6><a href="blog-detail.html" title="">Lorem ipsum dolor sit</a></h6>
-                                                <span class="thm-clr"><i
-                                                        class="fa fa-calendar-o"></i>May 25, 2024</span>
-                                            </div>
-                                        </div>
-                                        <div class="rcnt-bx">
-                                            <a href="blog-detail.html" title=""><img
-                                                    src="assets/images/resources/rcnt-img3.jpg" alt="rcnt-img3.jpg"></a>
-                                            <div class="rcnt-inf">
-                                                <h6><a href="blog-detail.html" title="">Lorem ipsum dolor sit</a></h6>
-                                                <span class="thm-clr"><i
-                                                        class="fa fa-calendar-o"></i>Apr 15, 2024</span>
-                                            </div>
-                                        </div>
-                                        <div class="rcnt-bx">
-                                            <a href="blog-detail.html" title=""><img
-                                                    src="assets/images/resources/rcnt-img4.jpg" alt="rcnt-img4.jpg"></a>
-                                            <div class="rcnt-inf">
-                                                <h6><a href="blog-detail.html" title="">Lorem ipsum dolor sit</a></h6>
-                                                <span class="thm-clr"><i
-                                                        class="fa fa-calendar-o"></i>Mar 12, 2024</span>
-                                            </div>
-                                        </div>
+                                        {% endfor %}
+
                                     </div>
                                 </div>
                             </div><!-- Sidebar Wrap -->

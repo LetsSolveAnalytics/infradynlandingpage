@@ -5,36 +5,23 @@
         <div class="gap no-gap owl-yellow">
             <div class="featured-area-wrap text-center">
                 <div class="featured-area owl-carousel">
-                    <div class="featured-item"
-                         style="background-image: url({% static 'assets/images/resources/slide1.png' %});">
-                        <div class=" featured-cap
-                    ">
-                            <img src="{% static 'assets/images/resources/bsml-txt.png' %}" alt="bsml-txt.png">
-                            <h1><img src="{% static 'assets/images/resources/ayat-txt.png' %}" alt="ayat-txt-color">
-                            </h1>
-                            <h3>He raised the sky and set up the balance</h3>
-                            <span>"Surah Al-Rahmaan Vesre 7"</span>
-                            <a class="thm-btn brd-rd40" href="#" title="">Read More</a>
+                    {% for slider in sliders %}
+                        <div class="featured-item"
+                             style="background-image: url({% static 'assets/images/resources/slide1.png' %});">
+                            <div class=" featured-cap">
+                                <img src="{{ slider.image.url }}" alt="bsml-txt.png">
+                                <h1><img src="{% static 'assets/images/resources/ayat-txt.png' %}" alt="ayat-txt-color">
+                                </h1>
+                                <h3>{{ slider.title }}</h3>
+                                <span>{{ slider.subtitle }}</span>
+                                <a class="thm-btn brd-rd40" href="{{ slider.btn_url }}" title="">{{ slider.btn_text }}</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="featured-item"
-                         style="background-image: url({% static 'assets/images/resources/slide1.png' %});">
-                        <div class=" featured-cap
-            ">
-                            <img src="{% static 'assets/images/resources/bsml-txt2.png' %}" alt="bsml-txt2.png">
-                            <h1><img src="{% static 'assets/images/resources/ayat-txt2.png' %}" alt="ayat-txt2.png">
-                            </h1>
-                            <h3>He raised the sky and set up the balance</h3>
-                            <span>"Surah Al-Rahmaan Vesre 7"</span>
-                            <a class="thm-btn brd-rd40" href="#" title="">Read More</a>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div><!-- Featured Area Wrap -->
         </div>
     </section>
-
-
     <section>
         <div class="gap">
             <div class="lft-shp shp-lyr"></div>
@@ -80,6 +67,44 @@
                         </div>
                     </div>
                 </div><!-- Pillers Wrap -->
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="gap thm-layer opc9">
+            <div class="fixed-bg ptrn-bg"
+                 style="background-image: url({% static 'assets/images/pattern-bg.jpg' %});"></div>
+            <div class="container">
+                <div class="nwsltr-wrp text-center">
+                    <div class="nwsltr-innr">
+                        <div class="nwsltr-title">
+                            <h3>Latest News</h3>
+                        </div>
+                    </div>
+                    <div class="testi-wrap text-center">
+                        <div class="testi-car owl-carousel">
+                            <div class="testi-itm">
+                                <!-- <i><img src="assets/images/resources/testi-img1.jpg" alt="testi-img1.jpg"></i> -->
+                                <div class="testi-info">
+                                    <h4>Jumuah Shortened</h4>
+                                    <p>Last Jumuah, it was announced that the total duration of Jumuah
+                                        (Khutbah+Dua+Prayer) will be ~30 mins. Khutbah (Arabic/English/Finnish) will be
+                                        ~20 mins, followed by a ~10-min prayer. Khutbah Azan aligns with Dhuhr's time in
+                                        the Timetable (check the Mawaqit app).</p>
+                                </div>
+                            </div>
+                            <div class="testi-itm">
+                                <!-- <i><img src="assets/images/resources/testi-img2.jpg" alt="testi-img2.jpg"></i> -->
+                                <div class="testi-info">
+                                    <h4>Annual General Meeting</h4>
+                                    <p>Annual General Meeting of PSIY will be held on 31st December 2024 for the
+                                        executive council.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -282,8 +307,8 @@
                                         <div class="evnt-box">
                                             <div class="evnt-thmb">
                                                 <a href="#" title=""><img
-                                                        src="{% static 'assets/images/resources/evnt-img1.png' %}"
-                                                        alt=" evnt-img1.png' %}' %}"></a>
+                                                        src="{% static 'assets/images/resources/evnt-img1.jpg' %}"
+                                                        alt="evnt-img1.png"></a>
                                             </div>
                                             <div class="evnt-info">
                                                 <h4><a href="#" title="">Islamic Teaching Event</a></h4>
@@ -299,8 +324,8 @@
                                         <div class="evnt-box">
                                             <div class="evnt-thmb">
                                                 <a href="#" title=""><img
-                                                        src="{% static 'assets/images/resources/evnt-img2.png' %}"
-                                                        alt=" evnt-img2.png"></a>
+                                                        src="{% static 'assets/images/resources/evnt-img2.jpg' %}"
+                                                        alt="evnt-img2.png"></a>
                                             </div>
                                             <div class="evnt-info">
                                                 <h4><a href="#" title="">Islamic Teaching Event</a></h4>

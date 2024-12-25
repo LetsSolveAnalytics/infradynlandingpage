@@ -1,0 +1,114 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block main_container %}
+    <section>
+        <div class="gap remove-bottom black-layer2 opc85">
+            <div class="fixed-bg" style="background-image: url({% static 'assets/images/parallax12.jpg' %});"></div>
+            <div class="container">
+                <div class="page-title-wrap">
+                    <h1><img src="{% static 'assets/images/resources/page-title-ayat.png' %}" alt="page-title-ayat.png">
+                    </h1>
+                    <h2>Services</h2>
+                    <ul class="breadcrumbs">
+                        <li><a href="{% url 'home' %}" title="">Home</a></li>
+                        <li>Services</li>
+                    </ul>
+                </div><!-- Page Title Wrap -->
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="gap remove-bottom">
+            <div class="container">
+                <div class="serv-wrap text-center remove-ext3">
+                    <div class="row">
+                        {% for service in services %}
+                            <div class="col-md-3 col-sm-6 col-lg-3">
+                                <div class="srv-box2">
+                                    <i class="flaticon-quran-rehal"></i>
+                                    <div class="srv-info2">
+                                        <h4>{{ service.title }}</h4>
+                                        <p>{{ service.desc }}</p>
+                                        <a href="#" title="">Read More<i class="flaticon-right-arrow"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div><!-- Serv Wrap -->
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="gap">
+            <div class="container">
+                <div class="sec-title style2 text-center">
+                    <div class="sec-title-inner">
+                        <h3><span class="secndry-clr">Things</span> We Are Doing</h3>
+                    </div>
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis um voluptatum deleniti
+                        atque orrupti quos dolores et quas molestias. Excepturi sint occaecati cupiditate.</p>
+                </div>
+                <div class="srv-wrap3">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12 col-lg-4">
+                            <div class="srv-mckp">
+                                <img src="assets/images/resources/srv-img.png" alt="srv-img.png">
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-sm-12 col-lg-8">
+                            <div class="remove-ext5">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                        <div class="srv-box3">
+                                            <div class="srv-ttl">
+                                                <i class="flaticon-quran-rehal"></i>
+                                                <h4>Quran Learning</h4>
+                                                <span>Teaching Quran Ayah</span>
+                                            </div>
+                                            <p>At vero eos et accusamus et iusto odio disimos ducimus qui blanditiis um
+                                                voluptatum deleniti atque orrupti qlores et...</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                        <div class="srv-box3">
+                                            <div class="srv-ttl">
+                                                <i class="flaticon-heart-1"></i>
+                                                <h4>Charity Service</h4>
+                                                <span>Noble Cause To Help</span>
+                                            </div>
+                                            <p>At vero eos et accusamus et iusto odio disimos ducimus qui blanditiis um
+                                                voluptatum deleniti atque orrupti qlores et...</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                        <div class="srv-box3">
+                                            <div class="srv-ttl">
+                                                <i class="flaticon-mosque"></i>
+                                                <h4>Mosque Development</h4>
+                                                <span>Renovating Mosques Everywhere</span>
+                                            </div>
+                                            <p>At vero eos et accusamus et iusto odio disimos ducimus qui blanditiis um
+                                                voluptatum deleniti atque orrupti qlores et...</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                        <div class="srv-box3">
+                                            <div class="srv-ttl">
+                                                <i class="flaticon-social-care"></i>
+                                                <h4>Help Poor's</h4>
+                                                <span>Feeding The Hungry</span>
+                                            </div>
+                                            <p>At vero eos et accusamus et iusto odio disimos ducimus qui blanditiis um
+                                                voluptatum deleniti atque orrupti qlores et...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

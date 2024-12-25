@@ -3,15 +3,15 @@ from django.urls import reverse
 from django.utils.functional import cached_property
 from parler.models import TranslatedFields
 
-from coreapp.base import BaseModel
+from coreapp.base import BaseModel, BaseTranslateModel
 
 
 # Create your models here.
 
 
-class Slider(BaseModel):
+class Slider(BaseTranslateModel):
     translations = TranslatedFields(
-        title=models.CharField(max_length=100),
+        title=models.CharField(max_length=250),
         subtitle=models.CharField(max_length=200),
         btn_text=models.CharField(max_length=20, null=True, blank=True)
     )
@@ -25,7 +25,7 @@ class Slider(BaseModel):
         return f"{self.id}"
 
 
-class Service(BaseModel):
+class Service(BaseTranslateModel):
     translations = TranslatedFields(
         title=models.CharField(max_length=20),
         desc=models.TextField()
@@ -54,7 +54,7 @@ class ExecutiveMeeting(BaseModel):
     meeting_minutes = models.TextField()
 
 
-class Page(BaseModel):
+class Page(BaseTranslateModel):
     translations = TranslatedFields(
         title=models.CharField(max_length=20),
         page_content=models.TextField()
@@ -70,7 +70,7 @@ class Page(BaseModel):
         return reverse('website:page-view', args=[self.url_path])
 
 
-class GlobalSettings(BaseModel):
+class GlobalSettings(BaseTranslateModel):
     site_name = models.CharField(max_length=100)
     site_logo = models.ImageField(upload_to="website/logo/", default="default.png")
     site_url = models.CharField(max_length=100)

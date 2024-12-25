@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views import View, generic
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 from .constants import PageType
 from .models import Slider, Service, Page
@@ -22,6 +22,12 @@ class HomeView(TemplateView):
         context['sliders'] = Slider.objects.filter(is_active=True)
         context['services'] = Service.objects.filter(is_active=True)
         return context
+
+
+class ServiceListView(ListView):
+    queryset = Service.objects.filter(is_active=True)
+    template_name = 'website/services.html'
+    context_object_name = 'services'
 
 
 class PageView(View):
