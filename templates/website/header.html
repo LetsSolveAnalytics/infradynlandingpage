@@ -1,16 +1,17 @@
 {% load i18n %}
+{% load static %}
 <header class="style1">
     <div class="container">
         <div class="logo"><a href="{% url 'home' %}" title="Logo">
-            <img src="assets/images/rsz_main1.png" alt="logo.png"></a>
+            <img src="{% static 'assets/images/rsz_main1.png' %}" alt="logo.png"></a>
         </div>
         <nav>
             <div>
                 <a class="thm-btn brd-rd40" href="#" title="">Donate</a>
                 <ul>
                     <li><a href="{% url 'home' %}" title="">Home</a></li>
-                    <li><a href="" title="">Prayer Timings</a></li>
-                    <li><a href="about.html" title="">Memberships</a></li>
+                    <li><a href="{% url 'prayer-times' %}" title="">Prayer Timings</a></li>
+                    <li><a href="{% url 'membership' %}" title="">Memberships</a></li>
                     <li class="menu-item-has-children"><a href="#" title="">Services</a>
                         <ul>
                             <li><a href="{% url 'services' %}" title="">General Services</a></li>

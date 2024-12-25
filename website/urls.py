@@ -5,6 +5,6 @@ from . import views
 urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
     path('services/', views.ServiceListView.as_view(), name='services'),
+    path('membership/', views.MembershipView.as_view(), name='membership'),
     path('page/<str:path>/', views.PageView.as_view(), name='page-view'),
 ]
-# urlpatterns += admin_urls.urlpatterns
