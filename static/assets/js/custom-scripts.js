@@ -72,10 +72,10 @@
     $('[data-fancybox],[data-fancybox="gallery"]').fancybox({});
   }
 
-  //===== Select =====//
+  /*//===== Select =====//
   if ($('select').length > 0) {
     $('select').selectpicker();
-  }
+  }*/
 
   //===== Circliful =====//
   if ($.isFunction($.fn.circliful)) {
