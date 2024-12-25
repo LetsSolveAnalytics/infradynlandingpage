@@ -11,6 +11,11 @@ class PrayerTime(BaseModel):
     fajr_iqamah_time = models.TimeField(null=True,blank=True)
     fajr_end = models.TimeField(null=True, blank=True)
 
+    sunrise_icon = models.ImageField(upload_to="prayer_times/", default='prayer_times/default.webp')
+    sunrise_start = models.TimeField()
+    sunrise_iqamah_time = models.TimeField(null=True,blank=True)
+    sunrise_end = models.TimeField(null=True, blank=True)
+
     dhuhr_icon = models.ImageField(upload_to="prayer_times/", default='prayer_times/default.webp')
     dhuhr_start = models.TimeField()
     dhuhr_iqamah_time = models.TimeField(null=True,blank=True)
