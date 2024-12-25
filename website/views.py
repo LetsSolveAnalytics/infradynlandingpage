@@ -24,6 +24,10 @@ class HomeView(TemplateView):
         return context
 
 
+class MembershipView(TemplateView):
+    template_name = 'website/membership.html'
+
+
 class ServiceListView(ListView):
     queryset = Service.objects.filter(is_active=True)
     template_name = 'website/services.html'
