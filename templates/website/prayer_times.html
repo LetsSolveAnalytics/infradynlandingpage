@@ -1,0 +1,66 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block main_container %}
+<section>
+    <div class="gap remove-bottom black-layer2 opc85">
+        <div class="fixed-bg" style="background-image: url({% static 'assets/images/parallax13.jpg' %});"></div>
+        <div class="container">
+            <div class="page-title-wrap">
+                <h1><img src="assets/images/resources/page-title-ayat.png" alt="page-title-ayat.png"></h1>
+                <h2>Prayer Timings</h2>
+                <ul class="breadcrumbs">
+                    <li><a href="{% url 'home' %}" title="">Home</a></li>
+                    <li>Prayer Timings</li>
+                </ul>
+            </div><!-- Page Title Wrap -->
+        </div>
+    </div>
+</section>
+<section>
+    <div class="conatiner">
+        <div class="plrs-wrap text-center remove-ext5">
+            <label for="month-select" style="display: none;">Month</label>
+            <select id="month-select" onchange="changeMonth(this.value)" name="month-select">
+                <option value="01">January</option>
+                <option value="02">Febraury</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>      
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Fajr</th>
+                        <th>Shuruk</th>
+                        <th>Zuhr</th>
+                        <th>Asr</th>
+                        <th>Maghrib</th>
+                        <th>Isha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for prayertime in prayertimes %}
+                    <tr>
+                        <td>{{ prayertime.date }}</td>
+                        <td>{{ prayertime.fajr_start }}</td>
+                        <td>{{ prayertime.sunrise_start }}</td>
+                        <td>{{ prayertime.dhuhr_start }}</td>
+                        <td>{{ prayertime.asr_start }}</td>
+                        <td>{{ prayertime.maghrib_start }}</td>
+                        <td>{{ prayertime.isha_start }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
