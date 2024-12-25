@@ -44,7 +44,7 @@
                     </li>
                     <!-- <li><a href="contact.html" title="">Contact</a></li> -->
                     <!-- <li><a href="crowd-funding.html" title="">Donate</a></li> -->
-                    <li class="menu-item-has-children"><a href="#" title="">Language</a>
+                    <!-- <li class="menu-item-has-children"><a href="#" title="">Language</a>
                         {% get_current_language as CURRENT_LANGUAGE %}
                         {% get_available_languages as AVAILABLE_LANGUAGES %}
                         {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
@@ -58,7 +58,21 @@
                                 </li>
                             {% endfor %}
                         </ul>
-                    </li>
+                    </li> -->
+                    <li class="menu-item-has-children">
+                        <label for="language-select" style="display: none;">Language</label>
+                        <select id="language-select" onchange="changeLanguage(this.value)">
+                            {% get_current_language as CURRENT_LANGUAGE %}
+                            {% get_available_languages as AVAILABLE_LANGUAGES %}
+                            {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+                            {% for language in languages %}
+                                <option value="/{{ language.code }}/"
+                                        {% if language.code == CURRENT_LANGUAGE %} selected{% endif %}>
+                                    {{ language.name_local }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </li>                    
                 </ul>
             </div>
         </nav>
