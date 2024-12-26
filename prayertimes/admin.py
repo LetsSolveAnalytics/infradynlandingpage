@@ -43,6 +43,8 @@ class PrayerTimeAdmin(admin.ModelAdmin):
                             defaults={
                                 'fajr_icon': default_icon,
                                 'fajr_start': row['Fajr'],
+                                'sunrise_icon': default_icon,
+                                'sunrise_start': row['Shuruk'],
                                 'dhuhr_icon': default_icon,
                                 'dhuhr_start': row['Duhr'],
                                 'asr_icon': default_icon,
