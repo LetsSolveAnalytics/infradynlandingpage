@@ -10,3 +10,9 @@ class PageType(models.IntegerChoices):
     SUBSCRIBER_TERMS = 4, _("Subscriber Terms")
     ENTERPRISE = 5, _("Enterprise")
     DPA = 6, _("DPA")
+
+
+class ContactMessageStatus(models.IntegerChoices):
+    PENDING = 0, _("Pending")
+    APPROVED = 1, _("Approved")
+    REJECTED = 2, _("Rejected")

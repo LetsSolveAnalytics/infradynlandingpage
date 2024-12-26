@@ -73,7 +73,8 @@
                 </div>
             </div>
             <div class="contact-form text-center">
-                <form id="contact-form" method="POST" action="https://api.web3forms.com/submit">
+                <form id="contact-form" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="row mrg20">
                         <div class="col-md-6 col-sm-6 col-lg-6">
                             <input type="text" name="name" placeholder="Name" required>

@@ -4,6 +4,7 @@ from django.utils.functional import cached_property
 from parler.models import TranslatedFields
 
 from coreapp.base import BaseModel, BaseTranslateModel
+from website.constants import ContactMessageStatus
 
 
 # Create your models here.
@@ -45,6 +46,7 @@ class GalleryImage(BaseModel):
 
     def __str__(self):
         return self.name
+
 
 class ExecutiveMeeting(BaseModel):
     date = models.DateTimeField()
@@ -94,3 +96,15 @@ class GlobalSettings(BaseTranslateModel):
 
     def __str__(self):
         return self.site_name
+
+
+class ContactMessage(BaseModel):
+    name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    subject = models.CharField(max_length=100)
+    message = models.CharField(max_length=600)
+    status = models.SmallIntegerField(choices=ContactMessageStatus.choices, default=ContactMessageStatus.PENDING)
+
+    def __str__(self):
+        return f"{self.name}: {self.subject} - {self.status}"

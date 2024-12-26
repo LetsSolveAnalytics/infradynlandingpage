@@ -1,6 +1,6 @@
 from django import forms
 
-from website.models import Page, GlobalSettings
+from website.models import Page, GlobalSettings, ContactMessage
 
 
 class PageForm(forms.ModelForm):
@@ -13,3 +13,9 @@ class GlobalSettingsForm(forms.ModelForm):
     class Meta:
         model = GlobalSettings
         fields = '__all__'
+
+
+class ContactMessageForm(forms.ModelForm):
+    class Meta:
+        model = ContactMessage
+        fields = ('name', 'phone', 'email', 'subject', 'message')

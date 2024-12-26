@@ -30,6 +30,10 @@ def send_email(subject, to, data, template):
     EmailThread(msg).start()
 
 
+def send_contact_message_email(email, data):
+    send_email(_("Someone is reaching out!"), email, data, "email/auth/contact_message.html")
+
+
 def send_welcome_email(email, data):
     send_email(_("Your Account is Registered"), email, data, "email/auth/welcome_email.html")
 

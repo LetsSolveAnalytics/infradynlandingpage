@@ -1,5 +1,5 @@
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import Http404, JsonResponse
+from django.http import Http404, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.forms import modelform_factory
 from django.shortcuts import render, redirect
@@ -9,11 +9,11 @@ from django.views import View, generic
 from django.views.generic import TemplateView, ListView
 import requests
 
-from .models import Post, Category, Comment
+from coreapp import email_utils
 from . import forms
 
-
 from .constants import PageType
+from .forms import ContactMessageForm
 from .models import Slider, Service, Page
 
 
@@ -46,20 +46,17 @@ class PageView(View):
             return render(request, 'website/page.html', {'page': page})
         except ObjectDoesNotExist:
             raise Http404
-        
+
+
 class ContactView(View):
-    def post(self, request, detail_id):
-        try:
-            post = Post.objects.get(id=detail_id)
-            form = forms.CommentForm(data=request.POST)
-            if form.is_valid():
-                detail = form.save(commit=False)
-                detail.post = post
-                detail.save()   
-                r = requests.post('https://api.web3forms.com/submit')
-                if r.status_code==200:
-                    return HttpResponseRedirect(self.request.path_info)
-                else:
-                    return HttpResponseRedirect(self.request.path_info)
-        except ObjectDoesNotExist:
-            raise Http404
+    def get(self, request):
+        return render(request, 'website/contact.html')
+
+    def post(self, request):
+        form = ContactMessageForm(request.POST)
+        if form.is_valid():
+            contact_message = form.save()
+            email_utils.send_contact_message_email("psislamilainen@gmail.com", contact_message)
+        else:
+            print(form.errors)
+        return render(request, 'website/contact.html')
