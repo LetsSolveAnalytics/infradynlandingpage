@@ -14,7 +14,7 @@ from . import forms
 
 from .constants import PageType
 from .forms import ContactMessageForm
-from .models import Slider, Service, Page
+from .models import Slider, Service, Page, GalleryImage
 
 
 # Create your views here.
@@ -37,6 +37,12 @@ class ServiceListView(ListView):
     queryset = Service.objects.filter(is_active=True)
     template_name = 'website/services.html'
     context_object_name = 'services'
+
+
+class GalleryListView(ListView):
+    queryset = GalleryImage.objects.filter(is_active=True)
+    template_name = 'website/gallery.html'
+    context_object_name = 'galleries'
 
 
 class PageView(View):
