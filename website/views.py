@@ -14,7 +14,7 @@ from . import forms
 
 from .constants import PageType
 from .forms import ContactMessageForm
-from .models import Slider, Service, Page, GalleryImage
+from .models import Slider, Service, Page, GalleryImage, EventImage
 
 
 # Create your views here.
@@ -29,20 +29,35 @@ class HomeView(TemplateView):
         return context
 
 
+class HistoryView(TemplateView):
+    template_name = 'website/history.html'
+
+class DonateView(TemplateView):
+    template_name = 'website/donate.html'
+
+class AboutView(TemplateView):
+    template_name = 'website/about.html'
+
 class MembershipView(TemplateView):
     template_name = 'website/membership.html'
-
 
 class ServiceListView(ListView):
     queryset = Service.objects.filter(is_active=True)
     template_name = 'website/services.html'
     context_object_name = 'services'
 
+class QuranclassView(TemplateView):
+    template_name = 'website/quran_classes.html'
 
 class GalleryListView(ListView):
     queryset = GalleryImage.objects.filter(is_active=True)
     template_name = 'website/gallery.html'
     context_object_name = 'galleries'
+
+class EventListView(ListView):
+    queryset = EventImage.objects.filter(is_active=True)
+    template_name = 'website/events.html'
+    context_object_name = 'events'
 
 
 class PageView(View):

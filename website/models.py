@@ -14,7 +14,7 @@ class Slider(BaseTranslateModel):
     translations = TranslatedFields(
         title=models.CharField(max_length=250),
         subtitle=models.CharField(max_length=200),
-        btn_text=models.CharField(max_length=20, null=True, blank=True)
+        btn_text=models.CharField(max_length=120, null=True, blank=True)
     )
     image = models.ImageField(upload_to='website/sliders/')
     btn_url = models.CharField(max_length=150, null=True, blank=True)
@@ -28,7 +28,7 @@ class Slider(BaseTranslateModel):
 
 class Service(BaseTranslateModel):
     translations = TranslatedFields(
-        title=models.CharField(max_length=20),
+        title=models.CharField(max_length=120),
         desc=models.TextField()
     )
     image = models.ImageField(upload_to='website/services/')
@@ -40,9 +40,20 @@ class Service(BaseTranslateModel):
 
 
 class GalleryImage(BaseModel):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=120)
     position = models.IntegerField(default=0)
     image = models.ImageField(upload_to='website/gallery/')
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+
+class EventImage(BaseModel):
+    name = models.CharField(max_length=120)
+    date = models.DateTimeField()
+    description = models.TextField(default="")
+    position = models.IntegerField(default=0)
+    image = models.ImageField(upload_to='website/events/')
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -58,10 +69,10 @@ class ExecutiveMeeting(BaseModel):
 
 class Page(BaseTranslateModel):
     translations = TranslatedFields(
-        title=models.CharField(max_length=20),
+        title=models.CharField(max_length=120),
         page_content=models.TextField()
     )
-    url_path = models.CharField(max_length=20, unique=True, db_index=True)
+    url_path = models.CharField(max_length=120, unique=True, db_index=True)
     is_active = models.BooleanField(default=False)
 
     def __str__(self):

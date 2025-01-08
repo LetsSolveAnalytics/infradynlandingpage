@@ -7,7 +7,7 @@
         </div>
         <nav>
             <div>
-                <a class="thm-btn brd-rd40" href="#" title="">Donate</a>
+                <a class="thm-btn brd-rd40" href="{% url 'donate' %}" title="">Donate</a>
                 <ul>
                     <li><a href="{% url 'home' %}" title="">Home</a></li>
                     <li><a href="{% url 'prayer-times' %}" title="">Prayer Timings</a></li>
@@ -15,14 +15,14 @@
                     <li class="menu-item-has-children"><a href="#" title="">Services</a>
                         <ul>
                             <li><a href="{% url 'services' %}" title="">General Services</a></li>
-                            <li><a href="services.html" title="">Quran Classes</a></li>
+                            <li><a href="{% url 'quran-classes' %}" title="">Quran Classes</a></li>
                             <li><a href="team.html" title="">Team Grid View</a></li>
                         </ul>
                     </li>
-                    <li class="menu-item-has-children"><a href="event.html" title="">News & Events</a>
+                    <li class="menu-item-has-children"><a href="events.html" title="">News & Events</a>
                         <ul>
-                            <li><a href="about.html" title="">News</a></li>
-                            <li><a href="about.html" title="">Events</a></li>
+                            <li><a href="{% url 'about' %}" title="">News</a></li>
+                            <li><a href="{% url 'events' %}" title="">Events</a></li>
                             <li><a href="{% url 'gallery' %}" title="">Gallery</a></li>
                             <li><a href="{% url 'post-list' %}" title="">Blogs</a></li>
                         </ul>
@@ -36,9 +36,9 @@
                     </li>
                     <li class="menu-item-has-children"><a href="#" title="">Contact Us</a>
                         <ul>
-                            <li><a href="about.html" title="">About Us</a></li>
-                            <li><a href="about.html" title="">History</a></li>
-                            <li><a href="about.html" title="">Aim and Vision</a></li>
+                            <li><a href="{% url 'about' %}" title="">About Us</a></li>
+                            <li><a href="{% url 'history' %}" title="">History</a></li>
+                            <li><a href="{% url 'about' %}" title="">Aim and Vision</a></li>
                             <li><a href="{% url 'contact' %}" title="">Contact</a></li>
                         </ul>
                     </li>
@@ -109,8 +109,8 @@
                     <li><a href="blog-detail.html" title="">Blog Detail</a></li>
                 </ul>
             </li>
-            <li><a href="event.html" title="">Event</a></li>
-            <li><a href="crowd-funding.html" title="">Donate</a></li>
+            <li><a href="events.html" title="">Event</a></li>
+            <li><a href="{% url 'donate' %}" title="">Donate</a></li>
             <li class="menu-item-has-children"><a href="#" title="">Pages</a>
                 <ul>
                     <li><a href="team.html" title="">Team Grid View</a></li>
@@ -119,7 +119,7 @@
                     <li><a href="services.html" title="">Our Services</a></li>
                 </ul>
             </li>
-            <li><a href="about.html" title="">About</a></li>
+            <li><a href="{% url 'about' %}" title="">About</a></li>
             <li><a href="contact.html" title="">Contact</a></li>
         </ul>
     </div><!-- Responsive Menu -->
