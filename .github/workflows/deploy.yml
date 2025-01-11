@@ -1,0 +1,53 @@
+name: Django CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y expect
+
+    - name: Copy files to server using SCP
+      env:
+        SERVER_USER: ${{ secrets.SERVER_USER }}
+        SERVER_IP: ${{ secrets.SERVER_IP }}
+        SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
+      run: |
+        expect <<EOF
+        spawn scp -r . $SERVER_USER@$SERVER_IP:/home/psiy/
+        expect "password:"
+        send "$SERVER_PASSWORD\r"
+        expect eof
+        EOF
+
+    - name: Run commands on server using SSH
+      env:
+        SERVER_USER: ${{ secrets.SERVER_USER }}
+        SERVER_IP: ${{ secrets.SERVER_IP }}
+        SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
+      run: |
+        expect <<EOF
+        spawn ssh $SERVER_USER@$SERVER_IP
+        expect "password:"
+        send "$SERVER_PASSWORD\r"
+        expect "$ "
+        send "cd /home/psiy/\r"
+        send "source venv/bin/activate\r"
+        send "python manage.py makemigrations\r"
+        send "python manage.py migrate\r"
+        send "sudo systemctl restart gunicorn\r"
+        send "sudo systemctl reload nginx\r"
+        send "exit\r"
+        expect eof
+        EOF
