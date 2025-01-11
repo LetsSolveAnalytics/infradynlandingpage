@@ -18,6 +18,12 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y expect
 
+    - name: Debug environment variables
+      run: |
+        echo "Server user: $SERVER_USER"
+      env:
+        SERVER_USER: ${{ secrets.SERVER_USER }}
+
     - name: Copy files to server using SCP
       env:
         SERVER_USER: ${{ secrets.SERVER_USER }}
