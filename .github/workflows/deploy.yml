@@ -58,7 +58,7 @@ jobs:
           expect "$ "
           send "cd /home/psiy/\r"
           send "source venv/bin/activate && python manage.py makemigrations && python manage.py migrate\r"
-          send "sudo systemctl restart gunicorn && sudo systemctl reload nginx\r"
+          send "sudo systemctl restart psiy.service && sudo systemctl reload nginx\r"
           send "exit\r"
           expect eof
           EOF
