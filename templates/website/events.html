@@ -1,0 +1,40 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block main_container %}
+<section>
+    <div class="gap">
+        <div class="container">
+            <div class="event-wrap">
+                <div class="row">
+                    
+                    <div class="col-md-12 col-sm-12 col-lg-12">
+                        <div class="remove-ext3">
+                            <div class="row">
+                                
+                                {% for event in events %}
+                                <div class="col-md-4 col-sm-6 col-lg-4">
+                                    <div class="event-box2">
+                                        <div class="event-thumb">
+                                            <a href="#" title=""><img src="{{ item.image.url }}" alt="event-img2-1.jpg"></a>
+                                        </div>
+                                        <div class="event-info">
+                                            <h4><a href="#" title="">{{ item.name }}</a></h4>
+                                            <p>{{ item.description }}</p>
+                                            <ul class="event-mta">
+                                                <li><i class="fa fa-map-marker"></i></li>
+                                                <li><i class="flaticon-clock"></i>{{ item.date }}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Event Wrap -->
+        </div>
+    </div>
+</section>
+{% endblock %}
