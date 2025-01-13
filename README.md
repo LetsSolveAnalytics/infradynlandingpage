@@ -8,7 +8,7 @@
 
 - Python 3.11
 - PostgreSQL 16
-- pip
+- Pip
 - venv
 
 
