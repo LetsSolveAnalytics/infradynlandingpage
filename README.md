@@ -1,4 +1,5 @@
 # PSIY Website
+[![Django CI/CD Pipeline](https://github.com/PohjoisSuomenIslamilainenYhdyskunta/PSIY/actions/workflows/deploy.yml/badge.svg)](https://github.com/PohjoisSuomenIslamilainenYhdyskunta/PSIY/actions/workflows/deploy.yml)
 
 
 ## Setup instructions
