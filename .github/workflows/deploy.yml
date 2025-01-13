@@ -3,62 +3,36 @@ name: Django CI/CD Pipeline
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout latest code
+      uses: actions/checkout@v3
+      with:
+        ref: main
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y expect
+    - name: Install dependencies
+      run: sudo apt-get install -y rsync
 
-      - name: Copy files to server using SCP
-        env:
-          SERVER_USER: ${{ secrets.SERVER_USER }}
-          SERVER_IP: ${{ secrets.SERVER_IP }}
-          SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
-        run: |
-          expect <<EOF
-          spawn scp -r . $SERVER_USER@$SERVER_IP:/home/psiy/
-          expect {
-            "Are you sure you want to continue connecting" {
-              send "yes\r"
-              exp_continue
-            }
-            "password:" {
-              send "$SERVER_PASSWORD\r"
-            }
-          }
-          expect eof
-          EOF
+    - name: Clean server directory
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "rm -rf /home/psiy/*"
 
-      - name: Run commands on server using SSH
-        env:
-          SERVER_USER: ${{ secrets.SERVER_USER }}
-          SERVER_IP: ${{ secrets.SERVER_IP }}
-          SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
-        run: |
-          expect <<EOF
-          spawn ssh $SERVER_USER@$SERVER_IP
-          expect {
-            "Are you sure you want to continue connecting" {
-              send "yes\r"
-              exp_continue
-            }
-            "password:" {
-              send "$SERVER_PASSWORD\r"
-            }
-          }
-          expect "$ "
-          send "cd /home/psiy/\r"
-          send "source venv/bin/activate && python manage.py makemigrations && python manage.py migrate\r"
-          send "sudo systemctl restart psiy.service && sudo systemctl reload nginx\r"
-          send "exit\r"
-          expect eof
-          EOF
+    - name: Sync files to server
+      run: |
+        rsync -avz --delete --exclude '.git/' --exclude 'node_modules/' ./ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/home/psiy/
+
+    - name: Run migrations and restart services
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} <<EOF
+        cd /home/psiy/
+        source venv/bin/activate
+        python manage.py makemigrations
+        python manage.py migrate
+        sudo systemctl restart gunicorn
+        sudo systemctl reload nginx
+        EOF
