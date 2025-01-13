@@ -6,14 +6,14 @@ on:
       - master
 
 jobs:
-  deploy:
+  deployment:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout latest code
       uses: actions/checkout@v3
       with:
-        ref: main
+        ref: master
 
     - name: Install dependencies
       run: |
