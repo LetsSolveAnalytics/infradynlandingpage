@@ -3,7 +3,7 @@ name: Django CI/CD Pipeline
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -16,23 +16,62 @@ jobs:
         ref: main
 
     - name: Install dependencies
-      run: sudo apt-get install -y rsync
-
-    - name: Clean server directory
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "rm -rf /home/psiy/*"
+        sudo apt-get update
+        sudo apt-get install -y expect rsync
 
-    - name: Sync files to server
+    - name: Copy files to server, excluding venv and .env
+      env:
+        SERVER_USER: ${{ secrets.SERVER_USER }}
+        SERVER_IP: ${{ secrets.SERVER_IP }}
+        SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
       run: |
-        rsync -avz --delete --exclude '.git/' --exclude 'node_modules/' ./ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/home/psiy/
+        expect <<EOF
+        spawn rsync -avz --exclude='venv/' --exclude='.env' ./ $SERVER_USER@$SERVER_IP:/home/psiy/
+        expect {
+          "Are you sure you want to continue connecting" {
+            send "yes\r"
+            exp_continue
+          }
+          "password:" {
+            send "$SERVER_PASSWORD\r"
+          }
+        }
+        expect eof
+        EOF
 
     - name: Run migrations and restart services
+      env:
+        SERVER_USER: ${{ secrets.SERVER_USER }}
+        SERVER_IP: ${{ secrets.SERVER_IP }}
+        SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} <<EOF
-        cd /home/psiy/
-        source venv/bin/activate
-        python manage.py makemigrations
-        python manage.py migrate
-        sudo systemctl restart gunicorn
-        sudo systemctl reload nginx
+        expect <<EOF
+        spawn ssh $SERVER_USER@$SERVER_IP
+        expect {
+          "Are you sure you want to continue connecting" {
+            send "yes\r"
+            exp_continue
+          }
+          "password:" {
+            send "$SERVER_PASSWORD\r"
+          }
+        }
+        expect "$ "
+        send "cd /home/psiy/\r"
+        expect "$ "
+        send "source venv/bin/activate\r"
+        expect "$ "
+        send "pip install -r requirements/development.txt\r"
+        expect "$ "
+        send "python manage.py makemigrations\r"
+        expect "$ "
+        send "python manage.py migrate\r"
+        expect "$ "
+        send "sudo systemctl restart psiy.service\r"
+        expect "$ "
+        send "sudo systemctl reload nginx\r"
+        expect "$ "
+        send "exit\r"
+        expect eof
         EOF
