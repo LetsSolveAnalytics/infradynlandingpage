@@ -32,10 +32,18 @@ jobs:
       run: |
         expect <<EOF
         spawn scp -r . $SERVER_USER@$SERVER_IP:/home/psiy/
-        expect "password:"
-        send "$SERVER_PASSWORD\r"
-        expect eof
-        EOF
+        expect {
+            "Are you sure you want to continue connecting" {
+              send "yes\r"
+              exp_continue
+            }
+            "password:" {
+              send "$SERVER_PASSWORD\r"
+            }
+          }
+          expect eof
+          EOF
+        shell: /usr/bin/bash -e {0}
 
     - name: Run commands on server using SSH
       env:
