@@ -10,29 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y expect
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y expect
 
-    - name: Debug environment variables
-      run: |
-        echo "Server user: $SERVER_USER"
-      env:
-        SERVER_USER: ${{ secrets.SERVER_USER }}
-
-    - name: Copy files to server using SCP
-      env:
-        SERVER_USER: ${{ secrets.SERVER_USER }}
-        SERVER_IP: ${{ secrets.SERVER_IP }}
-        SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
-      run: |
-        expect <<EOF
-        spawn scp -r . $SERVER_USER@$SERVER_IP:/home/psiy/
-        expect {
+      - name: Copy files to server using SCP
+        env:
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_IP: ${{ secrets.SERVER_IP }}
+          SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
+        run: |
+          expect <<EOF
+          spawn scp -r . $SERVER_USER@$SERVER_IP:/home/psiy/
+          expect {
             "Are you sure you want to continue connecting" {
               send "yes\r"
               exp_continue
@@ -44,23 +38,27 @@ jobs:
           expect eof
           EOF
 
-    - name: Run commands on server using SSH
-      env:
-        SERVER_USER: ${{ secrets.SERVER_USER }}
-        SERVER_IP: ${{ secrets.SERVER_IP }}
-        SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
-      run: |
-        expect <<EOF
-        spawn ssh $SERVER_USER@$SERVER_IP
-        expect "password:"
-        send "$SERVER_PASSWORD\r"
-        expect "$ "
-        send "cd /home/psiy/\r"
-        send "source venv/bin/activate\r"
-        send "python manage.py makemigrations\r"
-        send "python manage.py migrate\r"
-        send "sudo systemctl restart gunicorn\r"
-        send "sudo systemctl reload nginx\r"
-        send "exit\r"
-        expect eof
-        EOF
+      - name: Run commands on server using SSH
+        env:
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_IP: ${{ secrets.SERVER_IP }}
+          SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
+        run: |
+          expect <<EOF
+          spawn ssh $SERVER_USER@$SERVER_IP
+          expect {
+            "Are you sure you want to continue connecting" {
+              send "yes\r"
+              exp_continue
+            }
+            "password:" {
+              send "$SERVER_PASSWORD\r"
+            }
+          }
+          expect "$ "
+          send "cd /home/psiy/\r"
+          send "source venv/bin/activate && python manage.py makemigrations && python manage.py migrate\r"
+          send "sudo systemctl restart gunicorn && sudo systemctl reload nginx\r"
+          send "exit\r"
+          expect eof
+          EOF
