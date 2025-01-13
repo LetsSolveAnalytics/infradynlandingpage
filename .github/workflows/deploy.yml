@@ -43,7 +43,6 @@ jobs:
           }
           expect eof
           EOF
-        shell: /usr/bin/bash -e {0}
 
     - name: Run commands on server using SSH
       env:
