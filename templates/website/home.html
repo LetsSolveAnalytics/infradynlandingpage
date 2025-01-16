@@ -6,8 +6,15 @@
             <div class="featured-area-wrap text-center">
                 <div class="featured-area owl-carousel">
                     {% for slider in sliders %}
-                        <div class="featured-item"
-                             style="background-image: url({% static 'assets/images/resources/slide1.png' %});">
+                        <!-- <div class="featured-item"
+                             style="background-image: url({% static 'assets/images/resources/slide1.png' %});"> -->
+                        <div class="featured-item">
+
+                        <style>
+                            .featured-item {
+                                background-image: url("{% static 'assets/images/resources/slide1.jpg' %}");
+                            }
+                        </style>                           
                             <div class=" featured-cap">
                                 <img src="{{ slider.image.url }}" alt="bsml-txt.png">
                                 <h1><img src="{% static 'assets/images/resources/ayat-txt.png' %}" alt="ayat-txt-color">
@@ -83,7 +90,7 @@
     <section>
         <div class="gap thm-layer opc9">
             <div class="fixed-bg ptrn-bg"
-                 style="background-image: url({% static 'assets/images/pattern-bg.jpg' %});"></div>
+                 style="background-image: url("{% static 'assets/images/pattern-bg.jpg' %}")></div>
             <div class="container">
                 <div class="nwsltr-wrp text-center">
                     <div class="nwsltr-innr">
@@ -121,8 +128,8 @@
 
     <section>
         <div class="gap white-grad-layer">
-            <div class="fixed-bg" style="background-image: url({% static 'assets/images/parallax1.png' %});"></div>
-            <div class=" container
+            <div class="fixed-bg" style="background-image: ";></div>
+            <div class=" container 
             ">
                 <div class="abot-wrap">
                     <div class="row">
