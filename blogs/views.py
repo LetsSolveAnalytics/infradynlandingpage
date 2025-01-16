@@ -15,11 +15,14 @@ class PostListView(ListView):
     def get_queryset(self):
         cat = self.request.GET.get('cat')
         search = self.request.GET.get('search')
+        post_type = self.request.GET.get('post_type')
         queryset = self.queryset
         if cat:
             queryset = queryset.filter(categories__slug=cat)
         if search:
             queryset = queryset.filter(content__icontains=search)
+        if post_type:
+            queryset = queryset.filter(post_type=post_type)
         return queryset
 
 
