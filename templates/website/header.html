@@ -22,16 +22,16 @@
                     <li class="menu-item-has-children"><a href="events.html" title="">News & Events</a>
                         <ul>
                             <li><a href="{% url 'about' %}" title="">News</a></li>
-                            <li><a href="{% url 'events' %}" title="">Events</a></li>
+                            <li><a href="{% url 'events' %}?post_type=2" title="">Events</a></li>
                             <li><a href="{% url 'gallery' %}" title="">Gallery</a></li>
-                            <li><a href="{% url 'post-list' %}" title="">Blogs</a></li>
+                            <li><a href="{% url 'post-list' %}?post_type=0" title="">Blogs</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children"><a href="#" title="">Resources</a>
                         <ul>
-                            <li><a href="portfolio.html" title="">Introduction to Islam</a></li>
-                            <li><a href="services.html" title="">Books and Pamphlets</a></li>
-                            <li><a href="team.html" title="">Videos</a></li>
+                            <li><a href="{% url 'intro-to-islam' %}" title="">Introduction to Islam</a></li>
+                            <li><a href="{% url 'books-pamphlets' %}" title="">Books and Pamphlets</a></li>
+                            <!-- <li><a href="team.html" title="">Videos</a></li> -->
                         </ul>
                     </li>
                     <li class="menu-item-has-children"><a href="#" title="">Contact Us</a>
