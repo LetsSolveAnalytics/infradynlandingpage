@@ -330,6 +330,79 @@ section {
   width: 100%;
   z-index: -1;
 }
+
+.fixed-bg.parallax-bg {background-size: initial;}
+.black-layer:before,
+.black-layer2:before,
+.black-layer3:before,
+.white-layer:before,
+.gray-layer:before,
+.gray-layer2:before,
+.white-grad-layer:before,
+.thm-layer:before,
+.blue-layer:before {
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.fixed-bg.parallax-bg-3 {background-size: auto;}
+.black-layer:before,
+.black-layer2:before,
+.black-layer3:before,
+.white-layer:before,
+.gray-layer:before,
+.gray-layer2:before,
+.white-grad-layer:before,
+.thm-layer:before,
+.blue-layer:before {
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.fixed-bg.parallax-bg-4 {background-size: auto;}
+.black-layer:before,
+.black-layer2:before,
+.black-layer3:before,
+.white-layer:before,
+.gray-layer:before,
+.gray-layer2:before,
+.white-grad-layer:before,
+.thm-layer:before,
+.blue-layer:before {
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.fixed-bg.parallax-bg-7 {background-size: auto;}
+.black-layer:before,
+.black-layer2:before,
+.black-layer3:before,
+.white-layer:before,
+.gray-layer:before,
+.gray-layer2:before,
+.white-grad-layer:before,
+.thm-layer:before,
+.blue-layer:before {
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
 .blue-layer:before {background-color: #2c496f;}
 .white-layer:before {background-color:#ffffff;}
 .gray-layer:before {background-color: #f1f1f1}
