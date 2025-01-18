@@ -33,7 +33,7 @@ class IntrotoIslamView(TemplateView):
     template_name = 'website/intro-to-islam.html'
 
 class BooksPamphletsView(TemplateView):
-    template_name = 'website/books  .html'
+    template_name = 'website/books.html'
 
 class HistoryView(TemplateView):
     template_name = 'website/history.html'
