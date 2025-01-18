@@ -59,6 +59,16 @@ class EventImage(BaseModel):
     def __str__(self):
         return self.name
 
+class News(BaseModel):
+    name = models.CharField(max_length=120)
+    date = models.DateTimeField()
+    description = models.TextField(default="")
+    position = models.IntegerField(default=0)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+
 
 class ExecutiveMeeting(BaseModel):
     date = models.DateTimeField()

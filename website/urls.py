@@ -10,6 +10,7 @@ urlpatterns = [
     path('gallery/', views.GalleryListView.as_view(), name='gallery'),
     path('page/<str:path>/', views.PageView.as_view(), name='page-view'),
     path('events/', PostListView.as_view(), name='events'),
+    path('news/', PostListView.as_view(), name='news'),
     path('quran-classes/', views.QuranclassView.as_view(), name='quran-classes'),
     path('about/', views.AboutView.as_view(), name='about'),
     path('donate/', views.DonateView.as_view(), name='donate'),

@@ -14,7 +14,7 @@ from . import forms
 
 from .constants import PageType
 from .forms import ContactMessageForm
-from .models import Slider, Service, Page, GalleryImage, EventImage
+from .models import Slider, Service, Page, GalleryImage, EventImage, News
 
 
 # Create your views here.
@@ -64,6 +64,11 @@ class EventListView(ListView):
     queryset = EventImage.objects.filter(is_active=True)
     template_name = 'website/events.html'
     context_object_name = 'events'
+
+class NewsListView(ListView):
+    queryset = News.objects.filter(is_active=True)
+    template_name = 'website/news.html'
+    context_object_name = 'news'
 
 
 class PageView(View):
