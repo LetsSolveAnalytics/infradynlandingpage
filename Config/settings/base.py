@@ -109,7 +109,7 @@ AUTH_USER_MODEL = 'coreapp.User'
 
 CORS_ALLOW_ALL_ORIGINS = True
 CSRF_TRUSTED_ORIGINS = [
-    'https://*.*',
+    'https://new.psiy.fi',
 ]
 MEDIA_HOST = config('MEDIA_HOST')
 
