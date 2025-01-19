@@ -12,22 +12,22 @@
                     <li><a href="{% url 'home' %}" title="">Home</a></li>
                     <li><a href="{% url 'prayer-times' %}" title="">Prayer Timings</a></li>
                     <li><a href="{% url 'membership' %}" title="">Memberships</a></li>
-                    <li class="menu-item-has-children"><a href="#" title="">Services</a>
+                    <li class="menu-item-has-children"><a href="{% url 'services' %}" title="">Services</a>
                         <ul>
                             <li><a href="{% url 'services' %}" title="">General Services</a></li>
                             <li><a href="{% url 'quran-classes' %}" title="">Quran Classes</a></li>
-                            <li><a href="team.html" title="">Team Grid View</a></li>
+                            <!-- <li><a href="team.html" title="">Team Grid View</a></li> -->
                         </ul>
                     </li>
                     <li class="menu-item-has-children"><a href="events.html" title="">News & Events</a>
                         <ul>
-                            <li><a href="{% url 'about' %}" title="">News</a></li>
+                            <li><a href="{% url 'news' %}?post_type=1" title="">News</a></li>
                             <li><a href="{% url 'events' %}?post_type=2" title="">Events</a></li>
                             <li><a href="{% url 'gallery' %}" title="">Gallery</a></li>
                             <li><a href="{% url 'post-list' %}?post_type=0" title="">Blogs</a></li>
                         </ul>
                     </li>
-                    <li class="menu-item-has-children"><a href="#" title="">Resources</a>
+                    <li class="menu-item-has-children"><a href="{% url 'intro-to-islam' %}" title="">Resources</a>
                         <ul>
                             <li><a href="{% url 'intro-to-islam' %}" title="">Introduction to Islam</a></li>
                             <li><a href="{% url 'books-pamphlets' %}" title="">Books and Pamphlets</a></li>
@@ -82,20 +82,20 @@
 <div class="rspn-hdr">
     <div class="rspn-mdbr">
         <ul class="rspn-scil">
-            <li><a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#" title="Instagram" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100088755501692" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/psiy.oulu/" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://www.instagram.com/psiy.women/" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a></li>
         </ul>
-        <form class="rspn-srch">
-            <input type="text" placeholder="Enter Your Keyword"/>
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
     </div>
     <div class="lg-mn">
-        <div class="logo"><a href="index-2.html" title="Logo"><img src="assets/images/logo2.png"
-                                                                   alt="logo2.png"></a></div>
+        <div class="logo">
+            <a href="{% url 'home' %}" title="Logo">
+                <img src="{% static 'assets/images/rsz_main1.png' %}" alt="logo.png">
+            </a>
+        </div>
         <div class="rspn-cnt">
-            <span><i class="fa fa-envelope thm-clr"></i><a href="#" title="">info@bismillah.com</a></span>
-            <span><i class="fa fa-phone thm-clr"></i>+(00) 123-345-11</span>
+            <span><i class="fa fa-envelope thm-clr"></i><a href="mailto:info@psiy.fi" title="">info@psiy.fi</a></span>
+            <span><i class="fa fa-phone thm-clr"></i>+358-123-456-789</span>
         </div>
         <span class="rspn-mnu-btn"><i class="fa fa-list-ul"></i></span>
     </div>
@@ -103,24 +103,57 @@
         <span class="rspn-mnu-cls"><i class="fa fa-times"></i></span>
         <ul>
             <li><a href="{% url 'home' %}" title="">Home</a></li>
-            <li class="menu-item-has-children"><a href="#" title="">Blog</a>
+            <li><a href="{% url 'prayer-times' %}" title="">Prayer Timings</a></li>
+            <li><a href="{% url 'membership' %}" title="">Memberships</a></li>
+            <li class="menu-item-has-children">
+                <a href="{% url 'services' %}" title="">Services</a>
                 <ul>
-                    <li><a href="blog.html" title="">Blog</a></li>
-                    <li><a href="blog-detail.html" title="">Blog Detail</a></li>
+                    <li><a href="{% url 'services' %}" title="">General Services</a></li>
+                    <li><a href="{% url 'quran-classes' %}" title="">Quran Classes</a></li>
                 </ul>
             </li>
-            <li><a href="events.html" title="">Event</a></li>
-            <li><a href="{% url 'donate' %}" title="">Donate</a></li>
-            <li class="menu-item-has-children"><a href="#" title="">Pages</a>
+            <li class="menu-item-has-children">
+                <a href="#" title="">News & Events</a>
                 <ul>
-                    <li><a href="team.html" title="">Team Grid View</a></li>
-                    <li><a href="team2.html" title="">Team Round View</a></li>
-                    <li><a href="portfolio.html" title="">Our Portfolio</a></li>
-                    <li><a href="services.html" title="">Our Services</a></li>
+                    <li><a href="{% url 'news' %}?post_type=1" title="">News</a></li>
+                    <li><a href="{% url 'events' %}?post_type=2" title="">Events</a></li>
+                    <li><a href="{% url 'gallery' %}" title="">Gallery</a></li>
+                    <li><a href="{% url 'post-list' %}?post_type=0" title="">Blogs</a></li>
                 </ul>
             </li>
-            <li><a href="{% url 'about' %}" title="">About</a></li>
-            <li><a href="contact.html" title="">Contact</a></li>
+            <li class="menu-item-has-children">
+                <a href="{% url 'intro-to-islam' %}" title="">Resources</a>
+                <ul>
+                    <li><a href="{% url 'intro-to-islam' %}" title="">Introduction to Islam</a></li>
+                    <li><a href="{% url 'books-pamphlets' %}" title="">Books and Pamphlets</a></li>
+                </ul>
+            </li>
+            <li class="menu-item-has-children">
+                <a href="#" title="">Contact Us</a>
+                <ul>
+                    <li><a href="{% url 'about' %}" title="">About Us</a></li>
+                    <li><a href="{% url 'history' %}" title="">History</a></li>
+                    <li><a href="{% url 'about' %}" title="">Aim and Vision</a></li>
+                    <li><a href="{% url 'contact' %}" title="">Contact</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="thm-btn brd-rd40" href="{% url 'donate' %}" title="">Donate</a>
+            </li>
+            <li class="menu-item-has-children" style="width: 180px;">
+                <label for="language-select" style="display: none;">Language</label>
+                <select id="language-select" onchange="changeLanguage(this.value)">
+                    {% get_current_language as CURRENT_LANGUAGE %}
+                    {% get_available_languages as AVAILABLE_LANGUAGES %}
+                    {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option value="/{{ language.code }}/"
+                                {% if language.code == CURRENT_LANGUAGE %} selected{% endif %}>
+                            {{ language.name_local }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </li>
         </ul>
     </div><!-- Responsive Menu -->
 </div><!-- Responsive Header -->
