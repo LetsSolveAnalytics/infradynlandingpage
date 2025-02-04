@@ -19,7 +19,7 @@
                             <!-- <li><a href="team.html" title="">Team Grid View</a></li> -->
                         </ul>
                     </li>
-                    <li class="menu-item-has-children"><a href="events.html" title="">News & Events</a>
+                    <li class="menu-item-has-children"><a href="#" title="">News & Events</a>
                         <ul>
                             <li><a href="{% url 'news' %}?post_type=1" title="">News</a></li>
                             <li><a href="{% url 'events' %}?post_type=2" title="">Events</a></li>
@@ -30,15 +30,15 @@
                     <li class="menu-item-has-children"><a href="{% url 'intro-to-islam' %}" title="">Resources</a>
                         <ul>
                             <li><a href="{% url 'intro-to-islam' %}" title="">Introduction to Islam</a></li>
-                            <li><a href="{% url 'books-pamphlets' %}" title="">Books and Pamphlets</a></li>
+                            <!-- <li><a href="{% url 'books-pamphlets' %}" title="">Books and Pamphlets</a></li> -->
                             <!-- <li><a href="team.html" title="">Videos</a></li> -->
                         </ul>
                     </li>
-                    <li class="menu-item-has-children"><a href="#" title="">Contact Us</a>
+                    <li class="menu-item-has-children"><a href="{% url 'contact' %}" title="">Contact Us</a>
                         <ul>
                             <li><a href="{% url 'about' %}" title="">About Us</a></li>
                             <li><a href="{% url 'history' %}" title="">History</a></li>
-                            <li><a href="{% url 'about' %}" title="">Aim and Vision</a></li>
+                            <!-- <li><a href="{% url 'about' %}" title="">Aim and Vision</a></li> -->
                             <li><a href="{% url 'contact' %}" title="">Contact</a></li>
                         </ul>
                     </li>
@@ -133,7 +133,7 @@
                 <ul>
                     <li><a href="{% url 'about' %}" title="">About Us</a></li>
                     <li><a href="{% url 'history' %}" title="">History</a></li>
-                    <li><a href="{% url 'about' %}" title="">Aim and Vision</a></li>
+                    <!-- <li><a href="{% url 'about' %}" title="">Aim and Vision</a></li> -->
                     <li><a href="{% url 'contact' %}" title="">Contact</a></li>
                 </ul>
             </li>
