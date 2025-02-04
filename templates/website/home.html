@@ -29,39 +29,15 @@
         </div><!-- Featured Area Wrap -->
     </div>
 </section>
-<section>
-    <div style="overflow: hidden; height: 450px; width: 1250px;"> <!-- Visible area -->
-        <iframe
-            src="https://mawaqit.net/en/w/islamic-society-northern-finland-oulu-90100-finland?showOnly5PrayerTimes=0"
-            frameborder="0" scrolling="yes" style="position: relative; top: -75px; height: 600px; width: 1250px;">
-        </iframe>
-    </div>
-    <!-- <div class="col-md-4 col-sm-12 col-lg-4"> -->
-                        <!-- <div class="sec-title">
-                                <div class="sec-title-inner">
-                                    <h3>Prayer <span>Times</span></h3>
-                                </div>
-                            </div>
-                            <ul class="prayer-times">
-                                <li class="pry-tim-hed"><span>Salat</span><span>Start</span><span>Iqamah</span></li>
-                                <li><span class="thm-clr">Fajar</span><span>03:58 am</span><span>04:45 am</span></li>
-                                <li><span class="thm-clr">Sunrise</span><span>05:31 am</span><span>05:31 am</span></li>
-                                <li><span class="thm-clr">Zuhr</span><span>12:47 pm</span><span>12:47 pm</span></li>
-                                <li><span class="thm-clr">Asr</span><span>05:53 pm</span><span>05:50 pm</span></li>
-                                <li><span class="thm-clr">Maghrib</span><span>08:04 pm</span><span>08:04 pm</span></li>
-                                <li><span class="thm-clr">Isha</span><span>09:37 pm</span><span>09:30 pm</span></li>
-                                <li><span class="thm-clr">Jumu'ah 1</span><span>01:15 pm</span><span>01:15 pm</span></li>
-                            </ul>
-                        </div> -->
-                    <!-- </div> -->
 
-</section>
-<section>
+
+
+<!-- <section>
     <div class="gap">
         <div class="lft-shp shp-lyr"></div>
-        <div class="container">
+        <div class="container text-center">
             <div class="plrs-wrap text-center remove-ext5">
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-md-3 col-sm-6 col-lg-2">
                         <div class="plr-box">
                             <i class="flaticon-islamic-pray"></i>
@@ -77,7 +53,8 @@
                             <i class="flaticon-islamic-ramadan"></i>
                             <div class="pilr-info">
                                 <h4>Dhuhr</h4>
-                                <p>Dhuhr ipsum dolor sit amet, consectetur adipiscing.</p>
+                                <p>Time</p>
+                                <p>Iqamah</p>
                             </div>
                         </div>
                     </div>
@@ -86,7 +63,8 @@
                             <i class="flaticon-charity"></i>
                             <div class="pilr-info">
                                 <h4>Asr</h4>
-                                <p>Asr ipsum dolor sit amet, consectetur adipiscing.</p>
+                                <p>Time</p>
+                                <p>Iqamah</p>
                             </div>
                         </div>
                     </div>
@@ -95,7 +73,8 @@
                             <i class="flaticon-kaaba-building"></i>
                             <div class="pilr-info">
                                 <h4>Magrib</h4>
-                                <p>Magrib ipsum dolor sit amet, consectetur adipiscing.</p>
+                                <p>Time</p>
+                                <p>Iqamah</p>
                             </div>
                         </div>
                     </div>
@@ -104,15 +83,16 @@
                             <i class="flaticon-kaaba-building"></i>
                             <div class="pilr-info">
                                 <h4>Isha</h4>
-                                <p>Isha ipsum dolor sit amet, consectetur adipiscing.</p>
+                                <p>Time</p>
+                                <p>Iqamah</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div><!-- Todays Namaz timing Wrap -->
-        </div>
+            </div> Todays Namaz timing Wrap -->
+        <!-- </div>
     </div>
-</section>
+</section> -->
 
 <section>
     <div class="gap thm-layer opc9">
@@ -261,16 +241,16 @@
                     <span>Support us,</span>
                     <h3>We need your help.</h3>
                 </div>
-                <p>We have the mosque maintenance, daily electricity and water expenses and for needy families.</p>
+                <p>We have the mosque maintenance, daily electricity and water expenses. We also collect zakat and funds for financially deprived countries. </p>
+                <div class="view-all text-center">
+                    <a class="thm-btn brd-rd40" href="{% url 'donate' %}" title="">Donate Now</a>
+                </div><!-- View All -->
             </div>
-            <div class="suprt-prgrs style2 text-center">
+            <!-- <div class="suprt-prgrs style2 text-center">
                 <div class="suprt-prg" id="suprt-prg1"></div>
                 <div class="suprt-prg" id="suprt-prg2"></div>
                 <div class="suprt-prg" id="suprt-prg3"></div>
-            </div>
-            <div class="view-all text-center">
-                <a class="thm-btn brd-rd40" href="{% url 'donate' %}" title="">Donate Now</a>
-            </div><!-- View All -->
+            </div> -->
         </div>
     </div>
 </section>
@@ -317,7 +297,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             {% endfor %}
                                         </div>
                                     </div>
@@ -326,7 +305,31 @@
                             </div>
                         </div><!-- Events Wrap -->
                     </div>
+                    <div class="sec-title">
+                        <div class="sec-title-inner">
+                            <h3><span>Todays Prayer Time</h3>
+                        </div>
+                        <br />
+                        <section class="iframe-section">
+                            <div class="container">
+                                <!-- Desktop Version -->
+                                <div class="iframe-wrapper desktop">
+                                    <iframe
+                                        src="https://mawaqit.net/en/w/islamic-society-northern-finland-oulu-90100-finland?showOnly5PrayerTimes=0"
+                                        frameborder="0" scrolling="yes">
+                                    </iframe>
+                                </div>
                     
+                                <!-- Mobile/Vertical Version -->
+                                <div class="iframe-wrapper mobile">
+                                    <iframe
+                                        src="https://mawaqit.net/en/m/islamic-society-northern-finland-oulu-90100-finland?showNotification=0&showSearchButton=0&showFooter=0&showFlashMessage=0&view=mobile"
+                                        frameborder="0" scrolling="no">
+                                    </iframe>
+                                </div>
+                            </div>
+                        </section>
+                        </div>
                 </div><!-- Events & Prayer Wrap -->
             </div>
         </div>
@@ -345,7 +348,7 @@
             ">
             <div class="nwsltr-wrp text-center">
                 <div class="nwsltr-innr">
-                    <div class="nwsltr-title">
+                    <div class="nwsltr-title" style="margin-bottom: 20px;">
                         <h3>Become a Member</h3>
                     </div>
                     <a class="secndry-btn brd-rd40" href="{% url 'membership' %}">Sign up</a>
