@@ -24,6 +24,11 @@ class PostListView(ListView):
         if post_type:
             queryset = queryset.filter(post_type=post_type)
         return queryset
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['post_type'] = self.request.GET.get('post_type')
+        return context
 
 
 class PostDetailView(DetailView):
@@ -36,6 +41,7 @@ class PostDetailView(DetailView):
         context['categories'] = Category.objects.filter(is_active=True)
         context['recent_posts'] = Post.objects.filter(is_published=True).order_by('-created_at')
         return context
+
 
 
 class AddCommentView(View):
