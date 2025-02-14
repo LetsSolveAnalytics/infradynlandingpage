@@ -13,6 +13,8 @@ from coreapp.models import User
 
 # Custom admin for User to ensure password hashing
 class CustomUserAdmin(UserAdmin):
+    ordering = ["email"]
+    list_display = ["email", "first_name", "last_name", "is_staff"]
     def save_model(self, request, obj, form, change):
         if form.cleaned_data.get("password") and not obj.password.startswith("pbkdf2_"):
             obj.password = make_password(form.cleaned_data["password"])
