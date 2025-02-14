@@ -4439,7 +4439,6 @@ header.sticky-active{
   max-width: 1250px;
 }
 
-<!-- CSS (style.css) -->
 .iframe-section {
   width: 100%;
   margin: 0 auto;
@@ -4482,7 +4481,7 @@ header.sticky-active{
   border: none;
 }
 
-<!-- CSS (style.css) -->
+
 .calendar-section {
   width: 100%;
   margin: 0 auto;
@@ -4509,6 +4508,45 @@ header.sticky-active{
   width: 100%;
   height: 100%;
   border: none;
+}
+
+.plrs-wrap {
+  margin: 20px 0;
+}
+.plrs-wrap select {
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.plrs-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.plrs-wrap th, .plrs-wrap td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+.plrs-wrap th {
+  background-color: #2a486c;
+  color: #fff;
+  font-weight: bold;
+}
+.plrs-wrap tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+.plrs-wrap tr:nth-child(odd) {
+  background-color: #e9e9e9;
+}
+.plrs-wrap tr:hover {
+  background-color: #d1ad3c;
+  color: #fff;
+}
+.plrs-wrap td {
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Adjust height for mobile devices */
