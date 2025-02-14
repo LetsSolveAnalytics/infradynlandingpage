@@ -44,6 +44,7 @@
                         <th>Asr</th>
                         <th>Maghrib</th>
                         <th>Isha</th>
+                        <th>Jumuah</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,6 +57,7 @@
                         <td>{{ prayertime.asr_start }}</td>
                         <td>{{ prayertime.maghrib_start }}</td>
                         <td>{{ prayertime.isha_start }}</td>
+                        <td>{{ prayertime.jumuah_start }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -63,4 +65,5 @@
         </div>
     </div>
 </section>
+
 {% endblock %}

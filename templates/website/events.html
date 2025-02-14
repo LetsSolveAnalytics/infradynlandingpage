@@ -2,6 +2,21 @@
 {% load static %}
 {% block main_container %}
 <section>
+    <div class="gap remove-bottom black-layer2 opc85">
+        <div class="fixed-bg" style="background-image: url({% static 'assets/images/parallax13.jpg' %});"></div>
+        <div class="container">
+            <div class="page-title-wrap">
+                <h1><img src="{% static 'assets/images/resources/page-title-ayat.png' %}" alt="page-title-ayat.png"></h1>
+                <h2>Events</h2>
+                <ul class="breadcrumbs">
+                    <li><a href="{% url 'home' %}" title="">Home</a></li>
+                    <li><a href="{% url 'events' %}?post_type=2" title="">Events</a></li>
+                </ul>
+            </div><!-- Page Title Wrap -->
+        </div>
+    </div>
+</section>
+<section>
     <div class="gap">
         <div class="container">
             <div class="event-wrap">

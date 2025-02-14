@@ -7,10 +7,22 @@
             <div class="container">
                 <div class="page-title-wrap">
                     <h1><img src="{% static 'assets/images/resources/page-title-ayat.png' %}" alt="page-title-ayat.png"></h1>
-                    <h2>Blog</h2>
+                    {% if post_type ==  "0" %}
+                        <h2>Blogs</h2>
+                    {% elif post_type == "1" %}
+                        <h2>News</h2>
+                    {% elif post_type == "2" %}
+                        <h2>Events</h2>
+                    {% endif %}
                     <ul class="breadcrumbs">
                         <li><a href="{% url 'home' %}" title="">Home</a></li>
-                        <li>Blog</li>
+                        {% if post_type == "0" %}
+                            <li>Blogs</li>
+                        {% elif post_type == "1" %}
+                            <li>News</li>
+                        {% elif post_type == "2" %}
+                            <li>Events</li>
+                        {% endif %}
                     </ul>
                 </div><!-- Page Title Wrap -->
             </div>
@@ -32,10 +44,10 @@
                                     </div>
                                     <div class="blog-info">
                                         <ul class="pst-mta2">
-                                            <li><a href="{% url 'post-detail' post.slug %}"
-                                                   title="">{{ post.title }}</a></li>
+                                            <h5><a href="{% url 'post-detail' post.slug %}"
+                                                   title="">{{ post.title }}</a></h5>
                                         </ul>
-                                        <p><a href="{% url 'post-detail' post.slug %}" title="">{{ post.content }}</a>
+                                        <p><a href="{% url 'post-detail' post.slug %}" title="">{{ post.content|truncatewords:30|linebreaks }}</a>
                                         </p>
                                         <a href="{% url 'post-detail' post.slug %}" title="">Read More</a>
                                     </div>
