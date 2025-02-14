@@ -10,21 +10,26 @@ from .models import PrayerTime
 # Create your views here.
 class PrayerTimeView(ListView):
     """
-    Retrieve prayer times based on optional start_date and end_date query parameters.
-    If no parameters are provided, return today's prayer times.
+    Retrieve prayer times based on optional month-select query parameter.
+    If no parameter is provided, return this month's prayer times.
     """
     template_name = 'website/prayer_times.html'
     queryset = PrayerTime.objects.all()
     context_object_name = 'prayertimes'
 
-    def get_prayer_queryset(self):
+    def get_queryset(self):
         month = self.request.GET.get('month-select')
         queryset = self.queryset
         now = datetime.datetime.now()
         if month:
             try:
                 month = int(month)
-                queryset = queryset.filter(date__month=month, year=now.year)
+                if 1 <= month <= 12:
+                    queryset = queryset.filter(date__month=month, date__year=now.year)
+                else:
+                    queryset = queryset.filter(date__month=now.month, date__year=now.year)
             except ValueError:
-                pass
+                queryset = queryset.filter(date__month=now.month, date__year=now.year)
+        else:
+            queryset = queryset.filter(date__month=now.month, date__year=now.year)
         return queryset
