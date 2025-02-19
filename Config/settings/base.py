@@ -123,9 +123,9 @@ EMAIL_USE_SSL = True
 
 LANGUAGES = (
     ('en', _('English')),
-    ('fi', _('Finnish')),
-    ('ar', _('Arabic')),
-    ('sv', _('Swedish')),
+    # ('fi', _('Finnish')),
+    # ('ar', _('Arabic')),
+    # ('sv', _('Swedish')),
 )
 
 LOCALE_PATHS = [
@@ -136,9 +136,9 @@ LOCALE_PATHS = [
 PARLER_LANGUAGES = {
     None: (
         {'code': 'en', },  # English
-        {'code': 'fi', },  # Finnish
-        {'code': 'ar', },  # Arabic
-        {'code': 'sv', },  # Swedish
+        # {'code': 'fi', },  # Finnish
+        # {'code': 'ar', },  # Arabic
+        # {'code': 'sv', },  # Swedish
     ),
     'default': {
         'fallbacks': ['en'],
