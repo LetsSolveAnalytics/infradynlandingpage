@@ -17,7 +17,7 @@
                     </style>
                     <div class=" featured-cap">
                         <img src="{{ slider.image.url }}" alt="bsml-txt.png">
-                        <h1><img src="{% static 'assets/images/resources/ayat-txt.png' %}" alt="ayat-txt-color">
+                        <!-- <h1><img src="{% static 'assets/images/resources/ayat-txt.png' %}" alt="ayat-txt-color"> -->
                         </h1>
                         <h3>{{ slider.title }}</h3>
                         <span>{{ slider.subtitle }}</span>
@@ -113,21 +113,34 @@
                 <div class="testi-wrap text-center">
                     <div class="testi-car owl-carousel">
                         <div class="testi-itm">
+                            <div class="testi-info">
+                                <h4>araweeh Prayer at the Masjid Announcement</h4>
+                                <p>Taraweeh prayers will be held at the Central Masjid following Isha prayer. The prayer will commence 20 minutes after the Adhan of Isha, starting with the Isha prayer, followed by Taraweeh. All worshippers are encouraged to attend and participate in the congregational prayers. </p>
+                            </div>
+                        </div>
+                        <div class="testi-itm">
                             <!-- <i><img src="assets/images/resources/testi-img1.jpg" alt="testi-img1.jpg"></i> -->
                             <div class="testi-info">
-                                <h4>Jumuah Shortened</h4>
+                                <h4>Weekly Halaqah for men and women</h4>
+                                <p>Quran Halaqah for both men and women shall take place in the masjid over the weekend throughout Ramadan. Please do
+                                    join and participate in reciting the Holy Quran together with fellow brothers or sisters.
+                                <p>Timings for men: Sunday 13:00 - 14:00</p>
+                                <p>Timings for women: Saturday 12:00 - 13:30</p>
+                                <!-- <h4>Jumuah Shortened</h4>
                                 <p>Last Jumuah, it was announced that the total duration of Jumuah
                                     (Khutbah+Dua+Prayer) will be ~30 mins. Khutbah (Arabic/English/Finnish) will be
                                     ~20 mins, followed by a ~10-min prayer. Khutbah Azan aligns with Dhuhr's time in
-                                    the Timetable (check the Mawaqit app).</p>
+                                    the Timetable (check the Mawaqit app).</p> -->
                             </div>
                         </div>
                         <div class="testi-itm">
                             <!-- <i><img src="assets/images/resources/testi-img2.jpg" alt="testi-img2.jpg"></i> -->
                             <div class="testi-info">
-                                <h4>Annual General Meeting</h4>
+                                <h4>Sunday Iftars organized by PSIY</h4>
+                                <p>Every Sunday throughout Ramadan, PSIY will organise Iftars at <a href="https://maps.app.goo.gl/xChgMda5LXjyocaU8">Raatin Nuoristalo</a> and everyone is invited. </p>
+                                <!-- <h4>Annual General Meeting</h4>
                                 <p>Annual General Meeting of PSIY will be held on 31st December 2024 for the
-                                    executive council.</p>
+                                    executive council.</p> -->
                             </div>
                         </div>
                     </div>
@@ -158,17 +171,17 @@
                                     <h3>Pohjois Suomen Islamilainen Yhdyskunta</h3>
                                 </div>
                             </div>
-                            <p>The Islamic Society of Northern Finland was registered in 2000, but Islamic
-                                activities began in the 90s. Our actions are a response to the call of Allah
-                                SWT(Subhanahu wata`ala): "and that you may become a congregation that calls people
-                                to goodness, guides them to the right way of life, and prevents them from evil"
-                                (Surah Al-Imran: verse 104). The goal of the organization is to please Allah (SWT)
-                                by striving to promote Islam, develop the Muslim community and benefit society. The
-                                organization always follows the Qur'an and the Sunnah (Prophets teaching), along
-                                with the Islamic Sharia, when making decisions and drawing up policies and
-                                procedures.
+                            <p>The Islamic Society of Northern Finland (PSIY) is a dedicated organization committed to serving the Muslim community in
+                            Oulu and beyond. Our journey began in the early 1990s, and since then, we have been working to promote Islamic
+                            teachings, foster unity, and contribute positively to society.</p>
+                            
+                            <p>Guided by the Qur’an and Sunnah, we strive to uphold Islamic values while providing essential religious, educational,
+                                and social services. From organizing prayers and Quran classes to supporting integration efforts and charitable
+                                initiatives, PSIY is a cornerstone for the Muslim community in Northern Finland.</p>
+                            
+                            <p>We welcome everyone to learn more about Islam, participate in our activities, and join us in building a stronger,
+                                united community.</p>
 
-                                We are based in Oulu, Northern Ostrobothnia, Finland.</p>
                             <a class="secndry-btn brd-rd40" href="{% url 'about' %}" title="">Learn More</a>
                         </div>
                     </div>
@@ -238,12 +251,13 @@
         <div class=" container">
             <div class="sec-title2 text-center">
                 <div class="sec-title-inner">
-                    <span>Support us,</span>
-                    <h3>We need your help.</h3>
+                    <span>Support us</span>
+                    <h3>We need your support!</h3>
                 </div>
-                <p>We have the mosque maintenance, daily electricity and water expenses. We also collect zakat and funds for financially deprived countries. </p>
+                <p>Your contributions help cover mosque maintenance, daily electricity charges, and water expenses. We also collect Zakat and funds to assist financially deprived communities worldwide. </p>
+                <p>Every donation makes a difference—thank you for your generosity! </p>
                 <div class="view-all text-center">
-                    <a class="thm-btn brd-rd40" href="{% url 'donate' %}" title="">Donate Now</a>
+                    <a class="thm-btn brd-rd40" href="{% url 'donate' %}" title="donate">Bismillah - بسم الله</a>
                 </div><!-- View All -->
             </div>
             <!-- <div class="suprt-prgrs style2 text-center">
@@ -272,14 +286,18 @@
                             <div class="sec-title-inner">
                                 <h3><span>Upcoming</span> Events</h3>
                             </div>
-                            <p>There are many events we are having from the organization.</p>
+                            <p>Explore our upcoming events and activities!
+                                Check the calendar below for event dates and details. Stay engaged and be a part of our community gatherings!
+                            </p>
                         </div>
                         <div class="container">
                             <div class="calendar-wrapper">
-                                <iframe src="https://calendar.google.com/calendar/embed?src=psislamilainen%40gmail.com&ctz=Europe%2FHelsinki&src=muslimsisterspsiyoulu%40gmail.com&ctz=Europe%2FHelsinki" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                                <iframe
+                                    src="https://calendar.google.com/calendar/embed?src=psislamilainen%40gmail.com&ctz=Europe%2FHelsinki&src=muslimsisterspsiyoulu%40gmail.com&ctz=Europe%2FHelsinki"
+                                    style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
                                 <!-- <iframe src="https://calendar.google.com/calendar/embed?src=muslimsisterspsiyoulu%40gmail.com&ctz=Europe%2FHelsinki" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
                             </div>
-                          </div>
+                        </div>
                         <div class="evnt-wrap remove-ext5">
                             <div class="row mrg20">
                                 <div class="col-md-12 col-sm-12 col-lg-12">
@@ -313,7 +331,7 @@
                     </div>
                     <div class="sec-title">
                         <div class="sec-title-inner">
-                            <h3><span>Todays Prayer Time</h3>
+                            <h3><span>Today's Prayer Timings</h3>
                         </div>
                         <br />
                         <section class="iframe-section">
