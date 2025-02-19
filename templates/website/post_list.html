@@ -37,25 +37,38 @@
                             <div class="col-md-4 col-sm-6 col-lg-4 fadeIn" data-wow-duration=".8s" data-wow-delay=".2s">
                                 <div class="blog-box">
                                     <div class="blog-thmb">
-                                        <a href="{% url 'post-detail' post.slug %}" title="">
+                                        <a href="{% url 'post-detail' post.slug %}?post_type={{post.post_type}}" title="">
                                             <img
                                                 src="{{ post.image.url }}"
                                                 alt="post-img1.jpg"></a>
                                     </div>
                                     <div class="blog-info">
                                         <ul class="pst-mta2">
-                                            <h5><a href="{% url 'post-detail' post.slug %}"
+                                            <h5><a href="{% url 'post-detail' post.slug %}?post_type={{post.post_type}}"
                                                    title="">{{ post.title }}</a></h5>
                                         </ul>
-                                        <p><a href="{% url 'post-detail' post.slug %}" title="">{{ post.content|truncatewords:30|linebreaks }}</a>
+                                        <p><a href="{% url 'post-detail' post.slug %}?post_type={{post.post_type}}" title="">{{ post.content|truncatewords:30|linebreaks }}</a>
                                         </p>
-                                        <a href="{% url 'post-detail' post.slug %}" title="">Read More</a>
+                                        <a href="{% url 'post-detail' post.slug %}?post_type={{post.post_type}}" title="">Read More</a>
                                     </div>
                                 </div>
                             </div>
                         {% endfor %}
 
                     </div>
+                    {% if post_type == "2" %}
+                    <div class="sec-title-inner">
+                        <h3><span>Upcoming</span> Events</h3>
+                    </div>
+                    <p>Stay updated on upcoming events by checking the calendar below. You can easily add this calendar to your Google Calendar using this <a href="https://calendar.google.com/calendar/u/1?cid=cHNpc2xhbWlsYWluZW5AZ21haWwuY29t">link</a>. By adding it, you'll receive notifications about events, including their locations and timings.</p>
+                    <div class="container">
+                        <div class="calendar-wrapper">
+                            <iframe src="https://calendar.google.com/calendar/embed?src=psislamilainen%40gmail.com&ctz=Europe%2FHelsinki&src=muslimsisterspsiyoulu%40gmail.com&ctz=Europe%2FHelsinki" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                            <!-- <iframe src="https://calendar.google.com/calendar/embed?src=muslimsisterspsiyoulu%40gmail.com&ctz=Europe%2FHelsinki" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
+                        </div>
+                      </div>
+                    {% endif %}
+                    
                 </div><!-- Blog Wrap -->
                 <div class="pagination-wrap text-center">
                     <ul class="pagination">
