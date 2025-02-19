@@ -56,14 +56,27 @@
                                     <div class="pst-shr-tgs">
                                         <div class="team-scl float-left">
                                             <span>Share This:</span>
+                                            <!-- Twitter Share -->
                                             <a href="http://twitter.com/intent/tweet?text=Checkout+this+blog+by+PSIY:&url=new.psiy.fi{% url 'post-detail' post.slug %}&hashtags=PSIY,masjid,OuluMosque"
-                                                title="Twitter" target="_blank">
+                                                title="Twitter" 
+                                                target="_blank">
                                                 <i class="fa fa-twitter"></i>
                                             </a>
-
-                                            <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                            <a href="whatsapp://send?text=" title="Whatsapp" target="_blank"><i class="fa fa-whatsapp"></i></a>
+                                            <!-- Facebook Share -->
+                                            <a href="https://www.facebook.com/sharer/sharer.php?u=new.psiy.fi{% url 'post-detail' post.slug %}&quote=Checkout this blog by PSIY"
+                                                title="Facebook" 
+                                                target="_blank">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                            <!-- WhatsApp Share -->
+                                            <a href="whatsapp://send?text=Checkout this blog by PSIY: new.psiy.fi{% url 'post-detail' post.slug %}"
+                                                title="WhatsApp" 
+                                                target="_blank"
+                                                data-action="share/whatsapp/share">
+                                                <i class="fa fa-whatsapp"></i>
+                                            </a>
                                         </div>
+                                    </div>
                                         <div class="tag-clouds float-right">
                                             <span>Categories:</span>
                                             {% for cat in post.categories.all %}
