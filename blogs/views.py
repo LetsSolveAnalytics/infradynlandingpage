@@ -36,8 +36,23 @@ class PostDetailView(DetailView):
     template_name = 'website/post_details.html'
     context_object_name = 'post'
 
-    def get_context_data(self, *, object_list=None, **kwargs):
+    def get_queryset(self):
+        # cat = self.request.GET.get('cat')
+        # search = self.request.GET.get('search')
+        post_type = self.request.GET.get('post_type')
+        print(post_type)
+        queryset = self.queryset
+        # if cat:
+        #     queryset = queryset.filter(categories__slug=cat)
+        # if search:
+        #     queryset = queryset.filter(content__icontains=search)
+        if post_type:
+            queryset = queryset.filter(post_type=post_type)
+        return queryset
+    
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['post_type'] = self.request.GET.get('post_type')
         context['categories'] = Category.objects.filter(is_active=True)
         context['recent_posts'] = Post.objects.filter(is_published=True).order_by('-created_at')
         return context
