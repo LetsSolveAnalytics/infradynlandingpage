@@ -37,7 +37,7 @@
                     <li class="menu-item-has-children"><a href="{% url 'contact' %}" title="">Contact Us</a>
                         <ul>
                             <li><a href="{% url 'about' %}" title="">About Us</a></li>
-                            <li><a href="{% url 'history' %}" title="">History</a></li>
+                            <!-- <li><a href="{% url 'history' %}" title="">History</a></li> -->
                             <!-- <li><a href="{% url 'about' %}" title="">Aim and Vision</a></li> -->
                             <li><a href="{% url 'contact' %}" title="">Contact</a></li>
                         </ul>
@@ -61,7 +61,7 @@
                     </li> -->
                     <li class="menu-item-has-children" style="width: 180px;">
                         <label for="language-select" style="display: none;">Language</label>
-                        <select id="language-select" onchange="changeLanguage(this.value)">
+                        <select class="secondary-btn brd-rd40" id="language-select" onchange="changeLanguage(this.value)">
                             {% get_current_language as CURRENT_LANGUAGE %}
                             {% get_available_languages as AVAILABLE_LANGUAGES %}
                             {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
@@ -95,7 +95,7 @@
         </div>
         <div class="rspn-cnt">
             <span><i class="fa fa-envelope thm-clr"></i><a href="mailto:info@psiy.fi" title="">info@psiy.fi</a></span>
-            <span><i class="fa fa-phone thm-clr"></i>+358-123-456-789</span>
+            <span><i class="fa fa-phone thm-clr"></i><a href="tel:+358500582371" title="Call Us">+358 500582371</a></span>
         </div>
         <span class="rspn-mnu-btn"><i class="fa fa-list-ul"></i></span>
     </div>
@@ -125,14 +125,14 @@
                 <a href="{% url 'intro-to-islam' %}" title="">Resources</a>
                 <ul>
                     <li><a href="{% url 'intro-to-islam' %}" title="">Introduction to Islam</a></li>
-                    <li><a href="{% url 'books-pamphlets' %}" title="">Books and Pamphlets</a></li>
+                    <!-- <li><a href="{% url 'books-pamphlets' %}" title="">Books and Pamphlets</a></li> -->
                 </ul>
             </li>
             <li class="menu-item-has-children">
                 <a href="#" title="">Contact Us</a>
                 <ul>
                     <li><a href="{% url 'about' %}" title="">About Us</a></li>
-                    <li><a href="{% url 'history' %}" title="">History</a></li>
+                    <!-- <li><a href="{% url 'history' %}" title="">History</a></li> -->
                     <!-- <li><a href="{% url 'about' %}" title="">Aim and Vision</a></li> -->
                     <li><a href="{% url 'contact' %}" title="">Contact</a></li>
                 </ul>
