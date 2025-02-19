@@ -20,50 +20,83 @@
     <div class="container">
         <div class="plrs-wrap text-center remove-ext3">
             <label for="month-select" style="display: none;">Month</label>
-            <select id="month-select" onchange="changeMonth(this.value)" name="month-select">
-                <option value="01">January</option>
-                <option value="02">Febraury</option>
-                <option value="03">March</option>
-                <option value="04">April</option>
-                <option value="05">May</option>
-                <option value="06">June</option>      
-                <option value="07">July</option>
-                <option value="08">August</option>
-                <option value="09">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
+            <select class="thm-btn brd-rd40" id="month-select" onchange="changeMonth(this.value)" name="month-select">
+                <option class="thm-btn brd-rd40" value="01">January</option>
+                <option class="thm-btn brd-rd40" value="02">February</option>
+                <option class="thm-btn brd-rd40" value="03">March</option>
+                <option class="thm-btn brd-rd40" value="04">April</option>
+                <option class="thm-btn brd-rd40" value="05">May</option>
+                <option class="thm-btn brd-rd40" value="06">June</option>      
+                <option class="thm-btn brd-rd40" value="07">July</option>
+                <option class="thm-btn brd-rd40" value="08">August</option>
+                <option class="thm-btn brd-rd40" value="09">September</option>
+                <option class="thm-btn brd-rd40" value="10">October</option>
+                <option class="thm-btn brd-rd40" value="11">November</option>
+                <option class="thm-btn brd-rd40" value="12">December</option>
             </select>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Fajr</th>
-                        <th>Shuruk</th>
-                        <th>Zuhr</th>
-                        <th>Asr</th>
-                        <th>Maghrib</th>
-                        <th>Isha</th>
-                        <th>Jumuah</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for prayertime in prayertimes %}
-                    <tr>
-                        <td>{{ prayertime.date }}</td>
-                        <td>{{ prayertime.fajr_start }}</td>
-                        <td>{{ prayertime.sunrise_start }}</td>
-                        <td>{{ prayertime.dhuhr_start }}</td>
-                        <td>{{ prayertime.asr_start }}</td>
-                        <td>{{ prayertime.maghrib_start }}</td>
-                        <td>{{ prayertime.isha_start }}</td>
-                        <td>{{ prayertime.jumuah_start }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <div class="table-responsive" style="overflow-x: auto;">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Fajr</th>
+                            <th>Shuruk</th>
+                            <th>Zuhr</th>
+                            <th>Asr</th>
+                            <th>Maghrib</th>
+                            <th>Isha</th>
+                            <!-- <th>Jumuah</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for prayertime in prayertimes %}
+                        <tr>
+                            <td>{{ prayertime.date }}</td>
+                            <td>{{ prayertime.fajr_start }}</td>
+                            <td>{{ prayertime.sunrise_start }}</td>
+                            <td>{{ prayertime.dhuhr_start }}</td>
+                            <td>{{ prayertime.asr_start }}</td>
+                            <td>{{ prayertime.maghrib_start }}</td>
+                            <td>{{ prayertime.isha_start }}</td>
+                            <!-- <td>{{ prayertime.jumuah_start }}</td> -->
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </section>
+
+<script>
+    function changeMonth(selectedMonth) {
+      // Map month codes to month names
+      const monthNames = {
+        "01": "January",
+        "02": "February",
+        "03": "March",
+        "04": "April",
+        "05": "May",
+        "06": "June",
+        "07": "July",
+        "08": "August",
+        "09": "September",
+        "10": "October",
+        "11": "November",
+        "12": "December"
+      };
+  
+      // Update the select element's display value (if needed)
+      document.getElementById("month-select").value = selectedMonth;
+  
+      // Optionally update a separate button or display element:
+      // document.getElementById("monthSelectButton").innerText = monthNames[selectedMonth];
+  
+      // Update the query parameter and reload the page
+      const urlParams = new URLSearchParams(window.location.search);
+      urlParams.set('month-select', selectedMonth);
+      window.location.search = urlParams.toString();
+    }
+  </script>
 
 {% endblock %}
