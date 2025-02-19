@@ -12,7 +12,7 @@ from prayertimes.models import PrayerTime
 from coreapp.models import User
 
 # Custom admin for User to ensure password hashing
-class CustomUserAdmin(UserAdmin):
+class CustomUserAdmin(admin.ModelAdmin):
     ordering = ["email"]
     list_display = ["email", "first_name", "last_name", "is_staff"]
     def save_model(self, request, obj, form, change):
