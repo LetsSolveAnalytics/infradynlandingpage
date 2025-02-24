@@ -66,3 +66,11 @@
     python manage.py runserver
     ```
 
+### How to know the username and the password of the admin:
+
+```bash
+python manage.py shell 
+from coreapp.models import User
+User.objects.filter(is_superuser=True).values('email') # shows the list of emails
+User.objects.get(email="admin_email@email.com").set_password("YournewPassword")
+```
