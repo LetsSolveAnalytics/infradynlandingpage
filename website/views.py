@@ -32,38 +32,48 @@ class HomeView(TemplateView):
 class IntrotoIslamView(TemplateView):
     template_name = 'website/intro-to-islam.html'
 
+
 class BooksPamphletsView(TemplateView):
     template_name = 'website/books.html'
+
 
 class HistoryView(TemplateView):
     template_name = 'website/history.html'
 
+
 class DonateView(TemplateView):
     template_name = 'website/donate.html'
+
 
 class AboutView(TemplateView):
     template_name = 'website/about.html'
 
+
 class MembershipView(TemplateView):
     template_name = 'website/membership.html'
+
 
 class ServiceListView(ListView):
     queryset = Service.objects.filter(is_active=True)
     template_name = 'website/services.html'
     context_object_name = 'services'
 
+
 class QuranclassView(TemplateView):
     template_name = 'website/quran_classes.html'
+
 
 class GalleryListView(ListView):
     queryset = GalleryImage.objects.filter(is_active=True)
     template_name = 'website/gallery.html'
     context_object_name = 'galleries'
 
+
 class EventListView(ListView):
     queryset = EventImage.objects.filter(is_active=True)
     template_name = 'website/events.html'
     context_object_name = 'events'
+
 
 class NewsListView(ListView):
     queryset = News.objects.filter(is_active=True)
@@ -82,7 +92,8 @@ class PageView(View):
 
 class ContactView(View):
     def get(self, request):
-        return render(request, 'website/contact.html')
+        form = ContactMessageForm()
+        return render(request, 'website/contact.html', {'form': form})
 
     def post(self, request):
         form = ContactMessageForm(request.POST)
