@@ -26,6 +26,7 @@ urlpatterns = i18n_patterns(
     path(_('rosetta/'), include('rosetta.urls')),
     path(_('blog/'), include('blogs.urls')),
     path(_('timings/'), include('prayertimes.urls')),
+    path('captcha/', include('captcha.urls')),
     path('', include('website.urls')),  # Website root
 )
 # Static and media files (non-i18n)
