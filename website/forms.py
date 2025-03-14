@@ -1,3 +1,4 @@
+from captcha.fields import CaptchaField
 from django import forms
 
 from website.models import Page, GlobalSettings, ContactMessage
@@ -16,6 +17,8 @@ class GlobalSettingsForm(forms.ModelForm):
 
 
 class ContactMessageForm(forms.ModelForm):
+    captcha = CaptchaField()
+
     class Meta:
         model = ContactMessage
         fields = ('name', 'phone', 'email', 'subject', 'message')

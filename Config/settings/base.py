@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rosetta',
     'parler',
+    'captcha',
     'django.contrib.staticfiles',
     'coreapp.apps.CoreappConfig',
     'website.apps.WebsiteConfig',

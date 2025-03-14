@@ -14,7 +14,7 @@ from . import forms
 
 from .constants import PageType
 from .forms import ContactMessageForm
-from .models import Slider, Service, Page, GalleryImage, EventImage, News
+from .models import Slider, Service, Page, GalleryImage, EventImage, News, ContactMessage
 
 
 # Create your views here.
@@ -87,7 +87,10 @@ class ContactView(View):
     def post(self, request):
         form = ContactMessageForm(request.POST)
         if form.is_valid():
-            contact_message = form.save()
+            form_data = form.cleaned_data
+            form_data.pop('captcha')
+            contact_message = ContactMessage.objects.create(**form_data)
+            contact_message.save()
             email_utils.send_contact_message_email("psislamilainen@gmail.com", contact_message)
         else:
             print(form.errors)
