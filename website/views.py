@@ -13,8 +13,8 @@ from coreapp import email_utils
 from . import forms
 
 from .constants import PageType
-from .forms import ContactMessageForm
-from .models import Slider, Service, Page, GalleryImage, EventImage, News, ContactMessage
+from .forms import ContactMessageForm, RequestDemoForm, PricingRequestForm
+from .models import Slider, Solution, ContactMessage, RequestDemo
 
 
 # Create your views here.
@@ -25,69 +25,69 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['sliders'] = Slider.objects.filter(is_active=True)
-        context['services'] = Service.objects.filter(is_active=True)
         return context
 
 
-class IntrotoIslamView(TemplateView):
-    template_name = 'website/intro-to-islam.html'
-
-
-class BooksPamphletsView(TemplateView):
-    template_name = 'website/books.html'
-
-
-class HistoryView(TemplateView):
-    template_name = 'website/history.html'
-
-
-class DonateView(TemplateView):
-    template_name = 'website/donate.html'
+class PricingView(TemplateView):
+    template_name = 'website/pricing.html'
 
 
 class AboutView(TemplateView):
     template_name = 'website/about.html'
 
 
-class MembershipView(TemplateView):
-    template_name = 'website/membership.html'
+class SolutionListView(ListView):
+    queryset = Solution.objects.filter(is_active=True)
+    template_name = 'website/solutions.html'
+    context_object_name = 'solutions'
 
 
-class ServiceListView(ListView):
-    queryset = Service.objects.filter(is_active=True)
-    template_name = 'website/services.html'
-    context_object_name = 'services'
+class RequestDemoView(View):
+    def get(self, request):
+        form = RequestDemoForm()
+        return render(request, 'website/request-a-demo.html', {'form': form})
+
+    def post(self, request):
+        form = RequestDemoForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            demo_request = RequestDemo.objects.create(**data)
+            demo_request.save()
+
+            # Optionally send an email
+            # email_utils.send_demo_request_email("team@yourcompany.com", demo_request)
+
+            return render(request, 'website/request-a-demo.html', {
+                'form': RequestDemoForm(),
+                'submitted': True
+            })
+        else:
+            print(form.errors)
+        return render(request, 'website/request-a-demo.html', {'form': form})
 
 
-class QuranclassView(TemplateView):
-    template_name = 'website/quran_classes.html'
+class PricingRequestView(View):
+    def get(self, request):
+        form = PricingRequestForm()
+        return render(request, 'website/pricing.html', {'form': form})
 
+    def post(self, request):
+        form = PricingRequestForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            demo_request = RequestDemo.objects.create(**data)
+            demo_request.save()
 
-class GalleryListView(ListView):
-    queryset = GalleryImage.objects.filter(is_active=True)
-    template_name = 'website/gallery.html'
-    context_object_name = 'galleries'
+            # Optionally send an email
+            # email_utils.send_demo_request_email("team@yourcompany.com", demo_request)
 
-
-class EventListView(ListView):
-    queryset = EventImage.objects.filter(is_active=True)
-    template_name = 'website/events.html'
-    context_object_name = 'events'
-
-
-class NewsListView(ListView):
-    queryset = News.objects.filter(is_active=True)
-    template_name = 'website/news.html'
-    context_object_name = 'news'
-
-
-class PageView(View):
-    def get(self, request, path):
-        try:
-            page = Page.objects.get(url_path=path)
-            return render(request, 'website/page.html', {'page': page})
-        except ObjectDoesNotExist:
-            raise Http404
+            return render(request, 'website/pricing.html', {
+                'form': PricingRequestForm(),
+                'submitted': True
+            })
+        else:
+            print(form.errors)
+        return render(request, 'website/pricing.html', {'form': form})
 
 
 class ContactView(View):

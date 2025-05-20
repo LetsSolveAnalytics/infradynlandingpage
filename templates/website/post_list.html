@@ -1,86 +1,151 @@
 {% extends 'website/base.html' %}
 {% load static %}
 {% block main_container %}
-    <section>
-        <div class="gap remove-bottom black-layer2 opc85">
-            <div class="fixed-bg" style="background-image: url({% static 'assets/images/parallax13.jpg' %});"></div>
-            <div class="container">
-                <div class="page-title-wrap">
-                    <h1><img src="{% static 'assets/images/resources/page-title-ayat.png' %}" alt="page-title-ayat.png"></h1>
-                    {% if post_type ==  "0" %}
-                        <h2>Blogs</h2>
-                    {% elif post_type == "1" %}
-                        <h2>News</h2>
-                    {% elif post_type == "2" %}
-                        <h2>Events</h2>
-                    {% endif %}
-                    <ul class="breadcrumbs">
-                        <li><a href="{% url 'home' %}" title="">Home</a></li>
-                        {% if post_type == "0" %}
-                            <li>Blogs</li>
-                        {% elif post_type == "1" %}
-                            <li>News</li>
-                        {% elif post_type == "2" %}
-                            <li>Events</li>
-                        {% endif %}
-                    </ul>
-                </div><!-- Page Title Wrap -->
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="gap">
-            <div class="container">
-                <div class="blog-wrap remove-ext7">
-                    <div class="row mrg40">
-                        {% for post in posts %}
-                            <div class="col-md-4 col-sm-6 col-lg-4 fadeIn" data-wow-duration=".8s" data-wow-delay=".2s">
-                                <div class="blog-box">
-                                    <div class="blog-thmb">
-                                        <a href="{% url 'post-detail' post.slug %}?post_type={{post.post_type}}" title="">
-                                            <img
-                                                src="{{ post.image.url }}"
-                                                alt="post-img1.jpg"></a>
-                                    </div>
-                                    <div class="blog-info">
-                                        <ul class="pst-mta2">
-                                            <h5><a href="{% url 'post-detail' post.slug %}?post_type={{post.post_type}}"
-                                                   title="">{{ post.title }}</a></h5>
-                                        </ul>
-                                        <p><a href="{% url 'post-detail' post.slug %}?post_type={{post.post_type}}" title="">{{ post.content|truncatewords:30|linebreaks }}</a>
-                                        </p>
-                                        <a href="{% url 'post-detail' post.slug %}?post_type={{post.post_type}}" title="">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
 
+<div class="header-space"></div>
+
+<!-- Breadcrumb Area Start -->
+<nav class="breadcrumb-area bg-dark bg-6 ptb-70">
+    <div class="container d-md-flex">
+        <h2 class="text-white mb-0">Blog</h2>
+        <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
+            <li class="breadcrumb-item"><a href="index.html">Home</a> <span class="text-white">/</span></li>
+            <li aria-current="page" class="breadcrumb-item active">Blog</li>
+        </ol>
+    </div>
+</nav>
+<!-- Breadcrumb Area End -->
+
+<!-- Blog Post Section Start -->
+<section class="blog-page section-ptb bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 col-lg-9 mb-sm-50">
+                <div class="card mb-50" data-aos="fade-up">
+                    <div class="card-header position-relative">
+                        <a href="blog-details.html"><img src="assets/img/blog/1.jpg" alt="Post Thumbnail"></a>
                     </div>
-                    {% if post_type == "2" %}
-                    <div class="sec-title-inner">
-                        <h3><span>Upcoming</span> Events</h3>
+                    <div class="card-body bg-white">
+                        <h3><a href="blog-details.html">Resume notifications only when you’re ready</a></h3>
+                        <h5 class="mb-25">By the team at RNR, March 18, 2019</h5>
+                        <p class="mb-30">Looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the. Contrary to popular belief, Lorem Ipsum is not simply random text. </p>
+                        <a href="blog-details.html" class="btn btn-primary">Read More</a>
                     </div>
-                    <p>Stay updated on upcoming events by checking the calendar below. You can easily add this calendar to your Google Calendar using this <a href="https://calendar.google.com/calendar/u/1?cid=cHNpc2xhbWlsYWluZW5AZ21haWwuY29t">link</a>. By adding it, you'll receive notifications about events, including their locations and timings.</p>
-                    <div class="container">
-                        <div class="calendar-wrapper">
-                            <iframe src="https://calendar.google.com/calendar/embed?src=psislamilainen%40gmail.com&ctz=Europe%2FHelsinki&src=muslimsisterspsiyoulu%40gmail.com&ctz=Europe%2FHelsinki" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-                            <!-- <iframe src="https://calendar.google.com/calendar/embed?src=muslimsisterspsiyoulu%40gmail.com&ctz=Europe%2FHelsinki" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
+                </div>
+                <!-- Single Post End -->
+                <div class="card mb-50" data-aos="fade-up">
+                    <div class="card-header position-relative">
+                        <a href="blog-details.html"><img src="assets/img/blog/2.jpg" alt="Post Thumbnail"></a>
+                    </div>
+                    <div class="card-body bg-white">
+                        <h3><a href="blog-details.html">Many desktop publishing packages and web page</a></h3>
+                        <h5 class="mb-25">By the team at RNR, March 18, 2019</h5>
+                        <p class="mb-30">Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum</p>
+                        <a href="blog-details.html" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+                <!-- Single Post End -->
+                <div class="card" data-aos="fade-up">
+                    <div class="card-header position-relative">
+                        <a href="blog-details.html"><img src="assets/img/blog/3.jpg" alt="Post Thumbnail"></a>
+                    </div>
+                    <div class="card-body bg-white">
+                        <h3><a href="blog-details.html">If you are going to use a passage of Lorem</a></h3>
+                        <h5 class="mb-25">By the team at RNR, March 18, 2019</h5>
+                        <p class="mb-30">All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with</p>
+                        <a href="blog-details.html" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+                <!-- Single Post End -->
+                <!--Pagination Start -->
+                <div class="mt-50 custom text-center">
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <span class="page-link"><i class="fa fa-angle-left"></i></span>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#!">01</a>
+                            </li>
+                            <li class="page-item active">
+                                <span class="page-link">02</span>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#!">03</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#!"><i class="fa fa-angle-right"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!--Pagination End -->
+            </div>
+            <!-- Blog Posts End -->
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="sidebar" data-aos="fade-in">
+                    <div class="widget search-box mb-30">
+                        <form class="input-group" action="https://regaltheme.com/tf/multi/rnr/search">
+                            <input class="form-control" type="text" placeholder="Search..">
+                            <div class="input-group-append">
+                                <button type="submit" class="input-group-text"><i class="ti-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Widget End -->
+                    <div class="widget recent-post bg-white mb-30">
+                        <div class="widget-title mb-15">
+                            <h4 class="mb-10">Recent Posts</h4>
+                            <hr class="line bw-2">
                         </div>
-                      </div>
-                    {% endif %}
-                    
-                </div><!-- Blog Wrap -->
-                <div class="pagination-wrap text-center">
-                    <ul class="pagination">
-                        <li><a href="#" title="">1</a></li>
-                        <!-- <li class="active"><a href="#" title="">2</a></li> -->
-                        <!-- <li><a href="#" title="">3</a></li>
-                        <li>................</li>
-                        <li><a href="#" title="">10</a></li> -->
-                    </ul>
-                </div><!-- Pagination Wrap -->
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="blog-details.html">Many desktop publishing packages and web</a>
+                            </li>
+                            <li>
+                                <a href="blog-details.html">All the Lorem Ipsum gen on the Internet tend.</a>
+                            </li>
+                            <li>
+                                <a href="blog-details.html">If you are going to use a passage of Lorem</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Widget End -->
+                    <div class="widget categories bg-white mb-30">
+                        <div class="widget-title mb-15">
+                            <h4 class="mb-10">Categories</h4>
+                            <hr class="line bw-2">
+                        </div>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Business - <span>15</span></a></li>
+                            <li><a href="#">Corporate - <span>08</span></a></li>
+                            <li><a href="#">Agency - <span>05</span></a></li>
+                            <li><a href="#">Software - <span>12</span></a></li>
+                            <li><a href="#">StartUp - <span>10</span></a></li>
+                        </ul>
+                    </div>
+                    <!-- Widget End -->
+                    <div class="widget tags bg-white">
+                        <div class="widget-title mb-15">
+                            <h4 class="mb-10">Tags</h4>
+                            <hr class="line bw-2">
+                        </div>
+                        <div class="tag-link clearfix">
+                            <a href="#">Business</a>
+                            <a href="#">Studio</a>
+                            <a href="#">New</a>
+                            <a href="#">Rnr</a>
+                            <a href="#">Template</a>
+                            <a href="#">Design</a>
+                            <a href="#">Development</a>
+                        </div>
+                    </div>
+                    <!-- Widget End -->
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+<!-- Blog Post Section End -->
 
 {% endblock %}

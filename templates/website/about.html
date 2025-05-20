@@ -1,305 +1,264 @@
 {% extends 'website/base.html' %}
 {% load static %}
 {% block main_container %}
-<section>
-    <div class="gap remove-bottom black-layer2 opc85">
-        <div class="fixed-bg" style="background-image: url(assets/images/parallax12.jpg);"></div>
-        <div class="container">
-            <div class="page-title-wrap">
-                <h1><img src="{% static 'assets/images/resources/page-title-ayat.png' %}" alt="page-title-ayat.png"></h1>
-                <h2>About Us</h2>
-                <ul class="breadcrumbs">
-                    <li><a href="{% url 'home' %}" title="">Home</a></li>
-                    <li>About Us</li>
-                </ul>
-            </div><!-- Page Title Wrap -->
-        </div>
+
+<!-- Breadcrumb Area Start -->
+<nav class="breadcrumb-area bg-dark bg-6 ptb-70">
+    <div class="container d-md-flex">
+        <h2 class="text-white mb-0">About Us</h2>
+        <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a> <span class="text-white">/</span></li>
+            <li aria-current="page" class="breadcrumb-item active">About Us</li>
+        </ol>
     </div>
-</section>
-<section>
-    <div class="gap">
+</nav>
+<!-- Breadcrumb Area End -->
+
+<div class="bg-3 bg-white mt-120">
+    <!-- Hero Block Start -->
+    <section class="hero-block pt-60">
         <div class="container">
-            <div class="sec-title style2 text-center">
-                <!-- <div class="sec-title-inner">
-                    <h3><span class="secndry-clr">Things</span> We Are Doing</h3>
-                </div> -->
-                <p>The Islamic Society of Northern Finland (PSIY) was officially registered in 2000, but our efforts to serve the Muslim community began in the early 1990s. Our work is guided by the call of Allah (SWT):
-
-                    "And that you may become a congregation that calls people to goodness, guides them to the right way of life, and prevents them from evil."
-                    [Surah Aal-e-Imran 3:104]</p>
-
-            <div class="srv-wrap3">
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-lg-4">
-                        <div class="srv-mckp">
-                            <img src="/static/assets/images/resources/srv-img.png" alt="srv-img.png">
-                        </div>
+            <div class="row d-flex align-items-center">
+                <div class="col-12 col-md-6 col-xl-5 mb-sm-30" data-aos="fade-right">
+                    <div class="hero-thumb m-minus-70">
+                        <img src="{% static 'assets/img/hero/1.png' %}" alt="Hero Thumbnail">
                     </div>
-                    <div class="col-md-8 col-sm-12 col-lg-8">
-                        <div class="remove-ext5">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                    <div class="srv-box3">
-                                        <div class="srv-ttl">
-                                            <i class="flaticon-quran-rehal"></i>
-                                            <h4>Qur'an Learning</h4>
-                                            <span>Deepen Your Knowledge</span>
-                                        </div>
-                                        <p>We offer Qur'an classes for both children and adults every week at the masjid, providing an opportunity to learn and understand the words of Allah (SWT). Learn more about the schedule <a href="/quran-classes">here</a>.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                    <div class="srv-box3">
-                                        <div class="srv-ttl">
-                                            <i class="flaticon-heart-1"></i>
-                                            <h4>Charity Service</h4>
-                                            <span>Supporting Those in Need</span>
-                                        </div>
-                                        <p>We actively collect and distribute charity donations to assist the less fortunate, ensuring that those in need receive essential support and relief. Help those in need by <a href="/donate">donating here</a>.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                    <div class="srv-box3">
-                                        <div class="srv-ttl">
-                                            <i class="flaticon-mosque"></i>
-                                            <h4>Community Activities</h4>
-                                            <span>Engaging & Inspiring Events</span>
-                                        </div>
-                                        <p>We organize a variety of events and programs to bring the community together, including Qur'an recitation sessions, storytelling evenings, kids’ club, and a teenage girls’ club. These initiatives help nurture faith, learning, and friendship in a welcoming environment.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                    <div class="srv-box3">
-                                        <div class="srv-ttl">
-                                            <i class="flaticon-social-care"></i>
-                                            <h4>Helping the Poor</h4>
-                                            <span>Feeding The Hungry</span>
-                                        </div>
-                                        <p>As Muslims, it is our duty to care for the poor and needy in our community. We strive to provide food and assistance to those facing hardship, embodying the values of compassion and generosity.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-6 ml-auto" data-aos="fade-left">
+                    <div class="hero-text">
+                        <h3 class="mb-5">About</h3>
+                        <h1 class="mb-25">Management</h1>
+                        <p class="mb-30">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web.</p>
+                        <a href="#" class="btn btn-primary">Get Started</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section>
-    <div class="gap gray-bg2">
+    </section>
+    <!-- Hero Block End -->
+    <!-- Hero Block Start -->
+    <section class="hero-block section-ptb">
         <div class="container">
-            <div class="msn-wrap">
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 col-lg-6">
-                        <div class="msn-thmb-wrap">
-                            <a href="/static/assets/images/resources/hstry-img.png" data-fancybox="gallery" title=""><img src="/static/assets/images/resources/hstry-img.png" alt="msn-img1.jpg"></a> 
-                        </div>
+            <div class="row d-flex align-items-center">
+                <div class="col-12 col-md-6 mb-sm-30" data-aos="fade-right">
+                    <div class="hero-text">
+                        <h3 class="mb-5">Our Company</h3>
+                        <h1 class="mb-25">Mission and Vision</h1>
+                        <p class="mb-30 mw-5"> It is popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like</p>
+                        <a href="#" class="btn btn-primary">Best Services</a>
                     </div>
-                    <div class="col-md-6 col-sm-12 col-lg-6">
-                        <div class="msn-desc">
-                            <h3>Mission Statement</h3>
-                            <p>Our mission is to please Allah (SWT) by promoting Islam, fostering the growth of the Muslim community, and contributing positively to society. We are committed to making decisions based on the Qur’an, the Sunnah (teachings of the Prophet ﷺ), and Islamic Sharia.</p>
-                            <p>Our journey:</p>
-                            <ul>
-                                <li>1992: Established the Oulu branch of the Islamic Society of Finland.</li>
-                                <li>1993: Secured a Muslim cemetery in Oulu and hosted Finland’s first Islamic Conference.</li>
-                                <li>1994: Organized the Second Islamic Conference in Finland, initiating efforts for a unified Islamic umbrella
-                                    organization.</li>
-                                <li>1996: Successfully established the Federation of Islamic Organisations in Finland.</li>
-                                <li>1998: Registered as Oulu Islamilainen Yhdistys.</li>
-                                <li>2000: Registered under our current name, Pohjois Suomen Islamilainen Yhdyskunta (PSIY).</li>
-                                <li>2012: With the support of Pohjoismaiden Säätiö, acquired our premises at Linnankatu 23-25, 90100 Oulu.</li>
+                </div>
+                <div class="col-12 col-md-6 ml-auto" data-aos="fade-left">
+                    <div class="hero-thumb m-minus-60">
+                        <img src="{% static 'assets/img/slider/layer/1.png' %}" alt="Hero Thumbnail">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Block End -->
+</div>
+
+<!-- Fun Facts Start -->
+<div class="fun-facts bg-light ptb-100">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12 col-sm-6 col-lg-3 mb-sm-40 mb-md-50" data-aos="zoom-in">
+                <div class="single-fact">
+                    <div class="icon circle-icon mx-auto mb-20">
+                        <i class="ti-time"></i>
+                    </div>
+                    <h2><span class="counter">10</span>+</h2>
+                    <h4 class="mb-0">Years of Operation</h4>
+                </div>
+            </div>
+            <!-- Single Fact End -->
+            <div class="col-12 col-sm-6 col-lg-3 mb-sm-40 mb-md-50" data-aos="zoom-in" data-aos-delay="400">
+                <div class="single-fact">
+                    <div class="icon circle-icon mx-auto mb-20">
+                        <i class="ti-face-smile"></i>
+                    </div>
+                    <h2><span class="counter">150</span></h2>
+                    <h4 class="mb-0">Happy Customer</h4>
+                </div>
+            </div>
+            <!-- Single Fact End -->
+            <div class="col-12 col-sm-6 col-lg-3 mb-sm-40 mb-md-50" data-aos="zoom-in" data-aos-delay="600">
+                <div class="single-fact">
+                    <div class="icon circle-icon mx-auto mb-20">
+                        <i class="ti-user"></i>
+                    </div>
+                    <h2><span class="counter">12</span></h2>
+                    <h4 class="mb-0">Team Mamber</h4>
+                </div>
+            </div>
+            <!-- Single Fact End -->
+            <div class="col-12 col-sm-6 col-lg-3 mb-sm-40 mb-md-50" data-aos="zoom-in" data-aos-delay="800">
+                <div class="single-fact">
+                    <div class="icon circle-icon mx-auto mb-20">
+                        <i class="ti-cup"></i>
+                    </div>
+                    <h2><span class="counter">25</span></h2>
+                    <h4 class="mb-0">Award</h4>
+                </div>
+            </div>
+            <!-- Single Fact End -->
+        </div>
+    </div>
+</div>
+<!-- Fun Facts End -->
+
+<!-- Team Section Start -->
+<section class="team-members section-ptb bg-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12" data-aos="zoom-in">
+                <div class="heading mb-80">
+                    <h2>Our Team Leader</h2>
+                    <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
+                    <hr class="line bw-2 mx-auto line-sm mb-5">
+                    <hr class="line bw-2 mx-auto">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in">
+                <div class="media">
+                    <div class="thumb position-relative">
+                        <img src="{% static 'assets/img/team/1.png' %}" alt="Member Image">
+                    </div>
+                    <div class="media-body bg-white">
+                        <h3 class="mb-5">Marie Black</h3>
+                        <h5>Designer</h5>
+                        <p>If you are going to use ssage of Lorem Ipsum, you need to be sure there isn't anything embarrassing.</p>
+                        <div class="social-icon">
+                            <ul class="list-unstyled list-group flex-row">
+                                <li><a href="http://www.facebook.com/"><i class="ti-facebook"></i></a></li>
+                                <li><a href="http://www.twitter.com/"><i class="ti-twitter"></i></a></li>
+                                <li><a href="http://www.linkedin.com/"><i class="ti-linkedin"></i></a></li>
+                                <li><a href="http://www.pinterest.com/"><i class="ti-pinterest"></i></a></li>
                             </ul>
-                            <!-- <a class="thm-btn brd-rd40" href="#" title="">MORE ABOUT</a> -->
                         </div>
                     </div>
+                </div>
+            </div>
+            <!-- Single Member End -->
+            <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
+                <div class="media">
+                    <div class="thumb position-relative">
+                        <img src="{% static 'assets/img/team/2.png' %}" alt="Member Image">
+                    </div>
+                    <div class="media-body bg-white">
+                        <h3 class="mb-5">Katherine King</h3>
+                        <h5>Developer</h5>
+                        <p>Because it is pleasu because those who do not know how to pursue pleasure rationally encounter consequ</p>
+                        <div class="social-icon">
+                            <ul class="list-unstyled list-group flex-row">
+                                <li><a href="http://www.facebook.com/"><i class="ti-facebook"></i></a></li>
+                                <li><a href="http://www.twitter.com/"><i class="ti-twitter"></i></a></li>
+                                <li><a href="http://www.linkedin.com/"><i class="ti-linkedin"></i></a></li>
+                                <li><a href="http://www.pinterest.com/"><i class="ti-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4" data-aos="zoom-in" data-aos-delay="600">
+                <!-- Single Member End -->
+                <div class="media">
+                    <div class="thumb position-relative">
+                        <img src="{% static 'assets/img/team/3.png' %}" alt="Member Image">
+                    </div>
+                    <div class="media-body bg-white">
+                        <h3 class="mb-5">Marie Warren</h3>
+                        <h5>Marketar</h5>
+                        <p>Nam libero tempore, csoluta nobis est eligendi opcumque nihil impedit quo minuquod maxime placeat</p>
+                        <div class="social-icon">
+                            <ul class="list-unstyled list-group flex-row">
+                                <li><a href="http://www.facebook.com/"><i class="ti-facebook"></i></a></li>
+                                <li><a href="http://www.twitter.com/"><i class="ti-twitter"></i></a></li>
+                                <li><a href="http://www.linkedin.com/"><i class="ti-linkedin"></i></a></li>
+                                <li><a href="http://www.pinterest.com/"><i class="ti-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Member End -->
+        </div>
+    </div>
+</section>
+<!-- Team Section End -->
+
+<!-- Promo Box Start -->
+<section class="promo-area section-ptb bg-4 bg-primary">
+    <div class="container ptb-30">
+        <div class="row text-center">
+            <div class="col-12" data-aos="zoom-in">
+                <div class="heading">
+                    <h1 class="text-white mb-25">Get Started with Theme</h1>
+                    <p class="text-white mb-30">Richard McClintock, a Latin professor at Hampden-Sydney College in <br class="d-none d-md-block"> Virginia, looked up one of the more obscure</p>
+                    <a class="btn btn-light" href="#">Get started</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- <section>
-    <div class="gap">
-        <div class="container">
-            <div class="sec-title style2 text-center">
-                <div class="sec-title-inner">
-                    <span>Our Collection</span>
-                    <h3>Portfolio</h3>
-                </div>
-                <p>Nam facilisis mauris a metus finibus, id gravida velit ornare. Cras neque tortor, faucibus sit amet lacus eu, maximus hendrerit ipsum. Fusce condimentum sem enim, est ornare ex vestibulum ut. Aliquam pulvinar libero vitae dui porttitor, at condimentum dolor eleifend.</p>
-            </div>
-            <div class="prtfl-wrap text-center">
-                <ul class="fltr-lnks">
-                    <li class="active"><a data-filter="*" href="#">All</a></li>
-                    <li><a data-filter=".fltr-itm1" href="#">Islamic Teaching</a></li>
-                    <li><a data-filter=".fltr-itm2" href="#">Books</a></li>
-                    <li><a data-filter=".fltr-itm3" href="#">Audio Books</a></li>
-                    <li><a data-filter=".fltr-itm4" href="#">Videos</a></li>
-                </ul>
-                <div class="prtfl-dta remove-ext1">
-                    <div class="row mrg15 masonry">
-                        <div class="col-md-4 col-sm-6 col-lg-4 fltr-itm fltr-itm1">
-                            <div class="prtfl-box">
-                                <img src="assets/images/resources/prtfl-img1.jpg" alt="prtfl-img1.jpg">
-                                <div class="prtfl-info">
-                                    <a href="assets/images/resources/prtfl-img1.jpg" data-fancybox="gallery" title=""><i class="fa fa-plus"></i></a>
-                                    <h4>Islamic Center</h4>
-                                    <span>artwork / branding</span>
-                                </div>
-                            </div>
-                            <div class="prtfl-box">
-                                <img src="assets/images/resources/prtfl-img2.jpg" alt="prtfl-img2.jpg">
-                                <div class="prtfl-info">
-                                    <a href="assets/images/resources/prtfl-img2.jpg" data-fancybox="gallery" title=""><i class="fa fa-plus"></i></a>
-                                    <h4>Eid Prayer</h4>
-                                    <span>artwork / branding</span>
-                                </div>
-                            </div>
-                        </div>                                 
-                        <div class="col-md-4 col-sm-6 col-lg-4 fltr-itm fltr-itm3">
-                            <div class="prtfl-box">
-                                <img src="assets/images/resources/prtfl-img3.jpg" alt="prtfl-img3.jpg">
-                                <div class="prtfl-info">
-                                    <a href="assets/images/resources/prtfl-img3.jpg" data-fancybox="gallery" title=""><i class="fa fa-plus"></i></a>
-                                    <h4>Offer Namaz</h4>
-                                    <span>artwork / branding</span>
-                                </div>
-                            </div>
-                            <div class="prtfl-box">
-                                <img src="assets/images/resources/prtfl-img4.jpg" alt="prtfl-img4.jpg">
-                                <div class="prtfl-info">
-                                    <a href="assets/images/resources/prtfl-img4.jpg" data-fancybox="gallery" title=""><i class="fa fa-plus"></i></a>
-                                    <h4>Eid Celebration</h4>
-                                    <span>artwork / branding</span>
-                                </div>
-                            </div>
-                            <div class="prtfl-box">
-                                <img src="assets/images/resources/prtfl-img5.jpg" alt="prtfl-img5.jpg">
-                                <div class="prtfl-info">
-                                    <a href="assets/images/resources/prtfl-img5.jpg" data-fancybox="gallery" title=""><i class="fa fa-plus"></i></a>
-                                    <h4>Prayer Dua</h4>
-                                    <span>artwork / branding</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-lg-4 fltr-itm fltr-itm2">
-                            <div class="prtfl-box">
-                                <img src="assets/images/resources/prtfl-img6.jpg" alt="prtfl-img6.jpg">
-                                <div class="prtfl-info">
-                                    <a href="assets/images/resources/prtfl-img6.jpg" data-fancybox="gallery" title=""><i class="fa fa-plus"></i></a>
-                                    <h4>Quran Learing</h4>
-                                    <span>artwork / branding</span>
-                                </div>
-                            </div>
-                            <div class="prtfl-box">
-                                <img src="assets/images/resources/prtfl-img7.jpg" alt="prtfl-img7.jpg">
-                                <div class="prtfl-info">
-                                    <a href="assets/images/resources/prtfl-img7.jpg" data-fancybox="gallery" title=""><i class="fa fa-plus"></i></a>
-                                    <h4>Wazaif Benefits</h4>
-                                    <span>artwork / branding</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 fltr-itm fltr-itm4">
-                            <div class="prtfl-box">
-                                <img src="assets/images/resources/prtfl-img8.jpg" alt="prtfl-img8.jpg">
-                                <div class="prtfl-info">
-                                    <a href="assets/images/resources/prtfl-img8.jpg" data-fancybox="gallery" title=""><i class="fa fa-plus"></i></a>
-                                    <h4>Ramadan Celebration</h4>
-                                    <span>artwork / branding</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 fltr-itm fltr-itm1 fltr-itm2 fltr-itm3 fltr-itm4">
-                            <div class="prtfl-box">
-                                <img src="assets/images/resources/prtfl-img9.jpg" alt="prtfl-img9.jpg">
-                                <div class="prtfl-info">
-                                    <a href="assets/images/resources/prtfl-img9.jpg" data-fancybox="gallery" title=""><i class="fa fa-plus"></i></a>
-                                    <h4>Ramadan Celebration</h4>
-                                    <span>artwork / branding</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!-- Promo Box End -->
+
+<!-- Clients Logo Section Start -->
+<section class="client-logo section-ptb">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12" data-aos="zoom-in">
+                <div class="heading mb-80">
+                    <h2>Trusted by many Companies</h2>
+                    <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
+                    <hr class="line bw-2 mx-auto line-sm mb-5">
+                    <hr class="line bw-2 mx-auto">
                 </div>
             </div>
         </div>
-    </div>
-</section> -->
-<section>
-    <div class="gap blue-layer opc85">
-        <div class="fixed-bg" style="background-image: url(assets/images/parallax11.jpg);"></div>
-        <div class="container">
-            <div class="place-wrap text-center">
-                <div class="place-inner">
-                    <h2>A Place For You</h2>
-                    <p>Our Islamic center takes pride in its heritage of diversity, open-mindedness, civic engagement and community building. Based in Oulu, Northern Ostrobothnia, Finland, PSIY continues to serve the community through religious, educational, and social initiatives while upholding the values of Islamic faith and unity.</p>
-                    <a class="thm-btn brd-rd40" href="{% url 'membership' %}" title="">Become a Member</a>
+        <div class="row justify-content-around align-items-center">
+            <div class="col-2" data-aos="zoom-in">
+                <div class="brand-logo">
+                    <a href="#"><img src="{% static 'assets/img/client/logo/1.png' %}" alt="Client Logo"></a>
                 </div>
             </div>
+            <!-- Single logo -->
+            <div class="col-2" data-aos="zoom-in" data-aos-delay="300">
+                <div class="brand-logo">
+                    <a href="#"><img src="{% static 'assets/img/client/logo/2.png' %}" alt="Client Logo"></a>
+                </div>
+            </div>
+            <!-- Single logo -->
+            <div class="col-2" data-aos="zoom-in" data-aos-delay="400">
+                <div class="brand-logo">
+                    <a href="#"><img src="{% static 'assets/img/client/logo/3.png' %}" alt="Client Logo"></a>
+                </div>
+            </div>
+            <!-- Single logo -->
+            <div class="col-2" data-aos="zoom-in" data-aos-delay="500">
+                <div class="brand-logo">
+                    <a href="#"><img src="{% static 'assets/img/client/logo/4.png' %}" alt="Client Logo"></a>
+                </div>
+            </div>
+            <!-- Single logo -->
+            <div class="col-2" data-aos="zoom-in" data-aos-delay="600">
+                <div class="brand-logo">
+                    <a href="#"><img src="{% static 'assets/img/client/logo/5.png' %}" alt="Client Logo"></a>
+                </div>
+            </div>
+            <!-- Single logo -->
+            <div class="col-2" data-aos="zoom-in" data-aos-delay="700">
+                <div class="brand-logo">
+                    <a href="#"><img src="{% static 'assets/img/client/logo/6.png' %}" alt="Client Logo"></a>
+                </div>
+            </div>
+            <!-- Single logo -->
         </div>
     </div>
 </section>
-<!-- <section>
-    <div class="gap">
-        <div class="container">
-            <div class="sec-title style2 text-center">
-                <div class="sec-title-inner">
-                    <span>Our Board of</span>
-                    <h3>Members</h3>
-                </div>
-                <p>Nam facilisis mauris a metus finibus, id gravida velit ornare. Cras neque tortor, faucibus sit amet lacus eu, maximus hendrerit ipsum. Fusce condimentum sem enim, est ornare ex vestibulum ut. Aliquam pulvinar libero vitae dui porttitor.</p>
-            </div>
-            <div class="team-wrap2 text-center remove-ext3">
-                <div class="row justify-content-center">
-                    <div class="col-md-3 col-sm-6 col-lg-3 fadeIn" data-wow-duration=".8s" data-wow-delay=".2s">
-                        <div class="team-box2">
-                            <img src="assets/images/resources/team-img2-1.jpg" alt="team-img2-1.jpg">
-                            <div class="team-info2">
-                                <h4>AL Zahra</h4>
-                                <p>Teaches Arabic Languages,, consectetur adipisicing elit, sed do eiusmod tempor</p>
-                                <div class="team-scl">
-                                    <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest-p"></i></a>
-                                    <a href="#" title="Google Plus" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-lg-3 fadeIn" data-wow-duration=".8s" data-wow-delay=".3s">
-                        <div class="team-box2">
-                            <img src="assets/images/resources/team-img2-2.jpg" alt="team-img2-2.jpg">
-                            <div class="team-info2">
-                                <h4>Umair</h4>
-                                <p>Teaches Arabic Languages,, consectetur adipisicing elit, sed do eiusmod tempor</p>
-                                <div class="team-scl">
-                                    <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest-p"></i></a>
-                                    <a href="#" title="Google Plus" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-lg-3 fadeIn" data-wow-duration=".8s" data-wow-delay=".4s">
-                        <div class="team-box2">
-                            <img src="assets/images/resources/team-img2-3.jpg" alt="team-img2-3.jpg">
-                            <div class="team-info2">
-                                <h4>Fatima</h4>
-                                <p>Teaches Arabic Languages,, consectetur adipisicing elit, sed do eiusmod tempor</p>
-                                <div class="team-scl">
-                                    <a href="#" title="Main Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
-                                    <a href="#" title="Women Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
-                                    <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> Team Wrap -->
-        <!-- </div>
-    </div>
-</section>  -->
+<!-- Clients Logo Section End -->
+
 {% endblock %}

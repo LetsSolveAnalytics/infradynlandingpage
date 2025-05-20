@@ -1,66 +1,80 @@
- <footer>
-        <div class="gap top-spac70 drk-bg2 remove-bottom">
-            <div class="container">
-                <div class="footer-data">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-12 col-lg-4">
-                            <div class="wdgt-box">
-                                <div class="logo"><a href="" title="Logo"><img src="/static/assets/images/PSIY_Logo-removebg-preview.png" alt="logo.png"></a></div>
-                                <p>Feel free to contact us by calling or dropping a message through our email.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-8 col-sm-12 col-lg-8">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4 col-lg-4">
-                                    <div class="wdgt-box">
-                                        <h4>Quick Links</h4>
-                                        <ul>
-                                            <li><a href="{% url 'about' %}" title="">About Us</a></li>
-                                            <li><a href="{% url 'membership' %}" title="">Membership</a></li>
-                                            <li><a href="{% url 'services' %}" title="">Our Services</a></li>
-                                            <!-- <li><a href="#" title="">How we do it</a></li> -->
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- <div class="col-md-4 col-sm-4 col-lg-4">
-                                    <div class="wdgt-box">
-                                        <h4>Useful Links</h4>
-                                        <ul>
-                                            <li><a href="#" title="">Contact Us</a></li>
-                                            <li><a href="#" title="">Terms & Conditions</a></li>
-                                            <li><a href="#" title="">Privacy Policy</a></li>
-                                            <li><a href="#" title="">Cookies Policy</a></li>
-                                        </ul>
-                                    </div>
-                                </div> -->
-                                <div class="col-md-8 col-sm-4 col-lg-8">
-                                    <div class="wdgt-box">
-                                        <h4>Contact Us</h4>
-                                        <ul class="cont-lst">
-                                            <li><i class="flaticon-location-pin"></i>Linnankatu 23-25, 90100, Oulu, Finland
-                                            </li>
-                                            <li><i class="flaticon-call"></i>+358 50 0582371</li>
-                                            <li><i class="flaticon-email"></i><a href="info@psiy.fi" title="">info@psiy.fi</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- Footer Data -->
-                <div class="bottom-bar">
-                    <p>&copy; Copyright 2024. All Rights Reserved.</p>
-                    <div class="scl">
-                        <a href="https://www.instagram.com/psiy.oulu/" title="Instagram" target="_blank"><i
-                                class="fa fa-instagram"></i></a>
-                        <a href="https://www.instagram.com/psiy.women/" title="Instagram" target="_blank"><i
-                                class="fa fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=100088755501692" title="Facebook"
-                           target="_blank"><i class="fa fa-facebook"></i></a>
-                        <!-- <a href="#" title="Google Plus" target="_blank"><i class="fa fa-google-plus"></i></a> -->
-                    </div>
-                </div><!-- Bottom Bar -->
+{% load static %}
+
+<!-- Footer Secion Start -->
+<footer>
+  <div class="footer-widget-area bg-light ptb-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-5 mb-sm-40">
+          <div class="footer-widget about">
+            <div class="footer-logo mb-20">
+              <a href="index.html"><img src="{% static 'assets/img/client/logo/INFRADYN_LOGO.svg' %}" alt="logo"></a>
             </div>
+            <div class="widget-content">
+              <p>Randomised words which don't look even slightlyvable. If you are going to use a passage of Lorem Ipsum, you need to be sure ook even slightly.</p>
+            </div>
+          </div>
         </div>
-    </footer>
+        <!-- Widget End -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-sm-40">
+          <div class="footer-widget">
+            <h4 class="widget-title mb-10">Helpful Links</h4>
+            <hr class="line">
+            <div class="widget-content mt-20 clearfix">
+              <ul class="list-unstyled float-left">
+                <li><a href="#">About</a></li>
+                <li><a href="#">FAQ’s</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+              <ul class="list-unstyled float-left">
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Pricing</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Widget End -->
+        <div class="col-6 col-sm-3 col-md-2 col-lg-2">
+          <div class="footer-widget">
+            <h4 class="widget-title mb-10">Resources</h4>
+            <hr class="line">
+            <div class="widget-content mt-20">
+              <ul class="list-unstyled">
+                <li><a href="#">Download</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Patners</a></li>
+                <li><a href="#">Help Center</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Widget End -->
+        <div class="col-6 col-sm-3 col-md-2 col-lg-2">
+          <div class="footer-widget">
+            <h4 class="widget-title mb-10">Product</h4>
+            <hr class="line">
+            <div class="widget-content mt-20">
+              <ul class="list-unstyled">
+                <li><a href="#">Search API</a></li>
+                <li><a href="#">Analytics</a></li>
+                <li><a href="#">Query rules</a></li>
+                <li><a href="#">Offline Search</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Widget End -->
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright bg-white ptb-15">
+    <div class="container d-sm-flex">
+      <p class="mb-0">Copyrights &copy; 2025 All Rights Reserved by INFRADYN</p>
+      <p class="mb-0 ml-auto">Design by Let's Solve Analytics</p>
+    </div>
+  </div>
+</footer>
+<!-- Footer Secion End -->

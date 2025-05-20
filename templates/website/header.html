@@ -1,159 +1,152 @@
 {% load i18n %}
 {% load static %}
-<header class="style1">
-    <div class="container">
-        <div class="logo"><a href="{% url 'home' %}" title="Logo">
-            <img src="{% static 'assets/images/rsz_main1.png' %}" alt="logo.png"></a>
-        </div>
-        <nav>
-            <div>
-                <a class="thm-btn brd-rd40" href="{% url 'donate' %}" title="">Donate</a>
-                <ul>
-                    <li><a href="{% url 'home' %}" title="">Home</a></li>
-                    <li><a href="{% url 'prayer-times' %}" title="">Prayer Timings</a></li>
-                    <li><a href="{% url 'membership' %}" title="">Memberships</a></li>
-                    <li class="menu-item-has-children"><a href="{% url 'services' %}" title="">Services</a>
-                        <ul>
-                            <li><a href="{% url 'services' %}" title="">General Services</a></li>
-                            <li><a href="{% url 'quran-classes' %}" title="">Quran Classes</a></li>
-                            <!-- <li><a href="team.html" title="">Team Grid View</a></li> -->
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children"><a href="#" title="">News & Events</a>
-                        <ul>
-                            <li><a href="{% url 'news' %}?post_type=1" title="">News</a></li>
-                            <li><a href="{% url 'events' %}?post_type=2" title="">Events</a></li>
-                            <li><a href="{% url 'gallery' %}" title="">Gallery</a></li>
-                            <li><a href="{% url 'post-list' %}?post_type=0" title="">Blogs</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children"><a href="{% url 'intro-to-islam' %}" title="">Resources</a>
-                        <ul>
-                            <li><a href="{% url 'intro-to-islam' %}" title="">Introduction to Islam</a></li>
-                            <!-- <li><a href="{% url 'books-pamphlets' %}" title="">Books and Pamphlets</a></li> -->
-                            <!-- <li><a href="team.html" title="">Videos</a></li> -->
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children"><a href="{% url 'contact' %}" title="">Contact Us</a>
-                        <ul>
-                            <li><a href="{% url 'about' %}" title="">About Us</a></li>
-                            <!-- <li><a href="{% url 'history' %}" title="">History</a></li> -->
-                            <!-- <li><a href="{% url 'about' %}" title="">Aim and Vision</a></li> -->
-                            <li><a href="{% url 'contact' %}" title="">Contact</a></li>
-                        </ul>
-                    </li>
-                    <!-- <li><a href="contact.html" title="">Contact</a></li> -->
-                    <!-- <li><a href="crowd-funding.html" title="">Donate</a></li> -->
-                    <!-- <li class="menu-item-has-children"><a href="#" title="">Language</a>
-                        {% get_current_language as CURRENT_LANGUAGE %}
-                        {% get_available_languages as AVAILABLE_LANGUAGES %}
-                        {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
-                        <ul>
-                            {% for language in languages %}
-                                <li>
-                                    <a href="/{{ language.code }}/"
-                                            {% if language.code == CURRENT_LANGUAGE %} class="active"{% endif %}>
-                                        {{ language.name_local }}
-                                    </a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </li> -->
-                    <li class="menu-item-has-children" style="width: 180px;">
-                        <label for="language-select" style="display: none;">Language</label>
-                        <select class="secondary-btn brd-rd40" id="language-select" onchange="changeLanguage(this.value)">
-                            {% get_current_language as CURRENT_LANGUAGE %}
-                            {% get_available_languages as AVAILABLE_LANGUAGES %}
-                            {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
-                            {% for language in languages %}
-                                <option value="/{{ language.code }}/"
-                                        {% if language.code == CURRENT_LANGUAGE %} selected{% endif %}>
-                                    {{ language.name_local }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </li>                    
-                </ul>
-            </div>
-        </nav>
 
-    </div>
-</header><!-- Header -->
-<div class="rspn-hdr">
-    <div class="rspn-mdbr">
-        <ul class="rspn-scil">
-            <li><a href="https://www.facebook.com/profile.php?id=100088755501692" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="https://www.instagram.com/psiy.oulu/" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a></li>
-            <li><a href="https://www.instagram.com/psiy.women/" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a></li>
+<!-- Header Start -->
+<header class="position-fixed w-100"  >
+  <nav id="active-sticky" class="navbar navbar-light navbar-expand-lg">
+    <div class="container" >
+      <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'assets/img/client/logo/INFRADYN_LOGO.svg' %}" alt="logo" style="width: 120px; height: 30px;"></a>
+      <button class="navbar-toggler navber-toggler-right" data-toggle="collapse" data-target="#navbarToggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link"></a>
+          </li>
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Product</a>
+            <div class="dropdown-menu mt-0 p-4 border-0 shadow-lg " style="left: 50%; transform: translateX(-50%); width: 100%; max-width: 1500px;">
+              <div class="container">
+                <div class="row">
+                  <!-- Column 1: Project Focus (Part 1) -->
+                  <div class="col-md-3">
+                    <h4 class="fw-bold text-primary">Preconstruction</h4>
+                    <ul class="list-unstyled">
+                      <li class="d-flex align-items-center mb-2">
+                        <img src="assets/icons/takeoff.svg" class="me-2" style="width: 24px;"> Tender Management
+                      </li>
+                      <li class="d-flex align-items-center mb-2">
+                        <img src="assets/icons/bi.svg" class="me-2" style="width: 24px;"> Contract Management
+                      </li>
+                      <li class="d-flex align-items-center mb-2">
+                        <img src="assets/icons/handover.svg" class="me-2" style="width: 24px;"> Document Management
+                      </li>
+                      <li class="d-flex align-items-center mb-2">
+                        <img src="assets/icons/handover.svg" class="me-2" style="width: 24px;"> BIM Management
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Column 2: Project Focus (Part 2) -->
+                  <div class="col-md-3">
+                    <h4 class="fw-bold text-primary">Project Delivery</h4> <!-- hidden heading to align rows -->
+                    <ul class="list-unstyled">
+                      <li class="d-flex align-items-center mb-2">
+                        <img src="assets/icons/control.svg" class="me-2" style="width: 24px;"> Project Management
+                      </li>
+                      <li class="d-flex align-items-center mb-2">
+                        <img src="assets/icons/sustainability.svg" class="me-2" style="width: 24px;"> Financial Management
+                      </li>
+                      <li class="d-flex align-items-center mb-2">
+                        <img src="assets/icons/bid.svg" class="me-2" style="width: 24px;"> Quality & Safety
+                      </li>
+                      <li class="d-flex align-items-center mb-2">
+                        <img src="assets/icons/bid.svg" class="me-2" style="width: 24px;"> Resource Planning
+                      </li>
+                      <li class="d-flex align-items-center mb-2">
+                        <img src="assets/icons/bid.svg" class="me-2" style="width: 24px;"> Resource Tracking
+                      </li>
+                      <li class="d-flex align-items-center mb-2">
+                        <img src="assets/icons/bid.svg" class="me-2" style="width: 24px;"> Invoice Management
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Column 3: Job Roles -->
+                  <div class="col-md-3">
+                    <h4 class="fw-bold text-primary">Analytics</h4>
+                    <ul class="list-unstyled">
+                      <li class="d-flex align-items-center mb-2"><img src="assets/icons/architect.svg" class="me-2" style="width: 24px;"> Reports</li>
+                      <li class="d-flex align-items-center mb-2"><img src="assets/icons/builder.svg" class="me-2" style="width: 24px;"> Dashboards</li>
+                      <li class="d-flex align-items-center mb-2"><img src="assets/icons/contracts.svg" class="me-2" style="width: 24px;"> AI Assistance</li>
+                    </ul>
+                  </div>
+
+                  <!-- Column 4: Job Roles -->
+                  <div class="col-md-3">
+                    <h4 class="fw-bold text-primary">Collaboration & Communication</h4>
+                    <ul class="list-unstyled">
+                      <li class="d-flex align-items-center mb-2"><img src="assets/icons/architect.svg" class="me-2" style="width: 24px;"> Kanban Board</li>
+                      <li class="d-flex align-items-center mb-2"><img src="assets/icons/builder.svg" class="me-2" style="width: 24px;"> Task Allocation</li>
+                      <li class="d-flex align-items-center mb-2"><img src="assets/icons/contracts.svg" class="me-2" style="width: 24px;"> Feedback Module</li>
+                      <li class="d-flex align-items-center mb-2"><img src="assets/icons/estimator.svg" class="me-2" style="width: 24px;"> Approval System</li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'solutions' %}" class="nav-link">Solutions</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'pricing' %}" class="nav-link">Pricing</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >Who Benefits</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="general-contractors.html">General Contractors</a></li>
+              <li><a class="dropdown-item" href="developers.html">Developers</a></li>
+              <li><a class="dropdown-item" href="subcontractors.html">Subcontractors</a></li>
+              <li><a class="dropdown-item" href="epcm.html">EPCM</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >Resources</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'about' %}">About Us</a></li>
+              <li><a class="dropdown-item" href="blog.html">Blogs</a></li>
+              <li><a class="dropdown-item" href="blog-details.html">Case Studies</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >Support</a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item d-flex justify-content-between align-items-center" href="general-contractors.html" target="_blank" rel="noopener noreferrer">
+                  Community
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right ms-2" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6.364 13.657a.5.5 0 0 1-.708 0L2.343 10.343a.5.5 0 0 1 .708-.708L6 12.586V1.5a.5.5 0 0 1 1 0v11.086l2.95-2.95a.5.5 0 1 1 .707.707l-3.536 3.536z"/>
+                  </svg>
+                </a>
+              </li>
+              <li><a class="dropdown-item" href="general-contractors.html">Contact us</a></li>
+              <li><a class="dropdown-item" href="developers.html">Professional Services</a></li>
+              <li><a class="dropdown-item" href="subcontractors.html">Developers/API</a></li>
+            </ul>
+          </li>
         </ul>
-    </div>
-    <div class="lg-mn">
-        <div class="logo">
-            <a href="{% url 'home' %}" title="Logo">
-                <img src="{% static 'assets/images/rsz_main1.png' %}" alt="logo.png">
-            </a>
+        <div class="dropdown pl-20">
+          <a class="d-flex align-items-center p-2" href="#" role="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+              <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
+            </svg></a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+            <li><a class="dropdown-item" href="?lang=en">English</a></li>
+            <li><a class="dropdown-item" href="?lang=sv">Swedish</a></li>
+          </ul>
         </div>
-        <div class="rspn-cnt">
-            <span><i class="fa fa-envelope thm-clr"></i><a href="mailto:info@psiy.fi" title="">info@psiy.fi</a></span>
-            <span><i class="fa fa-phone thm-clr"></i><a href="tel:+358500582371" title="Call Us">+358 500582371</a></span>
+        <div class="pl-20">
+          <a class="btn btn-sm btn-primary rounded" href="{% url 'request_a_demo' %}">Request A Demo</a>
         </div>
-        <span class="rspn-mnu-btn"><i class="fa fa-list-ul"></i></span>
+        <div class="pl-20">
+          <a class="btn btn-sm btn-primary rounded" href="login.html">Login</a>
+        </div>
+      </div>
     </div>
-    <div class="rsnp-mnu">
-        <span class="rspn-mnu-cls"><i class="fa fa-times"></i></span>
-        <ul>
-            <li><a href="{% url 'home' %}" title="">Home</a></li>
-            <li><a href="{% url 'prayer-times' %}" title="">Prayer Timings</a></li>
-            <li><a href="{% url 'membership' %}" title="">Memberships</a></li>
-            <li class="menu-item-has-children">
-                <a href="{% url 'services' %}" title="">Services</a>
-                <ul>
-                    <li><a href="{% url 'services' %}" title="">General Services</a></li>
-                    <li><a href="{% url 'quran-classes' %}" title="">Quran Classes</a></li>
-                </ul>
-            </li>
-            <li class="menu-item-has-children">
-                <a href="#" title="">News & Events</a>
-                <ul>
-                    <li><a href="{% url 'news' %}?post_type=1" title="">News</a></li>
-                    <li><a href="{% url 'events' %}?post_type=2" title="">Events</a></li>
-                    <li><a href="{% url 'gallery' %}" title="">Gallery</a></li>
-                    <li><a href="{% url 'post-list' %}?post_type=0" title="">Blogs</a></li>
-                </ul>
-            </li>
-            <li class="menu-item-has-children">
-                <a href="{% url 'intro-to-islam' %}" title="">Resources</a>
-                <ul>
-                    <li><a href="{% url 'intro-to-islam' %}" title="">Introduction to Islam</a></li>
-                    <!-- <li><a href="{% url 'books-pamphlets' %}" title="">Books and Pamphlets</a></li> -->
-                </ul>
-            </li>
-            <li class="menu-item-has-children">
-                <a href="#" title="">Contact Us</a>
-                <ul>
-                    <li><a href="{% url 'about' %}" title="">About Us</a></li>
-                    <!-- <li><a href="{% url 'history' %}" title="">History</a></li> -->
-                    <!-- <li><a href="{% url 'about' %}" title="">Aim and Vision</a></li> -->
-                    <li><a href="{% url 'contact' %}" title="">Contact</a></li>
-                </ul>
-            </li>
-            <li>
-                <a class="thm-btn brd-rd40" href="{% url 'donate' %}" title="">Donate</a>
-            </li>
-            <li class="menu-item-has-children" style="width: 180px;">
-                <label for="language-select" style="display: none;">Language</label>
-                <select id="language-select" onchange="changeLanguage(this.value)">
-                    {% get_current_language as CURRENT_LANGUAGE %}
-                    {% get_available_languages as AVAILABLE_LANGUAGES %}
-                    {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
-                    {% for language in languages %}
-                        <option value="/{{ language.code }}/"
-                                {% if language.code == CURRENT_LANGUAGE %} selected{% endif %}>
-                            {{ language.name_local }}
-                        </option>
-                    {% endfor %}
-                </select>
-            </li>
-        </ul>
-    </div><!-- Responsive Menu -->
-</div><!-- Responsive Header -->
+  </nav>
+</header>
+<!-- Header End -->
+

@@ -1,384 +1,595 @@
 {% extends 'website/base.html' %}
 {% load static %}
 {% block main_container %}
-<section>
-    <div class="gap no-gap owl-yellow">
-        <div class="featured-area-wrap text-center">
-            <div class="featured-area owl-carousel">
-                {% for slider in sliders %}
-                <!-- <div class="featured-item"
-                             style="background-image: url({% static 'assets/images/resources/slide1.png' %});"> -->
-                <div class="featured-item">
 
-                    <style>
-                        .featured-item {
-                            background-image: url("{% static 'assets/images/resources/slide1.jpg' %}");
-                        }
-                    </style>
-                    <div class=" featured-cap">
-                        <img src="{{ slider.image.url }}" alt="bsml-txt.png">
-                        <!-- <h1><img src="{% static 'assets/images/resources/ayat-txt.png' %}" alt="ayat-txt-color"> -->
-                        </h1>
-                        <h3>{{ slider.title }}</h3>
-                        <span>{{ slider.subtitle }}</span>
-                        <!-- <a class="thm-btn brd-rd40" href="{{ slider.btn_url }}" title="">{{ slider.btn_text }}</a> -->
-                    </div>
+<!-- Slider Section Start -->
+<section class="slider-area h-100 h-sm-auto bg-1 mb-sm-50">
+  <div class="container h-100 h-sm-auto d-flex flex-row align-items-center flex-wrap flex-md-nowrap">
+    <div class="caption" data-aos="fade-right">
+      <h5 class="display-3 mb-10">AI powered clarity for dynamic project control for</h5>
+      <h1 class="display-1 mb-25">Construction Management System</h1>
+      <p class="mb-30">Unified intelligent platform which help owners save €30M per €500M project by predicting risks, reducing delays, and eliminating reporting inefficiencies.</p>
+      <a href="#" class="btn btn-primary">Get Your Free Demo</a>
+      <!--      <a href="#" class="item-link ml-25">14-Day FREE Trial</a>-->
+    </div>
+    <div class="image-layer ml-md-auto align-self-md-center align-self-start" data-aos="fade-left">
+      <img src="{% static 'assets/img/slider/layer/1.png' %}" alt="Layer Image">
+    </div>
+  </div>
+</section>
+<!-- Slider Section End -->
+
+<div class="bg-2 bg-white">
+
+  <!-- Best Services Start -->
+  <section class="hero-block">
+    <div class="container">
+      <div class="row d-flex align-items-center justify-content-between">
+        <div class="col-12 col-lg-6 mb-sm-50 mb-md-50" data-aos="fade-right">
+          <div class="hero-text">
+            <h3 class="mb-5">Why Choose INFRADYN</h3>
+            <h1 class="mb-25">Key Value Proposition</h1>
+            <p class="mb-20 mw-5">Looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the..</p>
+            <ul class="list-unstyled mb-30">
+              <li>01. ROI driven platform built for results.</li>
+              <li>02. Smarter, self-learning data engine.</li>
+              <li>03. All-in-one platform built for EU construction firms.</li>
+            </ul>
+            <!--            <a href="#" class="btn btn-primary">Get Started</a>-->
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="row text-center">
+            <div class="col-12 col-md-6">
+              <div class="card featured-item shadow-default mb-30" data-aos="fade-up">
+                <div class="card-body ptb-45">
+                  <div class="icon circle-icon mb-30 mx-auto">
+                    <i class="ti-shield"></i>
+                  </div>
+                  <h5>Enhance Collaboration</h5>
+                  <p class="mb-20">Streamline collaboration across multiple roles, projects, and workflows within a unified platform to foster efficient enterprise-wide teamwork.</p>
+                  <a class="item-link link-btn" href="#">Read More</a>
                 </div>
-                {% endfor %}
+              </div>
+              <!-- Single Featured End -->
+              <div class="card featured-item shadow-default" data-aos="fade-up">
+                <div class="card-body ptb-45">
+                  <div class="icon circle-icon mb-30 mx-auto">
+                    <i class="ti-target"></i>
+                  </div>
+                  <h5>Optimize Workflow Standardization</h5>
+                  <p class="mb-20">Implement standardized workflows to minimize redundant administrative tasks and enhance overall operational efficiency.</p>
+                  <a class="item-link link-btn" href="#">Read More</a>
+                </div>
+              </div>
+              <!-- Single Featured End -->
             </div>
-        </div><!-- Featured Area Wrap -->
-    </div>
-</section>
-
-
-
-<!-- <section>
-    <div class="gap">
-        <div class="lft-shp shp-lyr"></div>
-        <div class="container text-center">
-            <div class="plrs-wrap text-center remove-ext5">
-                <div class="row justify-content-center">
-                    <div class="col-md-3 col-sm-6 col-lg-2">
-                        <div class="plr-box">
-                            <i class="flaticon-islamic-pray"></i>
-                            <div class="pilr-info">
-                                <h4>Fajar</h4>
-                                <p>Time</p>
-                                <p>Iqamah</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-lg-2">
-                        <div class="plr-box">
-                            <i class="flaticon-islamic-ramadan"></i>
-                            <div class="pilr-info">
-                                <h4>Dhuhr</h4>
-                                <p>Time</p>
-                                <p>Iqamah</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-lg-2">
-                        <div class="plr-box">
-                            <i class="flaticon-charity"></i>
-                            <div class="pilr-info">
-                                <h4>Asr</h4>
-                                <p>Time</p>
-                                <p>Iqamah</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-lg-2">
-                        <div class="plr-box">
-                            <i class="flaticon-kaaba-building"></i>
-                            <div class="pilr-info">
-                                <h4>Magrib</h4>
-                                <p>Time</p>
-                                <p>Iqamah</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-lg-2">
-                        <div class="plr-box">
-                            <i class="flaticon-kaaba-building"></i>
-                            <div class="pilr-info">
-                                <h4>Isha</h4>
-                                <p>Time</p>
-                                <p>Iqamah</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-12 col-md-6 mt-50">
+              <div class="card featured-item shadow-default mb-30" data-aos="fade-up" data-aos-delay="400">
+                <div class="card-body ptb-45">
+                  <div class="icon circle-icon mb-30 mx-auto">
+                    <i class="ti-heart"></i>
+                  </div>
+                  <h5>Amplify Productivity</h5>
+                  <p class="mb-20">Unify all individuals, projects, and data within a centralized hub to unleash peak productivity and unlock AI development potential.</p>
+                  <a class="item-link link-btn" href="#">Read More</a>
                 </div>
-            </div> Todays Namaz timing Wrap -->
-        <!-- </div>
-    </div>
-</section> -->
-
-<section>
-    <div class="gap thm-layer opc9">
-        <div class="fixed-bg ptrn-bg">
-            <style>
-                .fixed-bg.ptrn-bg {
-                    background-image: url("{% static 'assets/images/pattern-bg.jpg' %}");
-                }
-            </style>
-        </div>
-        <div class="container">
-            <div class="nwsltr-wrp text-center">
-                <div class="nwsltr-innr">
-                    <div class="nwsltr-title">
-                        <h3>Latest News</h3>
-                    </div>
+              </div>
+              <!-- Single Featured End -->
+              <div class="card featured-item shadow-default" data-aos="fade-up" data-aos-delay="400">
+                <div class="card-body ptb-45">
+                  <div class="icon circle-icon mb-30 mx-auto">
+                    <i class="ti-pencil"></i>
+                  </div>
+                  <h5>Enhance Real Time Visibility</h5>
+                  <p class="mb-20">Ensure that essential project information reaches the right individuals in real time, company-wide, through a secure, mobile-integrated system.</p>
+                  <a class="item-link link-btn" href="#">Read More</a>
                 </div>
-                <div class="testi-wrap text-center">
-                    <div class="testi-car owl-carousel">
-                        <div class="testi-itm">
-                            <div class="testi-info">
-                                <h4>Taraweeh Prayer at the Masjid Announcement</h4>
-                                <p>Taraweeh prayers will be held at the Central Masjid following Isha prayer. The prayer will commence 20 minutes after the Adhan of Isha, starting with the Isha prayer, followed by Taraweeh. All worshippers are encouraged to attend and participate in the congregational prayers. </p>
-                            </div>
-                        </div>
-                        <div class="testi-itm">
-                            <!-- <i><img src="assets/images/resources/testi-img1.jpg" alt="testi-img1.jpg"></i> -->
-                            <div class="testi-info">
-                                <h4>Weekly Halaqah for men and women</h4>
-                                <p>Quran Halaqah for both men and women shall take place in the masjid over the weekend throughout Ramadan. Please do
-                                    join and participate in reciting the Holy Quran together with fellow brothers or sisters.
-                                <p>Timings for men: Sunday 13:00 - 14:00</p>
-                                <p>Timings for women: Saturday 12:00 - 13:30</p>
-                                <!-- <h4>Jumuah Shortened</h4>
-                                <p>Last Jumuah, it was announced that the total duration of Jumuah
-                                    (Khutbah+Dua+Prayer) will be ~30 mins. Khutbah (Arabic/English/Finnish) will be
-                                    ~20 mins, followed by a ~10-min prayer. Khutbah Azan aligns with Dhuhr's time in
-                                    the Timetable (check the Mawaqit app).</p> -->
-                            </div>
-                        </div>
-                        <div class="testi-itm">
-                            <!-- <i><img src="assets/images/resources/testi-img2.jpg" alt="testi-img2.jpg"></i> -->
-                            <div class="testi-info">
-                                <h4>Sunday Iftars organized by PSIY</h4>
-                                <p>Every Sunday throughout Ramadan, PSIY will organise Iftars at <a href="https://maps.app.goo.gl/xChgMda5LXjyocaU8">Raatin Nuoristalo</a> and everyone is invited. </p>
-                                <!-- <h4>Annual General Meeting</h4>
-                                <p>Annual General Meeting of PSIY will be held on 31st December 2024 for the
-                                    executive council.</p> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
+              <!-- Single Featured End -->
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </section>
+  <!-- Best Services End -->
 
-
-<section>
-    <div class="gap white-grad-layer">
-        <div class="fixed-bg">
-            <style>
-                .fixed-bg {
-                    background-image: url("{% static 'assets/images/parallax1.jpg' %}");
-                }
-            </style>
+  <!-- Hero Block Start -->
+  <section class="hero-block section-ptb">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-12 col-md-6 col-xl-5 mb-sm-30" data-aos="fade-right">
+          <div class="hero-thumb m-minus-70">
+            <img src="{% static 'assets/img/hero/1.png' %}" alt="Hero Thumbnail">
+          </div>
         </div>
-        <div class="container">
-            <div class="abot-wrap">
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 col-lg-6">
-                        <div class="abot-sec">
-                            <div class="sec-title">
-                                <div class="sec-title-inner">
-                                    <span>About</span>
-                                    <h3>Pohjois Suomen Islamilainen Yhdyskunta</h3>
-                                </div>
-                            </div>
-                            <p>The Islamic Society of Northern Finland (PSIY) is a dedicated organization committed to serving the Muslim community in
-                            Oulu and beyond. Our journey began in the early 1990s, and since then, we have been working to promote Islamic
-                            teachings, foster unity, and contribute positively to society.</p>
-                            
-                            <p>Guided by the Qur’an and Sunnah, we strive to uphold Islamic values while providing essential religious, educational,
-                                and social services. From organizing prayers and Quran classes to supporting integration efforts and charitable
-                                initiatives, PSIY is a cornerstone for the Muslim community in Northern Finland.</p>
-                            
-                            <p>We welcome everyone to learn more about Islam, participate in our activities, and join us in building a stronger,
-                                united community.</p>
-
-                            <a class="secndry-btn brd-rd40" href="{% url 'about' %}" title="">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- About Wrap -->
+        <div class="col-12 col-md-6 col-xl-6 ml-auto">
+          <div class="hero-text" data-aos="fade-left">
+            <h3 class="mb-5">Reservations</h3>
+            <h1 class="mb-25">Management</h1>
+            <p class="mb-30">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web.</p>
+            <a href="#" class="btn btn-primary">Get Started</a>
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </section>
+  <!-- Hero Block End -->
 
-<section>
-    <div class="gap">
-        <div class="fixed-bg parallax-bg">
-            <style>
-                .fixed-bg.parallax-bg {
-                    background-image: url("{% static 'assets/images/parallax2.jpg' %}");
-                }
-            </style>
+</div>
+
+<!-- Featured Section Start -->
+<section class="section-ptb bg-white">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-12" data-aos="zoom-in">
+        <div class="heading mb-80">
+          <h2>Who Benefits from INFRADYN</h2>
+          <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
+          <hr class="line bw-2 mx-auto line-sm mb-5">
+          <hr class="line bw-2 mx-auto">
         </div>
-        <div class=" container
-            ">
-            <div class="sec-title text-center">
-                <div class="sec-title-inner">
-                    <span>Serving Humanity</span>
-                    <h3>Our Services</h3>
-                </div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <!-- General Contractors start -->
+      <div class="col-12 col-md-6 col-lg-3 mb-sm-30 mb-md-30" data-aos="zoom-in">
+        <a href="/en-gb/main-contractors" class="text-decoration-none d-block h-100">
+          <div class="card featured-item">
+            <div class="position-relative">
+              <img src="{% static 'assets/img/General-Contractor.png' %}"
+                   alt="General Contractor and Procore use"
+                   class="img-fluid w-100 rounded"
+                   loading="lazy">
             </div>
-            <div class="serv-wrap">
-                <div class="row">
-                    <!-- <div class="col-md-4 col-sm-12 col-lg-4">
-                            <div class="srv-tl">
-                                <h2>We're on a <span>Mission</span> to</h2>
-                                <h5>solve the problems and gain resources for a new generation.</h5>
-                            </div>
-                        </div> -->
-                    <div class="col-md-12 col-sm-12 col-lg-12">
-                        <div class="remove-ext9">
-                            <div class="row">
-                                {% for service in services %}
-                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                    <div class="serv-box">
-                                        <i class="flaticon-quran-rehal"></i>
-                                        <div class="serv-info">
-                                            <h4>{{ service.title }}</h4>
-                                            <p>{{ service.desc }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- Serv Wrap -->
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="gap black-layer2 opc8 style-4-donate">
-        <div class="fixed-bg parallax-bg-3">
-            <style>
-                .fixed-bg.parallax-bg-3 {
-                    background-image: url("{% static 'assets/images/parallax3.jpg' %}");
-                }
-            </style>
-        </div>
-        <div class=" container">
-            <div class="sec-title2 text-center">
-                <div class="sec-title-inner">
-                    <span>Support us</span>
-                    <h3>We need your support!</h3>
-                </div>
-                <p>Your contributions help cover mosque maintenance, daily electricity charges, and water expenses. We also collect Zakat and funds to assist financially deprived communities worldwide. </p>
-                <p>Every donation makes a difference—thank you for your generosity! </p>
-                <div class="view-all text-center">
-                    <a class="thm-btn brd-rd40" href="{% url 'donate' %}" title="donate">Bismillah - بسم الله</a>
-                </div><!-- View All -->
+            <div class="card-body text-center">
+              <h5 class="fw-bold mb-1">General Contractors</h5>
+              <p class="text-muted small">Keep projects on track and within budget from the palm of your hand</p>
+              <span class="d-inline-flex align-items-center item-link link-btn">
+                Read More
+              </span>
             </div>
-            <!-- <div class="suprt-prgrs style2 text-center">
-                <div class="suprt-prg" id="suprt-prg1"></div>
-                <div class="suprt-prg" id="suprt-prg2"></div>
-                <div class="suprt-prg" id="suprt-prg3"></div>
-            </div> -->
-        </div>
-    </div>
-</section>
+          </div>
+        </a>
+      </div>
+      <!-- General Contractors End -->
 
-<section>
-    <div class="gap gray-layer opc95">
-        <div class="fixed-bg">
-            <style>
-                .fixed-bg.fixed-bg.parallax-bg-4 {
-                    background-image: url("{% static 'assets/images/parallax4.jpg' %}");
-                }
-            </style>
-        </div>
-        <div class=" container">
-            <div class="evnt-pry-wrap">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-lg-12">
-                        <div class="sec-title">
-                            <div class="sec-title-inner">
-                                <h3><span>Upcoming</span> Events</h3>
-                            </div>
-                            <p>Explore our upcoming events and activities!
-                                Check the calendar below for event dates and details. Stay engaged and be a part of our community gatherings!
-                            </p>
-                        </div>
-                        <div class="container">
-                            <div class="calendar-wrapper">
-                                <iframe
-                                    src="https://calendar.google.com/calendar/embed?src=psislamilainen%40gmail.com&ctz=Europe%2FHelsinki&src=muslimsisterspsiyoulu%40gmail.com&ctz=Europe%2FHelsinki"
-                                    style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-                                <!-- <iframe src="https://calendar.google.com/calendar/embed?src=muslimsisterspsiyoulu%40gmail.com&ctz=Europe%2FHelsinki" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
-                            </div>
-                        </div>
-                        <div class="evnt-wrap remove-ext5">
-                            <div class="row mrg20">
-                                <div class="col-md-12 col-sm-12 col-lg-12">
-                                    <div class="remove-ext3">
-                                        <div class="row">
-
-                                            {% for event in events %}
-                                            <div class="col-md-4 col-sm-6 col-lg-4">
-                                                <div class="event-box2">
-                                                    <div class="event-thumb">
-                                                        <a href="#" title=""><img src="{{ event.image.url }}"
-                                                                alt="event-img2-1.jpg"></a>
-                                                    </div>
-                                                    <div class="event-info">
-                                                        <h4><a href="#" title="">{{ event.name }}</a></h4>
-                                                        <p>{{ event.description }}</p>
-                                                        <ul class="event-mta">
-                                                            <li><i class="fa fa-map-marker"></i></li>
-                                                            <li><i class="flaticon-clock"></i>{{ event.date }}</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div><!-- Events Wrap -->
-                    </div>
-                    <div class="sec-title">
-                        <div class="sec-title-inner">
-                            <h3><span>Today's Prayer Timings</h3>
-                        </div>
-                        <br />
-                        <section class="iframe-section">
-                            <div class="container">
-                                <!-- Desktop Version -->
-                                <div class="iframe-wrapper desktop">
-                                    <iframe
-                                        src="https://mawaqit.net/en/w/islamic-society-northern-finland-oulu-90100-finland?showOnly5PrayerTimes=0"
-                                        frameborder="0" scrolling="yes">
-                                    </iframe>
-                                </div>
-                    
-                                <!-- Mobile/Vertical Version -->
-                                <div class="iframe-wrapper mobile">
-                                    <iframe
-                                        src="https://mawaqit.net/en/m/islamic-society-northern-finland-oulu-90100-finland?showNotification=0&showSearchButton=0&showFooter=0&showFlashMessage=0&view=mobile"
-                                        frameborder="0" scrolling="no">
-                                    </iframe>
-                                </div>
-                            </div>
-                        </section>
-                        </div>
-                </div><!-- Events & Prayer Wrap -->
+      <!-- Developers start -->
+      <div class="col-12 col-md-6 col-lg-3 mb-sm-30 mb-md-30" data-aos="zoom-in">
+        <a href="/en-gb/main-contractors" class="text-decoration-none d-block h-100">
+          <div class="card featured-item">
+            <div class="position-relative">
+              <img src="{% static 'assets/img/General-Contractor.png' %}"
+                   alt="General Contractor and Procore use"
+                   class="img-fluid w-100 rounded"
+                   loading="lazy">
             </div>
-        </div>
+            <div class="card-body text-center">
+              <h5 class="fw-bold mb-1">Developers</h5>
+              <p class="text-muted small">Keep projects on track and within budget from the palm of your hand</p>
+              <span class="d-inline-flex align-items-center item-link link-btn">
+                Read More
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Developers End -->
+
+      <!-- Subcontractors start -->
+      <div class="col-12 col-md-6 col-lg-3 mb-sm-30 mb-md-30" data-aos="zoom-in">
+        <a href="/en-gb/main-contractors" class="text-decoration-none d-block h-100">
+          <div class="card featured-item">
+            <div class="position-relative">
+              <img src="{% static 'assets/img/General-Contractor.png' %}"
+                   alt="General Contractor and Procore use"
+                   class="img-fluid w-100 rounded"
+                   loading="lazy">
+            </div>
+            <div class="card-body text-center">
+              <h5 class="fw-bold mb-1">Subcontractors</h5>
+              <p class="text-muted small">Keep projects on track and within budget from the palm of your hand</p>
+              <span class="d-inline-flex align-items-center item-link link-btn">
+                Read More
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Subcontractors End -->
+
+      <!-- EPCM start -->
+      <div class="col-12 col-md-6 col-lg-3 mb-sm-30 mb-md-30" data-aos="zoom-in">
+        <a href="/en-gb/main-contractors" class="text-decoration-none d-block h-100">
+          <div class="card featured-item">
+            <div class="position-relative">
+              <img src="{% static 'assets/img/General-Contractor.png' %}"
+                   alt="General Contractor and Procore use"
+                   class="img-fluid w-100 rounded"
+                   loading="lazy">
+            </div>
+            <div class="card-body text-center">
+              <h5 class="fw-bold mb-1">EPCM</h5>
+              <p class="text-muted small">Keep projects on track and within budget from the palm of your hand</p>
+              <span class="d-inline-flex align-items-center item-link link-btn">
+                Read More
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- EPCM End -->
     </div>
+  </div>
 </section>
-<section>
-    <div class="gap thm-layer opc9">
-        <div class="fixed-bg parallax-bg-7">
-            <style>
-                .fixed-bg.fixed-bg.parallax-bg-7 {
-                    background-image: url("{% static 'assets/images/parallax7.jpg' %}");
-                }
-            </style>
+<!-- Featured Section End -->
+
+<!-- Promo Box Start -->
+<section class="promo-area section-ptb bg-4 bg-primary">
+  <div class="container ptb-30">
+    <div class="row text-center">
+      <div class="col-12" data-aos="zoom-in">
+        <div class="heading">
+          <h1 class="text-white mb-25">Get Started with INFRADYN</h1>
+          <p class="text-white mb-30">An end-to-end enterprise project delivery platform <br class="d-none d-md-block"> to manage projects and standardize workflows</p>
+          <a class="btn btn-light" href="#">Get Pricing</a>
         </div>
-        <div class=" container
-            ">
-            <div class="nwsltr-wrp text-center">
-                <div class="nwsltr-innr">
-                    <div class="nwsltr-title" style="margin-bottom: 20px;">
-                        <h3>Become a Member</h3>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Promo Box End -->
+
+<!-- Testimonial Section Start -->
+<section class="section-ptb bg-white bg-5">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-12" data-aos="zoom-in">
+        <div class="heading mb-80">
+          <h2>Testimonials</h2>
+          <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
+          <hr class="line bw-2 mx-auto line-sm mb-5">
+          <hr class="line bw-2 mx-auto">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="client-testimonial position-relative">
+          <div class="client-nav">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" href="#client1" data-toggle="tab">
+                  <img class="drop-shadow" src="{% static 'assets/img/client/thumb/1.png' %}" alt="Client Image">
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#client2" data-toggle="tab">
+                  <img class="drop-shadow" src="{% static 'assets/img/client/thumb/2.png' %}" alt="Client Image">
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#client3" data-toggle="tab">
+                  <img class="drop-shadow" src="{% static 'assets/img/client/thumb/3.png' %}" alt="Client Image">
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#client4" data-toggle="tab">
+                  <img class="drop-shadow" src="{% static 'assets/img/client/thumb/4.png' %}" alt="Client Image">
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#client5" data-toggle="tab">
+                  <img class="drop-shadow" src="{% static 'assets/img/client/thumb/5.png' %}" alt="Client Image">
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="row text-center">
+            <div class="col-10 col-md-8 col-lg-6 mx-auto">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="client1">
+                  <div class="client-thumb mx-auto mb-25">
+                    <img class="drop-shadow" src="{% static 'assets/img/client/thumb/1.png' %}" alt="Client Image">
+                  </div>
+                  <div class="client-desc bg-white d-flex align-items-center">
+                    <div class="text mx-auto">
+                      <h4 class="mb-10">Evelyn Riley</h4>
+                      <h6>Hade Of Idea</h6>
+                      <p>Richard McClintock, a Latin professor at Hampden <br class="d-none d-lg-block">College in Virginia, looked up one of the more obscure Latin words</p>
                     </div>
-                    <a class="secndry-btn brd-rd40" href="{% url 'membership' %}">Sign up</a>
+                  </div>
                 </div>
+                <!-- Single Client End -->
+                <div class="tab-pane fade" id="client2">
+                  <div class="client-thumb mx-auto mb-25">
+                    <img class="drop-shadow" src="{% static 'assets/img/client/thumb/2.png' %}" alt="Client Image">
+                  </div>
+                  <div class="client-desc bg-white d-flex align-items-center">
+                    <div class="text mx-auto">
+                      <h4 class="mb-10">Ethan Green</h4>
+                      <h6>Photograper</h6>
+                      <p>Many desktop publishing packages and web page editors <br class="d-none d-lg-block"> now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Client End -->
+                <div class="tab-pane fade" id="client3">
+                  <div class="client-thumb mx-auto mb-25">
+                    <img class="drop-shadow" src="{% static 'assets/img/client/thumb/3.png' %}" alt="Client Image">
+                  </div>
+                  <div class="client-desc bg-white d-flex align-items-center">
+                    <div class="text mx-auto">
+                      <h4 class="mb-10">Marie Soto</h4>
+                      <h6>Designer</h6>
+                      <p>Virginia, looked up one of the more obscure Latin <br class="d-none d-lg-block"> words, consectetur, from a Lorem Ipsum passage, and going through the cites of looked</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Client End -->
+                <div class="tab-pane fade" id="client4">
+                  <div class="client-thumb mx-auto mb-25">
+                    <img class="drop-shadow" src="{% static 'assets/img/client/thumb/4.png' %}" alt="Client Image">
+                  </div>
+                  <div class="client-desc bg-white d-flex align-items-center">
+                    <div class="text mx-auto">
+                      <h4 class="mb-10">Willie Munoz</h4>
+                      <h6>Content Writer</h6>
+                      <p>Words which don't look even slightly believable. <br class="d-none d-lg-block">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Client End -->
+                <div class="tab-pane fade" id="client5">
+                  <div class="client-thumb mx-auto mb-25">
+                    <img class="drop-shadow" src="{% static 'assets/img/client/thumb/5.png' %}" alt="Client Image">
+                  </div>
+                  <div class="client-desc bg-white d-flex align-items-center">
+                    <div class="text mx-auto">
+                      <h4 class="mb-10">Susan Gardner</h4>
+                      <h6>Manager</h6>
+                      <p>The point of using Lorem Ipsum is that it has a more <br class="d-none d-lg-block"> normal distribution of letters, as opposed to using 'Content here, content here point of using</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Client End -->
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
+<!-- Testimonial Section End -->
+
+<!-- Want to learn more Section Start -->
+<section class="section-ptb bg-light">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-12" data-aos="zoom-in">
+        <div class="heading mb-80">
+          <h2>Want to learn more?</h2>
+          <p class="mb-20">Dive into these resources to see how Procore can help amplify your success.</p>
+          <a>
+            <span class="d-inline-flex align-items-center item-link link-btn">
+                  Explore other resources
+            </span>
+          </a>
+          <hr class="line bw-2 mx-auto line-sm mb-5">
+          <hr class="line bw-2 mx-auto">
+        </div>
+      </div>
+    </div>
+    <div class="position-relative">
+      <!-- Arrows outside -->
+      <div class="swiper-button-prev custom-nav"></div>
+      <div class="swiper-button-next custom-nav"></div>
+
+      <div class="swiper blogSwiper px-4">
+        <div class="swiper-wrapper">
+
+          <!-- Blog Card -->
+          <div class="swiper-slide">
+            <div class="card h-100 border-0 shadow-sm">
+              <img src="{% static 'assets/img/General-Contractor.png' %}" alt="Case study" class="img-fluid w-100 rounded-top" loading="lazy">
+              <div class="card-body">
+                <a href="#" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">Baugruppe Stauch Opts For RIB 4.0</a>
+                <div class="d-flex justify-content-between text-muted small mb-2">
+                  <div class="me-3"><i class="bi bi-calendar"></i> 25 April, 2024</div>
+                  <div><i class="bi bi-clock"></i> 6 mins read</div>
+                </div>
+                <p class="text-muted small mb-3">RIB 4.0 Provides Meticulous Detail Of The Company-specific Processes For This Medium-sized Construction Company...</p>
+                <a href="#" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card h-100 border-0 shadow-sm">
+              <img src="{% static 'assets/img/General-Contractor.png' %}" alt="Case study" class="img-fluid w-100 rounded-top" loading="lazy">
+              <div class="card-body">
+                <a href="#" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">Baugruppe Stauch Opts For RIB 4.0</a>
+                <div class="d-flex justify-content-between text-muted small mb-2">
+                  <div class="me-3"><i class="bi bi-calendar"></i> 25 April, 2024</div>
+                  <div><i class="bi bi-clock"></i> 6 mins read</div>
+                </div>
+                <p class="text-muted small mb-3">RIB 4.0 Provides Meticulous Detail Of The Company-specific Processes For This Medium-sized Construction Company...</p>
+                <a href="#" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card h-100 border-0 shadow-sm">
+              <img src="{% static 'assets/img/General-Contractor.png' %}" alt="Case study" class="img-fluid w-100 rounded-top" loading="lazy">
+              <div class="card-body">
+                <a href="#" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">Baugruppe Stauch Opts For RIB 4.0</a>
+                <div class="d-flex justify-content-between text-muted small mb-2">
+                  <div class="me-3"><i class="bi bi-calendar"></i> 25 April, 2024</div>
+                  <div><i class="bi bi-clock"></i> 6 mins read</div>
+                </div>
+                <p class="text-muted small mb-3">RIB 4.0 Provides Meticulous Detail Of The Company-specific Processes For This Medium-sized Construction Company...</p>
+                <a href="#" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card h-100 border-0 shadow-sm">
+              <img src="{% static 'assets/img/General-Contractor.png' %}" alt="Case study" class="img-fluid w-100 rounded-top" loading="lazy">
+              <div class="card-body">
+                <a href="#" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">Baugruppe Stauch Opts For RIB 4.0</a>
+                <div class="d-flex justify-content-between text-muted small mb-2">
+                  <div class="me-3"><i class="bi bi-calendar"></i> 25 April, 2024</div>
+                  <div><i class="bi bi-clock"></i> 6 mins read</div>
+                </div>
+                <p class="text-muted small mb-3">RIB 4.0 Provides Meticulous Detail Of The Company-specific Processes For This Medium-sized Construction Company...</p>
+                <a href="#" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card h-100 border-0 shadow-sm">
+              <img src="{% static 'assets/img/General-Contractor.png' %}" alt="Case study" class="img-fluid w-100 rounded-top" loading="lazy">
+              <div class="card-body">
+                <a href="#" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">Baugruppe Stauch Opts For RIB 4.0</a>
+                <div class="d-flex justify-content-between text-muted small mb-2">
+                  <div class="me-3"><i class="bi bi-calendar"></i> 25 April, 2024</div>
+                  <div><i class="bi bi-clock"></i> 6 mins read</div>
+                </div>
+                <p class="text-muted small mb-3">RIB 4.0 Provides Meticulous Detail Of The Company-specific Processes For This Medium-sized Construction Company...</p>
+                <a href="#" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card h-100 border-0 shadow-sm">
+              <img src="{% static 'assets/img/General-Contractor.png' %}" alt="Case study" class="img-fluid w-100 rounded-top" loading="lazy">
+              <div class="card-body">
+                <a href="#" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">Baugruppe Stauch Opts For RIB 4.0</a>
+                <div class="d-flex justify-content-between text-muted small mb-2">
+                  <div class="me-3"><i class="bi bi-calendar"></i> 25 April, 2024</div>
+                  <div><i class="bi bi-clock"></i> 6 mins read</div>
+                </div>
+                <p class="text-muted small mb-3">RIB 4.0 Provides Meticulous Detail Of The Company-specific Processes For This Medium-sized Construction Company...</p>
+                <a href="#" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Pagination (optional) -->
+        <div class="swiper-pagination mt-4"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Want to learn more Section End -->
+
+<div class="bg-2 bg-white">
+  <!-- FAQ Section Start -->
+  <section class="section-ptb">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-12" data-aos="zoom-in">
+          <div class="heading mb-80">
+            <h2>Frequesntly Asked Quedtions</h2>
+            <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
+            <hr class="line bw-2 mx-auto line-sm mb-5">
+            <hr class="line bw-2 mx-auto">
+          </div>
+        </div>
+      </div>
+      <div class="row mb-30">
+        <div class="col-12 col-md-6 mb-sm-30" data-aos="zoom-out">
+          <div class="faq-box bg-success">
+            <h4 class="mb-10">01. Can I cancel my subscription?</h4>
+            <p class="mb-0">Looked up one of the more obscure Latin words, consecttur, from a Lorem Ipsum passage, and going through the.</p>
+          </div>
+          <!-- faq box end -->
+        </div>
+        <div class="col-12 col-md-6" data-aos="zoom-out">
+          <div class="faq-box bg-success">
+            <h4 class="mb-10">02. Frequently Asked Questions</h4>
+            <p class="mb-0">All the Lorem Ipasum generators on the Internet tend repeat predefined chunks as necessary generator.</p>
+          </div>
+          <!-- faq box end -->
+        </div>
+      </div>
+      <!-- Frist Row End -->
+      <div class="row">
+        <div class="col-12 col-md-6 mb-sm-30" data-aos="zoom-out">
+          <div class="faq-box bg-success">
+            <h4 class="mb-10">03. Can I try your service for free?</h4>
+            <p class="mb-0">Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of..</p>
+          </div>
+          <!-- faq box end -->
+        </div>
+        <div class="col-12 col-md-6" data-aos="zoom-out">
+          <div class="faq-box bg-success">
+            <h4 class="mb-10">04. Can I update my card details?</h4>
+            <p class="mb-0">Looked up one of the more obscure Latin words, consecttur, from a Lorem Ipsum passage, and going through the.</p>
+          </div>
+          <!-- faq box end -->
+        </div>
+      </div>
+      <!-- Second Row End -->
+    </div>
+  </section>
+  <!-- FAQ Section End -->
+
+  <!-- Clients Logo Section Start -->
+  <section class="client-logo section-ptb">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-12" data-aos="zoom-in">
+          <div class="heading mb-80">
+            <h2>Trusted by many Companies</h2>
+            <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
+            <hr class="line bw-2 mx-auto line-sm mb-5">
+            <hr class="line bw-2 mx-auto">
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-around align-items-center">
+        <div class="col-2" data-aos="zoom-in">
+          <div class="brand-logo">
+            <a href="#"><img src="{% static 'assets/img/client/logo/1.png' %}" alt="Client Logo"></a>
+          </div>
+        </div>
+        <!-- Single logo -->
+        <div class="col-2" data-aos="zoom-in" data-aos-delay="300">
+          <div class="brand-logo">
+            <a href="#"><img src="{% static 'assets/img/client/logo/2.png' %}" alt="Client Logo"></a>
+          </div>
+        </div>
+        <!-- Single logo -->
+        <div class="col-2" data-aos="zoom-in" data-aos-delay="400">
+          <div class="brand-logo">
+            <a href="#"><img src="{% static 'assets/img/client/logo/3.png' %}" alt="Client Logo"></a>
+          </div>
+        </div>
+        <!-- Single logo -->
+        <div class="col-2" data-aos="zoom-in" data-aos-delay="500">
+          <div class="brand-logo">
+            <a href="#"><img src="{% static 'assets/img/client/logo/4.png' %}" alt="Client Logo"></a>
+          </div>
+        </div>
+        <!-- Single logo -->
+        <div class="col-2" data-aos="zoom-in" data-aos-delay="600">
+          <div class="brand-logo">
+            <a href="#"><img src="{% static 'assets/img/client/logo/5.png' %}" alt="Client Logo"></a>
+          </div>
+        </div>
+        <!-- Single logo -->
+        <div class="col-2" data-aos="zoom-in" data-aos-delay="700">
+          <div class="brand-logo">
+            <a href="#"><img src="{% static 'assets/img/client/logo/6.png' %}" alt="Client Logo"></a>
+          </div>
+        </div>
+        <!-- Single logo -->
+      </div>
+    </div>
+  </section>
+  <!-- Clients Logo Section End -->
+</div>
+
 {% endblock %}

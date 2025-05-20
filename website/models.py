@@ -26,7 +26,7 @@ class Slider(BaseTranslateModel):
         return f"{self.id}"
 
 
-class Service(BaseTranslateModel):
+class Solution(BaseTranslateModel):
     translations = TranslatedFields(
         title=models.CharField(max_length=120),
         desc=models.TextField()
@@ -37,61 +37,6 @@ class Service(BaseTranslateModel):
 
     def __str__(self):
         return f"{self.id}"
-
-
-class GalleryImage(BaseModel):
-    name = models.CharField(max_length=120)
-    position = models.IntegerField(default=0)
-    image = models.ImageField(upload_to='website/gallery/')
-    is_active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.name
-
-class EventImage(BaseModel):
-    name = models.CharField(max_length=120)
-    date = models.DateTimeField()
-    description = models.TextField(default="")
-    position = models.IntegerField(default=0)
-    image = models.ImageField(upload_to='website/events/')
-    is_active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.name
-
-class News(BaseModel):
-    name = models.CharField(max_length=120)
-    date = models.DateTimeField()
-    description = models.TextField(default="")
-    position = models.IntegerField(default=0)
-    is_active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.name
-
-
-class ExecutiveMeeting(BaseModel):
-    date = models.DateTimeField()
-    chair = models.CharField()
-    agenda = models.TextField()
-    meeting_minutes = models.TextField()
-
-
-class Page(BaseTranslateModel):
-    translations = TranslatedFields(
-        title=models.CharField(max_length=120),
-        page_content=models.TextField()
-    )
-    url_path = models.CharField(max_length=120, unique=True, db_index=True)
-    is_active = models.BooleanField(default=False)
-
-    def __str__(self):
-        return f"{self.id}"
-
-    @cached_property
-    def preview_url(self):
-        return reverse('website:page-view', args=[self.url_path])
-
 
 class GlobalSettings(BaseTranslateModel):
     site_name = models.CharField(max_length=100)
@@ -130,3 +75,30 @@ class ContactMessage(BaseModel):
 
     def __str__(self):
         return f"{self.name}: {self.subject} - {self.status}"
+
+class RequestDemo(BaseModel):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    company = models.CharField(max_length=255, blank=True)
+    phone = models.CharField(max_length=20, blank=True)
+    has_company = models.CharField(max_length=10)
+    solution = models.CharField(max_length=100)
+    subscribe = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+class PricingRequest(BaseModel):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    company = models.CharField(max_length=255, blank=True)
+    phone = models.CharField(max_length=20, blank=True)
+    annual_volume = models.CharField(max_length=20)
+    company_type = models.CharField(max_length=100)
+    subscribe = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+class Testimonial(BaseModel):
+    name = models.CharField(max_length=255)
+    role = models.CharField(max_length=255)
+    description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to='website/pricing/')

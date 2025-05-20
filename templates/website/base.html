@@ -1,84 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <!-- Meta Charset & Responsive Setup -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Primary Meta Tags -->
+    <title>INFRADYN | Construction Software for Contractors & Developers</title>
+    <meta name="title" content="INFRADYN | Construction Software for Contractors & Developers">
+    <meta name="description" content="INFRADYN offers an intelligent platform for contractors, developers, and EPCMs to plan, execute, and manage construction projects efficiently.">
+
+    <!-- Robots & Canonical -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.infradyn.com/">
+
     {% load static %}
-    <link rel="icon" href="{% static 'assets/images/circular.png' %}" sizes="32x32" type="image/png">
-    <title>PSIY - Pohjois Suomen Islamilainen Yhdyskunta - Oulun Moskeija</title>
 
-    <link rel=" stylesheet
-    " href="{% static  'assets/css/icons.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/fancybox.min.css' %}">
-    <link rel="stylesheet" href="{% static  'assets/css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static  'assets/css/jquery.circliful.css' %}">
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
-    <link rel="stylesheet" href="{% static  'assets/css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/themify-icons-min.css' %}">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800|Open+Sans:300,400,600,700,800"/>
 
-    <!-- Color Scheme -->
-    <link rel="stylesheet" href="{% static 'assets/css/colors/color.css' %}" title="color"/><!-- Color -->
-    <link rel="alternate stylesheet" href="{% static  'assets/css/colors/color2.css' %}" title="color2"/>
-    <!-- Color2 -->
-    <link rel="alternate stylesheet" href="{% static  'assets/css/colors/color3.css' %}" title="color3"/>
-    <!-- Color3 -->
-    <link rel="alternate stylesheet" href="{% static 'assets/css/colors/color4.css' %}" title="color4"/> <!-- Color4 -->
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/client/logo/INFRADYN_LOGO.svg' %}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.infradyn.com/">
+    <meta property="og:title" content="INFRADYN | Construction Software for Contractors & Developers">
+    <meta property="og:description" content="Empower your construction workflow with INFRADYN’s cloud-based tools for scheduling, budgeting, bidding, and more.">
+    <!-- Optional OG image -->
+    <!-- <meta property="og:image" content="{% static 'assets/img/infradyn-og-image.jpg' %}"> -->
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.infradyn.com/">
+    <meta name="twitter:title" content="INFRADYN | Construction Software for Contractors & Developers">
+    <meta name="twitter:description" content="Empower your construction workflow with INFRADYN’s cloud-based tools for scheduling, budgeting, bidding, and more.">
+    <!-- Optional Twitter image -->
+    <!-- <meta name="twitter:image" content="{% static 'assets/img/infradyn-og-image.jpg' %}"> -->
+
+    <!-- Modernizr -->
+    <script src="{% static 'assets/js/vandor/modernizr-3.5.0.min.js' %}"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
+
 <body>
+<!-- Main Wrapper Start -->
 <main>
-    <div class="pageloader-wrap">
-        <div class="loader">
-            <img src="{% static 'assets/images/circular.png' %}">
-            <!-- <div class=" loader__bar">
-        </div>
-        -->
-            <!-- <div class="loader__bar"></div>
-            <div class="loader__bar"></div>
-            <div class="loader__bar"></div>
-            <div class="loader__bar"></div>
-            <div class="loader__ball"></div> -->
+    <!-- Preloader -->
+    <div id="fadeout" class="loader w-100 h-100 position-absolute">
+        <div class="h-100 d-flex justify-content-center align-items-center">
+            <div class="one circle"></div>
+            <div class="two circle"></div>
         </div>
     </div>
-    <!-- Pageloader Wrap -->
-    <div class="sidepanel">
-        <span><i class="fa fa-cog fa-spin"></i></span>
-        <div class="color-picker">
-            <h3>Choose Your Color</h3>
-            <a class="color applied" onclick="setActiveStyleSheet('color'); return false;"></a>
-            <a class="color2" onclick="setActiveStyleSheet('color2'); return false;"></a>
-            <a class="color3" onclick="setActiveStyleSheet('color3'); return false;"></a>
-            <a class="color4" onclick="setActiveStyleSheet('color4'); return false;"></a>
-        </div><!-- Color Picker -->
-    </div>
+
     {% include 'website/header.html' %}
-    {% block main_container %}
-    {% endblock %}
+    <div class="header-space"></div>
+    {% block main_container %}{% endblock %}
+
+    <!-- Sticky CTA Footer -->
+    <div id="ctaFooter" class="sticky-cta-footer bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h4 class="mb-0 text-white">Ready to build?</h4>
+            <a href="{% url 'request_a_demo' %}" class="btn btn-primary">Get your free demo</a>
+        </div>
+    </div>
+
     {% include 'website/footer.html' %}
-</main><!-- Main Wrapper -->
+</main>
+<!-- Main Wrapper End -->
 
-<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<!-- JS Files -->
+<script src="{% static 'assets/js/vandor/jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
-<script src="{% static 'assets/js/downCount.js' %}"></script>
-<script src="{% static 'assets/js/fancybox.min.js' %}"></script>
-<script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
-<script src="{% static 'assets/js/perfectscrollbar.min.js' %}"></script>
-<script src="{% static 'assets/js/wow.min.js' %}"></script>
-<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
-<script src="{% static 'assets/js/jquery.circliful.min.js' %}"></script>
-<script src="{% static 'assets/js/custom-scripts.js' %}"></script>
-<script>
-    function changeLanguage(languageUrl) {
-    if (languageUrl) {
-        window.location.href = languageUrl;
-    }
-}
-</script>
-
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/js/plugins.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="{% static 'assets/js/swiper.js' %}"></script>
+<script src="{% static 'assets/js/step-2-step-form.js' %}"></script>
+<script src="{% static 'assets/js/sticky_footer_cta.js' %}"></script>
 </body>
-
-
 </html>
