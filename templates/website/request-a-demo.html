@@ -2,23 +2,24 @@
 {% load static %}
 {% block main_container %}
 
-    <!-- Breadcrumb Area Start -->
-    <nav class="breadcrumb-area bg-dark bg-6 ptb-70">
-        <div class="container d-md-flex">
-            <h2 class="text-white mb-0">About Us</h2>
-            <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
-                <li class="breadcrumb-item"><a href="index.html">Home</a> <span class="text-white">/</span></li>
-                <li aria-current="page" class="breadcrumb-item active">About Us</li>
-            </ol>
-        </div>
-    </nav>
-    <!-- Breadcrumb Area End -->
+<!-- Breadcrumb Area Start -->
+<nav class="breadcrumb-area bg-dark bg-6 ptb-70">
+    <div class="container d-md-flex">
+        <h2 class="text-white mb-0">Request a Demo</h2>
+        <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}}">Home</a> <span class="text-white">/</span></li>
+            <li aria-current="page" class="breadcrumb-item active">Request a Demo</li>
+        </ol>
+    </div>
+</nav>
+<!-- Breadcrumb Area End -->
 
-    <!-- Demo Request Section Start -->
-    <section class="slider-area py-5 bg-1">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-12 col-lg-7">
+<!-- Demo Request Section Start -->
+<div class="bg-2 bg-white">
+<section class="section-ptb">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-12 col-lg-7">
                 <h2 class="mb-4">Request Your Free Demo</h2>
                 <br>
 
@@ -129,127 +130,124 @@
                 </form>
             </div>
 
-                <!-- Right Column: Video -->
-                <div class="col-12 col-lg-5">
-                    <div class="video-wrapper">
-                        <iframe class="w-120 rounded" height="350"
-                                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                                title="Promotional Video"
-                                allowfullscreen>
-                        </iframe>
-                    </div>
+            <!-- Right Column: Description -->
+            <div class="col-12 col-lg-5">
+                <div class="video-wrapper">
+                    <h5 class="display-3 mb-10">AI powered clarity for dynamic project control for</h5>
+                    <img src="{% static 'assets/img/slider/layer/1.png' %}" alt="Layer Image">
+                    <p class="mb-30">Unified intelligent platform which help owners save €30M per €500M project by predicting risks, reducing delays, and eliminating reporting inefficiencies.</p>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Demo Request Section End -->
-
-    <div class="bg-2 bg-white">
-        <!-- FAQ Section Start -->
-        <section class="section-ptb">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-12" data-aos="zoom-in">
-                        <div class="heading mb-80">
-                            <h2>Frequesntly Asked Quedtions</h2>
-                            <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
-                            <hr class="line bw-2 mx-auto line-sm mb-5">
-                            <hr class="line bw-2 mx-auto">
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-30">
-                    <div class="col-12 col-md-6 mb-sm-30" data-aos="zoom-out">
-                        <div class="faq-box bg-success">
-                            <h4 class="mb-10">01. Can I cancel my subscription?</h4>
-                            <p class="mb-0">Looked up one of the more obscure Latin words, consecttur, from a Lorem Ipsum passage, and going through the.</p>
-                        </div>
-                        <!-- faq box end -->
-                    </div>
-                    <div class="col-12 col-md-6" data-aos="zoom-out">
-                        <div class="faq-box bg-success">
-                            <h4 class="mb-10">02. Frequently Asked Questions</h4>
-                            <p class="mb-0">All the Lorem Ipasum generators on the Internet tend repeat predefined chunks as necessary generator.</p>
-                        </div>
-                        <!-- faq box end -->
-                    </div>
-                </div>
-                <!-- Frist Row End -->
-                <div class="row">
-                    <div class="col-12 col-md-6 mb-sm-30" data-aos="zoom-out">
-                        <div class="faq-box bg-success">
-                            <h4 class="mb-10">03. Can I try your service for free?</h4>
-                            <p class="mb-0">Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of..</p>
-                        </div>
-                        <!-- faq box end -->
-                    </div>
-                    <div class="col-12 col-md-6" data-aos="zoom-out">
-                        <div class="faq-box bg-success">
-                            <h4 class="mb-10">04. Can I update my card details?</h4>
-                            <p class="mb-0">Looked up one of the more obscure Latin words, consecttur, from a Lorem Ipsum passage, and going through the.</p>
-                        </div>
-                        <!-- faq box end -->
-                    </div>
-                </div>
-                <!-- Second Row End -->
-            </div>
-        </section>
-        <!-- FAQ Section End -->
-
-        <!-- Clients Logo Section Start -->
-        <section class="client-logo section-ptb">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-12" data-aos="zoom-in">
-                        <div class="heading mb-80">
-                            <h2>Trusted by many Companies</h2>
-                            <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
-                            <hr class="line bw-2 mx-auto line-sm mb-5">
-                            <hr class="line bw-2 mx-auto">
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-around align-items-center">
-                    <div class="col-2" data-aos="zoom-in">
-                        <div class="brand-logo">
-                            <a href="#"><img src="{% static 'assets/img/client/logo/1.png' %}" alt="Client Logo"></a>
-                        </div>
-                    </div>
-                    <!-- Single logo -->
-                    <div class="col-2" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="brand-logo">
-                            <a href="#"><img src="{% static 'assets/img/client/logo/2.png' %}" alt="Client Logo"></a>
-                        </div>
-                    </div>
-                    <!-- Single logo -->
-                    <div class="col-2" data-aos="zoom-in" data-aos-delay="400">
-                        <div class="brand-logo">
-                            <a href="#"><img src="{% static 'assets/img/client/logo/3.png' %}" alt="Client Logo"></a>
-                        </div>
-                    </div>
-                    <!-- Single logo -->
-                    <div class="col-2" data-aos="zoom-in" data-aos-delay="500">
-                        <div class="brand-logo">
-                            <a href="#"><img src="{% static 'assets/img/client/logo/4.png' %}" alt="Client Logo"></a>
-                        </div>
-                    </div>
-                    <!-- Single logo -->
-                    <div class="col-2" data-aos="zoom-in" data-aos-delay="600">
-                        <div class="brand-logo">
-                            <a href="#"><img src="{% static 'assets/img/client/logo/5.png' %}" alt="Client Logo"></a>
-                        </div>
-                    </div>
-                    <!-- Single logo -->
-                    <div class="col-2" data-aos="zoom-in" data-aos-delay="700">
-                        <div class="brand-logo">
-                            <a href="#"><img src="{% static 'assets/img/client/logo/6.png' %}" alt="Client Logo"></a>
-                        </div>
-                    </div>
-                    <!-- Single logo -->
-                </div>
-            </div>
-        </section>
-        <!-- Clients Logo Section End -->
     </div>
+</section>
+
+    <!-- FAQ Section Start -->
+    <section class="section-ptb">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12" data-aos="zoom-in">
+                    <div class="heading mb-80">
+                        <h2>Frequesntly Asked Quedtions</h2>
+                        <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
+                        <hr class="line bw-2 mx-auto line-sm mb-5">
+                        <hr class="line bw-2 mx-auto">
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-30">
+                <div class="col-12 col-md-6 mb-sm-30" data-aos="zoom-out">
+                    <div class="faq-box bg-success">
+                        <h4 class="mb-10">01. Can I cancel my subscription?</h4>
+                        <p class="mb-0">Looked up one of the more obscure Latin words, consecttur, from a Lorem Ipsum passage, and going through the.</p>
+                    </div>
+                    <!-- faq box end -->
+                </div>
+                <div class="col-12 col-md-6" data-aos="zoom-out">
+                    <div class="faq-box bg-success">
+                        <h4 class="mb-10">02. Frequently Asked Questions</h4>
+                        <p class="mb-0">All the Lorem Ipasum generators on the Internet tend repeat predefined chunks as necessary generator.</p>
+                    </div>
+                    <!-- faq box end -->
+                </div>
+            </div>
+            <!-- Frist Row End -->
+            <div class="row">
+                <div class="col-12 col-md-6 mb-sm-30" data-aos="zoom-out">
+                    <div class="faq-box bg-success">
+                        <h4 class="mb-10">03. Can I try your service for free?</h4>
+                        <p class="mb-0">Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of..</p>
+                    </div>
+                    <!-- faq box end -->
+                </div>
+                <div class="col-12 col-md-6" data-aos="zoom-out">
+                    <div class="faq-box bg-success">
+                        <h4 class="mb-10">04. Can I update my card details?</h4>
+                        <p class="mb-0">Looked up one of the more obscure Latin words, consecttur, from a Lorem Ipsum passage, and going through the.</p>
+                    </div>
+                    <!-- faq box end -->
+                </div>
+            </div>
+            <!-- Second Row End -->
+        </div>
+    </section>
+    <!-- FAQ Section End -->
+    </div>
+<!-- Demo Request Section End -->
+
+    <!-- Clients Logo Section Start -->
+    <section class="client-logo section-ptb">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12" data-aos="zoom-in">
+                    <div class="heading mb-80">
+                        <h2>Trusted by many Companies</h2>
+                        <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
+                        <hr class="line bw-2 mx-auto line-sm mb-5">
+                        <hr class="line bw-2 mx-auto">
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-around align-items-center">
+                <div class="col-2" data-aos="zoom-in">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/1.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+                <div class="col-2" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/2.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+                <div class="col-2" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/3.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+                <div class="col-2" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/4.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+                <div class="col-2" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/5.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+                <div class="col-2" data-aos="zoom-in" data-aos-delay="700">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/6.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+            </div>
+        </div>
+    </section>
+    <!-- Clients Logo Section End -->
 
 {% endblock %}
