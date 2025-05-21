@@ -12,7 +12,7 @@
       <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="index.html" class="nav-link"></a>
+            <a href="{% url 'home' %}}" class="nav-link"></a>
           </li>
           <li class="nav-item dropdown position-static">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Product</a>
@@ -107,7 +107,7 @@
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >Resources</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="{% url 'about' %}">About Us</a></li>
-              <li><a class="dropdown-item" href="blog.html">Blogs</a></li>
+              <li><a class="dropdown-item" href="{% url 'post-list' %}">Blogs</a></li>
               <li><a class="dropdown-item" href="blog-details.html">Case Studies</a></li>
             </ul>
           </li>

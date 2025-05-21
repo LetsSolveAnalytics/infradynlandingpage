@@ -25,19 +25,6 @@ class Slider(BaseTranslateModel):
     def __str__(self):
         return f"{self.id}"
 
-
-class Solution(BaseTranslateModel):
-    translations = TranslatedFields(
-        title=models.CharField(max_length=120),
-        desc=models.TextField()
-    )
-    image = models.ImageField(upload_to='website/services/')
-    position = models.IntegerField(default=0)
-    is_active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return f"{self.id}"
-
 class GlobalSettings(BaseTranslateModel):
     site_name = models.CharField(max_length=100)
     site_logo = models.ImageField(upload_to="website/logo/", default="default.png")

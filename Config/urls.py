@@ -23,8 +23,9 @@ from django.conf.urls.i18n import i18n_patterns
 # i18n-aware URLs
 urlpatterns = i18n_patterns(
     path(_('admin/'), admin.site.urls),
-    path(_('rosetta/'), include('rosetta.urls')),
+    # path(_('rosetta/'), include('rosetta.urls')),
     path(_('blog/'), include('blogs.urls')),
+    path(_('solution/'), include('solutions.urls')),
     path('captcha/', include('captcha.urls')),
     path('', include('website.urls')),  # Website root
 )

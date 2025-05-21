@@ -2,15 +2,13 @@
 {% load static %}
 {% block main_container %}
 
-<div class="header-space"></div>
-
 <!-- Breadcrumb Area Start -->
 <nav class="breadcrumb-area bg-dark bg-6 ptb-70">
     <div class="container d-md-flex">
         <h2 class="text-white mb-0">Blog Details</h2>
         <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
-            <li class="breadcrumb-item"><a href="index.html">Home</a> <span class="text-white">/</span></li>
-            <li class="breadcrumb-item"><a href="blog.html">Blog</a> <span class="text-white">/</span></li>
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a> <span class="text-white">/</span></li>
+            <li class="breadcrumb-item"><a href="{% url 'post-list' %}">Blog</a> <span class="text-white">/</span></li>
             <li aria-current="page" class="breadcrumb-item active">Blog Details</li>
         </ol>
     </div>
@@ -21,116 +19,90 @@
 <section class="blog-page blog-details section-ptb bg-light">
     <div class="container">
         <div class="row">
+
             <div class="col-12 col-md-8 col-lg-9 mb-sm-50" data-aos="fade-up">
+                <!-- Post Card Start -->
                 <div class="card">
                     <div class="card-header position-relative">
-                        <img src="assets/img/blog/lg.jpg" alt="Post Thumbnail">
+                        <img src="{{ post.image.url }}" alt="Post Thumbnail">
                     </div>
                     <div class="card-body bg-white">
-                        <h3>Resume notifications only when you’re ready</h3>
-                        <h5 class="mb-25">By the team at RNR, March 18, 2019</h5>
-                        <p class="mb-30">Looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-                        <h4>Cancel my subscription</h4>
-                        <p>Looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
-                        <blockquote class="quote-card bg-light mt-50 mb-50">
-                            <p>Looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the.</p>
-                        </blockquote>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.</p>
-                        <ul class="list-group mt-25">
-                            <li>Phasellus bibendum ante et enim tincidunt aliquam.</li>
-                            <li>Quisque vehicula ligula sit amet aliquet condimentum.</li>
-                            <li>Nunc vel turpis vitae quam tincidunt viverra.</li>
-                            <li>Cras dignissim risus egestas justo vulputate feugiat.</li>
-                        </ul>
+                        <h3>{{ post.title }}</h3>
+                        <div class="mb-30">
+                            {{ post.content }}
+                        </div>
                     </div>
                 </div>
-                <!-- Post Details End -->
+                <!-- Post Card End -->
+
+                <!-- Navigation for Previous and Next Posts -->
                 <div class="next-prev-post bg-white mt-50 mb-60 clearfix">
+                    {% if post.get_previous_by_date_time %}
                     <div class="float-left">
-                        <p>All the Lorem Ipsum gen..</p>
-                        <a href="#"><i class="ti-arrow-left"></i>&nbsp; &nbsp; Prev Post</a>
+                        <p>{{ post.get_previous_by_date_time.title|truncatewords:5 }}</p>
+                        <a href="{% url 'post_detail' post.get_previous_by_date_time.slug %}">
+                            <i class="ti-arrow-left"></i> &nbsp; Prev Post
+                        </a>
                     </div>
+                    {% endif %}
+                    {% if post.get_next_by_date_time %}
                     <div class="float-right text-right">
-                        <p>Finibus Bonorum et Malorum</p>
-                        <a href="#">Next Post &nbsp; &nbsp;<i class="ti-arrow-right"></i></a>
+                        <p>{{ post.get_next_by_date_time.title|truncatewords:5 }}</p>
+                        <a href="{% url 'post_detail' post.get_next_by_date_time.slug %}">
+                            Next Post &nbsp; <i class="ti-arrow-right"></i>
+                        </a>
                     </div>
+                    {% endif %}
                 </div>
-                <!-- Next Prev Box End -->
-                <!-- Comment Area Start -->
+
+                <!-- Comments Area Start -->
                 <div class="comments-area">
                     <div class="comment-boxs">
-                        <div class="media admin-box bg-white mb-40">
-                            <div class="thumb">
-                                <img src="assets/img/blog/author/1.png" alt="Commentor Image">
-                            </div>
-                            <div class="media-body pl-30">
-                                <h4 class="mb-10">Maria Lynch <span class="text-primary">Admin</span></h4>
-                                <p>Lorem Ipsum is not simply random text. It has roots in a pieclassical Latin literature from 45 BC, making it over 2000 years old.</p>
-                            </div>
-                        </div>
-                        <!-- Admin Box Comment End -->
+                        {% for comment in post.get_comments.all %}
+                        {% if comment.status == 1 %}
                         <div class="media bg-white mb-30">
                             <div class="thumb">
-                                <img src="assets/img/blog/author/2.png" alt="Commentor Image">
+                                <img src="{% static 'assets/img/blog/author/default.png' %}" alt="Commentor Image">
                             </div>
                             <div class="media-body pl-30">
-                                <h6 class="mb-0 float-right">July 13, 2018</h6>
-                                <h4 class="mb-10">Terry Mendez</h4>
-                                <p>Lorem Ipsum is not simply random text. It has roots in a pieccal Latin literature from 45 BC, making it over 2000 years old.</p>
-                                <a class="reply item-link" href="#">Reply</a>
-                                <!-- Comment Reply Start -->
-                                <div class="media">
-                                    <div class="thumb">
-                                        <img src="assets/img/blog/author/3.png" alt="Commentor Image">
-                                    </div>
-                                    <div class="media-body pl-20">
-                                        <h6 class="mb-0 float-right">July 14, 2018</h6>
-                                        <h4 class="mb-10">Linda Ryan</h4>
-                                        <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model. </p>
-                                        <a class="reply item-link" href="#">Reply</a>
-                                    </div>
-                                </div>
+                                <h6 class="mb-0 float-right">{{ comment.created_at|date:"F d, Y" }}</h6>
+                                <h4 class="mb-10">{{ comment.name }}</h4>
+                                <p>{{ comment.desc }}</p>
+                                <span class="text-muted small">Subject: {{ comment.subject }}</span>
                             </div>
                         </div>
-                        <!-- Single Comment End -->
-                        <div class="media bg-white">
-                            <div class="thumb">
-                                <img src="assets/img/blog/author/4.png" alt="Commentor Image">
-                            </div>
-                            <div class="media-body pl-30">
-                                <h6 class="mb-0 float-right">July 10, 2018</h6>
-                                <h4 class="mb-10">Kevin Nichols</h4>
-                                <p>It was popularised in the 1960s with the release of Letra containing Lorem Ipsum passages, and more.</p>
-                                <a class="reply item-link" href="#">Reply</a>
-                            </div>
-                        </div>
-                        <!-- Single Comment End -->
+                        {% endif %}
+                        {% empty %}
+                        <p>No comments yet.</p>
+                        {% endfor %}
                     </div>
-                    <!-- Comment Boxs End -->
+
+                    <!-- Comment Form -->
                     <div class="comment-form bg-white mt-50">
                         <div class="title mb-40">
                             <h3 class="mb-10">Leave a Reply</h3>
                             <hr class="line bw-2 line-sm mb-5">
                             <hr class="line bw-2">
                         </div>
-                        <form class="form-group" action="#">
+                        <form method="post" action="{% url 'add-comment' post.id %}" class="form-group">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-12 col-lg-6">
-                                    <input class="form-control" type="text" name="name" placeholder="Your Name">
+                                    <input class="form-control" type="text" name="name" placeholder="Your Name" required>
                                 </div>
                                 <div class="col-12 col-lg-6">
-                                    <input class="form-control" type="email" name="email" placeholder="Email Address">
+                                    <input class="form-control" type="email" name="email" placeholder="Email Address" required>
                                 </div>
                             </div>
-                            <input class="form-control" name="website" type="text" placeholder="Enter Website">
-                            <textarea class="form-control" name="comment" rows="3" placeholder="Enter Comments"></textarea>
+                            <input class="form-control" name="subject" type="text" placeholder="Subject" required>
+                            <textarea class="form-control" name="desc" rows="3" placeholder="Enter Comments" required></textarea>
                             <button class="btn btn-primary mt-10" type="submit">Post Comment</button>
                         </form>
                     </div>
                 </div>
-                <!-- Comments Area End -->
             </div>
             <!-- Blog Details End -->
+
             <div class="col-12 col-md-4 col-lg-3">
                 <div class="sidebar" data-aos="fade-in">
                     <div class="widget search-box mb-30">
@@ -160,20 +132,27 @@
                         </ul>
                     </div>
                     <!-- Widget End -->
+
                     <div class="widget categories bg-white mb-30">
                         <div class="widget-title mb-15">
                             <h4 class="mb-10">Categories</h4>
                             <hr class="line bw-2">
                         </div>
                         <ul class="list-unstyled">
-                            <li><a href="#">Business - <span>15</span></a></li>
-                            <li><a href="#">Corporate - <span>08</span></a></li>
-                            <li><a href="#">Agency - <span>05</span></a></li>
-                            <li><a href="#">Software - <span>12</span></a></li>
-                            <li><a href="#">StartUp - <span>10</span></a></li>
+                            {% for category in categories %}
+                            <li>
+                                <a href="?cat={{ category.slug }}">
+                                    {{ category.name }} -
+                                    <span>{{ category.post_count }}</span>
+                                </a>
+                            </li>
+                            {% empty %}
+                            <li>No categories available</li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <!-- Widget End -->
+
                     <div class="widget tags bg-white">
                         <div class="widget-title mb-15">
                             <h4 class="mb-10">Tags</h4>

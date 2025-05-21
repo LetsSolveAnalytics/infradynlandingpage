@@ -14,7 +14,7 @@ from . import forms
 
 from .constants import PageType
 from .forms import ContactMessageForm, RequestDemoForm, PricingRequestForm
-from .models import Slider, Solution, ContactMessage, RequestDemo
+from .models import Slider, ContactMessage, RequestDemo
 
 
 # Create your views here.
@@ -34,12 +34,6 @@ class PricingView(TemplateView):
 
 class AboutView(TemplateView):
     template_name = 'website/about.html'
-
-
-class SolutionListView(ListView):
-    queryset = Solution.objects.filter(is_active=True)
-    template_name = 'website/solutions.html'
-    context_object_name = 'solutions'
 
 
 class RequestDemoView(View):

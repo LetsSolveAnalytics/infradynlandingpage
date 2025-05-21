@@ -1,7 +1,9 @@
 from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Count, Q
 from django.http import Http404, HttpResponseRedirect
 from django.views import View
 from django.views.generic import ListView, DetailView
+from django.core.paginator import Paginator
 
 from . import forms
 from .models import Post, Category, Comment
@@ -11,6 +13,7 @@ class PostListView(ListView):
     queryset = Post.objects.filter(is_published=True)
     template_name = 'website/post_list.html'
     context_object_name = 'posts'
+    paginate_by = 5
 
     def get_queryset(self):
         cat = self.request.GET.get('cat')
@@ -27,6 +30,7 @@ class PostListView(ListView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.filter(is_active=True).annotate(posts_count=Count('post', filter=Q(post__is_published=True))).order_by('-posts_count')
         context['post_type'] = self.request.GET.get('post_type')
         return context
 
@@ -40,7 +44,6 @@ class PostDetailView(DetailView):
         # cat = self.request.GET.get('cat')
         # search = self.request.GET.get('search')
         post_type = self.request.GET.get('post_type')
-        print(post_type)
         queryset = self.queryset
         # if cat:
         #     queryset = queryset.filter(categories__slug=cat)
