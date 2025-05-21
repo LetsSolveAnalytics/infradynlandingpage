@@ -37,7 +37,7 @@ class SolutionListView(ListView):
 class SolutionDetailView(DetailView):
     queryset = Solution.objects.filter(is_published=True)
     template_name = 'website/solution_details.html'
-    context_object_name = 'post'
+    context_object_name = 'solution'
 
     def get_queryset(self):
         # cat = self.request.GET.get('cat')
