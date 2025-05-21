@@ -5,7 +5,7 @@
 <!-- Breadcrumb Area Start -->
 <nav class="breadcrumb-area bg-dark bg-6 ptb-70">
     <div class="container d-md-flex">
-        <h2 class="text-white mb-0">{{ solution.title }}</h2>
+        <h2 class="text-white mb-0">{{ solution.banner_title }}</h2>
         <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
             <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a> <span class="text-white">/</span></li>
             <li class="breadcrumb-item"><a href="{% url 'solution-list' %}">Solutions</a> <span class="text-white">/</span></li>
@@ -50,20 +50,127 @@
             </div>
         </div>
     </section>
-</div>
 
-<section class="section-ptb">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-12">
-                <h2 class="mb-4">{{ solution.secondary_title }}</h2>
-                <p class="mb-20">{{ solution.introduction }}</p>
-            </div>
-            <div class="col-md-7">
+    <section class="section-ptb">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <h2 class="mb-4">{{ solution.secondary_title }}</h2>
+                    <p class="mb-20">{{ solution.introduction }}</p>
 
+                    <div>
+                        {% for category in solution_categories.all %}
+                        <button class="tab-button btn btn-outline-light outline-primary ml-25 {% if forloop.first %}active{% endif %}" onclick="showProduct('{{ category.slug }}')">
+                            {{ category.name }}
+                        </button>
+                        {% endfor %}
+                    </div>
+
+                    {% for category in solution_categories.all %}
+                    <div id="{{ category.slug }}" class="product-content {% if forloop.first %}active{% endif %}">
+                        <div class="col-md-7">
+                            <h2>{{ category.name }}</h2>
+                            <p>{{ category.description }}</p>
+                        </div>
+                        <div class="col-md-5">
+                            <img src="{{ category.image.url }}" alt="{{ category.name }}"  class="img-fluid rounded">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
+    </section>
+</div>
+
+<!-- Testimonial Section Start -->
+<section class="section-ptb bg-white bg-5">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-12" data-aos="zoom-in">
+        <div class="heading mb-80">
+          <h2>Testimonials</h2>
+          <p class="mb-20">{{ testimonial_intro }}</p>
+          <hr class="line bw-2 mx-auto line-sm mb-5">
+          <hr class="line bw-2 mx-auto">
+        </div>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="client-testimonial position-relative">
+          <div class="client-nav">
+            <ul class="nav nav-tabs">
+              {% for t in testimonials %}
+              <li class="nav-item">
+                <a class="nav-link {% if forloop.first %}active{% endif %}" href="#client{{ forloop.counter }}" data-toggle="tab">
+                  <img class="drop-shadow" src="{{ t.user_image.url }}" alt="Client Image">
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="row text-center">
+            <div class="col-10 col-md-8 col-lg-6 mx-auto">
+              <div class="tab-content">
+                {% for t in testimonials %}
+                <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="client{{ forloop.counter }}">
+                  <div class="client-thumb mx-auto mb-25">
+                    <img class="drop-shadow" src="{{ t.user_image.url }}" alt="Client Image">
+                  </div>
+                  <div class="client-desc bg-white d-flex align-items-center">
+                    <div class="text mx-auto">
+                      <h4 class="mb-10">{{ t.name }}</h4>
+                      <h6>{{ t.designation }}</h6>
+                      <p>{{ t.message }}</p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+<!-- Testimonial Section End -->
+
+<!-- FAQ Section Start -->
+<section class="section-ptb bg-white bg-5">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-12" data-aos="zoom-in">
+        <div class="heading mb-80">
+          <h2>Frequently Asked Questions</h2>
+          <p class="mb-20">{{ faq_intro }}</p>
+          <hr class="line bw-2 mx-auto line-sm mb-5">
+          <hr class="line bw-2 mx-auto">
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion" id="faqAccordion">
+      {% for faq in faqs %}
+      <div class="faq-box bg-success mb-3">
+        <div class="accordion-item">
+          <h4 class="mb-10" id="heading{{ forloop.counter }}">
+            <button class="accordion-button btn collapsed bg-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
+              {{ forloop.counter|stringformat:"02d" }}. {{ faq.question }}
+            </button>
+          </h4>
+          <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#faqAccordion">
+            <div class="accordion-body mb-20">
+              {{ faq.answer }}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- FAQ Section End -->
 
 {% endblock %}

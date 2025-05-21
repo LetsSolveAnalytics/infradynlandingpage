@@ -45,7 +45,7 @@ class Solution(BaseTranslateModel):
     categories = models.ManyToManyField(SolutionCategory)
 
     def save(self, *args, **kwargs):
-        title = self.safe_translation_getter("title")
-        if title and not self.slug:
-            self.slug = slug_utils.generate_unique_slug(self, title)
+        banner_title = self.safe_translation_getter("banner_title")
+        if banner_title and not self.slug:
+            self.slug = slug_utils.generate_unique_slug(self, banner_title)
         super().save(*args, **kwargs)

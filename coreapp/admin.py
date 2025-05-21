@@ -46,3 +46,13 @@ for model in models:
             admin.site.register(User, CustomUserAdmin)
         else:
             admin.site.register(model)
+
+class TestimonialAdmin(admin.ModelAdmin):
+    list_display = ('name', 'designation', 'is_active', 'created_at')
+    list_filter = ('is_active',)
+    search_fields = ('name', 'designation')
+
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ('question', 'is_active', 'created_at')
+    list_filter = ('is_active',)
+    search_fields = ('question', 'answer')

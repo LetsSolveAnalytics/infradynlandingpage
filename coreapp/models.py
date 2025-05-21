@@ -77,3 +77,25 @@ class Document(BaseModel):
     @cached_property
     def get_url(self):
         return f"{settings.MEDIA_HOST}{self.document.url}"
+
+class Testimonials(BaseModel):
+    name = models.CharField(max_length=100)
+    company = models.CharField(max_length=100)
+    company_logo = models.FileField(upload_to='coreapp/testimonials/company_logos/%Y/%m/%d/', default='default.png')
+    designation = models.CharField(max_length=100)
+    message = models.TextField()
+    user_image = models.ImageField(upload_to='coreapp/testimonials/user_images/%Y/%m/%d/', default='default.png')
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+class FAQ(models.Model):
+    question = models.CharField(max_length=300)
+    answer = models.TextField()
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.question

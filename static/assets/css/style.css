@@ -1576,16 +1576,23 @@ header .navbar.is-sticky {
 
 /* FAQ Sections */
 .faq-box {
-  padding: 5rem; }
+  padding: 2rem;
+  border-radius: 10px;
+}
 @media (max-width: 991.98px) {
   .faq-box {
-    padding: 3rem; } }
+    padding: 3rem;
+  }
+}
 .faq-box h4 {
   font-family: "Open Sans", sans-serif;
-  font-weight: 600; }
-.faq-box p {
+  font-weight: 600;
+}
+.faq-box p,
+.accordion-body {
   line-height: 3rem;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+}
 
 /* Team Member Part */
 .team-members {
@@ -2171,4 +2178,54 @@ form#demoForm {
   .image-layer {
     max-width: 48%;
   }
+}
+
+/*
+[ 8. Category tab toggle ]
+================ */
+.tab-button {
+  background: #fff;
+  border: 2px solid #ccc;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.tab-button.active {
+  background: #02ad88;
+  color: white;
+  border-color: #02ad88;
+}
+
+.product-content {
+  display: none;
+}
+
+.product-content.active {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.product-description {
+  flex: 1;
+}
+
+.product-description ul {
+  padding-left: 18px;
+}
+
+.product-image {
+  flex: 1;
+}
+
+.product-image img {
+  max-width: 100%;
+  border-radius: 10px;
 }

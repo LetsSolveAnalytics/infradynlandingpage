@@ -15,6 +15,7 @@ from . import forms
 from .constants import PageType
 from .forms import ContactMessageForm, RequestDemoForm, PricingRequestForm
 from .models import Slider, ContactMessage, RequestDemo
+from coreapp.models import Testimonials, FAQ
 
 
 # Create your views here.
@@ -24,6 +25,10 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['testimonials'] = Testimonials.objects.filter(is_active=True)
+        context['testimonial_intro'] = "What Our Clients Say!"
+        context['faqs'] = FAQ.objects.filter(is_active=True)
+        context['faq_intro'] = "Here are some of the most common questions we receive from our customers."
         context['sliders'] = Slider.objects.filter(is_active=True)
         return context
 

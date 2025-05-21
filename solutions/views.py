@@ -7,6 +7,7 @@ from django.core.paginator import Paginator
 
 from . import forms
 from .models import Solution, SolutionCategory
+from coreapp.models import Testimonials, FAQ
 
 
 class SolutionListView(ListView):
@@ -54,7 +55,9 @@ class SolutionDetailView(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['solution_type'] = self.request.GET.get('solution_type')
+        context['testimonials'] = Testimonials.objects.filter(is_active=True)
+        context['testimonial_intro'] = "What Our Clients Say!"
+        context['faqs'] = FAQ.objects.filter(is_active=True)
+        context['faq_intro'] = "Here are some of the most common questions we receive from our customers."
         context['solution_categories'] = SolutionCategory.objects.filter(is_active=True)
-        context['recent_posts'] = Solution.objects.filter(is_published=True).order_by('-created_at')
         return context
