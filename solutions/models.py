@@ -10,8 +10,10 @@ from coreapp.base import BaseModel, BaseTranslateModel
 
 class SolutionCategory(BaseTranslateModel):
     translations = TranslatedFields(
-        name=models.CharField(max_length=100)
+        name=models.CharField(max_length=100),
+        description = models.TextField(null=True, blank=True)
     )
+    image = models.ImageField(upload_to='solution/images/', default='default.png')
     slug = models.SlugField(unique=True, db_index=True, editable=False)
     is_active = models.BooleanField(default=False)
 
@@ -30,10 +32,12 @@ class SolutionCategory(BaseTranslateModel):
 
 class Solution(BaseTranslateModel):
     translations = TranslatedFields(
-        title=models.CharField(max_length=100),
-        content=models.TextField(null=True, blank=True)
+        banner_title=models.CharField(max_length=100),
+        banner_content=models.TextField(null=True, blank=True),
+        secondary_title=models.CharField(max_length=200),
+        introduction=models.TextField(null=True, blank=True)
     )
-    image = models.ImageField(upload_to='blog/images/', default='default.png')
+    image = models.ImageField(upload_to='solution/images/', default='default.png')
     slug = models.SlugField(unique=True, db_index=True, editable=False)
     date_time = models.DateTimeField(null=True, blank=True)
     solution_type = models.SmallIntegerField(choices=SolutionType.choices)

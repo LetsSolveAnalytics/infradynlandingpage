@@ -15,48 +15,55 @@
 </nav>
 <!-- Breadcrumb Area End -->
 
-
-<div class="bg-2 bg-white mt-120">
 <!-- Slider Section Start -->
-<section class="slider-area h-100 h-sm-auto">
-  <div class="container h-100 h-sm-auto d-flex flex-row align-items-center flex-wrap flex-md-nowrap">
-    <div class="caption" data-aos="fade-right">
-      <h5 class="display-3 mb-10">Simple online Hotel</h5>
-      <h1 class="display-1 mb-25">Management System</h1>
-      <p class="mb-30">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.</p>
-      <a href="#" class="btn btn-primary">Get Started</a>
-      <a href="https://player.vimeo.com/video/58363288" class="btn btn-outline-light outline-primary ml-25 venobox" data-autoplay="true" data-vbtype="video"><i class="ti-control-play"></i> Watch Our Video</a>
-    </div>
-    <div class="image-layer ml-md-auto align-self-md-center align-self-start mr-minus-80" data-aos="fade-left">
-      <img src="{% static 'assets/img/slider/layer/2.png' %}" alt="Layer Image">
-    </div>
-  </div>
-</section>
-<!-- Slider Section End -->
+<div class="bg-2 bg-white mt-120">
+    <section class="slider-area h-100 h-sm-auto">
+        <div class="container h-100 h-sm-auto d-flex flex-row align-items-center flex-wrap flex-md-nowrap">
+            <div class="caption" data-aos="fade-right">
+                <h5 class="display-3 mb-10">Simple online Hotel</h5>
+                <h1 class="display-1 mb-25">Management System</h1>
+                <p class="mb-30">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.</p>
+                <a href="#" class="btn btn-primary">Get Started</a>
+                <a href="https://player.vimeo.com/video/58363288" class="btn btn-outline-light outline-primary ml-25 venobox" data-autoplay="true" data-vbtype="video"><i class="ti-control-play"></i> Watch Our Video</a>
+            </div>
+            <div class="image-layer ml-md-auto align-self-md-center align-self-start mr-minus-80" data-aos="fade-left">
+                <img src="{% static 'assets/img/slider/layer/2.png' %}" alt="Layer Image">
+            </div>
+        </div>
+    </section>
+    <!-- Slider Section End -->
 
-<section class="section-ptb bg-gradient rounded-section my-5">
-  <div class="container">
-    <div class="row align-items-center">
-      <!-- Text Content Left -->
-      <div class="col-md-7">
-        <h2 class="display-1 mb-4">{{solution.title}}</h2>
-        <p class="mb-30">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          While not technically a separate ‘stage’ – rather an ongoing process throughout the project lifecycle –
-          the Business Intelligence (BI) element of a construction project involves the collection, analysis,
-          and utilization of data to support informed decision-making and optimize various aspects of the project.
-          BI, in construction, is crucial for optimizing project performance, enhancing efficiency, controlling costs,
-          and reducing risk. It empowers project managers and stakeholders to make informed, timely decisions
-          and adapt to changing circumstances as the project progresses.
-        </p>
-      </div>
+    <section class="section-ptb">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Text Content Left -->
+                <div class="col-md-7">
+                    <h2 class="display-1 mb-4">{{solution.banner_title}}</h2>
+                    <p class="mb-30">{{ solution.banner_content }}
+                    </p>
+                </div>
 
-      <!-- Image Right -->
-      <div class="col-md-5 text-center">
-        <img src="{% static 'assets/img/your_image.png' %}" alt="Business Intelligence Image" class="img-fluid rounded">
-      </div>
-    </div>
-  </div>
-</section>
+                <!-- Image Right -->
+                <div class="col-md-5 text-center">
+                    <img src="{{ solution.image.url }}" alt="Business Intelligence Image" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
+
+<section class="section-ptb">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <h2 class="mb-4">{{ solution.secondary_title }}</h2>
+                <p class="mb-20">{{ solution.introduction }}</p>
+            </div>
+            <div class="col-md-7">
+
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

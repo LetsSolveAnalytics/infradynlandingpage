@@ -37,8 +37,8 @@
             <div class="icon circle-icon mb-30 mx-auto">
               <i class="ti-shield"></i>
             </div>
-            <h5>{{ item.title }}</h5>
-            <p class="mb-20">{{ item.content|truncatewords:20 }}</p>
+            <h5>{{ item.banner_title }}</h5>
+            <p class="mb-20">{{ item.banner_content|truncatewords:20 }}</p>
             <a class="item-link link-btn" href="{% url 'solution-detail' item.slug %}">Read More</a>
           </div>
         </div>
@@ -68,8 +68,8 @@
             <div class="icon circle-icon mb-30 mx-auto">
               <i class="ti-shield"></i>
             </div>
-            <h5>{{ item.title }}</h5>
-            <p class="mb-20">{{ item.content|truncatewords:20 }}</p>
+            <h5>{{ item.banner_title }}</h5>
+            <p class="mb-20">{{ item.banner_content|truncatewords:20 }}</p>
             <a class="item-link link-btn" href="{% url 'solution-detail' item.slug %}">Read More</a>
           </div>
         </div>
