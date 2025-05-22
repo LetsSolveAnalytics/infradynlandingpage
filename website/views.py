@@ -14,7 +14,7 @@ from . import forms
 
 from .constants import PageType
 from .forms import ContactMessageForm, RequestDemoForm, PricingRequestForm
-from .models import Slider, ContactMessage, RequestDemo
+from .models import Slider, ContactMessage, RequestDemo, PricingRequest
 from coreapp.models import Testimonials, FAQ
 
 
@@ -33,21 +33,25 @@ class HomeView(TemplateView):
         return context
 
 
-class PricingView(TemplateView):
-    template_name = 'website/pricing.html'
-
-
 class AboutView(TemplateView):
     template_name = 'website/about.html'
 
 
 class RequestDemoView(View):
+    def get_context_data(self, **kwargs):
+        return {
+            'form': RequestDemoForm(),
+            'faqs': FAQ.objects.filter(is_active=True),
+            'faq_intro': "Here are some of the most common questions we receive from our customers."
+        }
+
     def get(self, request):
-        form = RequestDemoForm()
-        return render(request, 'website/request-a-demo.html', {'form': form})
+        return render(request, 'website/request_a_demo.html', self.get_context_data())
 
     def post(self, request):
         form = RequestDemoForm(request.POST)
+        context = self.get_context_data()
+
         if form.is_valid():
             data = form.cleaned_data
             demo_request = RequestDemo.objects.create(**data)
@@ -56,37 +60,45 @@ class RequestDemoView(View):
             # Optionally send an email
             # email_utils.send_demo_request_email("team@yourcompany.com", demo_request)
 
-            return render(request, 'website/request-a-demo.html', {
-                'form': RequestDemoForm(),
-                'submitted': True
-            })
+            context['form'] = RequestDemoForm()
+            context['submitted'] = True
         else:
             print(form.errors)
-        return render(request, 'website/request-a-demo.html', {'form': form})
+            context['form'] = form
+
+        return render(request, 'website/request_a_demo.html', context)
 
 
 class PricingRequestView(View):
+    def get_context_data(self):
+        return {
+            'form': PricingRequestForm(),
+            'faqs': FAQ.objects.filter(is_active=True),
+            'faq_intro': "Here are some of the most common questions we receive from our customers."
+        }
+
     def get(self, request):
-        form = PricingRequestForm()
-        return render(request, 'website/pricing.html', {'form': form})
+        return render(request, 'website/pricing.html', self.get_context_data())
 
     def post(self, request):
         form = PricingRequestForm(request.POST)
+        context = self.get_context_data()
+
         if form.is_valid():
             data = form.cleaned_data
-            demo_request = RequestDemo.objects.create(**data)
-            demo_request.save()
+            price_request = PricingRequest.objects.create(**data)
+            price_request.save()
 
             # Optionally send an email
             # email_utils.send_demo_request_email("team@yourcompany.com", demo_request)
 
-            return render(request, 'website/pricing.html', {
-                'form': PricingRequestForm(),
-                'submitted': True
-            })
+            context['form'] = PricingRequestForm()
+            context['submitted'] = True
         else:
             print(form.errors)
-        return render(request, 'website/pricing.html', {'form': form})
+            context['form'] = form
+
+        return render(request, 'website/pricing.html', context)
 
 
 class ContactView(View):

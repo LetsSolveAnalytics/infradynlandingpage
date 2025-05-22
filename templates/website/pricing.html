@@ -5,7 +5,7 @@
 <!-- Breadcrumb Area Start -->
 <nav class="breadcrumb-area bg-dark bg-6 ptb-70">
     <div class="container d-md-flex">
-        <h2 class="text-white mb-0">Pricing Plan</h2>
+        <h2 class="text-white mb-0">Pricing</h2>
         <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
             <li class="breadcrumb-item"><a href="index.html">Home</a> <span class="text-white">/</span></li>
             <li aria-current="page" class="breadcrumb-item active">Pricing</li>
@@ -146,52 +146,37 @@
 
 <div class="bg-2 bg-white">
     <!-- FAQ Section Start -->
-    <section class="section-ptb">
+    <section class="section-ptb bg-white bg-5">
         <div class="container">
             <div class="row text-center">
                 <div class="col-12" data-aos="zoom-in">
                     <div class="heading mb-80">
                         <h2>Frequently Asked Questions</h2>
-                        <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
+                        <p class="mb-20">{{ faq_intro }}</p>
                         <hr class="line bw-2 mx-auto line-sm mb-5">
                         <hr class="line bw-2 mx-auto">
                     </div>
                 </div>
             </div>
-            <div class="row mb-30">
-                <div class="col-12 col-md-6 mb-sm-30" data-aos="zoom-out">
-                    <div class="faq-box bg-success">
-                        <h4 class="mb-10">01. Can I cancel my subscription?</h4>
-                        <p class="mb-0">Looked up one of the more obscure Latin words, consecttur, from a Lorem Ipsum passage, and going through the.</p>
+
+            <div class="accordion" id="faqAccordion">
+                {% for faq in faqs %}
+                <div class="faq-box bg-success mb-3">
+                    <div class="accordion-item">
+                        <h4 class="mb-10" id="heading{{ forloop.counter }}">
+                            <button class="accordion-button btn collapsed bg-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
+                                {{ forloop.counter|stringformat:"02d" }}. {{ faq.question }}
+                            </button>
+                        </h4>
+                        <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body mb-20">
+                                {{ faq.answer }}
+                            </div>
+                        </div>
                     </div>
-                    <!-- faq box end -->
                 </div>
-                <div class="col-12 col-md-6" data-aos="zoom-out">
-                    <div class="faq-box bg-success">
-                        <h4 class="mb-10">02. Frequently Asked Questions</h4>
-                        <p class="mb-0">All the Lorem Ipasum generators on the Internet tend repeat predefined chunks as necessary generator.</p>
-                    </div>
-                    <!-- faq box end -->
-                </div>
+                {% endfor %}
             </div>
-            <!-- Frist Row End -->
-            <div class="row">
-                <div class="col-12 col-md-6 mb-sm-30" data-aos="zoom-out">
-                    <div class="faq-box bg-success">
-                        <h4 class="mb-10">03. Can I try your service for free?</h4>
-                        <p class="mb-0">Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of..</p>
-                    </div>
-                    <!-- faq box end -->
-                </div>
-                <div class="col-12 col-md-6" data-aos="zoom-out">
-                    <div class="faq-box bg-success">
-                        <h4 class="mb-10">04. Can I update my card details?</h4>
-                        <p class="mb-0">Looked up one of the more obscure Latin words, consecttur, from a Lorem Ipsum passage, and going through the.</p>
-                    </div>
-                    <!-- faq box end -->
-                </div>
-            </div>
-            <!-- Second Row End -->
         </div>
     </section>
     <!-- FAQ Section End -->
