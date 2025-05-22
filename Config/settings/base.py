@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'website.apps.WebsiteConfig',
     'blogs.apps.BlogsConfig',
     'solutions.apps.SolutionsConfig',
+    'products.apps.ProductConfig',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.static',
+                'website.context_processor.navbar_context',
             ],
         },
     },
@@ -132,7 +134,7 @@ LANGUAGES = (
 
 LOCALE_PATHS = [
     BASE_DIR / 'locale/',
-]
+    ]
 
 
 PARLER_LANGUAGES = {

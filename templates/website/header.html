@@ -14,80 +14,40 @@
           <li class="nav-item">
             <a href="{% url 'home' %}}" class="nav-link"></a>
           </li>
+
           <li class="nav-item dropdown position-static">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Product</a>
-            <div class="dropdown-menu mt-0 p-4 border-0 shadow-lg " style="left: 50%; transform: translateX(-50%); width: 100%; max-width: 1500px;">
+            <div class="dropdown-menu mt-0 p-4 border-0 shadow-lg" style="left: 50%; transform: translateX(-50%); width: 100%; max-width: 1500px;">
               <div class="container">
                 <div class="row">
-                  <!-- Column 1: Project Focus (Part 1) -->
-                  <div class="col-md-3">
-                    <h4 class="fw-bold text-primary">Preconstruction</h4>
-                    <ul class="list-unstyled">
-                      <li class="d-flex align-items-center mb-2">
-                        <img src="assets/icons/takeoff.svg" class="me-2" style="width: 24px;"> Tender Management
-                      </li>
-                      <li class="d-flex align-items-center mb-2">
-                        <img src="assets/icons/bi.svg" class="me-2" style="width: 24px;"> Contract Management
-                      </li>
-                      <li class="d-flex align-items-center mb-2">
-                        <img src="assets/icons/handover.svg" class="me-2" style="width: 24px;"> Document Management
-                      </li>
-                      <li class="d-flex align-items-center mb-2">
-                        <img src="assets/icons/handover.svg" class="me-2" style="width: 24px;"> BIM Management
-                      </li>
-                    </ul>
-                  </div>
 
-                  <!-- Column 2: Project Focus (Part 2) -->
+                  {% for type_id, items in product_sections.items %}
                   <div class="col-md-3">
-                    <h4 class="fw-bold text-primary">Project Delivery</h4> <!-- hidden heading to align rows -->
+                    <h4 class="fw-bold text-primary">
+                      {% if type_id == 0 %}Preconstruction
+                      {% elif type_id == 1 %}Project Delivery
+                      {% elif type_id == 2 %}Analytics
+                      {% elif type_id == 3 %}Collaboration & Communication
+                      {% endif %}
+                    </h4>
                     <ul class="list-unstyled">
+                      {% for item in items %}
                       <li class="d-flex align-items-center mb-2">
-                        <img src="assets/icons/control.svg" class="me-2" style="width: 24px;"> Project Management
+                        {% if item.icon %}
+                        <img src="{{ item.icon.url }}" class="me-2" style="width: 24px;">
+                        {% endif %}
+                        <a href="{% url 'product-detail' item.slug %}">{{ item.title }}</a>
                       </li>
-                      <li class="d-flex align-items-center mb-2">
-                        <img src="assets/icons/sustainability.svg" class="me-2" style="width: 24px;"> Financial Management
-                      </li>
-                      <li class="d-flex align-items-center mb-2">
-                        <img src="assets/icons/bid.svg" class="me-2" style="width: 24px;"> Quality & Safety
-                      </li>
-                      <li class="d-flex align-items-center mb-2">
-                        <img src="assets/icons/bid.svg" class="me-2" style="width: 24px;"> Resource Planning
-                      </li>
-                      <li class="d-flex align-items-center mb-2">
-                        <img src="assets/icons/bid.svg" class="me-2" style="width: 24px;"> Resource Tracking
-                      </li>
-                      <li class="d-flex align-items-center mb-2">
-                        <img src="assets/icons/bid.svg" class="me-2" style="width: 24px;"> Invoice Management
-                      </li>
+                      {% endfor %}
                     </ul>
                   </div>
-
-                  <!-- Column 3: Job Roles -->
-                  <div class="col-md-3">
-                    <h4 class="fw-bold text-primary">Analytics</h4>
-                    <ul class="list-unstyled">
-                      <li class="d-flex align-items-center mb-2"><img src="assets/icons/architect.svg" class="me-2" style="width: 24px;"> Reports</li>
-                      <li class="d-flex align-items-center mb-2"><img src="assets/icons/builder.svg" class="me-2" style="width: 24px;"> Dashboards</li>
-                      <li class="d-flex align-items-center mb-2"><img src="assets/icons/contracts.svg" class="me-2" style="width: 24px;"> AI Assistance</li>
-                    </ul>
-                  </div>
-
-                  <!-- Column 4: Job Roles -->
-                  <div class="col-md-3">
-                    <h4 class="fw-bold text-primary">Collaboration & Communication</h4>
-                    <ul class="list-unstyled">
-                      <li class="d-flex align-items-center mb-2"><img src="assets/icons/architect.svg" class="me-2" style="width: 24px;"> Kanban Board</li>
-                      <li class="d-flex align-items-center mb-2"><img src="assets/icons/builder.svg" class="me-2" style="width: 24px;"> Task Allocation</li>
-                      <li class="d-flex align-items-center mb-2"><img src="assets/icons/contracts.svg" class="me-2" style="width: 24px;"> Feedback Module</li>
-                      <li class="d-flex align-items-center mb-2"><img src="assets/icons/estimator.svg" class="me-2" style="width: 24px;"> Approval System</li>
-                    </ul>
-                  </div>
+                  {% endfor %}
 
                 </div>
               </div>
             </div>
           </li>
+
           <li class="nav-item">
             <a href="{% url 'solution-list' %}" class="nav-link">Solutions</a>
           </li>

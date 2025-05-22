@@ -1,0 +1,12 @@
+from products.models import Product
+
+def navbar_context(request):
+    products = Product.objects.filter(is_published=True)
+    return {
+        'product_sections': {
+            0: products.filter(product_type=0),
+            1: products.filter(product_type=1),
+            2: products.filter(product_type=2),
+            3: products.filter(product_type=3),
+        }
+    }
