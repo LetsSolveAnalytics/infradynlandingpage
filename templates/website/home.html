@@ -302,10 +302,10 @@
       <div class="col-12" data-aos="zoom-in">
         <div class="heading mb-80">
           <h2>Want to learn more?</h2>
-          <p class="mb-20">Dive into these resources to see how Procore can help amplify your success.</p>
-          <a>
+          <p class="mb-20">Dive into these resources to see how our platform can help amplify your success.</p>
+          <a href="{% url 'post-list' %}">
             <span class="d-inline-flex align-items-center item-link link-btn">
-                  Explore other resources
+              Explore other resources
             </span>
           </a>
           <hr class="line bw-2 mx-auto line-sm mb-5">
@@ -321,91 +321,25 @@
       <div class="swiper blogSwiper px-4">
         <div class="swiper-wrapper">
 
+          {% for post in recent_posts %}
           <!-- Blog Card -->
           <div class="swiper-slide">
             <div class="card h-100 border-0 shadow-sm">
-              <img src="{% static 'assets/img/General-Contractor.png' %}" alt="Case study" class="img-fluid w-100 rounded-top" loading="lazy">
+              <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid w-100 rounded-top" loading="lazy">
               <div class="card-body">
-                <a href="#" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">Baugruppe Stauch Opts For RIB 4.0</a>
+                <a href="{% url 'post-detail' post.slug %}" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">
+                  {{ post.title }}
+                </a>
                 <div class="d-flex justify-content-between text-muted small mb-2">
-                  <div class="me-3"><i class="bi bi-calendar"></i> 25 April, 2024</div>
-                  <div><i class="bi bi-clock"></i> 6 mins read</div>
+                  <div class="me-3"><i class="bi bi-calendar"></i> {{ post.date_time|date:"d M, Y" }}</div>
                 </div>
-                <p class="text-muted small mb-3">RIB 4.0 Provides Meticulous Detail Of The Company-specific Processes For This Medium-sized Construction Company...</p>
-                <a href="#" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
+                <p class="text-muted small mb-3">{{ post.content|truncatewords:20 }}</p>
+                <a href="{% url 'post-detail' post.slug %}" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
               </div>
             </div>
           </div>
-          <div class="swiper-slide">
-            <div class="card h-100 border-0 shadow-sm">
-              <img src="{% static 'assets/img/General-Contractor.png' %}" alt="Case study" class="img-fluid w-100 rounded-top" loading="lazy">
-              <div class="card-body">
-                <a href="#" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">Baugruppe Stauch Opts For RIB 4.0</a>
-                <div class="d-flex justify-content-between text-muted small mb-2">
-                  <div class="me-3"><i class="bi bi-calendar"></i> 25 April, 2024</div>
-                  <div><i class="bi bi-clock"></i> 6 mins read</div>
-                </div>
-                <p class="text-muted small mb-3">RIB 4.0 Provides Meticulous Detail Of The Company-specific Processes For This Medium-sized Construction Company...</p>
-                <a href="#" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="card h-100 border-0 shadow-sm">
-              <img src="{% static 'assets/img/General-Contractor.png' %}" alt="Case study" class="img-fluid w-100 rounded-top" loading="lazy">
-              <div class="card-body">
-                <a href="#" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">Baugruppe Stauch Opts For RIB 4.0</a>
-                <div class="d-flex justify-content-between text-muted small mb-2">
-                  <div class="me-3"><i class="bi bi-calendar"></i> 25 April, 2024</div>
-                  <div><i class="bi bi-clock"></i> 6 mins read</div>
-                </div>
-                <p class="text-muted small mb-3">RIB 4.0 Provides Meticulous Detail Of The Company-specific Processes For This Medium-sized Construction Company...</p>
-                <a href="#" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="card h-100 border-0 shadow-sm">
-              <img src="{% static 'assets/img/General-Contractor.png' %}" alt="Case study" class="img-fluid w-100 rounded-top" loading="lazy">
-              <div class="card-body">
-                <a href="#" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">Baugruppe Stauch Opts For RIB 4.0</a>
-                <div class="d-flex justify-content-between text-muted small mb-2">
-                  <div class="me-3"><i class="bi bi-calendar"></i> 25 April, 2024</div>
-                  <div><i class="bi bi-clock"></i> 6 mins read</div>
-                </div>
-                <p class="text-muted small mb-3">RIB 4.0 Provides Meticulous Detail Of The Company-specific Processes For This Medium-sized Construction Company...</p>
-                <a href="#" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="card h-100 border-0 shadow-sm">
-              <img src="{% static 'assets/img/General-Contractor.png' %}" alt="Case study" class="img-fluid w-100 rounded-top" loading="lazy">
-              <div class="card-body">
-                <a href="#" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">Baugruppe Stauch Opts For RIB 4.0</a>
-                <div class="d-flex justify-content-between text-muted small mb-2">
-                  <div class="me-3"><i class="bi bi-calendar"></i> 25 April, 2024</div>
-                  <div><i class="bi bi-clock"></i> 6 mins read</div>
-                </div>
-                <p class="text-muted small mb-3">RIB 4.0 Provides Meticulous Detail Of The Company-specific Processes For This Medium-sized Construction Company...</p>
-                <a href="#" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="card h-100 border-0 shadow-sm">
-              <img src="{% static 'assets/img/General-Contractor.png' %}" alt="Case study" class="img-fluid w-100 rounded-top" loading="lazy">
-              <div class="card-body">
-                <a href="#" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">Baugruppe Stauch Opts For RIB 4.0</a>
-                <div class="d-flex justify-content-between text-muted small mb-2">
-                  <div class="me-3"><i class="bi bi-calendar"></i> 25 April, 2024</div>
-                  <div><i class="bi bi-clock"></i> 6 mins read</div>
-                </div>
-                <p class="text-muted small mb-3">RIB 4.0 Provides Meticulous Detail Of The Company-specific Processes For This Medium-sized Construction Company...</p>
-                <a href="#" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
+
         </div>
         <!-- Pagination (optional) -->
         <div class="swiper-pagination mt-4"></div>

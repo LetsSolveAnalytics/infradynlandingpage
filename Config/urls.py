@@ -27,6 +27,7 @@ urlpatterns = i18n_patterns(
     path(_('blog/'), include('blogs.urls')),
     path(_('solution/'), include('solutions.urls')),
     path(_('product/'), include('products.urls')),
+    path(_('who-benefits/'), include('customers.urls')),
     path('captcha/', include('captcha.urls')),
     path('', include('website.urls')),  # Website root
 )

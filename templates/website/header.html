@@ -57,10 +57,9 @@
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >Who Benefits</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="general-contractors.html">General Contractors</a></li>
-              <li><a class="dropdown-item" href="developers.html">Developers</a></li>
-              <li><a class="dropdown-item" href="subcontractors.html">Subcontractors</a></li>
-              <li><a class="dropdown-item" href="epcm.html">EPCM</a></li>
+              {% for customer in menu_customers %}
+                <li><a class="dropdown-item" href="{% url 'customer-detail' customer.slug %}">{{ customer.title }}</a></li>
+              {% endfor %}
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -68,7 +67,7 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="{% url 'about' %}">About Us</a></li>
               <li><a class="dropdown-item" href="{% url 'post-list' %}">Blogs</a></li>
-              <li><a class="dropdown-item" href="blog-details.html">Case Studies</a></li>
+<!--              <li><a class="dropdown-item" href="blog-details.html">Case Studies</a></li>-->
             </ul>
           </li>
           <li class="nav-item dropdown">

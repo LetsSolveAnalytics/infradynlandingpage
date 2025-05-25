@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'blogs.apps.BlogsConfig',
     'solutions.apps.SolutionsConfig',
     'products.apps.ProductConfig',
+    'customers.apps.CustomerConfig',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.static',
                 'website.context_processor.navbar_context',
+                'website.context_processor.customer_menu',
             ],
         },
     },

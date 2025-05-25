@@ -16,6 +16,7 @@ from .constants import PageType
 from .forms import ContactMessageForm, RequestDemoForm, PricingRequestForm
 from .models import Slider, ContactMessage, RequestDemo, PricingRequest
 from coreapp.models import Testimonials, FAQ
+from blogs.models import Post
 
 
 # Create your views here.
@@ -30,6 +31,7 @@ class HomeView(TemplateView):
         context['faqs'] = FAQ.objects.filter(is_active=True)
         context['faq_intro'] = "Here are some of the most common questions we receive from our customers."
         context['sliders'] = Slider.objects.filter(is_active=True)
+        context['recent_posts'] = Post.objects.filter(is_published=True).order_by('-created_at')[:6]
         return context
 
 
