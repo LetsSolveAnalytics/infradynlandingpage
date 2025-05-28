@@ -16,3 +16,13 @@ class ContactMessageStatus(models.IntegerChoices):
     PENDING = 0, _("Pending")
     APPROVED = 1, _("Approved")
     REJECTED = 2, _("Rejected")
+
+class PricingRequestStatus(models.IntegerChoices):
+    PENDING = 0, _("Pending")
+    APPROVED = 1, _("Approved")
+    REJECTED = 2, _("Rejected")
+
+class DemoRequestStatus(models.IntegerChoices):
+    PENDING = 0, _("Pending")
+    APPROVED = 1, _("Approved")
+    REJECTED = 2, _("Rejected")

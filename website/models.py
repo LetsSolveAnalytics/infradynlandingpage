@@ -4,7 +4,7 @@ from django.utils.functional import cached_property
 from parler.models import TranslatedFields
 
 from coreapp.base import BaseModel, BaseTranslateModel
-from website.constants import ContactMessageStatus
+from website.constants import ContactMessageStatus, PricingRequestStatus, DemoRequestStatus
 
 
 # Create your models here.
@@ -72,6 +72,10 @@ class RequestDemo(BaseModel):
     solution = models.CharField(max_length=100)
     subscribe = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    status = models.SmallIntegerField(choices=DemoRequestStatus.choices, default=DemoRequestStatus.PENDING)
+
+    def __str__(self):
+        return f"{self.name}: {self.email} - {self.status}"
 
 class PricingRequest(BaseModel):
     name = models.CharField(max_length=255)
@@ -82,3 +86,7 @@ class PricingRequest(BaseModel):
     company_type = models.CharField(max_length=100)
     subscribe = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    status = models.SmallIntegerField(choices=PricingRequestStatus.choices, default=PricingRequestStatus.PENDING)
+
+    def __str__(self):
+        return f"{self.name}: {self.email} - {self.status}"

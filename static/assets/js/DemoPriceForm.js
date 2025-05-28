@@ -28,12 +28,12 @@ let currentStep = 1;
     document.getElementById(`nextBtn${currentStep}`).disabled = false;
   }
 
-  document.getElementById('priceForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    alert('Form submitted successfully!');
-  });
+  // document.getElementById('priceForm').addEventListener('submit', function (e) {
+  //   e.preventDefault();
+  //   alert('Form submitted successfully!');
+  // });
 
-  document.getElementById('demoForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      alert('Form submitted successfully!');
-  });
+  // document.getElementById('demoForm').addEventListener('submit', function (e) {
+  //     e.preventDefault();
+  //     alert('Form submitted successfully!');
+  // });

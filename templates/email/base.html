@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<!-- End head -->
+<body>
+<section class="section-ptb">
+    <div class="container">
+        <div class="row">
+            <div class="col col-12">
+                <div class="heading mb-80">
+                    {% block emailheader %}
+                    {% endblock %}
+                </div>
+                <!-- // end email header -->
+                <div class="heading mb-80">
+                    {% block emailbody %}
+                    {% endblock %}
+                </div>
+                <!--// end email body-->
+            </div><!--// end col-->
+        </div><!--// end row-->
+    </div><!--// end container-->
+</section><!--// end header-->
+</body>
+</html>

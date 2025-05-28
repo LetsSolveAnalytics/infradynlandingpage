@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Request Message</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f9f9f9; margin: 0; padding: 0;">
+    <table style="width: 100%; max-width: 600px; margin: 20px auto; background-color: #ffffff; border: 1px solid #dddddd; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <thead>
+            <tr>
+                <th style="background-color: #007bff; color: #ffffff; padding: 15px; text-align: left; border-radius: 8px 8px 0 0;">
+                    New Demo Request Message
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding: 15px;">
+                    <p style="margin: 0 0 10px;">You have received a new request from the demo request form:</p>
+                    <p style="margin: 0 0 10px;"><strong>Name:</strong> {{ data.name }}</p>
+                    <p style="margin: 0 0 10px;"><strong>Phone:</strong> {{ data.phone }}</p>
+                    <p style="margin: 0 0 10px;"><strong>Email:</strong> {{ data.email }}</p>
+                    <p style="margin: 0 0 10px;"><strong>Company:</strong> {{ data.company }}</p>
+                    <p style="margin: 0 0 10px;"><strong>Has Company:</strong> {{ data.has_company }}</p>
+                    <p style="margin: 0 0 10px;"><strong>Solution:</strong> {{ data.solution }}</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 15px; text-align: center; background-color: #f9f9f9; border-top: 1px solid #dddddd; border-radius: 0 0 8px 8px;">
+                    <p style="margin: 0; font-size: 12px; color: #666666;">This message was generated automatically by your system.</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

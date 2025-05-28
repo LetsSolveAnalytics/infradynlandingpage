@@ -17,6 +17,9 @@ from .forms import ContactMessageForm, RequestDemoForm, PricingRequestForm
 from .models import Slider, ContactMessage, RequestDemo, PricingRequest
 from coreapp.models import Testimonials, FAQ
 from blogs.models import Post
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 # Create your views here.
@@ -55,53 +58,22 @@ class RequestDemoView(View):
         context = self.get_context_data()
 
         if form.is_valid():
-            data = form.cleaned_data
-            demo_request = RequestDemo.objects.create(**data)
-            demo_request.save()
-
-            # Optionally send an email
-            # email_utils.send_demo_request_email("team@yourcompany.com", demo_request)
+            form_data = form.cleaned_data
+            try:
+                demo_request = RequestDemo.objects.create(**form_data)
+                demo_request.save()
+                print("Saving request successful.")
+                email_utils.send_demo_request_message_email("fuzelahamed1999@gmail.com", demo_request)
+                print("Email function called successfully.")
+            except Exception as e:
+                print("Error creating request or sending email:", e)
 
             context['form'] = RequestDemoForm()
             context['submitted'] = True
         else:
-            print(form.errors)
-            context['form'] = form
+            print("Form is invalid:", form.errors)
 
         return render(request, 'website/request_a_demo.html', context)
-
-
-class PricingRequestView(View):
-    def get_context_data(self):
-        return {
-            'form': PricingRequestForm(),
-            'faqs': FAQ.objects.filter(is_active=True),
-            'faq_intro': "Here are some of the most common questions we receive from our customers."
-        }
-
-    def get(self, request):
-        return render(request, 'website/pricing.html', self.get_context_data())
-
-    def post(self, request):
-        form = PricingRequestForm(request.POST)
-        context = self.get_context_data()
-
-        if form.is_valid():
-            data = form.cleaned_data
-            price_request = PricingRequest.objects.create(**data)
-            price_request.save()
-
-            # Optionally send an email
-            # email_utils.send_demo_request_email("team@yourcompany.com", demo_request)
-
-            context['form'] = PricingRequestForm()
-            context['submitted'] = True
-        else:
-            print(form.errors)
-            context['form'] = form
-
-        return render(request, 'website/pricing.html', context)
-
 
 class ContactView(View):
     def get(self, request):
@@ -119,3 +91,35 @@ class ContactView(View):
         else:
             print(form.errors)
         return render(request, 'website/contact.html')
+
+class PricingRequestView(View):
+    def get_context_data(self):
+        return {
+            'form': PricingRequestForm(),
+            'faqs': FAQ.objects.filter(is_active=True),
+            'faq_intro': "Here are some of the most common questions we receive from our customers."
+        }
+    def get(self, request):
+        return render(request, 'website/pricing.html', self.get_context_data())
+
+    def post(self, request):
+        form = PricingRequestForm(request.POST)
+        context = self.get_context_data()
+
+        if form.is_valid():
+            form_data = form.cleaned_data
+            try:
+                pricing_request = PricingRequest.objects.create(**form_data)
+                pricing_request.save()
+                print("Saving request successful.")
+                email_utils.send_price_request_message_email("fuzelahamed1999@gmail.com", pricing_request)
+                print("Email function called successfully.")
+            except Exception as e:
+                print("Error creating request or sending email:", e)
+
+            context['form'] = PricingRequestForm()
+            context['submitted'] = True
+        else:
+            print("Form is invalid:", form.errors)
+
+        return render(request, 'website/pricing.html', context)

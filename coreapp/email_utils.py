@@ -2,6 +2,7 @@ import threading
 
 from decouple import config
 from django.core.mail import EmailMultiAlternatives
+from django.forms import model_to_dict
 from django.template import Template
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
@@ -14,7 +15,10 @@ class EmailThread(threading.Thread):
         threading.Thread.__init__(self)
 
     def run(self):
-        self.msg.send()
+        try:
+            self.msg.send()
+        except Exception as e:
+            print("Error sending email:", e)
 
 
 def generate_template(template_content):
@@ -29,10 +33,16 @@ def send_email(subject, to, data, template):
     msg.attach_alternative(html_content, "text/html")
     EmailThread(msg).start()
 
-
 def send_contact_message_email(email, data):
-    send_email(_("Someone is reaching out!"), email, data, "email/auth/contact_message.html")
+    send_email(_("Your Account is Registered"), email, data, "email/auth/contact_message.html")
 
+def send_price_request_message_email(email, data):
+    context_data = model_to_dict(data)
+    send_email(_("Price Request Mail"), email, context_data, "email/pricing_request_email.html")
+
+def send_demo_request_message_email(email, data):
+    context_data = model_to_dict(data)
+    send_email(_("Demo Request Mail"), email, context_data, "email/demo_request_email.html")
 
 def send_welcome_email(email, data):
     send_email(_("Your Account is Registered"), email, data, "email/auth/welcome_email.html")
