@@ -15,8 +15,9 @@
 </nav>
 <!-- Breadcrumb Area End -->
 
-<!-- Slider Section Start -->
+
 <div class="bg-2 bg-white mt-120">
+<!-- Slider Section Start -->
     <section class="slider-area h-100 h-sm-auto">
         <div class="container h-100 h-sm-auto d-flex flex-row align-items-center flex-wrap flex-md-nowrap">
             <div class="caption" data-aos="fade-right">
@@ -57,16 +58,15 @@
                 <div class="col-12">
                     <h2 class="mb-4">{{ solution.secondary_title }}</h2>
                     <p class="mb-20">{{ solution.introduction }}</p>
-
                     <div>
-                        {% for category in solution_categories.all %}
+                        {% for category in solution_categories %}
                         <button class="tab-button btn btn-outline-light outline-primary ml-25 {% if forloop.first %}active{% endif %}" onclick="showProduct('{{ category.slug }}')">
                             {{ category.name }}
                         </button>
                         {% endfor %}
                     </div>
 
-                    {% for category in solution_categories.all %}
+                    {% for category in solution_categories %}
                     <div id="{{ category.slug }}" class="product-content {% if forloop.first %}active{% endif %}">
                         <div class="col-md-7">
                             <h2>{{ category.name }}</h2>

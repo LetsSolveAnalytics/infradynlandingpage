@@ -10,28 +10,46 @@ from .models import Solution, SolutionCategory
 from coreapp.models import Testimonials, FAQ
 
 
+# class SolutionListView(ListView):
+#     queryset = Solution.objects.filter(is_published=True)
+#     template_name = 'website/solution.html'
+#     context_object_name = 'solutions'
+#     # paginate_by = 5
+#
+#     def get_queryset(self):
+#         cat = self.request.GET.get('cat')
+#         search = self.request.GET.get('search')
+#         solution_type = self.request.GET.get('solution_type')
+#         queryset = self.queryset
+#         if cat:
+#             queryset = queryset.filter(categories__slug=cat)
+#         if search:
+#             queryset = queryset.filter(content__icontains=search)
+#         if solution_type:
+#             queryset = queryset.filter(solution_type=solution_type)
+#         return queryset
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['solution_type'] = self.request.GET.get('solution_type')
+#         return context
+
+from .models import SolutionType
+
 class SolutionListView(ListView):
     queryset = Solution.objects.filter(is_published=True)
     template_name = 'website/solution.html'
     context_object_name = 'solutions'
-    paginate_by = 5
 
-    def get_queryset(self):
-        cat = self.request.GET.get('cat')
-        search = self.request.GET.get('search')
-        solution_type = self.request.GET.get('solution_type')
-        queryset = self.queryset
-        if cat:
-            queryset = queryset.filter(categories__slug=cat)
-        if search:
-            queryset = queryset.filter(content__icontains=search)
-        if solution_type:
-            queryset = queryset.filter(solution_type=solution_type)
-        return queryset
-    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['solution_type'] = self.request.GET.get('solution_type')
+        # Dynamically generate types for looping
+        context['solution_types'] = [
+            {'id': SolutionType.PROJECT, 'label': "Project Focus"},
+            {'id': SolutionType.ROLE, 'label': "Job Role"},
+            {'id': SolutionType.FIRM, 'label': "Firm Focus"},
+            # Add more types here if needed
+        ]
         return context
 
 
@@ -52,12 +70,14 @@ class SolutionDetailView(DetailView):
         if solution_type:
             queryset = queryset.filter(solution_type=solution_type)
         return queryset
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        solution = context['solution']
         context['testimonials'] = Testimonials.objects.filter(is_active=True)
         context['testimonial_intro'] = "What Our Clients Say!"
         context['faqs'] = FAQ.objects.filter(is_active=True)
         context['faq_intro'] = "Here are some of the most common questions we receive from our customers."
-        context['solution_categories'] = SolutionCategory.objects.filter(is_active=True)
+        # Only show active categories linked to this solution
+        context['solution_categories'] = solution.categories.filter(is_active=True)
         return context

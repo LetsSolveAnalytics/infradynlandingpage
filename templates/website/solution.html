@@ -2,139 +2,193 @@
 {% load static %}
 {% block main_container %}
 
-<!-- Breadcrumb Area Start -->
-<nav class="breadcrumb-area bg-dark bg-6 ptb-70">
-  <div class="container d-md-flex">
-    <h2 class="text-white mb-0">Solutions</h2>
-    <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
-      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a> <span class="text-white">/</span></li>
-      <li aria-current="page" class="breadcrumb-item active">Solutions</li>
-    </ol>
-  </div>
-</nav>
-<!-- Breadcrumb Area End -->
-
-<!-- Services Section Start -->
-<section class="section-ptb bg-white">
-  <div class="container">
-
-    <!-- Project Focus Section -->
-    <div class="row text-center">
-      <div class="col-12" data-aos="zoom-in">
-        <div class="heading mb-80">
-          <h2>Project Focus</h2>
-          <hr class="line bw-2 mx-auto line-sm mb-5">
+    <!-- Breadcrumb Area Start -->
+    <nav class="breadcrumb-area bg-dark bg-6 ptb-70">
+        <div class="container d-md-flex">
+            <h2 class="text-white mb-0">Solutions</h2>
+            <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a> <span class="text-white">/</span></li>
+                <li aria-current="page" class="breadcrumb-item active">Solutions</li>
+            </ol>
         </div>
-      </div>
-    </div>
+    </nav>
+    <!-- Breadcrumb Area End -->
 
-    <div class="row text-center">
-      {% for item in solutions %}
-      {% if item.solution_type == 0 %}
-      <div class="col-12 col-md-6 col-lg-3 mb-30" data-aos="zoom-in">
-        <div class="card featured-item">
-          <div class="card-body ptb-45">
-            <div class="icon circle-icon mb-30 mx-auto">
-              <i class="ti-shield"></i>
+    <!-- Services Section Start -->
+    {#    <section class="section-ptb bg-white">#}
+    {#        <div class="container">#}
+    {##}
+    {#            <!-- Project Focus Section -->#}
+    {#            <div class="row text-center">#}
+    {#                <div class="col-12" data-aos="zoom-in">#}
+    {#                    <div class="heading mb-80">#}
+    {#                        <h2>Project Focus</h2>#}
+    {#                        <hr class="line bw-2 mx-auto line-sm mb-5">#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {##}
+    {#            <div class="row text-center">#}
+    {#                {% for item in solutions %}#}
+    {#                    {% if item.solution_type == 0 %}#}
+    {#                        <div class="col-12 col-md-6 col-lg-3 mb-30 d-flex" data-aos="zoom-in">#}
+    {#                            <div class="card featured-item w-100 d-flex flex-column">#}
+    {#                                <div class="card-body d-flex flex-column justify-content-between ptb-45">#}
+    {#                                    <div>#}
+    {#                                        <div class="icon circle-icon mb-30 mx-auto">#}
+    {#                                            <i class="ti-shield"></i>#}
+    {#                                        </div>#}
+    {#                                        <h5>{{ item.banner_title }}</h5>#}
+    {#                                        <p class="mb-20">{{ item.banner_content|truncatewords:20 }}</p>#}
+    {#                                    </div>#}
+    {#                                    <div class="mt-auto">#}
+    {#                                        <a class="item-link link-btn" href="{% url 'solution-detail' item.slug %}">Read More</a>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    {% endif %}#}
+    {#                {% endfor %}#}
+    {#            </div>#}
+    {##}
+    {#            <div class="header-space"></div>#}
+    {##}
+    {#            <!-- Job Role Section -->#}
+    {#            <div class="row text-center">#}
+    {#                <div class="col-12" data-aos="zoom-in">#}
+    {#                    <div class="heading mb-80">#}
+    {#                        <h2>Job Role</h2>#}
+    {#                        <hr class="line bw-2 mx-auto line-sm mb-5">#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {##}
+    {#            <div class="row text-center">#}
+    {#                {% for item in solutions %}#}
+    {#                    {% if item.solution_type == 1 %}#}
+    {#                        <div class="col-12 col-md-6 col-lg-3 mb-30" data-aos="zoom-in">#}
+    {#                            <div class="card featured-item">#}
+    {#                                <div class="card-body ptb-45">#}
+    {#                                    <div class="icon circle-icon mb-30 mx-auto">#}
+    {#                                        <i class="ti-shield"></i>#}
+    {#                                    </div>#}
+    {#                                    <h5>{{ item.banner_title }}</h5>#}
+    {#                                    <p class="mb-20">{{ item.banner_content|truncatewords:20 }}</p>#}
+    {#                                    <a class="item-link link-btn" href="{% url 'solution-detail' item.slug %}">Read More</a>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    {% endif %}#}
+    {#                {% endfor %}#}
+    {#            </div>#}
+    {##}
+    {#        </div>#}
+    {#    </section>#}
+    <!-- Services Section End -->
+
+    <!-- Services Section Start -->
+    <section class="section-ptb bg-white">
+        <div class="container">
+
+            {% for type in solution_types %}
+                <!-- Dynamic Section Heading -->
+                <div class="row text-center">
+                    <div class="col-12" data-aos="zoom-in">
+                        <div class="heading mb-80">
+                            <h2>{{ type.label }}</h2>
+                            <hr class="line bw-2 mx-auto line-sm mb-5">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solution Cards -->
+                <div class="row text-center">
+                    {% for item in solutions %}
+                        {% if item.solution_type == type.id %}
+                            <div class="col-12 col-md-6 col-lg-3 mb-30 d-flex" data-aos="zoom-in">
+                                <div class="card featured-item w-100 d-flex flex-column">
+                                    <div class="card-body d-flex flex-column justify-content-between ptb-45">
+                                        <div>
+                                            <div class="icon circle-icon mb-30 mx-auto">
+                                                <i class="ti-shield"></i>
+                                            </div>
+                                            <h5>{{ item.banner_title }}</h5>
+                                            <p class="mb-20">{{ item.banner_content|truncatewords:20 }}</p>
+                                        </div>
+                                        <div class="mt-auto">
+                                            <a class="item-link link-btn" href="{% url 'solution-detail' item.slug %}">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% empty %}
+                        <div class="col-12">
+                            <p>No solutions available for this category.</p>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="header-space"></div>
+            {% endfor %}
+
+        </div>
+    </section>
+    <!-- Services Section End -->
+
+    <!-- Clients Logo Section Start -->
+    <section class="client-logo section-ptb">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12" data-aos="zoom-in">
+                    <div class="heading mb-80">
+                        <h2>Trusted by many Companies</h2>
+                        <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
+                        <hr class="line bw-2 mx-auto line-sm mb-5">
+                        <hr class="line bw-2 mx-auto">
+                    </div>
+                </div>
             </div>
-            <h5>{{ item.banner_title }}</h5>
-            <p class="mb-20">{{ item.banner_content|truncatewords:20 }}</p>
-            <a class="item-link link-btn" href="{% url 'solution-detail' item.slug %}">Read More</a>
-          </div>
-        </div>
-      </div>
-      {% endif %}
-      {% endfor %}
-    </div>
-
-    <div class="header-space"></div>
-
-    <!-- Job Role Section -->
-    <div class="row text-center">
-      <div class="col-12" data-aos="zoom-in">
-        <div class="heading mb-80">
-          <h2>Job Role</h2>
-          <hr class="line bw-2 mx-auto line-sm mb-5">
-        </div>
-      </div>
-    </div>
-
-    <div class="row text-center">
-      {% for item in solution %}
-      {% if item.solution_type == 1 %}
-      <div class="col-12 col-md-6 col-lg-3 mb-30" data-aos="zoom-in">
-        <div class="card featured-item">
-          <div class="card-body ptb-45">
-            <div class="icon circle-icon mb-30 mx-auto">
-              <i class="ti-shield"></i>
+            <div class="row justify-content-around align-items-center">
+                <div class="col-2" data-aos="zoom-in">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/1.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+                <div class="col-2" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/2.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+                <div class="col-2" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/3.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+                <div class="col-2" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/4.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+                <div class="col-2" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/5.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+                <div class="col-2" data-aos="zoom-in" data-aos-delay="700">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/6.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
             </div>
-            <h5>{{ item.banner_title }}</h5>
-            <p class="mb-20">{{ item.banner_content|truncatewords:20 }}</p>
-            <a class="item-link link-btn" href="{% url 'solution-detail' item.slug %}">Read More</a>
-          </div>
         </div>
-      </div>
-      {% endif %}
-      {% endfor %}
-    </div>
-
-  </div>
-</section>
-<!-- Services Section End -->
-
-<!-- Clients Logo Section Start -->
-<section class="client-logo section-ptb">
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-12" data-aos="zoom-in">
-        <div class="heading mb-80">
-          <h2>Trusted by many Companies</h2>
-          <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
-          <hr class="line bw-2 mx-auto line-sm mb-5">
-          <hr class="line bw-2 mx-auto">
-        </div>
-      </div>
-    </div>
-    <div class="row justify-content-around align-items-center">
-      <div class="col-2" data-aos="zoom-in">
-        <div class="brand-logo">
-          <a href="#"><img src="{% static 'assets/img/client/logo/1.png' %}" alt="Client Logo"></a>
-        </div>
-      </div>
-      <!-- Single logo -->
-      <div class="col-2" data-aos="zoom-in" data-aos-delay="300">
-        <div class="brand-logo">
-          <a href="#"><img src="{% static 'assets/img/client/logo/2.png' %}" alt="Client Logo"></a>
-        </div>
-      </div>
-      <!-- Single logo -->
-      <div class="col-2" data-aos="zoom-in" data-aos-delay="400">
-        <div class="brand-logo">
-          <a href="#"><img src="{% static 'assets/img/client/logo/3.png' %}" alt="Client Logo"></a>
-        </div>
-      </div>
-      <!-- Single logo -->
-      <div class="col-2" data-aos="zoom-in" data-aos-delay="500">
-        <div class="brand-logo">
-          <a href="#"><img src="{% static 'assets/img/client/logo/4.png' %}" alt="Client Logo"></a>
-        </div>
-      </div>
-      <!-- Single logo -->
-      <div class="col-2" data-aos="zoom-in" data-aos-delay="600">
-        <div class="brand-logo">
-          <a href="#"><img src="{% static 'assets/img/client/logo/5.png' %}" alt="Client Logo"></a>
-        </div>
-      </div>
-      <!-- Single logo -->
-      <div class="col-2" data-aos="zoom-in" data-aos-delay="700">
-        <div class="brand-logo">
-          <a href="#"><img src="{% static 'assets/img/client/logo/6.png' %}" alt="Client Logo"></a>
-        </div>
-      </div>
-      <!-- Single logo -->
-    </div>
-  </div>
-</section>
-<!-- Clients Logo Section End -->
+    </section>
+    <!-- Clients Logo Section End -->
 
 {% endblock %}
