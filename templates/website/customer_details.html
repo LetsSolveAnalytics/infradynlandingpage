@@ -140,7 +140,7 @@
                     <div>
                         {% for category in customer_product_categories.all %}
                         <button class="tab-button btn btn-outline-light outline-primary ml-25 {% if forloop.first %}active{% endif %}" onclick="showProduct('{{ category.slug }}')">
-                            {{ categotry.category_name }}
+                            {{ category.category_name }}
                         </button>
                         {% endfor %}
                     </div>

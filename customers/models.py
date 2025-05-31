@@ -31,7 +31,7 @@ class CustomerFeature(BaseTranslateModel):
 class CustomerProductCategory(BaseModel):
     category_name = models.CharField(max_length=300)
     headline_title = models.CharField(max_length=300)
-    # slug = models.SlugField(unique=True, db_index=True, editable=False)
+    slug = models.SlugField(unique=True, db_index=True, editable=False)
     image = models.ImageField(upload_to='customer/images/', default='default.png')
     content = models.TextField()
     is_active = models.BooleanField(default=True)
