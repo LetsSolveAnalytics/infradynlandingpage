@@ -9,6 +9,8 @@ def navbar_context(request):
             1: products.filter(product_type=1),
             2: products.filter(product_type=2),
             3: products.filter(product_type=3),
+            4: products.filter(product_type=4),
+            5: products.filter(product_type=5),
         }
     }
 

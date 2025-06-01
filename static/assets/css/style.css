@@ -52,6 +52,15 @@ body {
 img {
   max-width: 100%; }
 
+.hyper-link {
+  color: #000; /* or black */
+  text-decoration: none;
+}
+
+.hyper-link:hover {
+  color: #e109f3; /* Optional: keep black on hover */
+}
+
 /*
 
 [ 2. Typography ]

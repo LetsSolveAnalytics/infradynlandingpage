@@ -3,6 +3,8 @@ from django.utils.translation import gettext_lazy as _
 
 class ProductType(models.IntegerChoices):
     PRECONSTRUCTION = 0, _("Preconstruction")
-    PROJECTDELIVERY = 1, _("ProjectDelivery")
-    ANALYTICS = 2, _("Analytics")
-    COLLABORATION = 3, _("CollaborationAndCommunication")
+    EXECUTION = 1, _("Execution")
+    CONSTRUCTION_INTELLIGENCE = 2, _("Construction Intelligence")
+    COLLABORATION_HUB = 3, _("Collaboration Hub")
+    QUALITY_AND_SAFETY = 4, _("Quality and Safety")
+    INTEGRATIONS = 5, _("Integrations")

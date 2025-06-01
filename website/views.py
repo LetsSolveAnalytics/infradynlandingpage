@@ -10,6 +10,7 @@ from django.views.generic import TemplateView, ListView
 import requests
 
 from coreapp import email_utils
+from customers.models import Customer
 from . import forms
 
 from .constants import PageType
@@ -35,6 +36,7 @@ class HomeView(TemplateView):
         context['faq_intro'] = "Here are some of the most common questions we receive from our customers."
         context['sliders'] = Slider.objects.filter(is_active=True)
         context['recent_posts'] = Post.objects.filter(is_published=True).order_by('-created_at')[:6]
+        context['customers'] = Customer.objects.filter(is_published=True)
         return context
 
 

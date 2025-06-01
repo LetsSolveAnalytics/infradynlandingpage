@@ -35,7 +35,6 @@ from blogs.models import Post
 #         context['solution_type'] = self.request.GET.get('solution_type')
 #         return context
 
-
 class CustomerDetailView(DetailView):
     queryset = Customer.objects.filter(is_published=True)
     template_name = 'website/customer_details.html'

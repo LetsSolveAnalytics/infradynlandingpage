@@ -14,7 +14,7 @@ class ProductFeature(BaseTranslateModel):
         description = models.TextField(null=True, blank=True)
     )
     image = models.ImageField(upload_to='product/images/', default='default.png')
-    slug = models.SlugField(unique=True, db_index=True, editable=False)
+    slug = models.SlugField(max_length=250, unique=True, db_index=True, editable=False)
     is_active = models.BooleanField(default=False)
 
     def __str__(self):
@@ -45,7 +45,7 @@ class Product(BaseTranslateModel):
         banner_title=models.CharField(max_length=250),
     )
     image = models.ImageField(upload_to='product/images/', default='default.png')
-    slug = models.SlugField(unique=True, db_index=True, editable=False)
+    slug = models.SlugField(max_length=250, unique=True, db_index=True, editable=False)
     product_type = models.SmallIntegerField(choices=ProductType.choices)
     date_time = models.DateTimeField(null=True, blank=True)
     is_published = models.BooleanField(default=False)
