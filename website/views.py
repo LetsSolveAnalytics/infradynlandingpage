@@ -11,6 +11,7 @@ import requests
 
 from coreapp import email_utils
 from customers.models import Customer
+from solutions.models import Solution
 from . import forms
 
 from .constants import PageType
@@ -36,7 +37,7 @@ class HomeView(TemplateView):
         context['faq_intro'] = "Here are some of the most common questions we receive from our customers."
         context['sliders'] = Slider.objects.filter(is_active=True)
         context['recent_posts'] = Post.objects.filter(is_published=True).order_by('-created_at')[:6]
-        context['customers'] = Customer.objects.filter(is_published=True)
+        context['customers'] = Solution.objects.filter(is_published=True, solution_type__in=[2])
         return context
 
 

@@ -2,378 +2,384 @@
 {% load static %}
 {% block main_container %}
 
-<!-- Slider Section Start -->
-<section class="section-ptb">
-    <div class="container h-100 h-sm-auto d-flex flex-row align-items-center flex-wrap flex-md-nowrap">
-        <div class="caption" data-aos="fade-right">
-            <h5 class="display-3 mb-10">AI powered clarity for dynamic project control for</h5>
-            <h1 class="display-1 mb-25">Construction Management System</h1>
-            <p class="mb-30">Unified intelligent platform which help owners save €30M per €500M project by predicting risks, reducing delays, and eliminating reporting inefficiencies.</p>
-            <a href="#" class="btn btn-primary">Get Your Free Demo</a>
-            <!--      <a href="#" class="item-link ml-25">14-Day FREE Trial</a>-->
-        </div>
-        <div class="image-layer ml-md-auto align-self-md-center align-self-start" data-aos="fade-left">
-            <img src="{% static 'assets/img/slider/layer/1.png' %}" alt="Layer Image">
-        </div>
-    </div>
-</section>
-<!-- Slider Section End -->
-
-<div class="bg-2 bg-white">
-
-    <!-- Best Services Start -->
-    <section class="hero-block">
-        <div class="container">
-            <div class="row d-flex align-items-center justify-content-between">
-                <div class="col-12 col-lg-6 mb-sm-50 mb-md-50" data-aos="fade-right">
-                    <div class="hero-text">
-                        <h3 class="mb-5">Why Choose INFRADYN</h3>
-                        <h1 class="mb-25">Key Value Proposition</h1>
-                        <p class="mb-20 mw-5">Looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the..</p>
-                        <ul class="list-unstyled mb-30">
-                            <li>01. ROI driven platform built for results.</li>
-                            <li>02. Smarter, self-learning data engine.</li>
-                            <li>03. All-in-one platform built for EU construction firms.</li>
-                        </ul>
-                        <!--            <a href="#" class="btn btn-primary">Get Started</a>-->
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="row text-center">
-                        <div class="col-12 col-md-6">
-                            <div class="card featured-item shadow-default mb-30" data-aos="fade-up">
-                                <div class="card-body ptb-45">
-                                    <div class="icon circle-icon mb-30 mx-auto">
-                                        <i class="ti-shield"></i>
-                                    </div>
-                                    <h5>Enhance Collaboration</h5>
-                                    <p class="mb-20">Streamline collaboration across multiple roles, projects, and workflows within a unified platform to foster efficient enterprise-wide teamwork.</p>
-                                    <a class="item-link link-btn" href="#">Read More</a>
-                                </div>
-                            </div>
-                            <!-- Single Featured End -->
-                            <div class="card featured-item shadow-default" data-aos="fade-up">
-                                <div class="card-body ptb-45">
-                                    <div class="icon circle-icon mb-30 mx-auto">
-                                        <i class="ti-target"></i>
-                                    </div>
-                                    <h5>Optimize Workflow Standardization</h5>
-                                    <p class="mb-20">Implement standardized workflows to minimize redundant administrative tasks and enhance overall operational efficiency.</p>
-                                    <a class="item-link link-btn" href="#">Read More</a>
-                                </div>
-                            </div>
-                            <!-- Single Featured End -->
-                        </div>
-                        <div class="col-12 col-md-6 mt-50">
-                            <div class="card featured-item shadow-default mb-30" data-aos="fade-up" data-aos-delay="400">
-                                <div class="card-body ptb-45">
-                                    <div class="icon circle-icon mb-30 mx-auto">
-                                        <i class="ti-heart"></i>
-                                    </div>
-                                    <h5>Amplify Productivity</h5>
-                                    <p class="mb-20">Unify all individuals, projects, and data within a centralized hub to unleash peak productivity and unlock AI development potential.</p>
-                                    <a class="item-link link-btn" href="#">Read More</a>
-                                </div>
-                            </div>
-                            <!-- Single Featured End -->
-                            <div class="card featured-item shadow-default" data-aos="fade-up" data-aos-delay="400">
-                                <div class="card-body ptb-45">
-                                    <div class="icon circle-icon mb-30 mx-auto">
-                                        <i class="ti-pencil"></i>
-                                    </div>
-                                    <h5>Enhance Real Time Visibility</h5>
-                                    <p class="mb-20">Ensure that essential project information reaches the right individuals in real time, company-wide, through a secure, mobile-integrated system.</p>
-                                    <a class="item-link link-btn" href="#">Read More</a>
-                                </div>
-                            </div>
-                            <!-- Single Featured End -->
-                        </div>
-                    </div>
-                </div>
+    <!-- Slider Section Start -->
+    <section class="section-ptb">
+        <div class="container h-100 h-sm-auto d-flex flex-row align-items-center flex-wrap flex-md-nowrap">
+            <div class="caption" data-aos="fade-right">
+                <h5 class="display-3 mb-10">AI powered clarity for dynamic project control for</h5>
+                <h1 class="display-1 mb-25">Construction Management System</h1>
+                <p class="mb-30">Unified intelligent platform which help owners save €30M per €500M project by predicting risks, reducing delays, and eliminating reporting inefficiencies.</p>
+                <a href="{% url 'request_a_demo' %}" class="btn btn-primary">Get Your Free Demo</a>
+                <!--      <a href="#" class="item-link ml-25">14-Day FREE Trial</a>-->
+            </div>
+            <div class="image-layer ml-md-auto align-self-md-center align-self-start" data-aos="fade-left">
+                <img src="{% static 'assets/img/slider/layer/1.png' %}" alt="Layer Image">
             </div>
         </div>
     </section>
-    <!-- Best Services End -->
+    <!-- Slider Section End -->
 
-    <!-- Hero Block Start -->
-    <section class="hero-block section-ptb">
-        <div class="container">
-            <div class="row d-flex align-items-center">
-                <div class="col-12 col-md-6 col-xl-5 mb-sm-30" data-aos="fade-right">
-                    <div class="hero-thumb m-minus-70">
-                        <img src="{% static 'assets/img/hero/1.png' %}" alt="Hero Thumbnail">
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-xl-6 ml-auto">
-                    <div class="hero-text" data-aos="fade-left">
-                        <h3 class="mb-5">Reservations</h3>
-                        <h1 class="mb-25">Management</h1>
-                        <p class="mb-30">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web.</p>
-                        <a href="#" class="btn btn-primary">Get Started</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Hero Block End -->
-</div>
+    <div class="bg-2 bg-white">
 
-<!-- Featured Section Start -->
-<section class="section-ptb bg-white">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-12" data-aos="zoom-in">
-                <div class="heading mb-80">
-                    <h2>Who Benefits from INFRADYN</h2>
-                    <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
-                    <hr class="line bw-2 mx-auto line-sm mb-5">
-                    <hr class="line bw-2 mx-auto">
-                </div>
-            </div>
-        </div>
-        <div class="row text-center">
-            {% for customer in customers %}
-                <div class="col-12 col-md-6 col-lg-3 mb-sm-30 mb-md-30" data-aos="zoom-in">
-                    <a href="{% url 'customer-detail' customer.slug %}" class="text-decoration-none d-block h-100">
-                        <div class="card featured-item">
-                            <div class="position-relative">
-                                <img src="{{ customer.image.url }}"
-                                     alt="{{ customer.title }}"
-                                     class="img-fluid w-100 rounded"
-                                     loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="fw-bold mb-1">{{ customer.title }}</h5>
-                                <p class="text-muted small">{{ customer.content|truncatewords:12 }}</p>
-                                <span class="d-inline-flex align-items-center item-link link-btn hyper-link">
-              Read More
-            </span>
-                            </div>
+        <!-- Best Services Start -->
+        <section class="hero-block">
+            <div class="container">
+                <div class="row d-flex align-items-center justify-content-between">
+                    <div class="col-12 col-lg-6 mb-sm-50 mb-md-50" data-aos="fade-right">
+                        <div class="hero-text">
+                            <h3 class="mb-5">Why Choose INFRADYN</h3>
+                            <h1 class="mb-25">Key Value Proposition</h1>
+                            <p class="mb-20 mw-5">By embedding construction trained AI into every phase of the project lifecycle, INFRADYN doesn't just enhance workflows, it transforms how teams plan, build, and deliver with precision, speed, and confidence.<br class="d-none d-md-block">
+                                It connects planning to execution, field to office, and data to decisions. Automates your tasks and processes so your teams can focus on what matters. It's a new operating system for the built world.</p>
+                            <ul class="list-unstyled mb-30">
+                                <li>01. ROI driven platform built for results.</li>
+                                <li>02. Smarter, self-learning data engine.</li>
+                                <li>03. All-in-one platform built for EU construction firms.</li>
+                            </ul>
+                            <!--            <a href="#" class="btn btn-primary">Get Started</a>-->
                         </div>
-                    </a>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-<!-- Featured Section End -->
-
-
-<!-- Promo Box Start -->
-<section class="promo-area section-ptb bg-4 bg-primary">
-    <div class="container ptb-30">
-        <div class="row text-center">
-            <div class="col-12" data-aos="zoom-in">
-                <div class="heading">
-                    <h1 class="text-white mb-25">Get Started with INFRADYN</h1>
-                    <p class="text-white mb-30">An end-to-end enterprise project delivery platform <br class="d-none d-md-block"> to manage projects and standardize workflows</p>
-                    <a class="btn btn-light" href="{%  url 'pricing' %}">Get Pricing</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Promo Box End -->
-
-<!-- Testimonial Section Start -->
-<section class="section-ptb bg-white bg-5">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-12" data-aos="zoom-in">
-                <div class="heading mb-80">
-                    <h2>Testimonials</h2>
-                    <p class="mb-20">{{ testimonial_intro }}</p>
-                    <hr class="line bw-2 mx-auto line-sm mb-5">
-                    <hr class="line bw-2 mx-auto">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="client-testimonial position-relative">
-                    <div class="client-nav">
-                        <ul class="nav nav-tabs">
-                            {% for t in testimonials %}
-                                <li class="nav-item">
-                                    <a class="nav-link {% if forloop.first %}active{% endif %}" href="#client{{ forloop.counter }}" data-toggle="tab">
-                                        <img class="drop-shadow" src="{{ t.user_image.url }}" alt="Client Image">
-                                    </a>
-                                </li>
-                            {% endfor %}
-                        </ul>
                     </div>
-                    <div class="row text-center">
-                        <div class="col-10 col-md-8 col-lg-6 mx-auto">
-                            <div class="tab-content">
-                                {% for t in testimonials %}
-                                    <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="client{{ forloop.counter }}">
-                                        <div class="client-thumb mx-auto mb-25">
-                                            <img class="drop-shadow" src="{{ t.user_image.url }}" alt="Client Image">
+                    <div class="col-12 col-lg-6">
+                        <div class="row text-center">
+                            <div class="col-12 col-md-6">
+                                <div class="card featured-item shadow-default mb-30" data-aos="fade-up">
+                                    <div class="card-body ptb-45">
+                                        <div class="icon circle-icon mb-30 mx-auto">
+                                            <i class="ti-shield"></i>
                                         </div>
-                                        <div class="client-desc bg-white d-flex align-items-center">
-                                            <div class="text mx-auto">
-                                                <h4 class="mb-10">{{ t.name }}</h4>
-                                                <h6>{{ t.designation }}</h6>
-                                                <p>{{ t.message }}</p>
+                                        <h5>Enhance Collaboration</h5>
+                                        <p class="mb-20">Streamline collaboration across multiple roles, projects, and workflows within a unified platform to foster efficient enterprise-wide teamwork.</p>
+                                        {#                                        <a class="item-link link-btn" href="#">Read More</a>#}
+                                    </div>
+                                </div>
+                                <!-- Single Featured End -->
+                                <div class="card featured-item shadow-default" data-aos="fade-up">
+                                    <div class="card-body ptb-45">
+                                        <div class="icon circle-icon mb-30 mx-auto">
+                                            <i class="ti-target"></i>
+                                        </div>
+                                        <h5>Optimize Workflow Standardization</h5>
+                                        <p class="mb-20">Implement standardized workflows to minimize redundant administrative tasks and enhance overall operational efficiency.</p>
+                                        {#                                        <a class="item-link link-btn" href="#">Read More</a>#}
+                                    </div>
+                                </div>
+                                <!-- Single Featured End -->
+                            </div>
+                            <div class="col-12 col-md-6 mt-50">
+                                <div class="card featured-item shadow-default mb-30" data-aos="fade-up" data-aos-delay="400">
+                                    <div class="card-body ptb-45">
+                                        <div class="icon circle-icon mb-30 mx-auto">
+                                            <i class="ti-heart"></i>
+                                        </div>
+                                        <h5>Amplify Productivity</h5>
+                                        <p class="mb-20">Unify all individuals, projects, and data within a centralized hub to unleash peak productivity and unlock AI development potential.</p>
+                                        {#                                        <a class="item-link link-btn" href="#">Read More</a>#}
+                                    </div>
+                                </div>
+                                <!-- Single Featured End -->
+                                <div class="card featured-item shadow-default" data-aos="fade-up" data-aos-delay="400">
+                                    <div class="card-body ptb-45">
+                                        <div class="icon circle-icon mb-30 mx-auto">
+                                            <i class="ti-pencil"></i>
+                                        </div>
+                                        <h5>Enhance Real Time Visibility</h5>
+                                        <p class="mb-20">Ensure that essential project information reaches the right individuals in real time, company-wide, through a secure, mobile-integrated system.</p>
+                                        {#                                        <a class="item-link link-btn" href="#">Read More</a>#}
+                                    </div>
+                                </div>
+                                <!-- Single Featured End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Best Services End -->
+
+        <!-- Hero Block Start -->
+        {#        <section class="hero-block section-ptb">#}
+        {#            <div class="container">#}
+        {#                <div class="row d-flex align-items-center">#}
+        {#                    <div class="col-12 col-md-6 col-xl-5 mb-sm-30" data-aos="fade-right">#}
+        {#                        <div class="hero-thumb m-minus-70">#}
+        {#                            <img src="{% static 'assets/img/hero/1.png' %}" alt="Hero Thumbnail">#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                    <div class="col-12 col-md-6 col-xl-6 ml-auto">#}
+        {#                        <div class="hero-text" data-aos="fade-left">#}
+        {#                            <h3 class="mb-5">Reservations</h3>#}
+        {#                            <h1 class="mb-25">Management</h1>#}
+        {#                            <p class="mb-30">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web.</p>#}
+        {#                            <a href="#" class="btn btn-primary">Get Started</a>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </section>#}
+        <!-- Hero Block End -->
+        <!-- Featured Section Start -->
+        <section class="section-ptb">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12" data-aos="zoom-in">
+                        <div class="heading mb-80">
+                            <h2>Who Benefits from INFRADYN</h2>
+                            <p class="mb-20">Your platform for redefining <br class="d-none d-md-block"> how construction professionals connect and deliver</p>
+                            <hr class="line bw-2 mx-auto line-sm mb-5">
+                            <hr class="line bw-2 mx-auto">
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    {% for customer in customers %}
+                        <div class="col-12 col-md-6 col-lg-3 mb-30 d-flex" data-aos="zoom-in">
+                            <div class="card featured-item w-100 d-flex flex-column">
+                                <div class="card-body d-flex flex-column justify-content-between ptb-45">
+                                    <div>
+                                        {#                                    <div>#}
+                                        {#                                    <img src="{{ customer.image.url }}"#}
+                                        {#                                         alt="{{ customer.banner_title }}"#}
+                                        {#                                         class="img-fluid w-100 rounded"#}
+                                        {#                                         loading="lazy">#}
+                                        {#                                    </div>#}
+                                        <div class="icon circle-icon mb-30 mx-auto">
+                                            <i class="ti-target"></i>
+                                        </div>
+                                        <h5 class="fw-bold mb-4">{{ customer.banner_title }}</h5>
+                                        <p class="mb-20">{{ customer.banner_content|truncatewords:12 }}</p>
+                                    </div>
+                                    <div class="mt-auto">
+                                        <a class="item-link link-btn hyper-link" href="{% url 'solution-detail' customer.slug %}">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- Featured Section End -->
+    </div>
+
+
+
+
+    <!-- Promo Box Start -->
+    <section class="promo-area section-ptb bg-4 bg-primary">
+        <div class="container ptb-30">
+            <div class="row text-center">
+                <div class="col-12" data-aos="zoom-in">
+                    <div class="heading">
+                        <h1 class="text-white mb-25">Get Started with INFRADYN</h1>
+                        <p class="text-white mb-30">An end-to-end enterprise project delivery platform <br class="d-none d-md-block"> to manage projects and standardize workflows</p>
+                        <a class="btn btn-light" href="{%  url 'pricing' %}">Get Pricing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Promo Box End -->
+
+    <!-- Testimonial Section Start -->
+    <section class="section-ptb bg-white bg-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12" data-aos="zoom-in">
+                    <div class="heading mb-80">
+                        <h2>Testimonials</h2>
+                        <p class="mb-20">{{ testimonial_intro }}</p>
+                        <hr class="line bw-2 mx-auto line-sm mb-5">
+                        <hr class="line bw-2 mx-auto">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="client-testimonial position-relative">
+                        <div class="client-nav">
+                            <ul class="nav nav-tabs">
+                                {% for t in testimonials %}
+                                    <li class="nav-item">
+                                        <a class="nav-link {% if forloop.first %}active{% endif %}" href="#client{{ forloop.counter }}" data-toggle="tab">
+                                            <img class="drop-shadow" src="{{ t.user_image.url }}" alt="Client Image">
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-10 col-md-8 col-lg-6 mx-auto">
+                                <div class="tab-content">
+                                    {% for t in testimonials %}
+                                        <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="client{{ forloop.counter }}">
+                                            <div class="client-thumb mx-auto mb-25">
+                                                <img class="drop-shadow" src="{{ t.user_image.url }}" alt="Client Image">
+                                            </div>
+                                            <div class="client-desc bg-white d-flex align-items-center">
+                                                <div class="text mx-auto">
+                                                    <h4 class="mb-10">{{ t.name }}</h4>
+                                                    <h6>{{ t.designation }}</h6>
+                                                    <p>{{ t.message }}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                {% endfor %}
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- Testimonial Section End -->
+    </section>
+    <!-- Testimonial Section End -->
 
-<!-- Want to learn more Section Start -->
-<section class="section-ptb bg-light">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-12" data-aos="zoom-in">
-                <div class="heading mb-80">
-                    <h2>Want to learn more?</h2>
-                    <p class="mb-20">Dive into these resources to see how our platform can help amplify your success.</p>
-                    <a href="{% url 'post-list' %}">
+    <!-- Want to learn more Section Start -->
+    <section class="section-ptb bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12" data-aos="zoom-in">
+                    <div class="heading mb-80">
+                        <h2>Want to learn more?</h2>
+                        <p class="mb-20">Dive into these resources to see how our platform can help amplify your success.</p>
+                        <a href="{% url 'post-list' %}">
         <span class="d-inline-flex align-items-center item-link link-btn hyper-link">
           Explore other resources
         </span>
-                    </a>
-                    <hr class="line bw-2 mx-auto line-sm mb-5">
-                    <hr class="line bw-2 mx-auto">
+                        </a>
+                        <hr class="line bw-2 mx-auto line-sm mb-5">
+                        <hr class="line bw-2 mx-auto">
+                    </div>
+                </div>
+            </div>
+            <div class="position-relative">
+                <!-- Arrows outside -->
+                <div class="swiper-button-prev custom-nav"></div>
+                <div class="swiper-button-next custom-nav"></div>
+
+                <div class="swiper blogSwiper px-4">
+                    <div class="swiper-wrapper">
+
+                        {% for post in recent_posts %}
+                            <!-- Blog Card -->
+                            <div class="swiper-slide">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid w-100 rounded-top" loading="lazy">
+                                    <div class="card-body">
+                                        <a href="{% url 'post-detail' post.slug %}" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">
+                                            {{ post.title }}
+                                        </a>
+                                        <div class="d-flex justify-content-between text-muted small mb-2">
+                                            <div class="me-3"><i class="bi bi-calendar"></i> {{ post.date_time|date:"d M, Y" }}</div>
+                                        </div>
+                                        <p class="text-muted small mb-3">{{ post.content|truncatewords:20 }}</p>
+                                        <a href="{% url 'post-detail' post.slug %}" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                    <!-- Pagination (optional) -->
+                    <div class="swiper-pagination mt-4"></div>
                 </div>
             </div>
         </div>
-        <div class="position-relative">
-            <!-- Arrows outside -->
-            <div class="swiper-button-prev custom-nav"></div>
-            <div class="swiper-button-next custom-nav"></div>
+    </section>
+    <!-- Want to learn more Section End -->
 
-            <div class="swiper blogSwiper px-4">
-                <div class="swiper-wrapper">
+    <div class="bg-2 bg-white">
+        <!-- FAQ Section Start -->
+        <section class="section-ptb">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12" data-aos="zoom-in">
+                        <div class="heading mb-80">
+                            <h2>Frequently Asked Questions</h2>
+                            <p class="mb-20">{{ faq_intro }}</p>
+                            <hr class="line bw-2 mx-auto line-sm mb-5">
+                            <hr class="line bw-2 mx-auto">
+                        </div>
+                    </div>
+                </div>
 
-                    {% for post in recent_posts %}
-                        <!-- Blog Card -->
-                        <div class="swiper-slide">
-                            <div class="card h-100 border-0 shadow-sm">
-                                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid w-100 rounded-top" loading="lazy">
-                                <div class="card-body">
-                                    <a href="{% url 'post-detail' post.slug %}" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">
-                                        {{ post.title }}
-                                    </a>
-                                    <div class="d-flex justify-content-between text-muted small mb-2">
-                                        <div class="me-3"><i class="bi bi-calendar"></i> {{ post.date_time|date:"d M, Y" }}</div>
+                <div class="accordion" id="faqAccordion">
+                    {% for faq in faqs %}
+                        <div class="faq-box bg-success mb-3">
+                            <div class="accordion-item">
+                                <h4 class="mb-10" id="heading{{ forloop.counter }}">
+                                    <button class="accordion-button btn collapsed bg-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
+                                        {{ forloop.counter|stringformat:"02d" }}. {{ faq.question }}
+                                    </button>
+                                </h4>
+                                <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body mb-20">
+                                        {{ faq.answer }}
                                     </div>
-                                    <p class="text-muted small mb-3">{{ post.content|truncatewords:20 }}</p>
-                                    <a href="{% url 'post-detail' post.slug %}" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
                                 </div>
                             </div>
                         </div>
                     {% endfor %}
-
-                </div>
-                <!-- Pagination (optional) -->
-                <div class="swiper-pagination mt-4"></div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Want to learn more Section End -->
-
-<div class="bg-2 bg-white">
-    <!-- FAQ Section Start -->
-    <section class="section-ptb">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-12" data-aos="zoom-in">
-                    <div class="heading mb-80">
-                        <h2>Frequently Asked Questions</h2>
-                        <p class="mb-20">{{ faq_intro }}</p>
-                        <hr class="line bw-2 mx-auto line-sm mb-5">
-                        <hr class="line bw-2 mx-auto">
-                    </div>
                 </div>
             </div>
+        </section>
+        <!-- FAQ Section End -->
 
-            <div class="accordion" id="faqAccordion">
-                {% for faq in faqs %}
-                    <div class="faq-box bg-success mb-3">
-                        <div class="accordion-item">
-                            <h4 class="mb-10" id="heading{{ forloop.counter }}">
-                                <button class="accordion-button btn collapsed bg-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
-                                    {{ forloop.counter|stringformat:"02d" }}. {{ faq.question }}
-                                </button>
-                            </h4>
-                            <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body mb-20">
-                                    {{ faq.answer }}
-                                </div>
-                            </div>
+        <!-- Clients Logo Section Start -->
+        <section class="client-logo section-ptb">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12" data-aos="zoom-in">
+                        <div class="heading mb-80">
+                            <h2>Trusted by many Companies</h2>
+                            <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
+                            <hr class="line bw-2 mx-auto line-sm mb-5">
+                            <hr class="line bw-2 mx-auto">
                         </div>
                     </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    <!-- FAQ Section End -->
-
-    <!-- Clients Logo Section Start -->
-    <section class="client-logo section-ptb">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-12" data-aos="zoom-in">
-                    <div class="heading mb-80">
-                        <h2>Trusted by many Companies</h2>
-                        <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
-                        <hr class="line bw-2 mx-auto line-sm mb-5">
-                        <hr class="line bw-2 mx-auto">
+                </div>
+                <div class="row justify-content-around align-items-center">
+                    <div class="col-2" data-aos="zoom-in">
+                        <div class="brand-logo">
+                            <a href="#"><img src="{% static 'assets/img/client/logo/1.png' %}" alt="Client Logo"></a>
+                        </div>
                     </div>
+                    <!-- Single logo -->
+                    <div class="col-2" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="brand-logo">
+                            <a href="#"><img src="{% static 'assets/img/client/logo/2.png' %}" alt="Client Logo"></a>
+                        </div>
+                    </div>
+                    <!-- Single logo -->
+                    <div class="col-2" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="brand-logo">
+                            <a href="#"><img src="{% static 'assets/img/client/logo/3.png' %}" alt="Client Logo"></a>
+                        </div>
+                    </div>
+                    <!-- Single logo -->
+                    <div class="col-2" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="brand-logo">
+                            <a href="#"><img src="{% static 'assets/img/client/logo/4.png' %}" alt="Client Logo"></a>
+                        </div>
+                    </div>
+                    <!-- Single logo -->
+                    <div class="col-2" data-aos="zoom-in" data-aos-delay="600">
+                        <div class="brand-logo">
+                            <a href="#"><img src="{% static 'assets/img/client/logo/5.png' %}" alt="Client Logo"></a>
+                        </div>
+                    </div>
+                    <!-- Single logo -->
+                    <div class="col-2" data-aos="zoom-in" data-aos-delay="700">
+                        <div class="brand-logo">
+                            <a href="#"><img src="{% static 'assets/img/client/logo/6.png' %}" alt="Client Logo"></a>
+                        </div>
+                    </div>
+                    <!-- Single logo -->
                 </div>
             </div>
-            <div class="row justify-content-around align-items-center">
-                <div class="col-2" data-aos="zoom-in">
-                    <div class="brand-logo">
-                        <a href="#"><img src="{% static 'assets/img/client/logo/1.png' %}" alt="Client Logo"></a>
-                    </div>
-                </div>
-                <!-- Single logo -->
-                <div class="col-2" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="brand-logo">
-                        <a href="#"><img src="{% static 'assets/img/client/logo/2.png' %}" alt="Client Logo"></a>
-                    </div>
-                </div>
-                <!-- Single logo -->
-                <div class="col-2" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="brand-logo">
-                        <a href="#"><img src="{% static 'assets/img/client/logo/3.png' %}" alt="Client Logo"></a>
-                    </div>
-                </div>
-                <!-- Single logo -->
-                <div class="col-2" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="brand-logo">
-                        <a href="#"><img src="{% static 'assets/img/client/logo/4.png' %}" alt="Client Logo"></a>
-                    </div>
-                </div>
-                <!-- Single logo -->
-                <div class="col-2" data-aos="zoom-in" data-aos-delay="600">
-                    <div class="brand-logo">
-                        <a href="#"><img src="{% static 'assets/img/client/logo/5.png' %}" alt="Client Logo"></a>
-                    </div>
-                </div>
-                <!-- Single logo -->
-                <div class="col-2" data-aos="zoom-in" data-aos-delay="700">
-                    <div class="brand-logo">
-                        <a href="#"><img src="{% static 'assets/img/client/logo/6.png' %}" alt="Client Logo"></a>
-                    </div>
-                </div>
-                <!-- Single logo -->
-            </div>
-        </div>
-    </section>
-    <!-- Clients Logo Section End -->
-</div>
+        </section>
+        <!-- Clients Logo Section End -->
+    </div>
 
 {% endblock %}
