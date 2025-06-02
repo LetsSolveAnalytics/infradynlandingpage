@@ -5,6 +5,8 @@ from .base import *
 DEBUG = True
 ALLOWED_HOSTS = ['*', ]
 
+print("This is development env")
+
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
