@@ -35,7 +35,7 @@
                                                 <ul class="list-unstyled">
                                                     {% for item in items %}
                                                         <li class="d-flex align-items-center mb-2">
-                                                            <a href="{% url 'product-detail' item.slug %}" class="hyper-link">
+                                                            <a href="{% url 'product-detail' item.slug %}" class="dropdown-item">
                                                                 {{ item.title }} <i class="fas fa-arrow-right ms-2"></i>
                                                             </a>
                                                         </li>
@@ -61,7 +61,11 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >Who Benefits</a>
                         <ul class="dropdown-menu">
                             {% for customer in menu_customers %}
-                                <li><a class="dropdown-item" href="{% url 'customer-detail' customer.slug %}">{{ customer.title }}</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'solution-detail' customer.slug %}">
+                                        {{ customer.banner_title }} <i class="fas fa-arrow-right ms-2"></i>
+                                    </a>
+                                </li>
                             {% endfor %}
                         </ul>
                     </li>

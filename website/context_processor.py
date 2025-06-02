@@ -1,3 +1,4 @@
+from solutions.models import Solution
 from products.models import Product
 from customers.models import Customer
 
@@ -15,6 +16,10 @@ def navbar_context(request):
     }
 
 def customer_menu(request):
+    customers = Solution.objects.filter(
+        is_published=True,
+        solution_type=2
+    ).distinct()
     return {
-        'menu_customers': Customer.objects.filter(is_published=True)
+        'menu_customers': customers
     }

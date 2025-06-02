@@ -65,7 +65,7 @@ class RequestDemoView(View):
                 demo_request = RequestDemo.objects.create(**form_data)
                 demo_request.save()
                 print("Saving request successful.")
-                email_utils.send_demo_request_message_email("fuzelahamed1999@gmail.com", demo_request)
+                email_utils.send_demo_request_message_email("lynalysis@gmail.com", demo_request)
                 print("Email function called successfully.")
             except Exception as e:
                 print("Error creating request or sending email:", e)
@@ -89,7 +89,7 @@ class ContactView(View):
             form_data.pop('captcha')
             contact_message = ContactMessage.objects.create(**form_data)
             contact_message.save()
-            email_utils.send_contact_message_email("psislamilainen@gmail.com", contact_message)
+            email_utils.send_contact_message_email("lynalysis@gmail.com", contact_message)
         else:
             print(form.errors)
         return render(request, 'website/contact.html')
@@ -114,7 +114,7 @@ class PricingRequestView(View):
                 pricing_request = PricingRequest.objects.create(**form_data)
                 pricing_request.save()
                 print("Saving request successful.")
-                email_utils.send_price_request_message_email("fuzelahamed1999@gmail.com", pricing_request)
+                email_utils.send_price_request_message_email("lynalysis@gmail.com", pricing_request)
                 print("Email function called successfully.")
             except Exception as e:
                 print("Error creating request or sending email:", e)
