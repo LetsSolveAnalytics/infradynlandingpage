@@ -115,7 +115,7 @@ AUTH_USER_MODEL = 'coreapp.User'
 
 CORS_ALLOW_ALL_ORIGINS = True
 CSRF_TRUSTED_ORIGINS = [
-    'https://psiy.fi',
+    'https://infradyn.com',
 ]
 MEDIA_HOST = config('MEDIA_HOST')
 
