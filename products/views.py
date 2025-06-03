@@ -58,7 +58,7 @@ class ProductDetailView(DetailView):
         product = context['product']
         context['testimonials'] = Testimonials.objects.filter(is_active=True)
         context['testimonial_intro'] = "What Our Clients Say!"
-        context['product_usages'] = ProductUsage.objects.filter(is_active=True)
+        context['product_usages'] = product.usages.filter(is_active=True)
         context['product_usage_intro'] = "Check out where can this product be used?"
         # context['product_features'] = ProductFeature.objects.filter(is_active=True)
         context['product_features'] = product.features.filter(is_active=True)

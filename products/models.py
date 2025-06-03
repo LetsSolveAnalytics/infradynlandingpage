@@ -53,7 +53,7 @@ class Product(BaseTranslateModel):
     usages = models.ManyToManyField(ProductUsage)
 
     def save(self, *args, **kwargs):
-        banner_title = self.safe_translation_getter("banner_title")
-        if banner_title and not self.slug:
-            self.slug = slug_utils.generate_unique_slug(self, banner_title)
+        title = self.safe_translation_getter("title")
+        if title and not self.slug:
+            self.slug = slug_utils.generate_unique_slug(self, title)
         super().save(*args, **kwargs)

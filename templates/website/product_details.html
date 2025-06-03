@@ -107,14 +107,14 @@
                 <div class="col-12">
                     <div>
                         {% for feature in product_features %}
-                        <button class="tab-button btn btn-outline-light outline-primary ml-25 {% if forloop.first %}active{% endif %}" onclick="showProduct('{{ category.slug }}')">
+                        <button class="tab-button btn btn-outline-light outline-primary ml-25 {% if forloop.first %}active{% endif %}" onclick="showProduct('{{ feature.slug }}')">
                             {{ feature.name }}
                         </button>
                         {% endfor %}
                     </div>
 
                     {% for feature in product_features %}
-                    <div id="{{ category.slug }}" class="product-content {% if forloop.first %}active{% endif %}">
+                    <div id="{{ feature.slug }}" class="product-content {% if forloop.first %}active{% endif %}">
                         <div class="col-md-7">
                             <h2>{{ feature.name }}</h2>
                             <p>{{ feature.description }}</p>
@@ -138,7 +138,7 @@
                 <div class="heading">
                     <h1 class="text-white mb-25">Get Started with INFRADYN</h1>
                     <p class="text-white mb-30">An end-to-end enterprise project delivery platform <br class="d-none d-md-block"> to manage projects and standardize workflows</p>
-                    <a class="btn btn-light" href="#">Get Pricing</a>
+                    <a class="btn btn-light" href="{% url 'pricing' %}">Get Pricing</a>
                 </div>
             </div>
         </div>
