@@ -17,7 +17,7 @@
             <div class="newsletter d-flex justify-content-center mt-4">
                 <div class="w-100" style="max-width: 600px;">
                     <div id="feedback-message" class="alert mt-3" style="display: none;"></div>
-                    <form class="form-inline d-flex flex-column flex-sm-row gap-2" id="mc-form" name="email" method="post">
+                    <form class="form-inline d-flex flex-column flex-sm-row gap-2" id="mc-form" name="email" method="post" data-url="{% url 'coming_soon' %}">
                         {% csrf_token %}
                         <input class="form-control input-lg-w bg-transparent" type="email" name="email" id="mc-email" placeholder="Your Email Here" required>
                         <button class="btn btn-primary" type="submit">Express My Interest</button>
