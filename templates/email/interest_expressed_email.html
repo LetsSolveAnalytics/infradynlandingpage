@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Interest Notification</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333333;
+            padding: 20px;
+        }
+        .email-container {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 6px;
+        }
+        .header {
+            border-bottom: 2px solid #007bff;
+            margin-bottom: 20px;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #888888;
+            border-top: 1px solid #dddddd;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h2>🎉 New Interest Expressed</h2>
+        </div>
+
+        <p>Hello Team,</p>
+
+        <p>A new user has expressed interest in INFRADYN via the webpage page.</p>
+
+        <p><strong>Email Address:</strong> {{ data }}</p>
+
+        <p>Kindly follow up or add them to the interest list.</p>
+
+        <div class="footer">
+            <p>This message was sent from the INFRADYN website automatically.</p>
+        </div>
+    </div>
+</body>
+</html>

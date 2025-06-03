@@ -2,263 +2,329 @@
 {% load static %}
 {% block main_container %}
 
-<!-- Breadcrumb Area Start -->
-<nav class="breadcrumb-area bg-dark bg-6 ptb-70">
-    <div class="container d-md-flex">
-        <h2 class="text-white mb-0">About Us</h2>
-        <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
-            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a> <span class="text-white">/</span></li>
-            <li aria-current="page" class="breadcrumb-item active">About Us</li>
-        </ol>
-    </div>
-</nav>
-<!-- Breadcrumb Area End -->
+    <!-- Breadcrumb Area Start -->
+    <nav class="breadcrumb-area bg-dark bg-6 ptb-70">
+        <div class="container d-md-flex">
+            <h2 class="text-white mb-0">About Us</h2>
+            <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a> <span class="text-white">/</span></li>
+                <li aria-current="page" class="breadcrumb-item active">About Us</li>
+            </ol>
+        </div>
+    </nav>
+    <!-- Breadcrumb Area End -->
 
-<div class="bg-3 bg-white mt-120">
-    <!-- Hero Block Start -->
-    <section class="hero-block pt-60">
-        <div class="container">
-            <div class="row d-flex align-items-center">
-                <div class="col-12 col-md-6 col-xl-5 mb-sm-30" data-aos="fade-right">
-                    <div class="hero-thumb m-minus-70">
-                        <img src="{% static 'assets/img/hero/1.png' %}" alt="Hero Thumbnail">
+    <div class="bg-3 bg-white mt-120">
+        <!-- Hero Block Start -->
+        <section class="hero-block pt-60">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-12 col-md-6 col-xl-5 mb-sm-30" data-aos="fade-right">
+                        <div class="hero-thumb m-minus-70">
+                            <img src="{% static 'assets/img/hero/1.png' %}" alt="Hero Thumbnail">
+                        </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-6 col-xl-6 ml-auto" data-aos="fade-left">
-                    <div class="hero-text">
-                        <h3 class="mb-5">About</h3>
-                        <h1 class="mb-25">Management</h1>
-                        <p class="mb-30">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web.</p>
-                        <a href="#" class="btn btn-primary">Get Started</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Hero Block End -->
-    <!-- Hero Block Start -->
-    <section class="hero-block section-ptb">
-        <div class="container">
-            <div class="row d-flex align-items-center">
-                <div class="col-12 col-md-6 mb-sm-30" data-aos="fade-right">
-                    <div class="hero-text">
-                        <h3 class="mb-5">Our Company</h3>
-                        <h1 class="mb-25">Mission and Vision</h1>
-                        <p class="mb-30 mw-5"> It is popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like</p>
-                        <a href="#" class="btn btn-primary">Best Services</a>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 ml-auto" data-aos="fade-left">
-                    <div class="hero-thumb m-minus-60">
-                        <img src="{% static 'assets/img/slider/layer/1.png' %}" alt="Hero Thumbnail">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Hero Block End -->
-</div>
-
-<!-- Fun Facts Start -->
-<div class="fun-facts bg-light ptb-100">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-12 col-sm-6 col-lg-3 mb-sm-40 mb-md-50" data-aos="zoom-in">
-                <div class="single-fact">
-                    <div class="icon circle-icon mx-auto mb-20">
-                        <i class="ti-time"></i>
-                    </div>
-                    <h2><span class="counter">10</span>+</h2>
-                    <h4 class="mb-0">Years of Operation</h4>
-                </div>
-            </div>
-            <!-- Single Fact End -->
-            <div class="col-12 col-sm-6 col-lg-3 mb-sm-40 mb-md-50" data-aos="zoom-in" data-aos-delay="400">
-                <div class="single-fact">
-                    <div class="icon circle-icon mx-auto mb-20">
-                        <i class="ti-face-smile"></i>
-                    </div>
-                    <h2><span class="counter">150</span></h2>
-                    <h4 class="mb-0">Happy Customer</h4>
-                </div>
-            </div>
-            <!-- Single Fact End -->
-            <div class="col-12 col-sm-6 col-lg-3 mb-sm-40 mb-md-50" data-aos="zoom-in" data-aos-delay="600">
-                <div class="single-fact">
-                    <div class="icon circle-icon mx-auto mb-20">
-                        <i class="ti-user"></i>
-                    </div>
-                    <h2><span class="counter">12</span></h2>
-                    <h4 class="mb-0">Team Mamber</h4>
-                </div>
-            </div>
-            <!-- Single Fact End -->
-            <div class="col-12 col-sm-6 col-lg-3 mb-sm-40 mb-md-50" data-aos="zoom-in" data-aos-delay="800">
-                <div class="single-fact">
-                    <div class="icon circle-icon mx-auto mb-20">
-                        <i class="ti-cup"></i>
-                    </div>
-                    <h2><span class="counter">25</span></h2>
-                    <h4 class="mb-0">Award</h4>
-                </div>
-            </div>
-            <!-- Single Fact End -->
-        </div>
-    </div>
-</div>
-<!-- Fun Facts End -->
-
-<!-- Team Section Start -->
-<section class="team-members section-ptb bg-white">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-12" data-aos="zoom-in">
-                <div class="heading mb-80">
-                    <h2>Our Team Leader</h2>
-                    <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
-                    <hr class="line bw-2 mx-auto line-sm mb-5">
-                    <hr class="line bw-2 mx-auto">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in">
-                <div class="media">
-                    <div class="thumb position-relative">
-                        <img src="{% static 'assets/img/team/1.png' %}" alt="Member Image">
-                    </div>
-                    <div class="media-body bg-white">
-                        <h3 class="mb-5">Marie Black</h3>
-                        <h5>Designer</h5>
-                        <p>If you are going to use ssage of Lorem Ipsum, you need to be sure there isn't anything embarrassing.</p>
-                        <div class="social-icon">
-                            <ul class="list-unstyled list-group flex-row">
-                                <li><a href="http://www.facebook.com/"><i class="ti-facebook"></i></a></li>
-                                <li><a href="http://www.twitter.com/"><i class="ti-twitter"></i></a></li>
-                                <li><a href="http://www.linkedin.com/"><i class="ti-linkedin"></i></a></li>
-                                <li><a href="http://www.pinterest.com/"><i class="ti-pinterest"></i></a></li>
-                            </ul>
+                    <div class="col-12 col-md-6 col-xl-6 ml-auto" data-aos="fade-left">
+                        <div class="hero-text">
+                            <h3 class="mb-5">About</h3>
+                            <h1 class="mb-25">INFRADYN</h1>
+                            <p class="mb-30">
+                                INFRADYN is redefining how construction projects are planned, executed, and delivered blending AI-driven intelligence with real-world construction insight. More than just software, INFRADYN is a strategic operating system that eliminates chaos, reduces risk, and maximizes project performance from start to finish.
+                            </p>
+                            <a href="{% url 'request_a_demo' %}" class="btn btn-primary">Get Started</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Single Member End -->
-            <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
-                <div class="media">
-                    <div class="thumb position-relative">
-                        <img src="{% static 'assets/img/team/2.png' %}" alt="Member Image">
-                    </div>
-                    <div class="media-body bg-white">
-                        <h3 class="mb-5">Katherine King</h3>
-                        <h5>Developer</h5>
-                        <p>Because it is pleasu because those who do not know how to pursue pleasure rationally encounter consequ</p>
-                        <div class="social-icon">
-                            <ul class="list-unstyled list-group flex-row">
-                                <li><a href="http://www.facebook.com/"><i class="ti-facebook"></i></a></li>
-                                <li><a href="http://www.twitter.com/"><i class="ti-twitter"></i></a></li>
-                                <li><a href="http://www.linkedin.com/"><i class="ti-linkedin"></i></a></li>
-                                <li><a href="http://www.pinterest.com/"><i class="ti-pinterest"></i></a></li>
+        </section>
+        <!-- Hero Block End -->
+        <!-- Values Block Start -->
+        <section class="hero-block section-ptb">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-12 col-md-6 mb-sm-30" data-aos="fade-right">
+                        <div class="hero-text">
+                            <h3 class="mb-5">Our Values</h3>
+                            <h1 class="mb-25">What Drives INFRADYN</h1>
+                            <ul class="mb-30 mw-5 list-unstyled">
+                                <li class="mb-3"><strong>Intelligence at the Core:</strong> We embed AI into every decision, turning complex construction challenges into actionable, data-driven solutions.</li>
+                                <li class="mb-3"><strong>People-Powered Innovation:</strong> We believe that technology should empower, not replace the professionals behind every build. Our tools are designed to amplify human expertise.</li>
+                                <li class="mb-3"><strong>Simplicity Through Integration:</strong> No more silos or scattered tools. We unify the entire project lifecycle into one intelligent platform that grows with your needs.</li>
+                                <li class="mb-3"><strong>Accountability by Design:</strong> From transparent workflows to audit-ready documentation, INFRADYN ensures clarity, compliance, and control across every stakeholder interaction.</li>
+                                <li class="mb-3"><strong>Future-Ready Execution:</strong> Construction is evolving—and so are we. We continuously improve to help teams build faster, safer, and smarter in an increasingly complex world.</li>
+                                <li><strong>Trust Through Transparency:</strong> Real-time insights, automated reports, and clear documentation empower teams to make informed decisions and build confidence at every stage.</li>
                             </ul>
+                            <a href="{% url 'solution-list' %}" class="btn btn-primary">Explore Our Solutions</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 ml-auto" data-aos="fade-left">
+                        <div class="hero-thumb m-minus-60">
+                            <img src="{% static 'assets/img/slider/layer/1.png' %}" alt="Values Illustration">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-12 col-lg-4" data-aos="zoom-in" data-aos-delay="600">
+        </section>
+        <!-- Values Block End -->
+
+    </div>
+
+    <!-- How Work Section Start -->
+    <div class="how-work section-ptb bg-light">
+        <div class="container">
+            {#    <div class="row text-center">#}
+            {#      <div class="col-12" data-aos="zoom-in">#}
+            {#        <div class="heading mb-110">#}
+            {#          <h3>Work Prosses</h3>#}
+            {#          <h1 class="mb-25">How It Works</h1>#}
+            {#        </div>#}
+            {#      </div>#}
+            {#    </div>#}
+            <div class="row text-center position-relative">
+                <div class="move-line mx-auto position-absolute" data-aos="fade-right" data-aos-delay="800">
+                    <hr class="line">
+                </div>
+                <div class="col-12 col-md-4 mb-sm-50" data-aos="zoom-in">
+                    <div class="work-box">
+                        <div class="card-body bg-white">
+                            <div class="icon bg-primary mx-auto">
+                                <i class="ti-light-bulb"></i>
+                            </div>
+                            <h3>Our Mission</h3>
+                            <p>Unifying people, data, and intelligence to deliver the full potential of every construction project</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Work Box End -->
+                <div class="col-12 col-md-4 mb-sm-50" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="work-box">
+                        <div class="card-body bg-white">
+                            <div class="icon bg-primary mx-auto">
+                                <i class="ti-layout"></i>
+                            </div>
+                            <h3>Our Vision</h3>
+                            <p>Empowering people with AI to transform construction through clarity, collaboration, and data-driven decisions</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Work Box End -->
+                <div class="col-12 col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="work-box">
+                        <div class="card-body bg-white">
+                            <div class="icon bg-primary mx-auto">
+                                <i class="ti-dashboard"></i>
+                            </div>
+                            <h3>Our Platform</h3>
+                            <p>AI-native platform built to streamlining construction from planning to closeout with precision and control</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Work Box End -->
+            </div>
+        </div>
+    </div>
+    <!-- How Work Section End -->
+
+    <!-- Fun Facts Start -->
+{#    <div class="fun-facts bg-light ptb-100">#}
+{#        <div class="container">#}
+{#            <div class="row text-center">#}
+{#                <div class="col-12 col-sm-6 col-lg-3 mb-sm-40 mb-md-50" data-aos="zoom-in">#}
+{#                    <div class="single-fact">#}
+{#                        <div class="icon circle-icon mx-auto mb-20">#}
+{#                            <i class="ti-time"></i>#}
+{#                        </div>#}
+{#                        <h2><span class="counter">10</span>+</h2>#}
+{#                        <h4 class="mb-0">Years of Operation</h4>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!-- Single Fact End -->#}
+{#                <div class="col-12 col-sm-6 col-lg-3 mb-sm-40 mb-md-50" data-aos="zoom-in" data-aos-delay="400">#}
+{#                    <div class="single-fact">#}
+{#                        <div class="icon circle-icon mx-auto mb-20">#}
+{#                            <i class="ti-face-smile"></i>#}
+{#                        </div>#}
+{#                        <h2><span class="counter">150</span></h2>#}
+{#                        <h4 class="mb-0">Happy Customer</h4>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!-- Single Fact End -->#}
+{#                <div class="col-12 col-sm-6 col-lg-3 mb-sm-40 mb-md-50" data-aos="zoom-in" data-aos-delay="600">#}
+{#                    <div class="single-fact">#}
+{#                        <div class="icon circle-icon mx-auto mb-20">#}
+{#                            <i class="ti-user"></i>#}
+{#                        </div>#}
+{#                        <h2><span class="counter">12</span></h2>#}
+{#                        <h4 class="mb-0">Team Mamber</h4>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!-- Single Fact End -->#}
+{#                <div class="col-12 col-sm-6 col-lg-3 mb-sm-40 mb-md-50" data-aos="zoom-in" data-aos-delay="800">#}
+{#                    <div class="single-fact">#}
+{#                        <div class="icon circle-icon mx-auto mb-20">#}
+{#                            <i class="ti-cup"></i>#}
+{#                        </div>#}
+{#                        <h2><span class="counter">25</span></h2>#}
+{#                        <h4 class="mb-0">Award</h4>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!-- Single Fact End -->#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+    <!-- Fun Facts End -->
+
+    <!-- Team Section Start -->
+    <section class="team-members section-ptb bg-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12" data-aos="zoom-in">
+                    <div class="heading mb-80">
+                        <h2>Our Team Leader</h2>
+                        <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
+                        <hr class="line bw-2 mx-auto line-sm mb-5">
+                        <hr class="line bw-2 mx-auto">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in">
+                    <div class="media">
+                        <div class="thumb position-relative">
+                            <img src="{% static 'assets/img/team/1.png' %}" alt="Member Image">
+                        </div>
+                        <div class="media-body bg-white">
+                            <h3 class="mb-5">Jackline</h3>
+                            <h5>Designer</h5>
+                            <p>If you are going to use ssage of Lorem Ipsum, you need to be sure there isn't anything embarrassing.</p>
+                            <div class="social-icon">
+                                <ul class="list-unstyled list-group flex-row">
+                                    <li><a href="http://www.facebook.com/"><i class="ti-facebook"></i></a></li>
+                                    <li><a href="http://www.twitter.com/"><i class="ti-twitter"></i></a></li>
+                                    <li><a href="http://www.linkedin.com/"><i class="ti-linkedin"></i></a></li>
+                                    <li><a href="http://www.pinterest.com/"><i class="ti-pinterest"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Single Member End -->
-                <div class="media">
-                    <div class="thumb position-relative">
-                        <img src="{% static 'assets/img/team/3.png' %}" alt="Member Image">
-                    </div>
-                    <div class="media-body bg-white">
-                        <h3 class="mb-5">Marie Warren</h3>
-                        <h5>Marketar</h5>
-                        <p>Nam libero tempore, csoluta nobis est eligendi opcumque nihil impedit quo minuquod maxime placeat</p>
-                        <div class="social-icon">
-                            <ul class="list-unstyled list-group flex-row">
-                                <li><a href="http://www.facebook.com/"><i class="ti-facebook"></i></a></li>
-                                <li><a href="http://www.twitter.com/"><i class="ti-twitter"></i></a></li>
-                                <li><a href="http://www.linkedin.com/"><i class="ti-linkedin"></i></a></li>
-                                <li><a href="http://www.pinterest.com/"><i class="ti-pinterest"></i></a></li>
-                            </ul>
+                <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="media">
+                        <div class="thumb position-relative">
+                            <img src="{% static 'assets/img/team/2.png' %}" alt="Member Image">
+                        </div>
+                        <div class="media-body bg-white">
+                            <h3 class="mb-5">Katherine King</h3>
+                            <h5>Developer</h5>
+                            <p>Because it is pleasu because those who do not know how to pursue pleasure rationally encounter consequ</p>
+                            <div class="social-icon">
+                                <ul class="list-unstyled list-group flex-row">
+                                    <li><a href="http://www.facebook.com/"><i class="ti-facebook"></i></a></li>
+                                    <li><a href="http://www.twitter.com/"><i class="ti-twitter"></i></a></li>
+                                    <li><a href="http://www.linkedin.com/"><i class="ti-linkedin"></i></a></li>
+                                    <li><a href="http://www.pinterest.com/"><i class="ti-pinterest"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-12 col-md-12 col-lg-4" data-aos="zoom-in" data-aos-delay="600">
+                    <!-- Single Member End -->
+                    <div class="media">
+                        <div class="thumb position-relative">
+                            <img src="{% static 'assets/img/team/3.png' %}" alt="Member Image">
+                        </div>
+                        <div class="media-body bg-white">
+                            <h3 class="mb-5">Marie Warren</h3>
+                            <h5>Marketar</h5>
+                            <p>Nam libero tempore, csoluta nobis est eligendi opcumque nihil impedit quo minuquod maxime placeat</p>
+                            <div class="social-icon">
+                                <ul class="list-unstyled list-group flex-row">
+                                    <li><a href="http://www.facebook.com/"><i class="ti-facebook"></i></a></li>
+                                    <li><a href="http://www.twitter.com/"><i class="ti-twitter"></i></a></li>
+                                    <li><a href="http://www.linkedin.com/"><i class="ti-linkedin"></i></a></li>
+                                    <li><a href="http://www.pinterest.com/"><i class="ti-pinterest"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Member End -->
             </div>
-            <!-- Single Member End -->
         </div>
-    </div>
-</section>
-<!-- Team Section End -->
+    </section>
+    <!-- Team Section End -->
 
-<!-- Promo Box Start -->
-<section class="promo-area section-ptb bg-4 bg-primary">
-    <div class="container ptb-30">
-        <div class="row text-center">
-            <div class="col-12" data-aos="zoom-in">
-                <div class="heading">
-                    <h1 class="text-white mb-25">Get Started with Theme</h1>
-                    <p class="text-white mb-30">Richard McClintock, a Latin professor at Hampden-Sydney College in <br class="d-none d-md-block"> Virginia, looked up one of the more obscure</p>
-                    <a class="btn btn-light" href="#">Get started</a>
+    <!-- Promo Box Start -->
+    <section class="promo-area section-ptb bg-4 bg-primary">
+        <div class="container ptb-30">
+            <div class="row text-center">
+                <div class="col-12" data-aos="zoom-in">
+                    <div class="heading">
+                        <h1 class="text-white mb-25">Get Started with INFRADYN</h1>
+                        <p class="text-white mb-30">An end-to-end enterprise project delivery platform <br class="d-none d-md-block"> to manage projects and standardize workflows</p>
+                        <a class="btn btn-light" href="{%  url 'pricing' %}">Get Pricing</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- Promo Box End -->
+    </section>
+    <!-- Promo Box End -->
 
-<!-- Clients Logo Section Start -->
-<section class="client-logo section-ptb">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-12" data-aos="zoom-in">
-                <div class="heading mb-80">
-                    <h2>Trusted by many Companies</h2>
-                    <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
-                    <hr class="line bw-2 mx-auto line-sm mb-5">
-                    <hr class="line bw-2 mx-auto">
+    <!-- Clients Logo Section Start -->
+    <section class="client-logo section-ptb">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12" data-aos="zoom-in">
+                    <div class="heading mb-80">
+                        <h2>Trusted by many Companies</h2>
+                        <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
+                        <hr class="line bw-2 mx-auto line-sm mb-5">
+                        <hr class="line bw-2 mx-auto">
+                    </div>
                 </div>
+            </div>
+            <div class="row justify-content-around align-items-center">
+                <div class="col-2" data-aos="zoom-in">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/1.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+                <div class="col-2" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/2.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+                <div class="col-2" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/3.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+                <div class="col-2" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/4.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+                <div class="col-2" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/5.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
+                <div class="col-2" data-aos="zoom-in" data-aos-delay="700">
+                    <div class="brand-logo">
+                        <a href="#"><img src="{% static 'assets/img/client/logo/6.png' %}" alt="Client Logo"></a>
+                    </div>
+                </div>
+                <!-- Single logo -->
             </div>
         </div>
-        <div class="row justify-content-around align-items-center">
-            <div class="col-2" data-aos="zoom-in">
-                <div class="brand-logo">
-                    <a href="#"><img src="{% static 'assets/img/client/logo/1.png' %}" alt="Client Logo"></a>
-                </div>
-            </div>
-            <!-- Single logo -->
-            <div class="col-2" data-aos="zoom-in" data-aos-delay="300">
-                <div class="brand-logo">
-                    <a href="#"><img src="{% static 'assets/img/client/logo/2.png' %}" alt="Client Logo"></a>
-                </div>
-            </div>
-            <!-- Single logo -->
-            <div class="col-2" data-aos="zoom-in" data-aos-delay="400">
-                <div class="brand-logo">
-                    <a href="#"><img src="{% static 'assets/img/client/logo/3.png' %}" alt="Client Logo"></a>
-                </div>
-            </div>
-            <!-- Single logo -->
-            <div class="col-2" data-aos="zoom-in" data-aos-delay="500">
-                <div class="brand-logo">
-                    <a href="#"><img src="{% static 'assets/img/client/logo/4.png' %}" alt="Client Logo"></a>
-                </div>
-            </div>
-            <!-- Single logo -->
-            <div class="col-2" data-aos="zoom-in" data-aos-delay="600">
-                <div class="brand-logo">
-                    <a href="#"><img src="{% static 'assets/img/client/logo/5.png' %}" alt="Client Logo"></a>
-                </div>
-            </div>
-            <!-- Single logo -->
-            <div class="col-2" data-aos="zoom-in" data-aos-delay="700">
-                <div class="brand-logo">
-                    <a href="#"><img src="{% static 'assets/img/client/logo/6.png' %}" alt="Client Logo"></a>
-                </div>
-            </div>
-            <!-- Single logo -->
-        </div>
-    </div>
-</section>
-<!-- Clients Logo Section End -->
+    </section>
+    <!-- Clients Logo Section End -->
 
 {% endblock %}

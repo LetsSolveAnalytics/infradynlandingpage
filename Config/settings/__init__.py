@@ -1,6 +1,8 @@
 from decouple import config
 
-if config("DEBUG") == "True":
+if config("ENV_TYPE") == "development":
     from .development import *
-else:
+elif config("ENV_TYPE") == "production":
     from .production import *
+else:
+    raise ValueError("ENV_TYPE must be 'development' or 'production'")

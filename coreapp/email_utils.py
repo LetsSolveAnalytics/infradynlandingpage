@@ -33,8 +33,8 @@ def send_email(subject, to, data, template):
     msg.attach_alternative(html_content, "text/html")
     EmailThread(msg).start()
 
-def send_contact_message_email(email, data):
-    send_email(_("Your Account is Registered"), email, data, "email/auth/contact_message.html")
+def send_interest_message_email(email, data):
+    send_email(_("Your Account is Registered"), email, data, "email/interest_expressed_email.html")
 
 def send_price_request_message_email(email, data):
     context_data = model_to_dict(data)

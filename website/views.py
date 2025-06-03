@@ -1,4 +1,7 @@
-from django.core.exceptions import ObjectDoesNotExist
+from pyexpat.errors import messages
+
+from django.core.exceptions import ObjectDoesNotExist, ValidationError
+from django.core.validators import validate_email
 from django.http import Http404, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.forms import modelform_factory
@@ -43,6 +46,24 @@ class HomeView(TemplateView):
 
 class AboutView(TemplateView):
     template_name = 'website/about.html'
+
+class ComingSoonView(TemplateView):
+    template_name = 'website/coming-soon.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request):
+        email = request.POST.get('email')
+
+        try:
+            validate_email(email)
+            email_utils.send_interest_message_email("lynalysis@gmail.com", email)
+            return JsonResponse({'status': 'success', 'message': 'Thank you! We’ve noted your interest.'})
+        except ValidationError:
+            return JsonResponse({'status': 'error', 'message': 'Please enter a valid email address.'})
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': f'Something went wrong: {str(e)}'})
 
 
 class RequestDemoView(View):

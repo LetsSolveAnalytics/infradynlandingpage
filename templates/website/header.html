@@ -72,8 +72,8 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >Resources</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'about' %}">About Us</a></li>
-                            <li><a class="dropdown-item" href="{% url 'post-list' %}">Blogs</a></li>
+                            <li><a class="dropdown-item" href="{% url 'about' %}">About Us <i class="fas fa-arrow-right ms-2"></i></a></li>
+                            <li><a class="dropdown-item" href="{% url 'post-list' %}">Blogs <i class="fas fa-arrow-right ms-2"></i></a></li>
                             <!--              <li><a class="dropdown-item" href="blog-details.html">Case Studies</a></li>-->
                         </ul>
                     </li>
@@ -81,16 +81,11 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >Support</a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item d-flex justify-content-between align-items-center" href="general-contractors.html" target="_blank" rel="noopener noreferrer">
-                                    Community
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right ms-2" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M6.364 13.657a.5.5 0 0 1-.708 0L2.343 10.343a.5.5 0 0 1 .708-.708L6 12.586V1.5a.5.5 0 0 1 1 0v11.086l2.95-2.95a.5.5 0 1 1 .707.707l-3.536 3.536z"/>
-                                    </svg>
-                                </a>
+                                <a class="dropdown-item" href="{% url  'coming_soon' %}" target="_blank" rel="noopener noreferrer">community <i class="fas fa-arrow-right ms-2"></i></a>
                             </li>
-                            <li><a class="dropdown-item" href="general-contractors.html">Contact us</a></li>
-                            <li><a class="dropdown-item" href="developers.html">Professional Services</a></li>
-                            <li><a class="dropdown-item" href="subcontractors.html">Developers/API</a></li>
+                            <li><a class="dropdown-item" href="{% url  'coming_soon' %}">Contact us <i class="fas fa-arrow-right ms-2"></i></a></li>
+                            <li><a class="dropdown-item" href="{% url  'coming_soon' %}">Professional Services <i class="fas fa-arrow-right ms-2"></i></a></li>
+                            <li><a class="dropdown-item" href="{% url  'coming_soon' %}">Developers/API <i class="fas fa-arrow-right ms-2"></i></a></li>
                         </ul>
                     </li>
                 </ul>

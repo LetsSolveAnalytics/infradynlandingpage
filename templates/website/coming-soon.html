@@ -1,0 +1,32 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block main_container %}
+
+    <!-- Coming Soon Start -->
+    <div class="coming-soon bg-1 d-flex flex-column justify-content-center" style="min-height: 90vh;">
+        <div class="container text-center ptb-30">
+            <div class="caption">
+                <h2 class="display-3 mb-5">This resource is</h2>
+                <h1 class="display-1">Coming <span class="text-primary">Soon</span></h1>
+                <p class="mb-30">
+                    We’re putting the final touches on something powerful. <br class="d-none d-lg-block">
+                    INFRADYN’s next evolution is on its way built to transform how construction connects, plans, and delivers.
+                </p>
+            </div>
+
+            <div class="newsletter d-flex justify-content-center mt-4">
+                <div class="w-100" style="max-width: 600px;">
+                    <div id="feedback-message" class="alert mt-3" style="display: none;"></div>
+                    <form class="form-inline d-flex flex-column flex-sm-row gap-2" id="mc-form" name="email" method="post">
+                        {% csrf_token %}
+                        <input class="form-control input-lg-w bg-transparent" type="email" name="email" id="mc-email" placeholder="Your Email Here" required>
+                        <button class="btn btn-primary" type="submit">Express My Interest</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Coming Soon End -->
+
+
+{% endblock %}
