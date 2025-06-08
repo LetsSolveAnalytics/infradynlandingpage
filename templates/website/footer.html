@@ -8,10 +8,10 @@
         <div class="col-12 col-sm-12 col-md-4 col-lg-5 mb-sm-40">
           <div class="footer-widget about">
             <div class="footer-logo mb-20">
-              <a href="index.html"><img src="{% static 'assets/img/client/logo/INFRADYN_LOGO.svg' %}" alt="logo"></a>
+              <a href="{% url 'home' %}"><img src="{% static 'assets/img/client/logo/INFRADYN_LOGO.svg' %}" alt="logo"></a>
             </div>
             <div class="widget-content">
-              <p>Randomised words which don't look even slightlyvable. If you are going to use a passage of Lorem Ipsum, you need to be sure ook even slightly.</p>
+              <p>Infradyn simplifies infrastructure intelligence by transforming field data, financials, and progress updates into actionable reports with zero effort. From automated insights to seamless integrations, INFRADYN empowers teams and stakeholders with total visibility anytime, anywhere</p>
             </div>
           </div>
         </div>
@@ -22,51 +22,51 @@
             <hr class="line">
             <div class="widget-content mt-20 clearfix">
               <ul class="list-unstyled float-left">
-                <li><a href="#">About</a></li>
-                <li><a href="#">FAQ’s</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'post-list' %}">Blog</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
               </ul>
               <ul class="list-unstyled float-left">
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Team</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Pricing</a></li>
+                <li><a href="{% url 'request_a_demo' %}">Request a Demo</a></li>
+                <li><a href="{% url 'solution-list' %}">Solutions</a></li>
+                <li><a href="{% url 'pricing' %}">Pricing</a></li>
               </ul>
             </div>
           </div>
         </div>
         <!-- Widget End -->
-        <div class="col-6 col-sm-3 col-md-2 col-lg-2">
-          <div class="footer-widget">
-            <h4 class="widget-title mb-10">Resources</h4>
-            <hr class="line">
-            <div class="widget-content mt-20">
-              <ul class="list-unstyled">
-                <li><a href="#">Download</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Patners</a></li>
-                <li><a href="#">Help Center</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+
+{#        <div class="col-6 col-sm-3 col-md-2 col-lg-2">#}
+{#          <div class="footer-widget">#}
+{#            <h4 class="widget-title mb-10">Resources</h4>#}
+{#            <hr class="line">#}
+{#            <div class="widget-content mt-20">#}
+{#              <ul class="list-unstyled">#}
+{#                <li><a href="#">Download</a></li>#}
+{#                <li><a href="#">Events</a></li>#}
+{#                <li><a href="#">Patners</a></li>#}
+{#                <li><a href="#">Help Center</a></li>#}
+{#              </ul>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
         <!-- Widget End -->
-        <div class="col-6 col-sm-3 col-md-2 col-lg-2">
-          <div class="footer-widget">
-            <h4 class="widget-title mb-10">Product</h4>
-            <hr class="line">
-            <div class="widget-content mt-20">
-              <ul class="list-unstyled">
-                <li><a href="#">Search API</a></li>
-                <li><a href="#">Analytics</a></li>
-                <li><a href="#">Query rules</a></li>
-                <li><a href="#">Offline Search</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+{#        <div class="col-6 col-sm-3 col-md-2 col-lg-2">#}
+{#          <div class="footer-widget">#}
+{#            <h4 class="widget-title mb-10">Product</h4>#}
+{#            <hr class="line">#}
+{#            <div class="widget-content mt-20">#}
+{#              <ul class="list-unstyled">#}
+{#                <li><a href="#">Search API</a></li>#}
+{#                <li><a href="#">Analytics</a></li>#}
+{#                <li><a href="#">Query rules</a></li>#}
+{#                <li><a href="#">Offline Search</a></li>#}
+{#              </ul>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
         <!-- Widget End -->
+
       </div>
     </div>
   </div>
