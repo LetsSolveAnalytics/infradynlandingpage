@@ -182,111 +182,115 @@
     <!-- Promo Box End -->
 
     <!-- Testimonial Section Start -->
-    <section class="section-ptb bg-white bg-5">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-12" data-aos="zoom-in">
-                    <div class="heading mb-80">
-                        <h2>Testimonials</h2>
-                        <p class="mb-20">{{ testimonial_intro }}</p>
-                        <hr class="line bw-2 mx-auto line-sm mb-5">
-                        <hr class="line bw-2 mx-auto">
+    {% if testimonials %}
+        <section class="section-ptb bg-white bg-5">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12" data-aos="zoom-in">
+                        <div class="heading mb-80">
+                            <h2>Testimonials</h2>
+                            <p class="mb-20">{{ testimonial_intro }}</p>
+                            <hr class="line bw-2 mx-auto line-sm mb-5">
+                            <hr class="line bw-2 mx-auto">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="client-testimonial position-relative">
-                        <div class="client-nav">
-                            <ul class="nav nav-tabs">
-                                {% for t in testimonials %}
-                                    <li class="nav-item">
-                                        <a class="nav-link {% if forloop.first %}active{% endif %}" href="#client{{ forloop.counter }}" data-toggle="tab">
-                                            <img class="drop-shadow" src="{{ t.user_image.url }}" alt="Client Image">
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        <div class="row text-center">
-                            <div class="col-10 col-md-8 col-lg-6 mx-auto">
-                                <div class="tab-content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="client-testimonial position-relative">
+                            <div class="client-nav">
+                                <ul class="nav nav-tabs">
                                     {% for t in testimonials %}
-                                        <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="client{{ forloop.counter }}">
-                                            <div class="client-thumb mx-auto mb-25">
+                                        <li class="nav-item">
+                                            <a class="nav-link {% if forloop.first %}active{% endif %}" href="#client{{ forloop.counter }}" data-toggle="tab">
                                                 <img class="drop-shadow" src="{{ t.user_image.url }}" alt="Client Image">
-                                            </div>
-                                            <div class="client-desc bg-white d-flex align-items-center">
-                                                <div class="text mx-auto">
-                                                    <h4 class="mb-10">{{ t.name }}</h4>
-                                                    <h6>{{ t.designation }}</h6>
-                                                    <p>{{ t.message }}</p>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-10 col-md-8 col-lg-6 mx-auto">
+                                    <div class="tab-content">
+                                        {% for t in testimonials %}
+                                            <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="client{{ forloop.counter }}">
+                                                <div class="client-thumb mx-auto mb-25">
+                                                    <img class="drop-shadow" src="{{ t.user_image.url }}" alt="Client Image">
+                                                </div>
+                                                <div class="client-desc bg-white d-flex align-items-center">
+                                                    <div class="text mx-auto">
+                                                        <h4 class="mb-10">{{ t.name }}</h4>
+                                                        <h6>{{ t.designation }}</h6>
+                                                        <p>{{ t.message }}</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Testimonial Section End -->
-
-    <!-- Want to learn more Section Start -->
-    <section class="section-ptb bg-light">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-12" data-aos="zoom-in">
-                    <div class="heading mb-80">
-                        <h2>Want to learn more?</h2>
-                        <p class="mb-20">Dive into these resources to see how our platform can help amplify your success.</p>
-                        <a href="{% url 'post-list' %}">
-        <span class="d-inline-flex align-items-center item-link link-btn hyper-link">
-          Explore other resources
-        </span>
-                        </a>
-                        <hr class="line bw-2 mx-auto line-sm mb-5">
-                        <hr class="line bw-2 mx-auto">
-                    </div>
-                </div>
-            </div>
-            <div class="position-relative">
-                <!-- Arrows outside -->
-                <div class="swiper-button-prev custom-nav"></div>
-                <div class="swiper-button-next custom-nav"></div>
-
-                <div class="swiper blogSwiper px-4">
-                    <div class="swiper-wrapper">
-
-                        {% for post in recent_posts %}
-                            <!-- Blog Card -->
-                            <div class="swiper-slide">
-                                <div class="card h-100 border-0 shadow-sm">
-                                    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid w-100 rounded-top" loading="lazy">
-                                    <div class="card-body">
-                                        <a href="{% url 'post-detail' post.slug %}" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">
-                                            {{ post.title }}
-                                        </a>
-                                        <div class="d-flex justify-content-between text-muted small mb-2">
-                                            <div class="me-3"><i class="bi bi-calendar"></i> {{ post.date_time|date:"d M, Y" }}</div>
-                                        </div>
-                                        <p class="text-muted small mb-3">{{ post.content|truncatewords:20 }}</p>
-                                        <a href="{% url 'post-detail' post.slug %}" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
-                        {% endfor %}
-
+                        </div>
                     </div>
-                    <!-- Pagination (optional) -->
-                    <div class="swiper-pagination mt-4"></div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    {% endif %}
+    <!-- Testimonial Section End -->
+
+    <!-- Want to learn more Section Start -->
+    {% if recent_posts %}
+        <section class="section-ptb bg-light">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12" data-aos="zoom-in">
+                        <div class="heading mb-80">
+                            <h2>Want to learn more?</h2>
+                            <p class="mb-20">Dive into these resources to see how our platform can help amplify your success.</p>
+                            <a href="{% url 'post-list' %}">
+        <span class="d-inline-flex align-items-center item-link link-btn hyper-link">
+          Explore other resources
+        </span>
+                            </a>
+                            <hr class="line bw-2 mx-auto line-sm mb-5">
+                            <hr class="line bw-2 mx-auto">
+                        </div>
+                    </div>
+                </div>
+                <div class="position-relative">
+                    <!-- Arrows outside -->
+                    <div class="swiper-button-prev custom-nav"></div>
+                    <div class="swiper-button-next custom-nav"></div>
+
+                    <div class="swiper blogSwiper px-4">
+                        <div class="swiper-wrapper">
+
+                            {% for post in recent_posts %}
+                                <!-- Blog Card -->
+                                <div class="swiper-slide">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid w-100 rounded-top" loading="lazy">
+                                        <div class="card-body">
+                                            <a href="{% url 'post-detail' post.slug %}" class="h6 fw-bold text-decoration-none d-block text-primary mb-1">
+                                                {{ post.title }}
+                                            </a>
+                                            <div class="d-flex justify-content-between text-muted small mb-2">
+                                                <div class="me-3"><i class="bi bi-calendar"></i> {{ post.date_time|date:"d M, Y" }}</div>
+                                            </div>
+                                            <p class="text-muted small mb-3">{{ post.content|truncatewords:20 }}</p>
+                                            <a href="{% url 'post-detail' post.slug %}" class="text-decoration-none text-primary fw-semibold">READ MORE &rarr;</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                        <!-- Pagination (optional) -->
+                        <div class="swiper-pagination mt-4"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
     <!-- Want to learn more Section End -->
 
     <div class="bg-2 bg-white">
@@ -327,58 +331,58 @@
         <!-- FAQ Section End -->
 
         <!-- Clients Logo Section Start -->
-        <section class="client-logo section-ptb">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-12" data-aos="zoom-in">
-                        <div class="heading mb-80">
-                            <h2>Trusted by many Companies</h2>
-                            <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>
-                            <hr class="line bw-2 mx-auto line-sm mb-5">
-                            <hr class="line bw-2 mx-auto">
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-around align-items-center">
-                    <div class="col-2" data-aos="zoom-in">
-                        <div class="brand-logo">
-                            <a href="#"><img src="{% static 'assets/img/client/logo/1.png' %}" alt="Client Logo"></a>
-                        </div>
-                    </div>
-                    <!-- Single logo -->
-                    <div class="col-2" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="brand-logo">
-                            <a href="#"><img src="{% static 'assets/img/client/logo/2.png' %}" alt="Client Logo"></a>
-                        </div>
-                    </div>
-                    <!-- Single logo -->
-                    <div class="col-2" data-aos="zoom-in" data-aos-delay="400">
-                        <div class="brand-logo">
-                            <a href="#"><img src="{% static 'assets/img/client/logo/3.png' %}" alt="Client Logo"></a>
-                        </div>
-                    </div>
-                    <!-- Single logo -->
-                    <div class="col-2" data-aos="zoom-in" data-aos-delay="500">
-                        <div class="brand-logo">
-                            <a href="#"><img src="{% static 'assets/img/client/logo/4.png' %}" alt="Client Logo"></a>
-                        </div>
-                    </div>
-                    <!-- Single logo -->
-                    <div class="col-2" data-aos="zoom-in" data-aos-delay="600">
-                        <div class="brand-logo">
-                            <a href="#"><img src="{% static 'assets/img/client/logo/5.png' %}" alt="Client Logo"></a>
-                        </div>
-                    </div>
-                    <!-- Single logo -->
-                    <div class="col-2" data-aos="zoom-in" data-aos-delay="700">
-                        <div class="brand-logo">
-                            <a href="#"><img src="{% static 'assets/img/client/logo/6.png' %}" alt="Client Logo"></a>
-                        </div>
-                    </div>
-                    <!-- Single logo -->
-                </div>
-            </div>
-        </section>
+{#        <section class="client-logo section-ptb">#}
+{#            <div class="container">#}
+{#                <div class="row text-center">#}
+{#                    <div class="col-12" data-aos="zoom-in">#}
+{#                        <div class="heading mb-80">#}
+{#                            <h2>Trusted by many Companies</h2>#}
+{#                            <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>#}
+{#                            <hr class="line bw-2 mx-auto line-sm mb-5">#}
+{#                            <hr class="line bw-2 mx-auto">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="row justify-content-around align-items-center">#}
+{#                    <div class="col-2" data-aos="zoom-in">#}
+{#                        <div class="brand-logo">#}
+{#                            <a href="#"><img src="{% static 'assets/img/client/logo/1.png' %}" alt="Client Logo"></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single logo -->#}
+{#                    <div class="col-2" data-aos="zoom-in" data-aos-delay="300">#}
+{#                        <div class="brand-logo">#}
+{#                            <a href="#"><img src="{% static 'assets/img/client/logo/2.png' %}" alt="Client Logo"></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single logo -->#}
+{#                    <div class="col-2" data-aos="zoom-in" data-aos-delay="400">#}
+{#                        <div class="brand-logo">#}
+{#                            <a href="#"><img src="{% static 'assets/img/client/logo/3.png' %}" alt="Client Logo"></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single logo -->#}
+{#                    <div class="col-2" data-aos="zoom-in" data-aos-delay="500">#}
+{#                        <div class="brand-logo">#}
+{#                            <a href="#"><img src="{% static 'assets/img/client/logo/4.png' %}" alt="Client Logo"></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single logo -->#}
+{#                    <div class="col-2" data-aos="zoom-in" data-aos-delay="600">#}
+{#                        <div class="brand-logo">#}
+{#                            <a href="#"><img src="{% static 'assets/img/client/logo/5.png' %}" alt="Client Logo"></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single logo -->#}
+{#                    <div class="col-2" data-aos="zoom-in" data-aos-delay="700">#}
+{#                        <div class="brand-logo">#}
+{#                            <a href="#"><img src="{% static 'assets/img/client/logo/6.png' %}" alt="Client Logo"></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single logo -->#}
+{#                </div>#}
+{#            </div>#}
+{#        </section>#}
         <!-- Clients Logo Section End -->
     </div>
 
