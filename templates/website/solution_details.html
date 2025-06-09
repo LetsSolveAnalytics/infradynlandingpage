@@ -9,7 +9,7 @@
             <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
                 <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a> <span class="text-white">/</span></li>
                 <li class="breadcrumb-item"><a href="{% url 'solution-list' %}">Solutions</a> <span class="text-white">/</span></li>
-                <li aria-current="page" class="breadcrumb-item active">Blog Details</li>
+                <li aria-current="page" class="breadcrumb-item active">{{ solution.banner_title }}</li>
             </ol>
         </div>
     </nav>
@@ -21,11 +21,13 @@
         <section class="slider-area h-100 h-sm-auto">
             <div class="container h-100 h-sm-auto d-flex flex-row align-items-center flex-wrap flex-md-nowrap">
                 <div class="caption" data-aos="fade-right">
-                    <h5 class="display-3 mb-10">Simple online Hotel</h5>
-                    <h1 class="display-1 mb-25">Management System</h1>
-                    <p class="mb-30">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.</p>
-                    <a href="#" class="btn btn-primary">Get Started</a>
-                    <a href="https://player.vimeo.com/video/58363288" class="btn btn-outline-light outline-primary ml-25 venobox" data-autoplay="true" data-vbtype="video"><i class="ti-control-play"></i> Watch Our Video</a>
+                    <h5 class="display-3 mb-10">Discover the Power of INFRADYN</h5>
+                    <h1 class="display-1 mb-25">Tailored for Your Industry</h1>
+                    <p class="mb-30">
+                        Want to see how INFRADYN transforms your sector? From real-time field data to automated reporting, our ecosystem adapts to your unique operational needs.
+                    </p>
+                    <a href="{% url 'request_a_demo' %}" class="btn btn-primary">Get a Free Demo</a>
+                    {#                    <a href="https://player.vimeo.com/video/58363288" class="btn btn-outline-light outline-primary ml-25 venobox" data-autoplay="true" data-vbtype="video"><i class="ti-control-play"></i> Watch Our Video</a>#}
                 </div>
                 <div class="image-layer ml-md-auto align-self-md-center align-self-start mr-minus-80" data-aos="fade-left">
                     <img src="{% static 'assets/img/slider/layer/2.png' %}" alt="Layer Image">
@@ -58,14 +60,13 @@
                     <div class="col-12">
                         <h2 class="mb-4">{{ solution.secondary_title }}</h2>
                         <p class="mb-20">{{ solution.introduction }}</p>
-                        <div>
+                        <div class="d-flex flex-wrap justify-content-center gap-2 my-5">
                             {% for category in solution_categories %}
                                 <button class="tab-button btn btn-outline-light outline-primary ml-25 {% if forloop.first %}active{% endif %}" onclick="showProduct('{{ category.slug }}')">
                                     {{ category.name }}
                                 </button>
                             {% endfor %}
                         </div>
-
                         {% for category in solution_categories %}
                             <div id="{{ category.slug }}" class="product-content {% if forloop.first %}active{% endif %}">
                                 <div class="col-md-7">
