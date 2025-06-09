@@ -2,169 +2,198 @@
 {% load static %}
 {% block main_container %}
 
-<!-- Breadcrumb Area Start -->
-<nav class="breadcrumb-area bg-dark bg-6 ptb-70">
-    <div class="container d-md-flex">
-        <h2 class="text-white mb-0">Blog</h2>
-        <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
-            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a> <span class="text-white">/</span></li>
-            <li aria-current="page" class="breadcrumb-item active">Blog</li>
-        </ol>
-    </div>
-</nav>
-<!-- Breadcrumb Area End -->
+    <!-- Breadcrumb Area Start -->
+    <nav class="breadcrumb-area bg-dark bg-6 ptb-70">
+        <div class="container d-md-flex">
+            <h2 class="text-white mb-0">Blog</h2>
+            <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a> <span class="text-white">/</span></li>
+                <li aria-current="page" class="breadcrumb-item active">Blog</li>
+            </ol>
+        </div>
+    </nav>
+    <!-- Breadcrumb Area End -->
 
-<!-- Blog Post Section Start -->
-<section class="blog-page section-ptb bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-8 col-lg-9 mb-sm-50">
-                <!-- Post Start -->
-                <div class="col-12 col-md-8 col-lg-9 mb-sm-50">
-                    {% for post in posts %}
-                    <div class="card mb-50" data-aos="fade-up">
-                        <div class="card-header position-relative">
-                            <a href="{% url 'post-detail' post.slug %}?post_type={{post.post_type}}" title="">
-                                <img src="{{ post.image.url }}" alt="Post Thumbnail">
-                            </a>
-                        </div>
-                        <div class="card-body bg-white">
-                            <h3>
-                                <a href="{% url 'post-detail' post.slug %}">
-                                    {{ post.title }}
-                                </a>
-                            </h3>
-                            <h5 class="mb-25">{{ post.date_time|date:"F d, Y" }}</h5>
-                            <p class="mb-30">{{ post.content|truncatewords:30|linebreaks }}</p>
-                            <a href="{% url 'post-detail' post.slug %}" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-                <!-- Post End -->
+    <!-- Blog Post Section Start -->
+    {% if posts %}
+        <section class="blog-page section-ptb bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-8 col-lg-9 mb-sm-50">
+                        <!-- Post Start -->
+                        <div class="col-12 col-md-8 col-lg-9 mb-sm-50">
 
-                <!-- Pagination Start -->
-                <div class="mt-50 custom text-center">
-                    {% if is_paginated %}
-                    <nav>
-                        <ul class="pagination justify-content-center">
-                            {% if page_obj.has_previous %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.cat %}&cat={{ request.GET.cat }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if request.GET.post_type %}&post_type={{ request.GET.post_type }}{% endif %}">
-                                    <i class="fa fa-angle-left"></i>
-                                </a>
-                            </li>
-                            {% else %}
-                            <li class="page-item disabled">
-                                <span class="page-link"><i class="fa fa-angle-left"></i></span>
-                            </li>
-                            {% endif %}
-
-                            {% for num in paginator.page_range %}
-                            {% if page_obj.number == num %}
-                            <li class="page-item active">
-                                <span class="page-link">{{ num }}</span>
-                            </li>
-                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ num }}{% if request.GET.cat %}&cat={{ request.GET.cat }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if request.GET.post_type %}&post_type={{ request.GET.post_type }}{% endif %}">
-                                    {{ num }}
-                                </a>
-                            </li>
-                            {% endif %}
+                            {% for post in posts %}
+                                <div class="card mb-50" data-aos="fade-up">
+                                    <div class="card-header position-relative">
+                                        <a href="{% url 'post-detail' post.slug %}?post_type={{post.post_type}}" title="">
+                                            <img src="{{ post.image.url }}" alt="Post Thumbnail">
+                                        </a>
+                                    </div>
+                                    <div class="card-body bg-white">
+                                        <h3>
+                                            <a href="{% url 'post-detail' post.slug %}">
+                                                {{ post.title }}
+                                            </a>
+                                        </h3>
+                                        <h5 class="mb-25">{{ post.date_time|date:"F d, Y" }}</h5>
+                                        <p class="mb-30">{{ post.content|truncatewords:30|linebreaks }}</p>
+                                        <a href="{% url 'post-detail' post.slug %}" class="btn btn-primary">Read More</a>
+                                    </div>
+                                </div>
                             {% endfor %}
+                        </div>
+                        <!-- Post End -->
 
-                            {% if page_obj.has_next %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.cat %}&cat={{ request.GET.cat }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if request.GET.post_type %}&post_type={{ request.GET.post_type }}{% endif %}">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </li>
-                            {% else %}
-                            <li class="page-item disabled">
-                                <span class="page-link"><i class="fa fa-angle-right"></i></span>
-                            </li>
+                        <!-- Pagination Start -->
+                        <div class="mt-50 custom text-center">
+                            {% if is_paginated %}
+                                <nav>
+                                    <ul class="pagination justify-content-center">
+                                        {% if page_obj.has_previous %}
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.cat %}&cat={{ request.GET.cat }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if request.GET.post_type %}&post_type={{ request.GET.post_type }}{% endif %}">
+                                                    <i class="fa fa-angle-left"></i>
+                                                </a>
+                                            </li>
+                                        {% else %}
+                                            <li class="page-item disabled">
+                                                <span class="page-link"><i class="fa fa-angle-left"></i></span>
+                                            </li>
+                                        {% endif %}
+
+                                        {% for num in paginator.page_range %}
+                                            {% if page_obj.number == num %}
+                                                <li class="page-item active">
+                                                    <span class="page-link">{{ num }}</span>
+                                                </li>
+                                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?page={{ num }}{% if request.GET.cat %}&cat={{ request.GET.cat }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if request.GET.post_type %}&post_type={{ request.GET.post_type }}{% endif %}">
+                                                        {{ num }}
+                                                    </a>
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}
+
+                                        {% if page_obj.has_next %}
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.cat %}&cat={{ request.GET.cat }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if request.GET.post_type %}&post_type={{ request.GET.post_type }}{% endif %}">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </li>
+                                        {% else %}
+                                            <li class="page-item disabled">
+                                                <span class="page-link"><i class="fa fa-angle-right"></i></span>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </nav>
                             {% endif %}
-                        </ul>
-                    </nav>
-                    {% endif %}
-                </div>
-                <!-- Pagination End -->
+                        </div>
+                        <!-- Pagination End -->
 
-            </div>
-            <!-- Blog Posts End -->
-            <div class="col-12 col-md-4 col-lg-3">
-                <div class="sidebar" data-aos="fade-in">
-                    <div class="widget search-box mb-30">
-                        <form class="input-group" action="https://regaltheme.com/tf/multi/rnr/search">
-                            <input class="form-control" type="text" placeholder="Search..">
-                            <div class="input-group-append">
-                                <button type="submit" class="input-group-text"><i class="ti-search"></i></button>
+                    </div>
+                    <!-- Blog Posts End -->
+                    <div class="col-12 col-md-4 col-lg-3">
+                        <div class="sidebar" data-aos="fade-in">
+                            <div class="widget search-box mb-30">
+                                <form class="input-group" action="https://regaltheme.com/tf/multi/rnr/search">
+                                    <input class="form-control" type="text" placeholder="Search..">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="input-group-text"><i class="ti-search"></i></button>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
-                    </div>
-                    <!-- Widget End -->
+                            <!-- Widget End -->
 
-                    <div class="widget recent-post bg-white mb-30">
-                        <div class="widget-title mb-15">
-                            <h4 class="mb-10">Recent Posts</h4>
-                            <hr class="line bw-2">
-                        </div>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#">Many desktop publishing packages and web</a>
-                            </li>
-                            <li>
-                                <a href="#">All the Lorem Ipsum gen on the Internet tend.</a>
-                            </li>
-                            <li>
-                                <a href="#">If you are going to use a passage of Lorem</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Widget End -->
+                            <div class="widget recent-post bg-white mb-30">
+                                <div class="widget-title mb-15">
+                                    <h4 class="mb-10">Recent Posts</h4>
+                                    <hr class="line bw-2">
+                                </div>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="#">Many desktop publishing packages and web</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">All the Lorem Ipsum gen on the Internet tend.</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">If you are going to use a passage of Lorem</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Widget End -->
 
-                    <div class="widget categories bg-white mb-30">
-                        <div class="widget-title mb-15">
-                            <h4 class="mb-10">Categories</h4>
-                            <hr class="line bw-2">
-                        </div>
-                        <ul class="list-unstyled">
-                            {% for category in categories %}
-                            <li>
-                                <a href="?cat={{ category.slug }}">
-                                    {{ category.name }} -
-                                    <span>{{ category.post_count }}</span>
-                                </a>
-                            </li>
-                            {% empty %}
-                            <li>No categories available</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <!-- Widget End -->
+                            <div class="widget categories bg-white mb-30">
+                                <div class="widget-title mb-15">
+                                    <h4 class="mb-10">Categories</h4>
+                                    <hr class="line bw-2">
+                                </div>
+                                <ul class="list-unstyled">
+                                    {% for category in categories %}
+                                        <li>
+                                            <a href="?cat={{ category.slug }}">
+                                                {{ category.name }} -
+                                                <span>{{ category.post_count }}</span>
+                                            </a>
+                                        </li>
+                                    {% empty %}
+                                        <li>No categories available</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <!-- Widget End -->
 
-                    <div class="widget tags bg-white">
-                        <div class="widget-title mb-15">
-                            <h4 class="mb-10">Tags</h4>
-                            <hr class="line bw-2">
-                        </div>
-                        <div class="tag-link clearfix">
-                            <a href="#">Business</a>
-                            <a href="#">Studio</a>
-                            <a href="#">New</a>
-                            <a href="#">Rnr</a>
-                            <a href="#">Template</a>
-                            <a href="#">Design</a>
-                            <a href="#">Development</a>
+                            <div class="widget tags bg-white">
+                                <div class="widget-title mb-15">
+                                    <h4 class="mb-10">Tags</h4>
+                                    <hr class="line bw-2">
+                                </div>
+                                <div class="tag-link clearfix">
+                                    <a href="#">Business</a>
+                                    <a href="#">Studio</a>
+                                    <a href="#">New</a>
+                                    <a href="#">Rnr</a>
+                                    <a href="#">Template</a>
+                                    <a href="#">Design</a>
+                                    <a href="#">Development</a>
+                                </div>
+                            </div>
+                            <!-- Widget End -->
                         </div>
                     </div>
-                    <!-- Widget End -->
+                </div>
+            </div>
+        </section>
+    {% else %}
+        <!-- Coming Soon Start -->
+    <div class="coming-soon bg-1 d-flex flex-column justify-content-center" style="min-height: 90vh;">
+        <div class="container text-center ptb-30">
+            <div class="caption">
+                <h2 class="display-3 mb-5">This resource is</h2>
+                <h1 class="display-1">Coming <span class="text-primary">Soon</span></h1>
+                <p class="mb-30">
+                    We’re putting the final touches on something powerful. <br class="d-none d-lg-block">
+                    INFRADYN’s next evolution is on its way built to transform how construction connects, plans, and delivers.
+                </p>
+            </div>
+
+            <div class="newsletter d-flex justify-content-center mt-4">
+                <div class="w-100" style="max-width: 600px;">
+                    <div id="feedback-message" class="alert mt-3" style="display: none;"></div>
+                    <form class="form-inline d-flex flex-column flex-sm-row gap-2" id="mc-form" name="email" method="post" data-url="{% url 'coming_soon' %}">
+                        {% csrf_token %}
+                        <input class="form-control input-lg-w bg-transparent" type="email" name="email" id="mc-email" placeholder="Your Email Here" required>
+                        <button class="btn btn-primary" type="submit">Express My Interest</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</section>
-<!-- Blog Post Section End -->
+    <!-- Coming Soon End -->
+    {% endif %}
+    <!-- Blog Post Section End -->
 
 {% endblock %}
