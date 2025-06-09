@@ -2,148 +2,150 @@
 {% load static %}
 {% block main_container %}
 
-<!-- Breadcrumb Area Start -->
-<nav class="breadcrumb-area bg-dark bg-6 ptb-70">
-    <div class="container d-md-flex">
-        <h2 class="text-white mb-0">{{ product.title }}</h2>
-        <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
-            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a> <span class="text-white">/</span></li>
-            <li aria-current="page" class="breadcrumb-item active">{{ product.title }}</li>
-        </ol>
-    </div>
-</nav>
-<!-- Breadcrumb Area End -->
-
-<div class="bg-2 bg-white mt-120">
-    <section class="slider-area h-100 h-sm-auto">
-        <div class="container h-100 h-sm-auto d-flex flex-row align-items-center flex-wrap flex-md-nowrap">
-            <div class="caption" data-aos="fade-right">
-                <h5 class="display-3 mb-10">Simple online Hotel</h5>
-                <h1 class="display-1 mb-25">Management System</h1>
-                <p class="mb-30">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.</p>
-                <a href="#" class="btn btn-primary">Get Started</a>
-                <a href="https://player.vimeo.com/video/58363288" class="btn btn-outline-light outline-primary ml-25 venobox" data-autoplay="true" data-vbtype="video"><i class="ti-control-play"></i> Watch Our Video</a>
-            </div>
-            <div class="image-layer ml-md-auto align-self-md-center align-self-start mr-minus-80" data-aos="fade-left">
-                <img src="{% static 'assets/img/slider/layer/2.png' %}" alt="Layer Image">
-            </div>
+    <!-- Breadcrumb Area Start -->
+    <nav class="breadcrumb-area bg-dark bg-6 ptb-70">
+        <div class="container d-md-flex">
+            <h2 class="text-white mb-0">{{ product.title }}</h2>
+            <ol class="breadcrumb p-0 m-0 bg-dark ml-auto">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a> <span class="text-white">/</span></li>
+                <li aria-current="page" class="breadcrumb-item active">{{ product.title }}</li>
+            </ol>
         </div>
-    </section>
+    </nav>
+    <!-- Breadcrumb Area End -->
 
-    <section class="section-ptb">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-12" data-aos="zoom-in">
-                    <div class="heading mb-80">
-                        <h2 class="display-1 mb-4">{{ product.banner_title }}</h2>
-                        <hr class="line bw-2 mx-auto line-sm mb-5">
-                        <hr class="line bw-2 mx-auto">
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <!-- Text Content Left -->
-                <div class="col-md-7">
-                    <h2 class="display-1 mb-4">{{product.title}}</h2>
-                    <p class="mb-30">{{ product.content }}
+    <div class="bg-2 bg-white mt-120">
+        <section class="slider-area h-100 h-sm-auto">
+            <div class="container h-100 h-sm-auto d-flex flex-row align-items-center flex-wrap flex-md-nowrap">
+                <div class="caption" data-aos="fade-right">
+                    <h5 class="display-3 mb-10">Unified Infrastructure Reporting</h5>
+                    <h1 class="display-1 mb-25">INFRADYN Ecosystem</h1>
+                    <p class="mb-30">
+                        From real-time field updates to automated financial summaries, INFRADYN brings every aspect of your infrastructure operations into one streamlined dashboard. Schedule reports, trigger workflows, and deliver insights without switching tools or writing code.
                     </p>
+                    <a href="{% url 'request_a_demo' %}" class="btn btn-primary">Get a Free Demo</a>
+                    {#                <a href="https://player.vimeo.com/video/58363288" class="btn btn-outline-light outline-primary ml-25 venobox" data-autoplay="true" data-vbtype="video"><i class="ti-control-play"></i> Watch Our Video</a>#}
                 </div>
-
-                <!-- Image Right -->
-                <div class="col-md-5 text-center">
-                    <img src="{{ product.image.url }}" alt="Business Intelligence Image" class="img-fluid rounded">
+                <div class="image-layer ml-md-auto align-self-md-center align-self-start mr-minus-80" data-aos="fade-left">
+                    <img src="{% static 'assets/img/slider/layer/2.png' %}" alt="Layer Image">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Product Usage Section Start -->
-    <section class="section-ptb">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-12" data-aos="zoom-in">
-                    <div class="heading mb-80">
-                        <h2>Why choose our {{ product.title }}?</h2>
-                        <p>{{ product_usage_intro }}</p>
-                        <hr class="line bw-2 mx-auto line-sm mb-5">
-                        <hr class="line bw-2 mx-auto">
+        <section class="section-ptb">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12" data-aos="zoom-in">
+                        <div class="heading mb-80">
+                            <h2 class="display-1 mb-4">{{ product.banner_title }}</h2>
+                            <hr class="line bw-2 mx-auto line-sm mb-5">
+                            <hr class="line bw-2 mx-auto">
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <!-- Text Content Left -->
+                    <div class="col-md-7">
+                        <h2 class="display-1 mb-4">{{product.title}}</h2>
+                        <p class="mb-30">{{ product.content }}
+                        </p>
+                    </div>
+
+                    <!-- Image Right -->
+                    <div class="col-md-5 text-center">
+                        <img src="{{ product.image.url }}" alt="Business Intelligence Image" class="img-fluid rounded">
                     </div>
                 </div>
             </div>
-            <div class="accordion" id="faqAccordion">
-                {% for usage in product_usages %}
-                <div class="faq-box bg-success mb-3">
-                    <div class="accordion-item">
-                        <h4 class="mb-10" id="heading{{ forloop.counter }}">
-                            <button class="accordion-button btn collapsed bg-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
-                                {{ forloop.counter|stringformat:"02d" }}. {{ usage.name }}
-                            </button>
-                        </h4>
-                        <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body mb-20">
-                                {{ usage.content }}
+        </section>
+
+        <!-- Product Usage Section Start -->
+        <section class="section-ptb">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12" data-aos="zoom-in">
+                        <div class="heading mb-80">
+                            <h2>Why choose our {{ product.title }}?</h2>
+                            <p>{{ product_usage_intro }}</p>
+                            <hr class="line bw-2 mx-auto line-sm mb-5">
+                            <hr class="line bw-2 mx-auto">
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="faqAccordion">
+                    {% for usage in product_usages %}
+                        <div class="faq-box bg-success mb-3">
+                            <div class="accordion-item">
+                                <h4 class="mb-10" id="heading{{ forloop.counter }}">
+                                    <button class="accordion-button btn collapsed bg-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
+                                        {{ forloop.counter|stringformat:"02d" }}. {{ usage.name }}
+                                    </button>
+                                </h4>
+                                <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body mb-20">
+                                        {{ usage.content }}
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    <!-- Product Usage Section End -->
-
-    <section class="section-ptb">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-12" data-aos="zoom-in">
-                    <div class="heading mb-80">
-                        <h2>Feature and Functionality</h2>
-                        <hr class="line bw-2 mx-auto line-sm mb-5">
-                        <hr class="line bw-2 mx-auto">
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-12">
-                    <div class="d-flex flex-wrap justify-content-center gap-2 my-5">
-                        {% for feature in product_features %}
-                        <button class="tab-button btn btn-outline-light outline-primary {% if forloop.first %}active{% endif %}" onclick="showProduct('{{ feature.slug }}')">
-                            {{ feature.name }}
-                        </button>
-                        {% endfor %}
-                    </div>
-
-                    {% for feature in product_features %}
-                    <div id="{{ feature.slug }}" class="product-content {% if forloop.first %}active{% endif %}">
-                        <div class="col-md-7">
-                            <h2>{{ feature.name }}</h2>
-                            <p>{{ feature.description }}</p>
-                        </div>
-                        <div class="col-md-5">
-                            <img src="{{ feature.image.url }}" alt="{{ feature.name }}"  class="img-fluid rounded">
-                        </div>
-                    </div>
                     {% endfor %}
                 </div>
             </div>
-        </div>
-    </section>
-</div>
+        </section>
+        <!-- Product Usage Section End -->
 
-<!-- Promo Box Start -->
-<section class="promo-area section-ptb bg-4 bg-primary">
-    <div class="container ptb-30">
-        <div class="row text-center">
-            <div class="col-12" data-aos="zoom-in">
-                <div class="heading">
-                    <h1 class="text-white mb-25">Get Started with INFRADYN</h1>
-                    <p class="text-white mb-30">An end-to-end enterprise project delivery platform <br class="d-none d-md-block"> to manage projects and standardize workflows</p>
-                    <a class="btn btn-light" href="{% url 'pricing' %}">Get Pricing</a>
+        <section class="section-ptb">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12" data-aos="zoom-in">
+                        <div class="heading mb-80">
+                            <h2>Feature and Functionality</h2>
+                            <hr class="line bw-2 mx-auto line-sm mb-5">
+                            <hr class="line bw-2 mx-auto">
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <div class="d-flex flex-wrap justify-content-center gap-2 my-5">
+                            {% for feature in product_features %}
+                                <button class="tab-button btn btn-outline-light outline-primary {% if forloop.first %}active{% endif %}" onclick="showProduct('{{ feature.slug }}')">
+                                    {{ feature.name }}
+                                </button>
+                            {% endfor %}
+                        </div>
+
+                        {% for feature in product_features %}
+                            <div id="{{ feature.slug }}" class="product-content {% if forloop.first %}active{% endif %}">
+                                <div class="col-md-7">
+                                    <h2>{{ feature.name }}</h2>
+                                    <p>{{ feature.description }}</p>
+                                </div>
+                                <div class="col-md-5">
+                                    <img src="{{ feature.image.url }}" alt="{{ feature.name }}"  class="img-fluid rounded">
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Promo Box Start -->
+    <section class="promo-area section-ptb bg-4 bg-primary">
+        <div class="container ptb-30">
+            <div class="row text-center">
+                <div class="col-12" data-aos="zoom-in">
+                    <div class="heading">
+                        <h1 class="text-white mb-25">Get Started with INFRADYN</h1>
+                        <p class="text-white mb-30">An end-to-end enterprise project delivery platform <br class="d-none d-md-block"> to manage projects and standardize workflows</p>
+                        <a class="btn btn-light" href="{% url 'pricing' %}">Get Pricing</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- Promo Box End -->
+    </section>
+    <!-- Promo Box End -->
 
 {% endblock %}
