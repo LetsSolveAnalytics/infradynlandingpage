@@ -10,6 +10,7 @@ media
 
 db.json
 db_utf8.json
+convert_to_utf8.py
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
 # in your Git repository. Update and uncomment the following line accordingly.
