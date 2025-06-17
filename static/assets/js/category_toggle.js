@@ -1,10 +1,9 @@
-function showProduct(id) {
-    const tabs = document.querySelectorAll(".tab-button");
-    const contents = document.querySelectorAll(".product-content");
+function showProduct(slug) {
+    // Remove active class from all buttons and content
+    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.product-content').forEach(pc => pc.classList.remove('active'));
 
-    tabs.forEach(tab => tab.classList.remove("active"));
-    contents.forEach(content => content.classList.remove("active"));
-
-    document.getElementById(id).classList.add("active");
-    event.target.classList.add("active");
-  }
+    // Add active class to selected
+    document.querySelector(`.tab-button[onclick="showProduct('${slug}')"]`).classList.add('active');
+    document.getElementById(slug).classList.add('active');
+}

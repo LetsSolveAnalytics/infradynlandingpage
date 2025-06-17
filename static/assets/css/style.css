@@ -26,7 +26,9 @@ body {
   -webkit-font-smoothing: antialiased; }
 
 html {
-  font-family: "Open Sans", sans-serif; }
+  font-family: "Open Sans", sans-serif;
+  scroll-padding-top: 100px;
+}
 
 html,
 body {
@@ -1584,23 +1586,59 @@ header .navbar.is-sticky {
   line-height: 3.4rem; }
 
 /* FAQ Sections */
+/* Responsive container width and safe padding */
 .faq-box {
-  padding: 2rem;
-  border-radius: 10px;
+    width: 100%;
+    padding: 1rem;
+    background-color: #e0f7f7;
+    border-radius: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
+
 @media (max-width: 991.98px) {
   .faq-box {
     padding: 3rem;
   }
 }
+
 .faq-box h4 {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
 }
+
 .faq-box p,
 .accordion-body {
-  line-height: 3rem;
-  font-size: 1.6rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: 1.6rem;
+    padding: 0.75rem 1rem;
+    line-height: 1.6;
+    color: #1a1a1a;
+}
+
+/* Force accordion button to wrap nicely */
+.accordion-button {
+    white-space: normal !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: left !important;
+    justify-content: flex-start;
+    font-weight: 600;
+    padding: 1rem;
+    width: 100%;
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 576px) {
+    .accordion-button {
+        font-size: 0.95rem;
+        padding: 0.75rem;
+    }
+
+    .accordion-body {
+        font-size: 0.9rem;
+    }
 }
 
 /* Team Member Part */
@@ -2189,19 +2227,73 @@ form#demoForm {
   }
 }
 
-/*
-[ 8. Category tab toggle ]
-================ */
+@media (max-width: 768px) {
+  /* Make form full-width and height-auto on mobile */
+  form#demoForm {
+    width: 100%;
+    height: auto;
+    padding: 0 1rem;
+  }
+
+  /* Ensure step container flows naturally */
+  .step {
+    position: static;
+    width: 100%;
+    transform: none;
+  }
+
+  .step.active {
+    position: static;
+    transform: none;
+  }
+
+  /* Adjust option card layout on small screens */
+  .row.g-3 .col-6 {
+    width: 100%;
+  }
+
+  .card-option {
+    padding: 15px;
+    margin-bottom: 1rem;
+  }
+
+  .card-option img {
+    height: 40px;
+  }
+
+  /* Progress dots scale properly */
+  .progress-steps .dot {
+    width: 25px;
+    height: 5px;
+    margin: 0 4px;
+  }
+
+  /* Video iframe mobile fix */
+  .video-wrapper iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .d-flex.justify-content-between {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* [ 8. Category tab toggle ] */
 .tab-button {
   background: #fff;
   border: 2px solid #ccc;
   padding: 10px 20px;
-  margin-right: 10px;
+  margin: 5px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
-  border-color: #ffffff;
-  color: #ffffff;
+  border-color: #02ad88;
+  color: #02ad88;
+  white-space: nowrap;
+  transition: all 0.3s ease;
 }
 
 .tab-button.active {
@@ -2212,29 +2304,40 @@ form#demoForm {
 
 .product-content {
   display: none;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
 }
 
 .product-content.active {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 40px;
-  margin-top: 30px;
 }
 
-.product-description {
-  flex: 1;
-}
-
-.product-description ul {
-  padding-left: 18px;
-}
-
-.product-image {
-  flex: 1;
+/* Mobile-first: stack text and image */
+.product-description, .product-image {
+  width: 100%;
 }
 
 .product-image img {
-  max-width: 100%;
+  width: 100%;
+  max-width: 600px;
   border-radius: 10px;
+  margin: 0 auto;
+}
+
+/* Desktop: side by side */
+@media (min-width: 992px) {
+  .product-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .product-description, .product-image {
+    width: 48%;
+  }
+
+  .product-description {
+    text-align: left;
+  }
 }

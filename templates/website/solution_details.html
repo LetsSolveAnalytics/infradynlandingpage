@@ -69,12 +69,14 @@
                         </div>
                         {% for category in solution_categories %}
                             <div id="{{ category.slug }}" class="product-content {% if forloop.first %}active{% endif %}">
-                                <div class="col-md-7">
-                                    <h2>{{ category.name }}</h2>
-                                    <p>{{ category.description }}</p>
-                                </div>
-                                <div class="col-md-5">
-                                    <img src="{{ category.image.url }}" alt="{{ category.name }}"  class="img-fluid rounded">
+                                <div class="row align-items-center">
+                                    <div class="col-12 col-md-7 product-description">
+                                        <h2>{{ category.name }}</h2>
+                                        <p>{{ category.description }}</p>
+                                    </div>
+                                    <div class="col-12 col-md-5 product-image">
+                                        <img src="{{ category.image.url }}" alt="{{ category.name }}"  class="img-fluid rounded">
+                                    </div>
                                 </div>
                             </div>
                         {% endfor %}

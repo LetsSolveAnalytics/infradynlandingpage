@@ -2,28 +2,37 @@
 {% load static %}
 
 <!-- Header Start -->
-<header class="position-fixed w-100"  >
-    <nav id="active-sticky" class="navbar navbar-light navbar-expand-lg">
-        <div class="container" >
-            <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'assets/img/client/logo/INFRADYN_LOGO.svg' %}" alt="logo" style="width: 120px; height: 30px;"></a>
-            <button class="navbar-toggler navber-toggler-right" data-toggle="collapse" data-target="#navbarToggler">
+<header class="position-fixed w-100 bg-white shadow-sm" style="z-index: 1030;">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'assets/img/client/logo/INFRADYN_LOGO.svg' %}" alt="logo" style="width: 120px; height: 30px;">
+            </a>
+
+            <!-- Burger Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarToggler">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="{% url 'home' %}}" class="nav-link"></a>
-                    </li>
 
+            <!-- Collapsible Nav -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+{#                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>#}
+
+                    <!-- Product Mega Menu -->
                     <li class="nav-item dropdown position-static">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Product</a>
-                        <div class="dropdown-menu mt-0 p-4 border-0 shadow-lg" style="left: 50%; transform: translateX(-50%); width: 100%; max-width: 1500px;">
+                        <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Product
+                        </a>
+                        <div class="dropdown-menu w-100 p-4 shadow-lg">
                             <div class="container">
                                 <div class="row">
                                     {% if product_sections %}
                                         {% for type_id, items in product_sections.items %}
                                             <div class="col-md-3">
-                                                <h4 class="fw-bold text-primary">
+                                                <h6 class="fw-bold text-primary">
                                                     {% if type_id == 0 %}Preconstruction
                                                     {% elif type_id == 1 %}Execution
                                                     {% elif type_id == 2 %}Construction Intelligence
@@ -31,11 +40,11 @@
                                                     {% elif type_id == 4 %}Quality & Safety
                                                     {% elif type_id == 5 %}Integrations
                                                     {% endif %}
-                                                </h4>
+                                                </h6>
                                                 <ul class="list-unstyled">
                                                     {% for item in items %}
-                                                        <li class="d-flex align-items-center mb-2">
-                                                            <a href="{% url 'product-detail' item.slug %}" class="dropdown-item">
+                                                        <li>
+                                                            <a class="dropdown-item" href="{% url 'product-detail' item.slug %}">
                                                                 {{ item.title }} <i class="fas fa-arrow-right ms-2"></i>
                                                             </a>
                                                         </li>
@@ -51,63 +60,65 @@
                         </div>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="{% url 'solution-list' %}" class="nav-link">Solutions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'pricing' %}" class="nav-link">Pricing</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'solution-list' %}">Solutions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'pricing' %}">Pricing</a></li>
+
+                    <!-- Who Benefits -->
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >Who Benefits</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="benefitsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Who Benefits
+                        </a>
                         <ul class="dropdown-menu">
                             {% for customer in menu_customers %}
-                                <li>
-                                    <a class="dropdown-item" href="{% url 'solution-detail' customer.slug %}">
-                                        {{ customer.banner_title }} <i class="fas fa-arrow-right ms-2"></i>
-                                    </a>
-                                </li>
+                                <li><a class="dropdown-item" href="{% url 'solution-detail' customer.slug %}">{{ customer.banner_title }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
+
+                    <!-- Resources -->
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >Resources</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Resources
+                        </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'about' %}">About Us <i class="fas fa-arrow-right ms-2"></i></a></li>
-                            <li><a class="dropdown-item" href="{% url 'post-list' %}">Blogs <i class="fas fa-arrow-right ms-2"></i></a></li>
-                            <!--              <li><a class="dropdown-item" href="blog-details.html">Case Studies</a></li>-->
+                            <li><a class="dropdown-item" href="{% url 'about' %}">About Us</a></li>
+                            <li><a class="dropdown-item" href="{% url 'post-list' %}">Blogs</a></li>
                         </ul>
                     </li>
+
+                    <!-- Support -->
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >Support</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="supportDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Support
+                        </a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="{% url  'coming_soon' %}" target="_blank" rel="noopener noreferrer">community <i class="fas fa-arrow-right ms-2"></i></a>
-                            </li>
-                            <li><a class="dropdown-item" href="{% url  'coming_soon' %}">Contact us <i class="fas fa-arrow-right ms-2"></i></a></li>
-                            <li><a class="dropdown-item" href="{% url  'coming_soon' %}">Professional Services <i class="fas fa-arrow-right ms-2"></i></a></li>
-                            <li><a class="dropdown-item" href="{% url  'coming_soon' %}">Developers/API <i class="fas fa-arrow-right ms-2"></i></a></li>
+                            <li><a class="dropdown-item" href="{% url 'coming_soon' %}">Community</a></li>
+                            <li><a class="dropdown-item" href="{% url 'coming_soon' %}">Contact Us</a></li>
+                            <li><a class="dropdown-item" href="{% url 'coming_soon' %}">Professional Services</a></li>
+                            <li><a class="dropdown-item" href="{% url 'coming_soon' %}">Developers/API</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Language Selector -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center text-dark" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                                <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="?lang=en">English</a></li>
+                            <li><a class="dropdown-item" href="?lang=sv">Swedish</a></li>
                         </ul>
                     </li>
                 </ul>
-                <div class="dropdown pl-20">
-                    <a class="d-flex align-items-center p-2 dropdown-item" href="#" role="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
-                            <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
-                        </svg></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-                        <li><a class="dropdown-item" href="?lang=en">English</a></li>
-                        <li><a class="dropdown-item" href="?lang=sv">Swedish</a></li>
-                    </ul>
+
+                <!-- Request Demo Button -->
+                <div class="d-flex align-items-center ms-lg-3 mt-3 mt-lg-0">
+                    <a class="btn btn-sm btn-primary rounded-pill" href="{% url 'request_a_demo' %}">Request A Demo</a>
                 </div>
-                <div class="pl-20">
-                    <a class="btn btn-sm btn-primary rounded" href="{% url 'request_a_demo' %}">Request A Demo</a>
-                </div>
-{#                <div class="pl-20">#}
-{#                    <a class="btn btn-sm btn-primary rounded" href="login.html">Login</a>#}
-{#                </div>#}
             </div>
         </div>
     </nav>
 </header>
 <!-- Header End -->
-
