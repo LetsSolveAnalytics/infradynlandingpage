@@ -4,16 +4,17 @@
 
     <!-- Slider Section Start -->
     <section class="section-ptb">
-        <div class="container h-100 h-sm-auto d-flex flex-row align-items-center flex-wrap flex-md-nowrap">
-            <div class="caption" data-aos="fade-right">
-                <h5 class="display-3 mb-10">AI powered clarity for dynamic project control for</h5>
-                <h1 class="display-1 mb-25">Construction Management System</h1>
-                <p class="mb-30">Unified intelligent platform which help owners save €30M per €500M project by predicting risks, reducing delays, and eliminating reporting inefficiencies.</p>
-                <a href="{% url 'request_a_demo' %}" class="btn btn-primary">Get Your Free Demo</a>
-                <!--      <a href="#" class="item-link ml-25">14-Day FREE Trial</a>-->
-            </div>
-            <div class="image-layer ml-md-auto align-self-md-center align-self-start" data-aos="fade-left">
-                <img src="{% static 'assets/img/slider/layer/1.png' %}" alt="Layer Image">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+                    <h5 class="display-6 mb-3">AI powered clarity for dynamic project control for</h5>
+                    <h1 class="display-3 mb-4">Construction Management System</h1>
+                    <p class="mb-4">Unified intelligent platform which helps owners save €30M per €500M project by predicting risks, reducing delays, and eliminating reporting inefficiencies.</p>
+                    <a href="{% url 'request_a_demo' %}" class="btn btn-primary">Get Your Free Demo</a>
+                </div>
+                <div class="col-12 col-md-6 text-center" data-aos="fade-left">
+                    <img src="{% static 'assets/img/slider/layer/1.png' %}" alt="Construction Management" class="img-fluid">
+                </div>
             </div>
         </div>
     </section>
@@ -118,65 +119,43 @@
         {#        </section>#}
         <!-- Hero Block End -->
         <!-- Featured Section Start -->
+
+        <!-- Who Benefits Start -->
         <section class="section-ptb">
             <div class="container">
-                <div class="row text-center">
-                    <div class="col-12" data-aos="zoom-in">
-                        <div class="heading mb-80">
-                            <h2>Who Benefits from INFRADYN</h2>
-                            <p class="mb-20">Your platform for redefining <br class="d-none d-md-block"> how construction professionals connect and deliver</p>
-                            <hr class="line bw-2 mx-auto line-sm mb-5">
-                            <hr class="line bw-2 mx-auto">
-                        </div>
-                    </div>
+                <div class="text-center mb-5">
+                    <h2>Who Benefits from INFRADYN</h2>
+                    <p>Your platform for redefining how construction professionals connect and deliver.</p>
                 </div>
-                <div class="row text-center">
+                <div class="row">
                     {% for customer in customers %}
-                        <div class="col-12 col-md-6 col-lg-3 mb-30 d-flex" data-aos="zoom-in">
-                            <div class="card featured-item w-100 d-flex flex-column">
-                                <div class="card-body d-flex flex-column justify-content-between ptb-45">
-                                    <div>
-                                        {#                                    <div>#}
-                                        {#                                    <img src="{{ customer.image.url }}"#}
-                                        {#                                         alt="{{ customer.banner_title }}"#}
-                                        {#                                         class="img-fluid w-100 rounded"#}
-                                        {#                                         loading="lazy">#}
-                                        {#                                    </div>#}
-                                        <div class="icon circle-icon mb-30 mx-auto">
-                                            <i class="ti-target"></i>
-                                        </div>
-                                        <h5 class="fw-bold mb-4">{{ customer.banner_title }}</h5>
-                                        <p class="mb-20">{{ customer.banner_content|truncatewords:12 }}</p>
+                        <div class="col-12 col-sm-6 col-lg-3 mb-4" data-aos="zoom-in">
+                            <div class="card h-100 text-center">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="icon circle-icon mb-3">
+                                        <i class="ti-target"></i>
                                     </div>
-                                    <div class="mt-auto">
-                                        <a class="item-link link-btn hyper-link" href="{% url 'solution-detail' customer.slug %}">Read More</a>
-                                    </div>
+                                    <h5 class="fw-bold">{{ customer.banner_title }}</h5>
+                                    <p class="mb-3">{{ customer.banner_content|truncatewords:12 }}</p>
+                                    <a href="{% url 'solution-detail' customer.slug %}" class="mt-auto text-primary fw-bold">Read More</a>
                                 </div>
                             </div>
-                            </a>
                         </div>
                     {% endfor %}
                 </div>
             </div>
         </section>
+        <!-- Who Benefits End -->
+
         <!-- Featured Section End -->
     </div>
 
-
-
-
     <!-- Promo Box Start -->
-    <section class="promo-area section-ptb bg-4 bg-primary">
-        <div class="container ptb-30">
-            <div class="row text-center">
-                <div class="col-12" data-aos="zoom-in">
-                    <div class="heading">
-                        <h1 class="text-white mb-25">Get Started with INFRADYN</h1>
-                        <p class="text-white mb-30">An end-to-end enterprise project delivery platform <br class="d-none d-md-block"> to manage projects and standardize workflows</p>
-                        <a class="btn btn-light" href="{%  url 'pricing' %}">Get Pricing</a>
-                    </div>
-                </div>
-            </div>
+    <section class="promo-area section-ptb bg-primary text-white text-center">
+        <div class="container">
+            <h2 class="mb-3">Get Started with INFRADYN</h2>
+            <p class="mb-4">An end-to-end enterprise project delivery platform to manage projects and standardize workflows.</p>
+            <a href="{% url 'pricing' %}" class="btn btn-light">Get Pricing</a>
         </div>
     </section>
     <!-- Promo Box End -->
@@ -297,8 +276,8 @@
         <!-- FAQ Section Start -->
         <section class="section-ptb">
             <div class="container">
-                <div class="row text-center">
-                    <div class="col-12" data-aos="zoom-in">
+                <div class="row justify-content-center text-center">
+                    <div class="col-12 col-md-10 col-lg-8 mx-auto" data-aos="zoom-in">
                         <div class="heading mb-80">
                             <h2>Frequently Asked Questions</h2>
                             <p class="mb-20">{{ faq_intro }}</p>
@@ -331,58 +310,58 @@
         <!-- FAQ Section End -->
 
         <!-- Clients Logo Section Start -->
-{#        <section class="client-logo section-ptb">#}
-{#            <div class="container">#}
-{#                <div class="row text-center">#}
-{#                    <div class="col-12" data-aos="zoom-in">#}
-{#                        <div class="heading mb-80">#}
-{#                            <h2>Trusted by many Companies</h2>#}
-{#                            <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>#}
-{#                            <hr class="line bw-2 mx-auto line-sm mb-5">#}
-{#                            <hr class="line bw-2 mx-auto">#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="row justify-content-around align-items-center">#}
-{#                    <div class="col-2" data-aos="zoom-in">#}
-{#                        <div class="brand-logo">#}
-{#                            <a href="#"><img src="{% static 'assets/img/client/logo/1.png' %}" alt="Client Logo"></a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <!-- Single logo -->#}
-{#                    <div class="col-2" data-aos="zoom-in" data-aos-delay="300">#}
-{#                        <div class="brand-logo">#}
-{#                            <a href="#"><img src="{% static 'assets/img/client/logo/2.png' %}" alt="Client Logo"></a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <!-- Single logo -->#}
-{#                    <div class="col-2" data-aos="zoom-in" data-aos-delay="400">#}
-{#                        <div class="brand-logo">#}
-{#                            <a href="#"><img src="{% static 'assets/img/client/logo/3.png' %}" alt="Client Logo"></a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <!-- Single logo -->#}
-{#                    <div class="col-2" data-aos="zoom-in" data-aos-delay="500">#}
-{#                        <div class="brand-logo">#}
-{#                            <a href="#"><img src="{% static 'assets/img/client/logo/4.png' %}" alt="Client Logo"></a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <!-- Single logo -->#}
-{#                    <div class="col-2" data-aos="zoom-in" data-aos-delay="600">#}
-{#                        <div class="brand-logo">#}
-{#                            <a href="#"><img src="{% static 'assets/img/client/logo/5.png' %}" alt="Client Logo"></a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <!-- Single logo -->#}
-{#                    <div class="col-2" data-aos="zoom-in" data-aos-delay="700">#}
-{#                        <div class="brand-logo">#}
-{#                            <a href="#"><img src="{% static 'assets/img/client/logo/6.png' %}" alt="Client Logo"></a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <!-- Single logo -->#}
-{#                </div>#}
-{#            </div>#}
-{#        </section>#}
+        {#        <section class="client-logo section-ptb">#}
+        {#            <div class="container">#}
+        {#                <div class="row text-center">#}
+        {#                    <div class="col-12" data-aos="zoom-in">#}
+        {#                        <div class="heading mb-80">#}
+        {#                            <h2>Trusted by many Companies</h2>#}
+        {#                            <p class="mb-20">Looked up one of the more obscure Latin words, consectetur, from <br class="d-none d-md-block"> a Lorem Ipsum passage, and going</p>#}
+        {#                            <hr class="line bw-2 mx-auto line-sm mb-5">#}
+        {#                            <hr class="line bw-2 mx-auto">#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="row justify-content-around align-items-center">#}
+        {#                    <div class="col-2" data-aos="zoom-in">#}
+        {#                        <div class="brand-logo">#}
+        {#                            <a href="#"><img src="{% static 'assets/img/client/logo/1.png' %}" alt="Client Logo"></a>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                    <!-- Single logo -->#}
+        {#                    <div class="col-2" data-aos="zoom-in" data-aos-delay="300">#}
+        {#                        <div class="brand-logo">#}
+        {#                            <a href="#"><img src="{% static 'assets/img/client/logo/2.png' %}" alt="Client Logo"></a>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                    <!-- Single logo -->#}
+        {#                    <div class="col-2" data-aos="zoom-in" data-aos-delay="400">#}
+        {#                        <div class="brand-logo">#}
+        {#                            <a href="#"><img src="{% static 'assets/img/client/logo/3.png' %}" alt="Client Logo"></a>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                    <!-- Single logo -->#}
+        {#                    <div class="col-2" data-aos="zoom-in" data-aos-delay="500">#}
+        {#                        <div class="brand-logo">#}
+        {#                            <a href="#"><img src="{% static 'assets/img/client/logo/4.png' %}" alt="Client Logo"></a>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                    <!-- Single logo -->#}
+        {#                    <div class="col-2" data-aos="zoom-in" data-aos-delay="600">#}
+        {#                        <div class="brand-logo">#}
+        {#                            <a href="#"><img src="{% static 'assets/img/client/logo/5.png' %}" alt="Client Logo"></a>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                    <!-- Single logo -->#}
+        {#                    <div class="col-2" data-aos="zoom-in" data-aos-delay="700">#}
+        {#                        <div class="brand-logo">#}
+        {#                            <a href="#"><img src="{% static 'assets/img/client/logo/6.png' %}" alt="Client Logo"></a>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                    <!-- Single logo -->#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </section>#}
         <!-- Clients Logo Section End -->
     </div>
 

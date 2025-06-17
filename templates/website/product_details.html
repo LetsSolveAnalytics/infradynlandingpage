@@ -107,22 +107,26 @@
                 </div>
                 <div class="row align-items-center">
                     <div class="col-12">
+                        <!-- Tab buttons -->
                         <div class="d-flex flex-wrap justify-content-center gap-2 my-5">
                             {% for feature in product_features %}
-                                <button class="tab-button btn btn-outline-light outline-primary {% if forloop.first %}active{% endif %}" onclick="showProduct('{{ feature.slug }}')">
+                                <button class="tab-button btn btn-outline-light outline-primary ml-25 {% if forloop.first %}active{% endif %}" onclick="showProduct('{{ feature.slug }}')">
                                     {{ feature.name }}
                                 </button>
                             {% endfor %}
                         </div>
 
+                        <!-- Tab content blocks -->
                         {% for feature in product_features %}
                             <div id="{{ feature.slug }}" class="product-content {% if forloop.first %}active{% endif %}">
-                                <div class="col-md-7">
-                                    <h2>{{ feature.name }}</h2>
-                                    <p>{{ feature.description }}</p>
-                                </div>
-                                <div class="col-md-5">
-                                    <img src="{{ feature.image.url }}" alt="{{ feature.name }}"  class="img-fluid rounded">
+                                <div class="row align-items-center">
+                                    <div class="col-12 col-md-7 product-description">
+                                        <h2>{{ feature.name }}</h2>
+                                        <p>{{ feature.description }}</p>
+                                    </div>
+                                    <div class="col-12 col-md-5 product-image">
+                                        <img src="{{ feature.image.url }}" alt="{{ feature.name }}" class="img-fluid rounded">
+                                    </div>
                                 </div>
                             </div>
                         {% endfor %}
