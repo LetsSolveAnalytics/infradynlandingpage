@@ -6,5 +6,6 @@ class ProductType(models.IntegerChoices):
     EXECUTION = 1, _("Execution")
     CONSTRUCTION_INTELLIGENCE = 2, _("Construction Intelligence")
     COLLABORATION_HUB = 3, _("Collaboration Hub")
-    QUALITY_AND_SAFETY = 4, _("Quality and Safety")
-    INTEGRATIONS = 5, _("Integrations")
+    INTEGRATIONS = 4, _("Integrations")
+    # QUALITY_AND_SAFETY = 4, _("Quality and Safety")
+    
