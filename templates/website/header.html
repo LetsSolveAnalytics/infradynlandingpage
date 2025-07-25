@@ -19,7 +19,7 @@
             <!-- Collapsible Nav -->
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
-{#                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>#}
+                    {#                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>#}
 
                     <!-- Product Mega Menu -->
                     <li class="nav-item dropdown position-static">
@@ -28,17 +28,19 @@
                         </a>
                         <div class="dropdown-menu w-100 p-4 shadow-lg">
                             <div class="container">
-                                <div class="row">
+                                <!-- <div class="row"> -->
+                                <div class="d-flex flex-row flex-nowrap overflow-auto">
+
                                     {% if product_sections %}
                                         {% for type_id, items in product_sections.items %}
-                                            <div class="col-md-3">
+                                            <!-- <div class="col-md-3"> -->
+                                            <div class="me-4" style="min-width: 300px;">
                                                 <h6 class="fw-bold text-primary">
                                                     {% if type_id == 0 %}Preconstruction
                                                     {% elif type_id == 1 %}Execution
                                                     {% elif type_id == 2 %}Construction Intelligence
                                                     {% elif type_id == 3 %}Collaboration Hub
-                                                    {% elif type_id == 4 %}Quality & Safety
-                                                    {% elif type_id == 5 %}Integrations
+                                                    {% elif type_id == 4 %}Integrations
                                                     {% endif %}
                                                 </h6>
                                                 <ul class="list-unstyled">
