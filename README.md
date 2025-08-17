@@ -75,3 +75,10 @@ from coreapp.models import User
 User.objects.filter(is_superuser=True).values('email') # shows the list of emails
 User.objects.get(email="admin_email@email.com").set_password("YournewPassword")
 ```
+python manage.py dumpdata \
+  --indent 2 \
+  --exclude contenttypes \
+  --exclude auth.Permission \
+  --exclude admin.logentry \
+  --exclude sessions.session \
+  > db.json
